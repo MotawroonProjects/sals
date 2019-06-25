@@ -1,0 +1,41 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_shipping_details"
+            android:icon="@drawable/shipment_details"
+            android:title="@string/shipping_details"
+            app:iconTint="@color/colorPrimary"
+
+            />
+        <item
+            android:id="@+id/nav_payments"
+            android:icon="@drawable/payments"
+            android:title="@string/payments"
+            app:iconTint="@color/colorPrimary"
+
+            />
+        <item
+            android:id="@+id/nav_help_and_advice"
+            android:icon="@drawable/help"
+            android:title="@string/help_and_advice"
+            app:iconTint="@color/colorPrimary"
+
+            />
+        <item
+            android:id="@+id/nav_personal_account"
+            android:icon="@drawable/account"
+            android:title="@string/personal_account"
+            app:iconTint="@color/colorPrimary"
+
+            />
+        <item
+            android:id="@+id/nav_customer_service_center"
+            android:icon="@drawable/customer_services_center"
+            android:title="@string/customer_service_center"
+            app:iconTint="@color/colorPrimary"
+
+            />
+    </group>
+</menu>

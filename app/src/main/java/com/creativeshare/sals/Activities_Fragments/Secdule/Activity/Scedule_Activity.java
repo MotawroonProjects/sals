@@ -1,0 +1,209 @@
+package com.creativeshare.sals.Activities_Fragments.Secdule.Activity;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Additional_services;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Confirmation;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Search_For_Address;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Secdule;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Shipping_Detials;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_The_Recepit;
+import com.creativeshare.sals.Language.Language;
+import com.creativeshare.sals.R;
+
+import java.util.Locale;
+
+import io.paperdb.Paper;
+
+public class Scedule_Activity extends AppCompatActivity {
+    private FragmentManager fragmentManager;
+    private Fragment_Secdule fragment_secdule;
+    private Fragment_Additional_services fragment_additional_services;
+    private Fragment_Search_For_Address fragment_search_for_address;
+    private Fragment_The_Recepit fragment_the_recepit;
+    private Fragment_Shipping_Detials fragment_shipping_detials;
+    private Fragment_Confirmation fragment_confirmation;
+    private int fragment_count = 0;
+    private String current_lang;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(Language.updateResources(newBase, Language.getLanguage(newBase)));
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Paper.init(this);
+        current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
+        fragmentManager = this.getSupportFragmentManager();
+        setContentView(R.layout.activity_secdule);
+        if (savedInstanceState == null) {
+            DisplayFragmentSecdule();
+            DisplayFragmentTherecipet();
+        }
+
+    }
+
+
+    public void DisplayFragmentSecdule() {
+
+        fragment_count += 1;
+
+        if (fragment_secdule == null) {
+            fragment_secdule = Fragment_Secdule.newInstance();
+        }
+
+        if (fragment_secdule.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_secdule).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_secdule, "fragment_secdule").addToBackStack("fragment_secdule").commit();
+        }
+
+    }
+    public void DisplayFragmentAdditionalservices() {
+        fragment_count += 1;
+
+        if (fragment_additional_services == null) {
+            fragment_additional_services = Fragment_Additional_services.newInstance();
+        }
+
+        if (fragment_additional_services.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_additional_services).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_additional_services, "fragment_additional_services").addToBackStack("fragment_additional_services").commit();
+        }
+    }
+
+    public void DisplayFragmentSearchforaddress() {
+        fragment_count += 1;
+
+        if (fragment_search_for_address == null) {
+            fragment_search_for_address = Fragment_Search_For_Address.newInstance();
+        }
+
+        if (fragment_search_for_address.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_search_for_address).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_search_for_address, "fragment_search_for_address").addToBackStack("fragment_search_for_address").commit();
+        }
+    }
+    public void DisplayFragmentTherecipet() {
+
+        if (fragment_the_recepit == null) {
+            fragment_the_recepit = Fragment_The_Recepit.newInstance();
+        }
+        if (fragment_confirmation != null && fragment_confirmation.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_confirmation).commit();
+
+        }
+        if (fragment_shipping_detials != null && fragment_shipping_detials.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_shipping_detials).commit();
+
+        }
+        if (fragment_the_recepit.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_the_recepit).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_main_child, fragment_the_recepit, "fragment_the_recepit").addToBackStack("fragment_the_recepit").commit();
+        }
+        if(fragment_secdule!=null&&fragment_secdule.isAdded()){
+            fragment_secdule.update2(0);
+        }
+    }
+
+    public void DisplayFragmentshippingdetilas() {
+
+        if (fragment_shipping_detials == null) {
+            fragment_shipping_detials = Fragment_Shipping_Detials.newInstance();
+        }
+        if (fragment_confirmation != null && fragment_confirmation.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_confirmation).commit();
+
+        }
+        if (fragment_the_recepit != null && fragment_the_recepit.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_the_recepit).commit();
+
+        }
+        if (fragment_shipping_detials.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_shipping_detials).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_main_child, fragment_shipping_detials, "fragment_shipping_detials").addToBackStack("fragment_shipping_detials").commit();
+        }
+        if(fragment_secdule!=null&&fragment_secdule.isAdded()){
+            fragment_secdule.update2(1);
+        }
+    }
+
+    public void DisplayFragmentconfirmation() {
+
+        if (fragment_confirmation == null) {
+            fragment_confirmation = Fragment_Confirmation.newInstance();
+        }
+        if (fragment_the_recepit != null && fragment_the_recepit.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_the_recepit).commit();
+
+        }
+        if (fragment_shipping_detials != null && fragment_shipping_detials.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_shipping_detials).commit();
+
+        }
+        if (fragment_confirmation.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_confirmation).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_main_child, fragment_confirmation, "fragment_confirmation").addToBackStack("fragment_confirmation").commit();
+        }
+        if(fragment_secdule!=null&&fragment_secdule.isAdded()){
+            fragment_secdule.update2(2);
+        }
+
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Back();
+    }
+
+    public void Back() {
+        if (fragment_count > 1) {
+            fragment_count -= 1;
+            super.onBackPressed();
+        } else {
+            if (fragment_secdule != null && fragment_secdule.isVisible()) {
+                if (fragment_confirmation != null && fragment_confirmation.isVisible()) {
+                    fragment_secdule.update(1);
+                    DisplayFragmentshippingdetilas();
+                } else if (fragment_shipping_detials != null && fragment_shipping_detials.isVisible()) {
+fragment_secdule.update(0);
+                    DisplayFragmentTherecipet();
+                }
+                else {
+                    finish();
+                }
+            } else {
+                DisplayFragmentSecdule();
+            }
+        }
+    }
+
+    public void RefreshActivity(String selected_language) {
+        Paper.book().write("lang", selected_language);
+        Language.setNewLocale(this, selected_language);
+
+        Intent intent = getIntent();
+        finish();
+
+        startActivity(intent);
+
+
+    }
+
+
+}
+

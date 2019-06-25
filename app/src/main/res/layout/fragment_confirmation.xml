@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gray4"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="150dp"
+       android:background="@color/gray4"
+       android:padding="15dp"
+       >
+       <FrameLayout
+           android:id="@+id/fl"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_weight=".5"
+           android:background="@drawable/linear_shape"
+           app:layout_constraintTop_toTopOf="parent"
+           >
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="45dp"
+               android:layout_gravity="center"
+
+               >
+
+               <ImageView
+                   android:layout_width="25dp"
+                   android:layout_height="25dp"
+                   android:layout_gravity="center_vertical"
+                   android:src="@drawable/incremental"
+                   android:tint="@color/colorPrimary"
+                   />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:gravity="center_vertical"
+                   android:text="@string/add_new_shipping"
+                   android:textColor="@color/colorPrimary"
+                   android:textSize="15sp"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginRight="10dp"
+
+                   />
+           </LinearLayout>
+       </FrameLayout>
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="35dp"
+           app:layout_constraintTop_toBottomOf="@+id/fl"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintVertical_bias="1"
+           android:text="@string/my_shipments"
+           android:gravity="center_vertical"
+           android:textSize="15sp"
+           android:textColor="@color/black"
+           />
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:orientation="horizontal"
+    android:weightSum="1"
+    android:padding="10dp"
+    >
+ <TextView
+     android:layout_width="0dp"
+     android:layout_height="match_parent"
+     android:layout_weight=".9"
+     android:textSize="15sp"
+     android:textColor="@color/black"
+     android:text="@string/documents"
+     android:gravity="center_vertical"
+
+     />
+<ImageView
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:src="@drawable/bin"
+    android:layout_weight=".1"
+    />
+</LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textSize="15sp"
+        android:text="@string/one_piece_5_kg"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textSize="15sp"
+        android:text="@string/to_ryad_sa"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@color/gray4"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:orientation="horizontal"
+    android:weightSum="1"
+    >
+ <TextView
+     android:layout_width="0dp"
+     android:layout_height="match_parent"
+     android:text="@string/deserved_amount"
+     android:textColor="@color/black"
+     android:textSize="15sp"
+     android:layout_weight=".7"
+     android:gravity="center_vertical"
+     android:padding="10dp"
+     />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="@string/_12000_ryal"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        android:layout_weight=".3"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+
+        />
+
+</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/gray4"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:text="@string/ship_it_one"
+    android:textColor="@color/blue"
+    android:gravity="center_vertical"
+    android:padding="10dp"
+    android:textSize="15sp"
+    />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:weightSum="1.1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        >
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".1"
+            android:src="@drawable/total_price"
+            android:tint="@color/colorPrimary"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/total_deserved_amount"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_weight=".66"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/_12000_ryal"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:layout_weight=".34"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+
+            />
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray4"
+    android:orientation="vertical"
+
+    >
+
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="45dp"
+          android:background="@color/gray4"
+          android:padding="10dp"
+          android:text="@string/what_is_the_total_volume_of_all_your_shipments_with_us"
+          android:textColor="@color/black"
+          android:textSize="15sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_arabic"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".9"
+                android:gravity="center_vertical"
+                android:text="@string/cash"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/im_ar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_weight=".1"
+                android:src="@drawable/lang_check"
+                />
+        </LinearLayout>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1px"
+    android:background="@color/gray4"
+    />
+        <LinearLayout
+            android:id="@+id/ll_english"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="1"
+            android:background="@color/white"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".9"
+                android:gravity="center_vertical"
+                android:text="@string/credit_card"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/im_en"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_weight=".1"
+                android:src="@drawable/lang_check"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+
+
+</LinearLayout>
+
+    <Button
+        android:id="@+id/bt_confirm"
+
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/button_shape"
+        android:textSize="15sp"
+        android:text="@string/confirmation"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        />
+
+</LinearLayout>
+</LinearLayout>
+</ScrollView>

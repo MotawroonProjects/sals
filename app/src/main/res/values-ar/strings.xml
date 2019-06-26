@@ -117,18 +117,18 @@
     <string name="cost_of_delivery">Cost of delivery</string>
     <string name="the_total_cost">the total cost</string>
     <string name="schedule">schedule</string>
-    <string name="received">Received</string>
-    <string name="sent">Sent</string>
-    <string name="on_way_to">on the way to</string>
-    <string name="from">from</string>
-    <string name="to">to</string>
-    <string name="done">done</string>
-    <string name="computerized_price">computerized price</string>
-    <string name="details_of_your_shipment">Details of your shipment</string>
-    <string name="city">city</string>
-    <string name="connection_options">Connection options</string>
-    <string name="number_of_days">number of days</string>
-    <string name="document_the_next_day">Document the next day</string>
+    <string name="received">وارد</string>
+    <string name="sent">مرسل</string>
+    <string name="on_way_to">فى الطريق الى</string>
+    <string name="from">من</string>
+    <string name="to">الى</string>
+    <string name="done">تم</string>
+    <string name="computerized_price">السعر المحسوب</string>
+    <string name="details_of_your_shipment">تفاصيل الشحنه الخاصه بك</string>
+    <string name="city">المدينه</string>
+    <string name="connection_options">خيارات التوصيل</string>
+    <string name="number_of_days">عدد الايام</string>
+    <string name="document_the_next_day">وثيقة فى اليوم التالى</string>
 
 
 </resources>

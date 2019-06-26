@@ -121,5 +121,12 @@
     <string name="on_way_to">on the way to</string>
     <string name="from">from</string>
     <string name="to">to</string>
+    <string name="done">done</string>
+    <string name="computerized_price">computerized price</string>
+    <string name="details_of_your_shipment">Details of your shipment</string>
+    <string name="city">city</string>
+    <string name="connection_options">Connection options</string>
+    <string name="number_of_days">number of days</string>
+    <string name="document_the_next_day">Document the next day</string>
 
 </resources>

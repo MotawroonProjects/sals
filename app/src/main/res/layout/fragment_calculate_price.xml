@@ -368,6 +368,7 @@ android:paddingRight="5dp"
         />
 </LinearLayout>
     <Button
+        android:id="@+id/bt_claculate"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@drawable/button_shape"

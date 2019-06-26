@@ -18,19 +18,18 @@ import java.util.Locale;
 
 import io.paperdb.Paper;
 
-public class Fragment_Calculate_price extends Fragment {
+public class Fragment_Computrized_Price extends Fragment {
     private Home_Activity activity;
     private String current_lang;
     private ImageView back_arrow;
-private Button bt_claculate;
-    public static Fragment_Calculate_price newInstance() {
-        return new Fragment_Calculate_price();
+    public static Fragment_Computrized_Price newInstance() {
+        return new Fragment_Computrized_Price();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_calculate_price, container, false);
+        View view = inflater.inflate(R.layout.fragment_computerized_price, container, false);
         initView(view);
         return view;
     }
@@ -39,7 +38,6 @@ private Button bt_claculate;
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         back_arrow=view.findViewById(R.id.arrow);
-        bt_claculate=view.findViewById(R.id.bt_claculate);
         if(current_lang.equals("ar")){
             back_arrow.setRotation(180.0f);
         }
@@ -49,12 +47,7 @@ private Button bt_claculate;
                 activity.Back();
             }
         });
-        bt_claculate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                activity.DisplayFragmentComputrizedprice();
-            }
-        });
+
     }
 
 }

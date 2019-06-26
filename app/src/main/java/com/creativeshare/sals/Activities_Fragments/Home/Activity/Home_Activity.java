@@ -9,6 +9,7 @@ import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentManager;
 
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Calculate_price;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Computrized_Price;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Email_Address;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Home;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Language;
@@ -30,6 +31,7 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_Home fragment_home;
     private Fragment_Main fragment_main;
     private Fragment_Calculate_price fragment_calculate_price;
+    private Fragment_Computrized_Price fragment_computrized_price;
     private Fragment_Profile fragment_profile;
     private Fragment_Payments fragment_payments;
     private Fragment_ٍShipments fragment_ٍShipments;
@@ -106,6 +108,19 @@ fragment_count+=1;
         if(fragment_home!=null&& fragment_home.isAdded()){
             fragment_home.updateBottomNavigationPosition(1);
         }
+    }
+    public void DisplayFragmentComputrizedprice() {
+        fragment_count+=1;
+        if (fragment_computrized_price == null) {
+            fragment_computrized_price = Fragment_Computrized_Price.newInstance();
+        }
+
+        if (fragment_computrized_price.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_computrized_price).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_computrized_price, "fragment_computrized_price").addToBackStack("fragment_computrized_price").commit();
+        }
+
     }
     public void DisplayFragmentTrackTheShipment() {
         fragment_count+=1;
@@ -244,5 +259,7 @@ fragment_count+=1;
         Intent intent=new Intent(Home_Activity.this, Scedule_Activity.class);
         startActivity(intent);
     }
+
+
 }
 

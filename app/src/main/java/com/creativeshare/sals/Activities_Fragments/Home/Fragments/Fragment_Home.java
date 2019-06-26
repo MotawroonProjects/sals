@@ -82,7 +82,7 @@ public class Fragment_Home extends Fragment {
                 switch (position) {
                     case 0:
 
-                        activity.startscdeule();
+                        activity.startscdeule(0);
                         break;
                     case 1:
 

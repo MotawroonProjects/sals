@@ -30,6 +30,7 @@ public class Scedule_Activity extends AppCompatActivity {
     private Fragment_Confirmation fragment_confirmation;
     private int fragment_count = 0;
     private String current_lang;
+    public int param;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -40,6 +41,7 @@ public class Scedule_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        param=getIntent().getIntExtra("param",-1);
         Paper.init(this);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         fragmentManager = this.getSupportFragmentManager();
@@ -67,6 +69,7 @@ public class Scedule_Activity extends AppCompatActivity {
         }
 
     }
+
     public void DisplayFragmentAdditionalservices() {
         fragment_count += 1;
 
@@ -94,6 +97,7 @@ public class Scedule_Activity extends AppCompatActivity {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_search_for_address, "fragment_search_for_address").addToBackStack("fragment_search_for_address").commit();
         }
     }
+
     public void DisplayFragmentTherecipet() {
 
         if (fragment_the_recepit == null) {
@@ -112,7 +116,7 @@ public class Scedule_Activity extends AppCompatActivity {
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_main_child, fragment_the_recepit, "fragment_the_recepit").addToBackStack("fragment_the_recepit").commit();
         }
-        if(fragment_secdule!=null&&fragment_secdule.isAdded()){
+        if (fragment_secdule != null && fragment_secdule.isAdded()) {
             fragment_secdule.update2(0);
         }
     }
@@ -135,7 +139,7 @@ public class Scedule_Activity extends AppCompatActivity {
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_main_child, fragment_shipping_detials, "fragment_shipping_detials").addToBackStack("fragment_shipping_detials").commit();
         }
-        if(fragment_secdule!=null&&fragment_secdule.isAdded()){
+        if (fragment_secdule != null && fragment_secdule.isAdded()) {
             fragment_secdule.update2(1);
         }
     }
@@ -158,7 +162,7 @@ public class Scedule_Activity extends AppCompatActivity {
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_main_child, fragment_confirmation, "fragment_confirmation").addToBackStack("fragment_confirmation").commit();
         }
-        if(fragment_secdule!=null&&fragment_secdule.isAdded()){
+        if (fragment_secdule != null && fragment_secdule.isAdded()) {
             fragment_secdule.update2(2);
         }
 
@@ -177,31 +181,27 @@ public class Scedule_Activity extends AppCompatActivity {
         } else {
             if (fragment_secdule != null && fragment_secdule.isVisible()) {
                 if (fragment_confirmation != null && fragment_confirmation.isVisible()) {
+                    if(param==1){
                     fragment_secdule.update(1);
                     DisplayFragmentshippingdetilas();
+                        fragment_secdule.update(0);
+                        DisplayFragmentTherecipet();
+                    }
+                    else{
+                        fragment_secdule.update(1);
+                        DisplayFragmentshippingdetilas();
+                    }
+
                 } else if (fragment_shipping_detials != null && fragment_shipping_detials.isVisible()) {
-fragment_secdule.update(0);
+                    fragment_secdule.update(0);
                     DisplayFragmentTherecipet();
-                }
-                else {
+                } else {
                     finish();
                 }
             } else {
                 DisplayFragmentSecdule();
             }
         }
-    }
-
-    public void RefreshActivity(String selected_language) {
-        Paper.book().write("lang", selected_language);
-        Language.setNewLocale(this, selected_language);
-
-        Intent intent = getIntent();
-        finish();
-
-        startActivity(intent);
-
-
     }
 
 

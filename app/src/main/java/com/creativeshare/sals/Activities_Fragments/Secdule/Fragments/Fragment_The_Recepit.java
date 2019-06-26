@@ -115,7 +115,14 @@ fr_shape3.setOnClickListener(new View.OnClickListener() {
 next.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
+
+        if(activity.param==1){
         activity.DisplayFragmentshippingdetilas();
+        activity.DisplayFragmentconfirmation();
+        }
+        else{
+            activity.DisplayFragmentshippingdetilas();
+        }
     }
 });
 

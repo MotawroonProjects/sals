@@ -255,8 +255,9 @@ fragment_count+=1;
 
     }
 
-    public void startscdeule() {
+    public void startscdeule(int param) {
         Intent intent=new Intent(Home_Activity.this, Scedule_Activity.class);
+        intent.putExtra("param",param);
         startActivity(intent);
     }
 

@@ -50,7 +50,12 @@ public class Fragment_Main extends Fragment {
             activity.DisplayFragmentProfile();
         }
     });
-
+arrow1.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        activity.DisplayFragmentshipments();
+    }
+});
     }
 
 }

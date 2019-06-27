@@ -88,7 +88,7 @@ public class Scedule_Activity extends AppCompatActivity {
         fragment_count += 1;
 
         if (fragment_search_for_address == null) {
-            fragment_search_for_address = Fragment_Search_For_Address.newInstance();
+            fragment_search_for_address = Fragment_Search_For_Address.newInstance(2);
         }
 
         if (fragment_search_for_address.isAdded()) {

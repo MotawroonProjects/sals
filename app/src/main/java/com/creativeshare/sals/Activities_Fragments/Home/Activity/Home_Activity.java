@@ -16,9 +16,14 @@ import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Langu
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Payments;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Profile;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Main;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍAddpassword;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍEdit_Name;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍMy_Address;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍShipments;
+import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Service_Centers;
 import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Track_The_Shipment;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Search_For_Address;
 import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
 
@@ -35,8 +40,13 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_Profile fragment_profile;
     private Fragment_Payments fragment_payments;
     private Fragment_ٍShipments fragment_ٍShipments;
+    private Fragment_Service_Centers fragment_service_centers;
     private Fragment_Language fragment_language;
     private Fragment_Email_Address fragment_email_address;
+    private Fragment_ٍAddpassword fragment_ٍAddpassword;
+    private Fragment_ٍEdit_Name fragment_ٍEdit_name;
+    private Fragment_ٍMy_Address fragment_ٍMy_address;
+    private Fragment_Search_For_Address fragment_search_for_address;
     private Fragment_Track_The_Shipment fragment_track_the_shipment;
     private int fragment_count = 0;
     private String current_lang;
@@ -183,6 +193,20 @@ fragment_count+=1;
         }
 
     }
+    public void DisplayFragmentServiceCenters() {
+        fragment_count+=1;
+
+
+        fragment_service_centers = Fragment_Service_Centers.newInstance(2);
+
+
+        if (fragment_service_centers.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_service_centers).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_service_centers, "fragment_service_centers").addToBackStack("fragment_service_centers").commit();
+        }
+    }
+
     public void DisplayFragmentLanguage() {
 
         fragment_count += 1;
@@ -214,7 +238,60 @@ fragment_count+=1;
         }
 
     }
+    public void DisplayFragmentAddpassord() {
+        fragment_count += 1;
 
+        if (fragment_ٍAddpassword == null) {
+            fragment_ٍAddpassword = Fragment_ٍAddpassword.newInstance();
+        }
+
+        if (fragment_ٍAddpassword.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_ٍAddpassword).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ٍAddpassword, "fragment_ٍAddpassword").addToBackStack("fragment_ٍAddpassword").commit();
+        }
+    }
+
+    public void DisplayFragmentEditname() {
+        fragment_count += 1;
+
+        if (fragment_ٍEdit_name == null) {
+            fragment_ٍEdit_name = Fragment_ٍEdit_Name.newInstance();
+        }
+
+        if (fragment_ٍEdit_name.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_ٍEdit_name).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ٍEdit_name, "fragment_ٍEdit_name").addToBackStack("fragment_ٍEdit_name").commit();
+        }
+    }
+    public void DisplayFragmentMyaddress() {
+        fragment_count += 1;
+
+        if (fragment_ٍMy_address == null) {
+            fragment_ٍMy_address = Fragment_ٍMy_Address.newInstance();
+        }
+
+        if (fragment_ٍMy_address.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_ٍMy_address).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ٍMy_address, "fragment_ٍMy_address").addToBackStack("fragment_ٍMy_address").commit();
+        }
+    }
+
+    public void DisplayFragmentSearchforaddress() {
+        fragment_count += 1;
+
+        if (fragment_search_for_address == null) {
+            fragment_search_for_address = Fragment_Search_For_Address.newInstance(1);
+        }
+
+        if (fragment_search_for_address.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_search_for_address).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_search_for_address, "fragment_search_for_address").addToBackStack("fragment_search_for_address").commit();
+        }
+    }
     @Override
     public void onBackPressed() {
         Back();
@@ -260,6 +337,7 @@ fragment_count+=1;
         intent.putExtra("param",param);
         startActivity(intent);
     }
+
 
 
 }

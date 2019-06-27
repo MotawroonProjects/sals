@@ -80,7 +80,7 @@ public class Register_Activity   extends AppCompatActivity {
         fragment_count+=1;
 
 
-        fragment_service_centers = Fragment_Service_Centers.newInstance();
+        fragment_service_centers = Fragment_Service_Centers.newInstance(1);
 
 
         if (fragment_service_centers.isAdded()) {

@@ -129,5 +129,11 @@
     <string name="number_of_days">number of days</string>
     <string name="document_the_next_day">Document the next day</string>
     <string name="specify_the_date_of_receipt">Specify the date of receipt</string>
+    <string name="first_name">first name</string>
+    <string name="last_name">Last name</string>
+    <string name="my_address">my address</string>
+    <string name="add_new_adddress">add new adddress</string>
+    <string name="search_address">search for address</string>
+    <string name="password">Password</string>
 
 </resources>

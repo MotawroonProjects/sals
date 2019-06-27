@@ -54,10 +54,23 @@ public class Fragment_Profile extends Fragment {
             arrow5.setRotation(180.0f);
             arrow6.setRotation(180.0f);
         }
+        arrow2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.DisplayFragmentMyaddress();
+            }
+        });
         arrow4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 activity.DisplayFragmentEmailAddress();
+            }
+        });
+        arrow1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.DisplayFragmentEditname();
+
             }
         });
     arrow6.setOnClickListener(new View.OnClickListener() {

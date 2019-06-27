@@ -115,13 +115,14 @@ public class Fragment_Home extends Fragment {
                         activity.DisplayFragmentPayments();
                             break;
                     case R.id.nav_help_and_advice:
+
                         break;
                     case R.id.nav_personal_account:
                         mDrawer.closeDrawers();
                         activity.DisplayFragmentProfile();
                         break;
                     case R.id.nav_customer_service_center:
-
+                          activity.DisplayFragmentServiceCenters();
                             break;
                 }
                 return false;

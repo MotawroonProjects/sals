@@ -4,9 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,20 +18,21 @@ import java.util.Locale;
 
 import io.paperdb.Paper;
 
-public class Fragment_Email_Address  extends Fragment {
+public class Fragment_ٍMy_Address extends Fragment {
     private Home_Activity activity;
     private ImageView back_arrow;
     private String current_lang;
-private Button bt_save;
-    public static Fragment_Email_Address newInstance() {
-        return new Fragment_Email_Address();
+   private FrameLayout fr_searchadress;
+
+    public static Fragment_ٍMy_Address newInstance() {
+        return new Fragment_ٍMy_Address();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_email_address, container, false);
-initView(view);
+        View view = inflater.inflate(R.layout.fragment_my_address, container, false);
+        initView(view);
         return view;
     }
 
@@ -41,7 +41,8 @@ initView(view);
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         back_arrow = view.findViewById(R.id.arrow);
-        bt_save=view.findViewById(R.id.bt_save);
+        fr_searchadress = view.findViewById(R.id.fr_searchadress);
+
         if (current_lang.equals("ar")) {
             back_arrow.setRotation(180.0f);
         }
@@ -51,10 +52,11 @@ initView(view);
                 activity.Back();
             }
         });
-        bt_save.setOnClickListener(new View.OnClickListener() {
+        fr_searchadress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.DisplayFragmentAddpassord();
+                activity.DisplayFragmentSearchforaddress();
+
             }
         });
     }

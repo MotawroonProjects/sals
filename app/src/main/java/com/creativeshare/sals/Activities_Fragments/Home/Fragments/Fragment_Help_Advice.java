@@ -29,7 +29,7 @@ public class Fragment_Help_Advice extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_shipment_detials, container, false);
+        View view = inflater.inflate(R.layout.fragmnet_help_advice, container, false);
 initView(view);
         return view;
     }

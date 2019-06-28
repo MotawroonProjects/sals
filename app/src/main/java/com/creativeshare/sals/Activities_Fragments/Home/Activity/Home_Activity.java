@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Calculate_price;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Computrized_Price;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Email_Address;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Help_Advice;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Home;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Language;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Payments;
@@ -38,6 +39,7 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_Calculate_price fragment_calculate_price;
     private Fragment_Computrized_Price fragment_computrized_price;
     private Fragment_Profile fragment_profile;
+    private Fragment_Help_Advice fragment_help_advice;
     private Fragment_Payments fragment_payments;
     private Fragment_ٍShipments fragment_ٍShipments;
     private Fragment_Service_Centers fragment_service_centers;
@@ -160,6 +162,21 @@ fragment_count+=1;
             fragmentManager.beginTransaction().show(fragment_profile).commit();
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_profile, "fragment_profile").addToBackStack("fragment_profile").commit();
+        }
+
+    }
+    public void DisplayFragmentHelp() {
+
+        fragment_count += 1;
+
+        if (fragment_help_advice == null) {
+            fragment_help_advice = Fragment_Help_Advice.newInstance();
+        }
+
+        if (fragment_help_advice.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_help_advice).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_help_advice, "fragment_help_advice").addToBackStack("fragment_help_advice").commit();
         }
 
     }

@@ -135,5 +135,14 @@
     <string name="add_new_adddress">add new adddress</string>
     <string name="search_address">search for address</string>
     <string name="password">Password</string>
+    <string name="most_frequently_asked_questions">Most frequently asked questions</string>
+    <string name="how_can_i_check_the_status_of_my_truck">How can I check the status of my truck?</string>
+    <string name="support_box">Support Box</string>
+    <string name="my_support_requests">My support requests</string>
+    <string name="help_categories">Help categories</string>
+    <string name="express_mail">Express Mail</string>
+    <string name="heavy_freight">Heavy Freight</string>
+    <string name="services_logistics">Services Logistics</string>
+    <string name="market">Marketing services</string>
 
 </resources>

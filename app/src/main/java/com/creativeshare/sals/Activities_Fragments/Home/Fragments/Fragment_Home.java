@@ -57,19 +57,19 @@ public class Fragment_Home extends Fragment {
         back_arrow = view.findViewById(R.id.arrow);
 
         mDrawer = view.findViewById(R.id.drawer_layout);
-        nvView=view.findViewById(R.id.nvView);
+        nvView = view.findViewById(R.id.nvView);
         if (current_lang.equals("ar")) {
             back_arrow.setRotation(180.0f);
         }
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mDrawer.isDrawerOpen(GravityCompat.START)) {
+                if (mDrawer.isDrawerOpen(GravityCompat.START)) {
                     //drawer is open
                     mDrawer.closeDrawers();
+                } else {
+                    activity.Back();
                 }
-                else{
-                activity.Back();}
             }
         });
         ah_bottom_nav = view.findViewById(R.id.ah_bottom_nav);
@@ -104,8 +104,8 @@ public class Fragment_Home extends Fragment {
         nvView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                int id=menuItem.getItemId();
-                switch (id){
+                int id = menuItem.getItemId();
+                switch (id) {
                     case R.id.nav_shipping_details:
                         mDrawer.closeDrawers();
                         activity.DisplayFragmentshipments();
@@ -113,17 +113,18 @@ public class Fragment_Home extends Fragment {
                     case R.id.nav_payments:
                         mDrawer.closeDrawers();
                         activity.DisplayFragmentPayments();
-                            break;
+                        break;
                     case R.id.nav_help_and_advice:
-
+                        mDrawer.closeDrawers();
+                        activity.DisplayFragmentHelp();
                         break;
                     case R.id.nav_personal_account:
                         mDrawer.closeDrawers();
                         activity.DisplayFragmentProfile();
                         break;
                     case R.id.nav_customer_service_center:
-                          activity.DisplayFragmentServiceCenters();
-                            break;
+                        activity.DisplayFragmentServiceCenters();
+                        break;
                 }
                 return false;
             }

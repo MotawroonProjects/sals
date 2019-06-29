@@ -63,7 +63,7 @@
         android:orientation="horizontal"
         android:weightSum="1"
         android:background="@drawable/linear_shape"
-        android:padding="5dp"
+        android:padding="3dp"
         >
     <com.hbb20.CountryCodePicker
         android:layout_width="45dp"
@@ -82,7 +82,7 @@
             android:layout_weight=".9"
             android:textSize="14sp"
             android:textColor="@color/black"
-            android:theme="@style/AppTheme.LighterEditText"
+            android:gravity="center_vertical"
             android:background="@color/white"
             android:inputType="phone"
             />

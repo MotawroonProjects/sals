@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/gray"
+    >
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1">
+
+
+            <ImageView
+                android:id="@+id/arrow"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight=".1"
+                android:padding="10dp"
+                android:src="@drawable/ic_left_arrow"
+                android:tint="@color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".9"
+                android:gravity="center"
+                android:text="@string/phone"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fillViewport="true"
+        android:background="@color/gray4"
+
+        >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:background="@drawable/linear_shape"
+        android:padding="5dp"
+        >
+    <com.hbb20.CountryCodePicker
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:ccpDialog_textColor="@color/black"
+        app:ccp_showFullName="false"
+        app:ccp_showNameCode="false"
+        app:ccp_showFlag="false"
+        android:layout_weight=".1"
+        app:ccpDialog_backgroundColor="@color/white"
+        android:background="@color/white"
+        ></com.hbb20.CountryCodePicker>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".9"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:theme="@style/AppTheme.LighterEditText"
+            android:background="@color/white"
+            android:inputType="phone"
+            />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/bt_save"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button_shape"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+</LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

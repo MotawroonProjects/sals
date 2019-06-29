@@ -60,10 +60,22 @@ public class Fragment_Profile extends Fragment {
                 activity.DisplayFragmentMyaddress();
             }
         });
+        arrow3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.DisplayFragmentEditphone();
+            }
+        });
         arrow4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 activity.DisplayFragmentEmailAddress();
+            }
+        });
+        arrow5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.DisplayFragmentAddcreditCard();
             }
         });
         arrow1.setOnClickListener(new View.OnClickListener() {

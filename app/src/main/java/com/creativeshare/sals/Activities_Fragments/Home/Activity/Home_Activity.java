@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentManager;
 
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Add_Credit_Cart;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Calculate_price;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Computrized_Price;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Email_Address;
@@ -19,6 +20,7 @@ import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Profi
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Main;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍAddpassword;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍEdit_Name;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍEdit_Phone;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍMy_Address;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍShipments;
 import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Service_Centers;
@@ -48,6 +50,8 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_ٍAddpassword fragment_ٍAddpassword;
     private Fragment_ٍEdit_Name fragment_ٍEdit_name;
     private Fragment_ٍMy_Address fragment_ٍMy_address;
+    private Fragment_Add_Credit_Cart fragment_add_credit_cart;
+    private Fragment_ٍEdit_Phone fragment_ٍEdit_phone;
     private Fragment_Search_For_Address fragment_search_for_address;
     private Fragment_Track_The_Shipment fragment_track_the_shipment;
     private int fragment_count = 0;
@@ -295,7 +299,32 @@ fragment_count+=1;
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ٍMy_address, "fragment_ٍMy_address").addToBackStack("fragment_ٍMy_address").commit();
         }
     }
+    public void DisplayFragmentAddcreditCard() {
+        fragment_count += 1;
 
+        if (fragment_add_credit_cart == null) {
+            fragment_add_credit_cart = Fragment_Add_Credit_Cart.newInstance();
+        }
+
+        if (fragment_add_credit_cart.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_add_credit_cart).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_add_credit_cart, "fragment_add_credit_cart").addToBackStack("fragment_add_credit_cart").commit();
+        }
+    }
+    public void DisplayFragmentEditphone() {
+        fragment_count += 1;
+
+        if (fragment_ٍEdit_phone == null) {
+            fragment_ٍEdit_phone = Fragment_ٍEdit_Phone.newInstance();
+        }
+
+        if (fragment_ٍEdit_phone.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_ٍEdit_phone).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ٍEdit_phone, "fragment_ٍEdit_phone").addToBackStack("fragment_ٍEdit_phone").commit();
+        }
+    }
     public void DisplayFragmentSearchforaddress() {
         fragment_count += 1;
 

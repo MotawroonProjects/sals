@@ -271,7 +271,7 @@
                     android:layout_height="35dp"
                     android:text="-"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="15sp"
+                    android:textSize="18sp"
                     android:background="@color/white"
                     />
 
@@ -289,7 +289,7 @@
                     android:layout_height="35dp"
                     android:text="+"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="15sp"
+                    android:textSize="18sp"
                     android:background="@color/white"
                     />
             </LinearLayout>

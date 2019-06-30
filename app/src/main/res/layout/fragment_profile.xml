@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
@@ -25,17 +26,18 @@
 
             <ImageView
                 android:id="@+id/arrow"
-                android:layout_width="50dp"
+                android:layout_width="45dp"
                 android:layout_height="50dp"
-                android:layout_weight=".1"
-                android:padding="10dp"
-                android:src="@drawable/ic_left_arrow"
+                android:layout_weight=".01"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/ic_left_arrows"
                 android:tint="@color/white" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".9"
+                android:layout_weight=".99"
                 android:gravity="center"
                 android:text="@string/account"
                 android:textColor="@color/white"
@@ -58,6 +60,7 @@
             android:padding="10dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+               android:id="@+id/co_name"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:padding="5dp">
@@ -66,10 +69,9 @@
                     android:id="@+id/im1"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginTop="4dp"
                     android:src="@drawable/confirm_image"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    tools:layout_editor_absoluteY="9dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -119,6 +121,7 @@
                 android:background="@color/gray2" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+               android:id="@+id/co_address"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:padding="5dp">
@@ -181,6 +184,7 @@
                 android:background="@color/gray2" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/co_phone"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:padding="5dp">
@@ -242,6 +246,7 @@
                 android:background="@color/gray2" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+               android:id="@+id/co_email"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:padding="5dp">
@@ -309,6 +314,7 @@
                 android:textSize="15sp" />
 
             <LinearLayout
+                android:id="@+id/ll_mangecard"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal"
@@ -376,7 +382,7 @@
                     android:layout_marginLeft="18dp"
                     android:layout_marginRight="18dp"
                     android:layout_weight=".04"
-                    android:theme="@style/Color1SwitchStyle" />
+                    />
 
 
             </LinearLayout>
@@ -420,7 +426,7 @@
                     android:layout_marginLeft="18dp"
                     android:layout_marginRight="18dp"
                     android:layout_weight=".04"
-                    android:theme="@style/Color1SwitchStyle" />
+                    />
             </LinearLayout>
 
             <TextView
@@ -435,6 +441,7 @@
                 android:textSize="15sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+               android:id="@+id/co_language"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:padding="5dp">

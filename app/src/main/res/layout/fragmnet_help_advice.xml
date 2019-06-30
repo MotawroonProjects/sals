@@ -23,17 +23,21 @@
 
             <ImageView
                 android:id="@+id/arrow"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight=".1"
-                android:padding="10dp"
-                android:src="@drawable/ic_left_arrow"
-                android:tint="@color/white" />
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_weight=".01"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/ic_left_arrows"
+                android:tint="@color/white"
+
+
+                />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".9"
+                android:layout_weight=".99"
                 android:gravity="center"
                 android:text="@string/help_and_advice"
                 android:textColor="@color/white"

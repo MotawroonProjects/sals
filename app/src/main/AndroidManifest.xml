@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.creativeshare.sals">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".Share.Local"
@@ -12,18 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <uses-library android:name="com.google.android.maps" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_api_key" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <activity android:name=".Activities_Fragments.Home.Activity.Home_Activity"
+        <activity
+            android:name=".Activities_Fragments.Home.Activity.Home_Activity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:windowSoftInputMode="adjustPan">
 
         </activity>
-        <activity android:name=".Activities_Fragments.Secdule.Activity.Scedule_Activity"
+        <activity
+            android:name=".Activities_Fragments.Secdule.Activity.Scedule_Activity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:windowSoftInputMode="adjustPan">
 

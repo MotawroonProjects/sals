@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
@@ -20,6 +22,8 @@ import io.paperdb.Paper;
 public class Fragment_Profile extends Fragment {
     private Home_Activity activity;
     private ImageView arrow1,arrow2,arrow3,arrow4,arrow5,arrow6,back_arrow;
+   private ConstraintLayout co_name,co_address,co_phone,co_email,co_language;
+   private LinearLayout ll_mange_card;
     private String current_lang;
 
     public static Fragment_Profile newInstance() {
@@ -34,6 +38,7 @@ public class Fragment_Profile extends Fragment {
         return view;
     }
     private void initView(View view) {
+
         activity = (Home_Activity) getActivity();
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
@@ -44,6 +49,12 @@ public class Fragment_Profile extends Fragment {
         arrow4=view.findViewById(R.id.arrow4);
         arrow5 = view.findViewById(R.id.arrow5);
         arrow6=view.findViewById(R.id.arrow6);
+        co_address=view.findViewById(R.id.co_address);
+        co_email=view.findViewById(R.id.co_email);
+        co_name=view.findViewById(R.id.co_name);
+        co_phone=view.findViewById(R.id.co_phone);
+        co_language=view.findViewById(R.id.co_language);
+        ll_mange_card=view.findViewById(R.id.ll_mangecard);
         if (current_lang.equals("ar")) {
             back_arrow.setRotation(180.0f);}
         else  if(current_lang.equals("en")) {
@@ -54,38 +65,38 @@ public class Fragment_Profile extends Fragment {
             arrow5.setRotation(180.0f);
             arrow6.setRotation(180.0f);
         }
-        arrow2.setOnClickListener(new View.OnClickListener() {
+        co_address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 activity.DisplayFragmentMyaddress();
             }
         });
-        arrow3.setOnClickListener(new View.OnClickListener() {
+       co_phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 activity.DisplayFragmentEditphone();
             }
         });
-        arrow4.setOnClickListener(new View.OnClickListener() {
+       co_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 activity.DisplayFragmentEmailAddress();
             }
         });
-        arrow5.setOnClickListener(new View.OnClickListener() {
+       ll_mange_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 activity.DisplayFragmentAddcreditCard();
             }
         });
-        arrow1.setOnClickListener(new View.OnClickListener() {
+       co_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 activity.DisplayFragmentEditname();
 
             }
         });
-    arrow6.setOnClickListener(new View.OnClickListener() {
+  co_language.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             activity.DisplayFragmentLanguage();

@@ -1,8 +1,12 @@
 package com.creativeshare.sals.Activities_Fragments.Home.Activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -33,7 +37,10 @@ import com.creativeshare.sals.R;
 import java.util.Locale;
 
 import io.paperdb.Paper;
-
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.Translate.TranslateOption;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
 public class Home_Activity extends AppCompatActivity {
     private FragmentManager fragmentManager;
     private Fragment_Home fragment_home;
@@ -70,13 +77,14 @@ public class Home_Activity extends AppCompatActivity {
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         fragmentManager = this.getSupportFragmentManager();
         setContentView(R.layout.activity_home);
+
         if (savedInstanceState == null) {
             DisplayFragmentHome();
             DisplayFragmentMain();
+
+
         }
-
     }
-
 
     public void DisplayFragmentHome() {
 

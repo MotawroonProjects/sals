@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
@@ -20,6 +21,7 @@ import io.paperdb.Paper;
 public class Fragment_Main extends Fragment {
     private Home_Activity activity;
     private ImageView arrow1,arrow2;
+    private ConstraintLayout co_shipments,co_profile;
     private String current_lang;
 
     public static Fragment_Main newInstance() {
@@ -39,18 +41,20 @@ public class Fragment_Main extends Fragment {
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         arrow1 = view.findViewById(R.id.arrow1);
         arrow2=view.findViewById(R.id.arrow2);
+        co_shipments=view.findViewById(R.id.co_shipments);
+        co_profile=view.findViewById(R.id.co_profile);
 
         if (current_lang.equals("en")) {
            arrow1.setRotation(180.0f);
            arrow2.setRotation(180.0f);
         }
-    arrow2.setOnClickListener(new View.OnClickListener() {
+    co_profile.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             activity.DisplayFragmentProfile();
         }
     });
-arrow1.setOnClickListener(new View.OnClickListener() {
+co_shipments.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         activity.DisplayFragmentshipments();

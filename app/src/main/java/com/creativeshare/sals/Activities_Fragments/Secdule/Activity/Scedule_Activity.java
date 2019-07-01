@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Additional_services;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Confirmation;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Delivry_Chooser;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Search_For_Address;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Secdule;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Shipping_Detials;
@@ -27,6 +28,7 @@ public class Scedule_Activity extends AppCompatActivity {
     private Fragment_Search_For_Address fragment_search_for_address;
     private Fragment_The_Recepit fragment_the_recepit;
     private Fragment_Shipping_Detials fragment_shipping_detials;
+    private Fragment_Delivry_Chooser fragment_delivry_chooser;
     private Fragment_Confirmation fragment_confirmation;
     private int fragment_count = 0;
     private String current_lang;
@@ -107,6 +109,10 @@ public class Scedule_Activity extends AppCompatActivity {
             fragmentManager.beginTransaction().hide(fragment_confirmation).commit();
 
         }
+        if (fragment_delivry_chooser != null && fragment_delivry_chooser.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_delivry_chooser).commit();
+
+        }
         if (fragment_shipping_detials != null && fragment_shipping_detials.isAdded()) {
             fragmentManager.beginTransaction().hide(fragment_shipping_detials).commit();
 
@@ -121,6 +127,32 @@ public class Scedule_Activity extends AppCompatActivity {
         }
     }
 
+    public void DisplayFragmentdelivrychooser() {
+
+        if (fragment_delivry_chooser == null) {
+            fragment_delivry_chooser = Fragment_Delivry_Chooser.newInstance();
+        }
+        if (fragment_confirmation != null && fragment_confirmation.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_confirmation).commit();
+
+        }
+        if (fragment_shipping_detials != null && fragment_shipping_detials.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_shipping_detials).commit();
+
+        }
+        if (fragment_the_recepit != null && fragment_the_recepit.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_the_recepit).commit();
+
+        }
+        if (fragment_delivry_chooser.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_delivry_chooser).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_main_child, fragment_delivry_chooser, "fragment_delivry_chooser").addToBackStack("fragment_delivry_chooser").commit();
+        }
+        if (fragment_secdule != null && fragment_secdule.isAdded()) {
+            fragment_secdule.update2(1);
+        }
+    }
     public void DisplayFragmentshippingdetilas() {
 
         if (fragment_shipping_detials == null) {
@@ -128,6 +160,10 @@ public class Scedule_Activity extends AppCompatActivity {
         }
         if (fragment_confirmation != null && fragment_confirmation.isAdded()) {
             fragmentManager.beginTransaction().hide(fragment_confirmation).commit();
+
+        }
+        if (fragment_delivry_chooser != null && fragment_delivry_chooser.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_delivry_chooser).commit();
 
         }
         if (fragment_the_recepit != null && fragment_the_recepit.isAdded()) {
@@ -139,9 +175,7 @@ public class Scedule_Activity extends AppCompatActivity {
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_main_child, fragment_shipping_detials, "fragment_shipping_detials").addToBackStack("fragment_shipping_detials").commit();
         }
-        if (fragment_secdule != null && fragment_secdule.isAdded()) {
-            fragment_secdule.update2(1);
-        }
+
     }
 
     public void DisplayFragmentconfirmation() {
@@ -151,6 +185,10 @@ public class Scedule_Activity extends AppCompatActivity {
         }
         if (fragment_the_recepit != null && fragment_the_recepit.isAdded()) {
             fragmentManager.beginTransaction().hide(fragment_the_recepit).commit();
+
+        }
+        if (fragment_delivry_chooser != null && fragment_delivry_chooser.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_delivry_chooser).commit();
 
         }
         if (fragment_shipping_detials != null && fragment_shipping_detials.isAdded()) {
@@ -189,10 +227,14 @@ public class Scedule_Activity extends AppCompatActivity {
                     }
                     else{
                         fragment_secdule.update(1);
-                        DisplayFragmentshippingdetilas();
+                        DisplayFragmentdelivrychooser();
                     }
 
-                } else if (fragment_shipping_detials != null && fragment_shipping_detials.isVisible()) {
+                }
+                else if(fragment_delivry_chooser!=null&&fragment_delivry_chooser.isVisible()){
+                    DisplayFragmentshippingdetilas();
+                }
+                else if (fragment_shipping_detials != null && fragment_shipping_detials.isVisible()) {
                     fragment_secdule.update(0);
                     DisplayFragmentTherecipet();
                 } else {

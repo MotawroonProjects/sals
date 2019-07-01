@@ -26,9 +26,8 @@ public class Fragment_Shipping_Detials extends Fragment {
     private Scedule_Activity activity;
     private String current_lang;
     private Button next;
-    private LinearLayout ll_additional_services;
     private FrameLayout fr_document,fr_parcel;
-    private ImageView im_document,im_parcel,im_additional_Services;
+    private ImageView im_document,im_parcel;
     private TextView tv_document,tv_parcel;
 
     public static Fragment_Shipping_Detials newInstance() {
@@ -46,23 +45,14 @@ public class Fragment_Shipping_Detials extends Fragment {
         activity = (Scedule_Activity) getActivity();
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
-        ll_additional_services=view.findViewById(R.id.ll_additional_Services);
         fr_document=view.findViewById(R.id.fr_document);
         fr_parcel=view.findViewById(R.id.fr_parcel);
         im_document=view.findViewById(R.id.im_document);
         im_parcel=view.findViewById(R.id.im_parcel);
-        im_additional_Services=view.findViewById(R.id.im_additional_services);
         tv_document=view.findViewById(R.id.tv_document);
         tv_parcel=view.findViewById(R.id.tv_parcel);
-        if(current_lang.equals("en")){
-            im_additional_Services.setRotation(180.0f);
-        }
-        ll_additional_services.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                activity.DisplayFragmentAdditionalservices();
-            }
-        });
+
+
         fr_document.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,7 +79,7 @@ public class Fragment_Shipping_Detials extends Fragment {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.DisplayFragmentconfirmation();
+                activity.DisplayFragmentdelivrychooser();
             }
         });
 

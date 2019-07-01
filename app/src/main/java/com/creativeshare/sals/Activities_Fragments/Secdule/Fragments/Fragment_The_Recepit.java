@@ -118,6 +118,7 @@ next.setOnClickListener(new View.OnClickListener() {
 
         if(activity.param==1){
         activity.DisplayFragmentshippingdetilas();
+        activity.DisplayFragmentdelivrychooser();
         activity.DisplayFragmentconfirmation();
         }
         else{

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
@@ -308,7 +307,6 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_weight=".4"
-                android:background="@drawable/linear_shape_gray"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -316,7 +314,7 @@
                     android:id="@+id/decrement"
                     android:layout_width="50dp"
                     android:layout_height="35dp"
-                    android:background="@color/white"
+                    android:background="@drawable/linear_shape"
                     android:text="-"
                     android:textColor="@color/colorPrimary"
                     android:textSize="18sp" />
@@ -333,7 +331,7 @@
                     android:id="@+id/increment"
                     android:layout_width="50dp"
                     android:layout_height="35dp"
-                    android:background="@color/white"
+                    android:background="@drawable/linear_shape"
                     android:text="+"
                     android:textColor="@color/colorPrimary"
                     android:textSize="18sp" />
@@ -367,248 +365,25 @@
                 android:textColorHint="@color/gray4"
                 android:textSize="14sp"
                 android:theme="@style/AppTheme.LighterEditText" />
+
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/gray4"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="1">
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight=".1"
-                    android:src="@drawable/ic_info" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight=".9"
-                    android:lineSpacingExtra="10dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="@string/not_sure_if_your_goods_are_acceptable_for_shipping_click_here"
-                    android:textColor="@color/blue"
-                    android:textSize="15sp"
-
-                    />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="@string/deliver_in"
-                android:textColor="@color/gray0"
-                android:textSize="15sp"
-
-                />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@color/white">
-
-
-                <LinearLayout
-                    android:id="@+id/ll"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:padding="10dp"
-                    app:layout_constraintHorizontal_weight="3"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="@string/name"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="15sp"
-
-                        />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="@string/name"
-                        android:textColor="@color/gray4"
-                        android:textSize="15sp"
-
-                        />
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:padding="10dp"
-                    android:text="@string/_12000_ryal"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toStartOf="@+id/arrow1" />
-
-                <ImageView
-                    android:id="@+id/arrow1"
-                    android:layout_width="35dp"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:src="@drawable/ic_left_arrow"
-                    android:tint="@color/gray2"
-                    android:layout_marginEnd="15dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="RtlCompat" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:weightSum="1">
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight=".1"
-                    android:src="@drawable/date"
-                    android:tint="@color/gray3" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".9"
-                    android:gravity="center_vertical"
-                    android:text="@string/expected_delivery_on"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="@string/additional_services"
-                android:textColor="@color/gray0"
-                android:textSize="15sp"
-
-                />
-
-            <LinearLayout
-                android:id="@+id/ll_additional_Services"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="horizontal"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight=".9999"
-                    android:padding="20dp"
-
-                    android:text="@string/choose_extra_if_you_need"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:clickable="false"
-                    android:longClickable="false"
-                    />
-
-                <ImageView
-                    android:id="@+id/im_additional_services"
-                    android:layout_width="70dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight=".001"
-                    android:padding="20dp"
-                    android:src="@drawable/ic_left_arrow"
-                    android:tint="@color/gray4"
-                    android:clickable="false"
-                    android:longClickable="false"
-                     />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/bt_next"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/button_shape"
-                android:gravity="center"
-                android:text="@string/price_calculate"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
+        <Button
+            android:id="@+id/bt_next"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            android:weightSum="1">
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_shape"
+            android:gravity="center"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".1"
-                android:src="@drawable/total_price"
-                android:tint="@color/gray0" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".6"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="@string/deserved_amount"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".3"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="@string/_12000_ryal"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp"
-
-                />
-
-        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

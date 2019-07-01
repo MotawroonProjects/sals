@@ -1,12 +1,8 @@
 package com.creativeshare.sals.Activities_Fragments.Home.Activity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -22,7 +18,6 @@ import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Langu
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Payments;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Profile;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Main;
-import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍAddpassword;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍEdit_Name;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍEdit_Phone;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍMy_Address;
@@ -37,10 +32,7 @@ import com.creativeshare.sals.R;
 import java.util.Locale;
 
 import io.paperdb.Paper;
-import com.google.cloud.translate.Translate;
-import com.google.cloud.translate.Translate.TranslateOption;
-import com.google.cloud.translate.TranslateOptions;
-import com.google.cloud.translate.Translation;
+
 public class Home_Activity extends AppCompatActivity {
     private FragmentManager fragmentManager;
     private Fragment_Home fragment_home;
@@ -54,7 +46,6 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_Service_Centers fragment_service_centers;
     private Fragment_Language fragment_language;
     private Fragment_Email_Address fragment_email_address;
-    private Fragment_ٍAddpassword fragment_ٍAddpassword;
     private Fragment_ٍEdit_Name fragment_ٍEdit_name;
     private Fragment_ٍMy_Address fragment_ٍMy_address;
     private Fragment_Add_Credit_Cart fragment_add_credit_cart;
@@ -266,19 +257,6 @@ fragment_count+=1;
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_email_address, "fragment_email_address").addToBackStack("fragment_email_address").commit();
         }
 
-    }
-    public void DisplayFragmentAddpassord() {
-        fragment_count += 1;
-
-        if (fragment_ٍAddpassword == null) {
-            fragment_ٍAddpassword = Fragment_ٍAddpassword.newInstance();
-        }
-
-        if (fragment_ٍAddpassword.isAdded()) {
-            fragmentManager.beginTransaction().show(fragment_ٍAddpassword).commit();
-        } else {
-            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ٍAddpassword, "fragment_ٍAddpassword").addToBackStack("fragment_ٍAddpassword").commit();
-        }
     }
 
     public void DisplayFragmentEditname() {

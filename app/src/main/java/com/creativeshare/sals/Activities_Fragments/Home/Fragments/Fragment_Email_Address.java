@@ -53,8 +53,10 @@ initView(view);
         });
         bt_save.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                activity.DisplayFragmentAddpassord();
+            public void onClick(View view)
+
+
+            {
             }
         });
     }

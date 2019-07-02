@@ -29,8 +29,8 @@
                 android:layout_width="45dp"
                 android:layout_height="50dp"
                 android:layout_weight=".01"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingTop="13dp"
+                android:paddingBottom="13dp"
                 android:src="@drawable/ic_left_arrows"
                 android:tint="@color/white" />
 
@@ -70,6 +70,8 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:src="@drawable/confirm_image"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:layout_editor_absoluteY="9dp" />
 

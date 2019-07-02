@@ -17,7 +17,7 @@ public class Local extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/Gilan-Medium.otf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
+        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/GE_SS_Two_Light.otf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
     }
 }
 

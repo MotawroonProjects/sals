@@ -26,8 +26,8 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_weight=".01"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingTop="13dp"
+                android:paddingBottom="13dp"
                 android:src="@drawable/ic_left_arrows"
                 android:tint="@color/white"
 

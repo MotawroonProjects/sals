@@ -44,6 +44,9 @@ public class Fragment_Computrized_Price extends Fragment {
         ll_next=view.findViewById(R.id.ll_next);
         if(current_lang.equals("ar")){
             back_arrow.setRotation(180.0f);
+
+        }
+        else {
             im_additionalservices.setRotation(180.0f);
         }
         back_arrow.setOnClickListener(new View.OnClickListener() {

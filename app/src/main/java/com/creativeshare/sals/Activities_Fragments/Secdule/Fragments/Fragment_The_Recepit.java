@@ -27,7 +27,7 @@ public class Fragment_The_Recepit extends Fragment {
     private String current_lang;
     private LinearLayout ll_search_for_address;
     private FrameLayout fr_shape1,fr_shape2,fr_shape3;
-    private ImageView im_shape1,im_shape2,im_shape3,arrow_search_for_address;
+    private ImageView im_shape1,im_shape2,im_shape3,arrow_search_for_address,arrow1,arrow2;
     private TextView tv_shape1,tv_shape2,tv_shape3;
     private Button next;
 
@@ -56,9 +56,14 @@ public class Fragment_The_Recepit extends Fragment {
         tv_shape2=view.findViewById(R.id.tv_shape2);
         tv_shape3=view.findViewById(R.id.tv_shape3);
         arrow_search_for_address=view.findViewById(R.id.arrow3);
+        arrow1=view.findViewById(R.id.arrow1);
+        arrow2=view.findViewById(R.id.arrow2);
+
         ll_search_for_address=view.findViewById(R.id.ll_search_for_address);
         if(current_lang.equals("en")){
             arrow_search_for_address.setRotation(180.0f);
+            arrow1.setRotation(180.0f);
+            arrow2.setRotation(180.0f);
         }
         ll_search_for_address.setOnClickListener(new View.OnClickListener() {
             @Override

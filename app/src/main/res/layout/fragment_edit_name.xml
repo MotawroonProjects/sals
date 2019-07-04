@@ -64,6 +64,7 @@
 
 
                 <EditText
+                    android:id="@+id/edt_fname"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_marginTop="15dp"
@@ -87,6 +88,7 @@
                     />
 
                 <EditText
+                    android:id="@+id/edt_lname"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_marginTop="15dp"

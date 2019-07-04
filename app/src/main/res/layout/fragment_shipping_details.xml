@@ -289,7 +289,8 @@
             android:layout_height="45dp"
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="2"
+            >
 
             <TextView
                 android:layout_width="0dp"
@@ -350,7 +351,9 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:orientation="horizontal"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:padding="5dp"
+            >
 
             <TextView
                 android:layout_width="0dp"

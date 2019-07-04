@@ -24,8 +24,8 @@ public class Fragment_Delivry_Chooser extends Fragment {
     private String current_lang;
 
     private Button next;
-    private LinearLayout ll_additional_services,arrow1;
-    private ImageView im_additional_Services;
+    private LinearLayout ll_additional_services;
+    private ImageView im_additional_Services,arrow1;
 
     public static Fragment_Delivry_Chooser newInstance() {
         return new Fragment_Delivry_Chooser();
@@ -44,7 +44,7 @@ public class Fragment_Delivry_Chooser extends Fragment {
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         ll_additional_services = view.findViewById(R.id.ll_additional_Services);
-arrow1=view.findViewById(R.id.arrow1);
+         arrow1=view.findViewById(R.id.arrow1);
         im_additional_Services = view.findViewById(R.id.im_additional_services);
         next = view.findViewById(R.id.bt_next);
 

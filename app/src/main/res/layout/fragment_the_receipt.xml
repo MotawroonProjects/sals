@@ -107,7 +107,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight=".04"
-                android:padding="20dp"
+                android:padding="15dp"
                 android:src="@drawable/ic_left_arrow"
                 android:tint="@color/gray2" />
 
@@ -149,7 +149,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight=".04"
-                android:padding="20dp"
+                android:padding="15dp"
                 android:src="@drawable/ic_left_arrow"
                 android:tint="@color/gray2" />
 

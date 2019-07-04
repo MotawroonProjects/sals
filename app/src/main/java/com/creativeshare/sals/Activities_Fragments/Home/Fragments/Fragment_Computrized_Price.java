@@ -22,7 +22,7 @@ import io.paperdb.Paper;
 public class Fragment_Computrized_Price extends Fragment {
     private Home_Activity activity;
     private String current_lang;
-    private ImageView back_arrow;
+    private ImageView back_arrow,im_additionalservices;
     private LinearLayout ll_next;
     public static Fragment_Computrized_Price newInstance() {
         return new Fragment_Computrized_Price();
@@ -40,9 +40,11 @@ public class Fragment_Computrized_Price extends Fragment {
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         back_arrow=view.findViewById(R.id.arrow);
+        im_additionalservices=view.findViewById(R.id.im_additional_services);
         ll_next=view.findViewById(R.id.ll_next);
         if(current_lang.equals("ar")){
             back_arrow.setRotation(180.0f);
+            im_additionalservices.setRotation(180.0f);
         }
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override

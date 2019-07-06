@@ -64,10 +64,11 @@ public class Home_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
         Paper.init(this);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         fragmentManager = this.getSupportFragmentManager();
-        setContentView(R.layout.activity_home);
+
 
         if (savedInstanceState == null) {
             DisplayFragmentHome();

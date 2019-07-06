@@ -43,11 +43,12 @@ public class Scedule_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_secdule);
         param=getIntent().getIntExtra("param",-1);
         Paper.init(this);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         fragmentManager = this.getSupportFragmentManager();
-        setContentView(R.layout.activity_secdule);
+
         if (savedInstanceState == null) {
             DisplayFragmentSecdule();
             DisplayFragmentTherecipet();

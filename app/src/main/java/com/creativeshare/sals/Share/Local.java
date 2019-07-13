@@ -17,7 +17,10 @@ public class Local extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/GE_SS_Two_Light.otf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
+        TypefaceUtil.overrideFont(this, "SERIF", "fonts/LateefRegOT.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
+        TypefaceUtil.overrideFont(this, "DEFAULT", "fonts/LateefRegOT.ttf");
+        TypefaceUtil.overrideFont(this, "MONOSPACE", "fonts/LateefRegOT.ttf");
+        TypefaceUtil.overrideFont(this, "SANS_SERIF", "fonts/LateefRegOT.ttf");
     }
 }
 

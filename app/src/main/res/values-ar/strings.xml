@@ -150,6 +150,13 @@
     <string name="all_information_is_transmited_over_ascure_connection">تنتقل جميع المعلومات عبر اتصال آمن</string>
     <string name="description">تفاصيل</string>
     <string name="shipping_dimensions">ابعاد الشحنه</string>
+    <string name="demintion_for_eacj_piece">ابعاد كل قطعه</string>
+    <string name="length_cm">الطول سم</string>
+    <string name="width_cm">العرض سم</string>
+    <string name="hight_cm">الارتفاع سم</string>
+    <string name="volumetric_weight">الوزن الحجمى</string>
+    <string name="gross_weight">الوزن القائم</string>
+    <string name="total_weight">الوزن الاجمالى</string>
 
 
 </resources>

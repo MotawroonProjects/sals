@@ -12,6 +12,7 @@ import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Co
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Delivry_Chooser;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Search_For_Address;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Secdule;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Shipping_Dementions;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Shipping_Detials;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_The_Recepit;
 import com.creativeshare.sals.Language.Language;
@@ -25,6 +26,7 @@ public class Scedule_Activity extends AppCompatActivity {
     private FragmentManager fragmentManager;
     private Fragment_Secdule fragment_secdule;
     private Fragment_Additional_services fragment_additional_services;
+    private Fragment_Shipping_Dementions fragment_shipping_dementions;
     private Fragment_Search_For_Address fragment_search_for_address;
     private Fragment_The_Recepit fragment_the_recepit;
     private Fragment_Shipping_Detials fragment_shipping_detials;
@@ -86,7 +88,19 @@ public class Scedule_Activity extends AppCompatActivity {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_additional_services, "fragment_additional_services").addToBackStack("fragment_additional_services").commit();
         }
     }
+    public void DisplayFragmentShippingDimentions() {
+        fragment_count += 1;
 
+        if (fragment_shipping_dementions == null) {
+            fragment_shipping_dementions = Fragment_Shipping_Dementions.newInstance();
+        }
+
+        if (fragment_shipping_dementions.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_shipping_dementions).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_shipping_dementions, "fragment_shipping_dementions").addToBackStack("fragment_shipping_dementions").commit();
+        }
+    }
     public void DisplayFragmentSearchforaddress() {
         fragment_count += 1;
 

@@ -54,6 +54,7 @@ public class Fragment_Shipping_Detials extends Fragment {
         tv_parcel=view.findViewById(R.id.tv_parcel);
         edt_desc=view.findViewById(R.id.edt_desc);
         bt_Shipping_dimensions=view.findViewById(R.id.bt_shipping_dimensions);
+        next=view.findViewById(R.id.bt_next);
 
         fr_document.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +82,12 @@ public class Fragment_Shipping_Detials extends Fragment {
                 edt_desc.setVisibility(View.VISIBLE);
             }
         });
-        next=view.findViewById(R.id.bt_next);
+        bt_Shipping_dimensions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.DisplayFragmentShippingDimentions();
+            }
+        });
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

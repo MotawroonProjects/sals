@@ -149,5 +149,12 @@
     <string name="all_information_is_transmited_over_ascure_connection">all information is transmited over ascure connection</string>
     <string name="description">description</string>
     <string name="shipping_dimensions">Shipping dimensions</string>
+    <string name="demintion_for_eacj_piece">demintion for eacj piece</string>
+    <string name="length_cm">Length cm</string>
+    <string name="width_cm">width cm</string>
+    <string name="hight_cm">Hight cm</string>
+    <string name="volumetric_weight">Volumetric weight</string>
+    <string name="gross_weight">Gross weight</string>
+    <string name="total_weight">total_weight</string>
 
 </resources>

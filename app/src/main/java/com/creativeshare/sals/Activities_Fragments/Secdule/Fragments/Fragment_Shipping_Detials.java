@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,11 +26,11 @@ import io.paperdb.Paper;
 public class Fragment_Shipping_Detials extends Fragment {
     private Scedule_Activity activity;
     private String current_lang;
-    private Button next;
+    private Button next,bt_Shipping_dimensions;
     private FrameLayout fr_document,fr_parcel;
     private ImageView im_document,im_parcel;
     private TextView tv_document,tv_parcel;
-
+    private EditText edt_desc;
     public static Fragment_Shipping_Detials newInstance() {
         return new Fragment_Shipping_Detials();
     }
@@ -51,7 +52,8 @@ public class Fragment_Shipping_Detials extends Fragment {
         im_parcel=view.findViewById(R.id.im_parcel);
         tv_document=view.findViewById(R.id.tv_document);
         tv_parcel=view.findViewById(R.id.tv_parcel);
-
+        edt_desc=view.findViewById(R.id.edt_desc);
+        bt_Shipping_dimensions=view.findViewById(R.id.bt_shipping_dimensions);
 
         fr_document.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +64,8 @@ public class Fragment_Shipping_Detials extends Fragment {
                 im_parcel.setColorFilter(getResources().getColor(R.color.colorPrimary));
                 tv_document.setTextColor(getResources().getColor(R.color.white));
                 tv_parcel.setTextColor(getResources().getColor(R.color.colorPrimary));
+                bt_Shipping_dimensions.setVisibility(View.GONE);
+                edt_desc.setVisibility(View.GONE);
             }
         });
         fr_parcel.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +77,8 @@ public class Fragment_Shipping_Detials extends Fragment {
                 im_parcel.setColorFilter(getResources().getColor(R.color.white));
                 tv_document.setTextColor(getResources().getColor(R.color.colorPrimary));
                 tv_parcel.setTextColor(getResources().getColor(R.color.white));
+                bt_Shipping_dimensions.setVisibility(View.VISIBLE);
+                edt_desc.setVisibility(View.VISIBLE);
             }
         });
         next=view.findViewById(R.id.bt_next);

@@ -148,6 +148,8 @@
     <string name="to_add_a_credit_card_you_need_to_prepare_a_sals_account_using_your_email_address">لإضافة بطاقة ائتمان ، يلزمك إعداد حساب مبيعات باستخدام عنوان بريدك الإلكتروني</string>
     <string name="create_an_account">انشئ حساب</string>
     <string name="all_information_is_transmited_over_ascure_connection">تنتقل جميع المعلومات عبر اتصال آمن</string>
+    <string name="description">تفاصيل</string>
+    <string name="shipping_dimensions">ابعاد الشحنه</string>
 
 
 </resources>

@@ -121,14 +121,9 @@ next.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
 
-        if(activity.param==1){
-        activity.DisplayFragmentshippingdetilas();
-        activity.DisplayFragmentdelivrychooser();
-        activity.DisplayFragmentconfirmation();
-        }
-        else{
+
             activity.DisplayFragmentshippingdetilas();
-        }
+
     }
 });
 

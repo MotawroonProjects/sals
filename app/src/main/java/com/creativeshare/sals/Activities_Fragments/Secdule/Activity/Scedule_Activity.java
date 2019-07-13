@@ -220,16 +220,10 @@ public class Scedule_Activity extends AppCompatActivity {
         } else {
             if (fragment_secdule != null && fragment_secdule.isVisible()) {
                 if (fragment_confirmation != null && fragment_confirmation.isVisible()) {
-                    if(param==1){
-                    fragment_secdule.update(1);
-                    DisplayFragmentshippingdetilas();
-                        fragment_secdule.update(0);
-                        DisplayFragmentTherecipet();
-                    }
-                    else{
+
                         fragment_secdule.update(1);
                         DisplayFragmentdelivrychooser();
-                    }
+
 
                 }
                 else if(fragment_delivry_chooser!=null&&fragment_delivry_chooser.isVisible()){

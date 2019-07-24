@@ -144,7 +144,7 @@
 
     >
                 <TextView
-                    android:id="@+id/tv_msg_arrivein"
+                    android:id="@+id/tv_resend"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="center"

@@ -7,12 +7,14 @@ import android.content.Context;
 import androidx.multidex.MultiDexApplication;
 
 import com.creativeshare.sals.Language.Language;
+import com.creativeshare.sals.preferences.Preferences;
 
 
 public class Local extends MultiDexApplication {
     @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(Language.updateResources(newBase, Language.getLanguage(newBase)));
+    protected void attachBaseContext(Context base)
+    {
+        super.attachBaseContext(Language.updateResources(base, Preferences.getInstance().getLanguage(base)));
     }
     @Override
     public void onCreate() {

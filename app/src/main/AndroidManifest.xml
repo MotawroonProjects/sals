@@ -12,7 +12,12 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme"
-      tools:ignore="GoogleAppIndexingWarning">
+      android:usesCleartextTraffic="true"
+      tools:ignore="GoogleAppIndexingWarning"
+      tools:targetApi="m">
+    <uses-library
+        android:name="org.apache.http.legacy"
+        android:required="false"/>
     <uses-library android:name="com.google.android.maps" />
     <meta-data
         android:name="com.google.android.geo.API_KEY"
@@ -38,11 +43,18 @@
         android:windowSoftInputMode="adjustPan"
         android:screenOrientation="portrait"
         >
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
     </activity>
+
+      <activity
+          android:name=".Activities_Fragments.splash_activity.SplashActivity"
+          android:configChanges="orientation|screenSize|keyboardHidden"
+          android:windowSoftInputMode="adjustPan">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity>
   </application>
 </manifest>

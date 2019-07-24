@@ -56,6 +56,11 @@ android {
         implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
         implementation 'com.google.cloud:google-cloud-translate:1.12.0'
         implementation 'com.android.support:multidex:1.0.3'
+        implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+        implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+        implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+        implementation 'androidx.cardview:cardview:1.0.0'
+
 
     }
     sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }

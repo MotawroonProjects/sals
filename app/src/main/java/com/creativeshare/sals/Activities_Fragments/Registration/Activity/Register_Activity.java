@@ -15,6 +15,7 @@ import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragme
 import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Track_The_Shipment;
 import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.preferences.Preferences;
 
 import java.util.Locale;
 
@@ -29,9 +30,9 @@ public class Register_Activity   extends AppCompatActivity {
     private int fragment_count=0;
     private String current_lang;
     @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(Language.updateResources(newBase, Language.getLanguage(newBase)));
-
+    protected void attachBaseContext(Context base)
+    {
+        super.attachBaseContext(Language.updateResources(base, Preferences.getInstance().getLanguage(base)));
     }
   @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +65,11 @@ public class Register_Activity   extends AppCompatActivity {
         }
 
     }
-    public void DisplayFragmentconfirmcode() {
+    public void DisplayFragmentconfirmcode(String phone, String phone_code) {
         fragment_count+=1;
 
 
-        fragment_confirm_code = Fragment_Confirm_Code.newInstance();
+        fragment_confirm_code = Fragment_Confirm_Code.newInstance(phone,phone_code);
 
 
         if (fragment_confirm_code.isAdded()) {

@@ -156,5 +156,13 @@
     <string name="volumetric_weight">Volumetric weight</string>
     <string name="gross_weight">Gross weight</string>
     <string name="total_weight">total_weight</string>
+    <string name="field_req">Field Required</string>
+    <string name="wait">Wait</string>
+    <string name="failed">Failed</string>
+    <string name="something">Something went haywire try again later</string>
+    <string name="resend">Resend</string>
+    <string name="notifications">notifications</string>
+    <string name="inc_code_verification">Incorrect Code Verification</string>
+    <string name="user_is_logedin">User Loged In</string>
 
 </resources>

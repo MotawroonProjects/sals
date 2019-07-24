@@ -17,6 +17,7 @@ import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Sh
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_The_Recepit;
 import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.preferences.Preferences;
 
 import java.util.Locale;
 
@@ -35,11 +36,10 @@ public class Scedule_Activity extends AppCompatActivity {
     private int fragment_count = 0;
     private String current_lang;
     public int param;
-
     @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(Language.updateResources(newBase, Language.getLanguage(newBase)));
-
+    protected void attachBaseContext(Context base)
+    {
+        super.attachBaseContext(Language.updateResources(base, Preferences.getInstance().getLanguage(base)));
     }
 
     @Override

@@ -28,6 +28,7 @@ import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Acti
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Search_For_Address;
 import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.preferences.Preferences;
 
 import java.util.Locale;
 
@@ -54,11 +55,10 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_Track_The_Shipment fragment_track_the_shipment;
     private int fragment_count = 0;
     private String current_lang;
-
     @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(Language.updateResources(newBase, Language.getLanguage(newBase)));
-
+    protected void attachBaseContext(Context base)
+    {
+        super.attachBaseContext(Language.updateResources(base, Preferences.getInstance().getLanguage(base)));
     }
 
     @Override

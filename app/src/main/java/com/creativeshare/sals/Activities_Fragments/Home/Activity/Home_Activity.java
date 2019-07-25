@@ -458,5 +458,11 @@ public class Home_Activity extends AppCompatActivity {
 
     }
 
+    public void upadateprefrece(UserModel body) {
+        if(fragment_profile!=null){
+            fragment_profile.upadateprefrece(body);
+        }
+    }
+
 }
 

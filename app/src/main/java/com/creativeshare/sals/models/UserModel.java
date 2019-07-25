@@ -26,6 +26,10 @@ private String token;
         return token;
     }
 
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     public  class User implements Serializable {
         private int id;
                private String first_name;
@@ -38,7 +42,7 @@ private String token;
                private String software_type;
                 private String verification;
                 private String deleted_at;
-               private String is_notifiable;
+               private int is_notifiable;
                 private String email_verified_at;
                 private String created_at;
                private String updated_at;
@@ -87,7 +91,7 @@ private String token;
             return deleted_at;
         }
 
-        public String getIs_notifiable() {
+        public int getIs_notifiable() {
             return is_notifiable;
         }
 

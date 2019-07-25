@@ -57,6 +57,11 @@ public interface Service {
             @Header("Authorization") String Authorization
 
     );
-
+    @FormUrlEncoded
+    @POST("api/profile/name/update")
+    Call<UserModel> updateName(@Field("first_name") String first_name,
+                               @Field("last_name") String last_name,
+                                 @Header("Authorization") String Authorization
+    );
 
 }

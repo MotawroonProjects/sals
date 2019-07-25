@@ -10,6 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,7 @@ import retrofit2.Response;
 public class Fragment_Profile extends Fragment {
     private Home_Activity activity;
     private ImageView arrow1, arrow2, arrow3, arrow4, arrow5, arrow6, back_arrow;
+    private TextView tv_fname, tv_lname;
     private ConstraintLayout co_name, co_address, co_phone, co_email, co_language;
     private LinearLayout ll_mange_card;
     private FrameLayout fr_logout;
@@ -72,6 +74,8 @@ public class Fragment_Profile extends Fragment {
         arrow4 = view.findViewById(R.id.arrow4);
         arrow5 = view.findViewById(R.id.arrow5);
         arrow6 = view.findViewById(R.id.arrow6);
+        tv_fname = view.findViewById(R.id.tv_fname);
+        tv_lname = view.findViewById(R.id.tv_lname);
         co_address = view.findViewById(R.id.co_address);
         co_email = view.findViewById(R.id.co_email);
         co_name = view.findViewById(R.id.co_name);
@@ -92,12 +96,14 @@ public class Fragment_Profile extends Fragment {
             arrow5.setRotation(180.0f);
             arrow6.setRotation(180.0f);
         }
-        switch_notify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        switch_notify.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(userModel!=null){
-                changenotifystatus();}
+            public void onClick(View view) {
+                if (userModel != null) {
+                    changenotifystatus();
+                }
             }
+
         });
         co_address.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,10 +161,18 @@ public class Fragment_Profile extends Fragment {
         if (userModel == null) {
             switch_notify.setChecked(false);
         } else {
-            if (userModel.getUser().getIs_notifiable().equals("1")) {
+
+            if (userModel.getUser().getIs_notifiable() == 1) {
+                // Log.e("stat",userModel.getUser().getIs_notifiable()+"");
                 switch_notify.setChecked(true);
             } else {
                 switch_notify.setChecked(false);
+            }
+            if(userModel.getUser().getFirst_name()!=null){
+                tv_fname.setText(userModel.getUser().getFirst_name());
+            }
+            if(userModel.getUser().getLast_name()!=null){
+                tv_lname.setText(userModel.getUser().getLast_name());
             }
         }
     }
@@ -167,13 +181,15 @@ public class Fragment_Profile extends Fragment {
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-Log.e("user",userModel.getToken());
+        Log.e("user", userModel.getToken());
         Api.getService().changenotifystatus("Bearer" + " " + userModel.getToken()).enqueue(new Callback<UserModel>() {
             @Override
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                 dialog.dismiss();
                 if (response.isSuccessful()) {
-                    updateprofile(response.body());
+                    //preferences.create_update_userdata(activity,response.body());
+                    //updateprofile(response.body());
+                    upadateprefrece(response.body());
                 } else {
 
                     Log.e("error_code", response.code() + "_" + response.errorBody() + response.message() + response.raw() + response.headers());
@@ -191,6 +207,12 @@ Log.e("user",userModel.getToken());
                 Toast.makeText(activity, getResources().getString(R.string.something), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void upadateprefrece(UserModel userModel) {
+        userModel.setToken(this.userModel.getToken());
+        preferences.create_update_userdata(activity, userModel);
+        updateprofile(userModel);
     }
 
     private void Logout() {

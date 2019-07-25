@@ -26,6 +26,7 @@ import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
 
+import java.io.IOException;
 import java.util.Locale;
 
 import io.paperdb.Paper;
@@ -97,12 +98,44 @@ public class Fragment_Confirm_Code extends Fragment {
             @Override
             public void onClick(View view) {
                 if (reseend) {
-
+                    resendcode();
                 }
             }
         });
         couter();
 
+    }
+
+    private void resendcode() {
+        final ProgressDialog dialog = Common.createProgressDialog(register_activity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService().resendsms(phone_code, phone).enqueue(new Callback<UserModel>() {
+            @Override
+            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+                dialog.dismiss();
+                if (response.isSuccessful()) {
+                    couter();
+
+                } else {
+                    try {
+                        Log.e("error_code", response.code() + "_" + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    Toast.makeText(register_activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserModel> call, Throwable t) {
+                dialog.dismiss();
+                Toast.makeText(register_activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
+                Log.e("Error", t.getMessage());
+            }
+        });
     }
 
     private void checkdata() {
@@ -130,7 +163,7 @@ public class Fragment_Confirm_Code extends Fragment {
                     register_activity.openhomeactivity();
 
                 } else {
-                    Log.e("msg",response.code()+""+response.errorBody()+""+response.raw()+response.message()+phone+phone_code+"  "+code+response.headers()+response.raw());
+                    Log.e("msg", response.code() + "" + response.errorBody() + "" + response.raw() + response.message() + phone + phone_code + "  " + code + response.headers() + response.raw());
                     if (response.code() == 404) {
                         Common.CreateSignAlertDialog(register_activity, getString(R.string.inc_code_verification));
                     } else {

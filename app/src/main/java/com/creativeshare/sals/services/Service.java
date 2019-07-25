@@ -4,6 +4,7 @@ package com.creativeshare.sals.services;
 
 
 import com.creativeshare.sals.models.UserModel;
+import com.creativeshare.sals.models.Visit_Model;
 
 import java.util.List;
 
@@ -28,6 +29,11 @@ public interface Service {
                            @Field("mobile_number") String mobile_number,
                            @Field("software_type") String software_type
                            );
+    @FormUrlEncoded
+    @POST("api/resend")
+    Call<UserModel> resendsms(@Field("mobile_code") String mobile_code,
+                           @Field("mobile_number") String mobile_number
+    );
 
     @FormUrlEncoded
     @POST("api/verify")
@@ -35,5 +41,22 @@ public interface Service {
                            @Field("mobile_number") String mobile_number,
                            @Field("verification") String verification
     );
+
+    @POST("api/logout")
+    Call<ResponseBody> Logout(
+            @Header("Authorization") String Authorization
+
+    );
+
+    @FormUrlEncoded
+    @POST("api/visits-count")
+    Call<Visit_Model> updateVisit(@Field("type") String type, @Field("date") String date);
+
+    @POST("api/profile/notification/update")
+    Call<UserModel> changenotifystatus(
+            @Header("Authorization") String Authorization
+
+    );
+
 
 }

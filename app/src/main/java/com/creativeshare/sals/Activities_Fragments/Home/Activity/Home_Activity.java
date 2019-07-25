@@ -1,8 +1,10 @@
 package com.creativeshare.sals.Activities_Fragments.Home.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -22,17 +24,31 @@ import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍEdi
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍEdit_Phone;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍMy_Address;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍShipments;
+import com.creativeshare.sals.Activities_Fragments.Registration.Activity.Register_Activity;
 import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Service_Centers;
 import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Track_The_Shipment;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Search_For_Address;
 import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.Share.Common;
+import com.creativeshare.sals.models.UserModel;
+import com.creativeshare.sals.models.Visit_Model;
 import com.creativeshare.sals.preferences.Preferences;
+import com.creativeshare.sals.remote.Api;
+import com.creativeshare.sals.tags.Tags;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import io.paperdb.Paper;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Home_Activity extends AppCompatActivity {
     private FragmentManager fragmentManager;
@@ -55,9 +71,11 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_Track_The_Shipment fragment_track_the_shipment;
     private int fragment_count = 0;
     private String current_lang;
+    private Preferences preferences;
+    private UserModel userModel;
+
     @Override
-    protected void attachBaseContext(Context base)
-    {
+    protected void attachBaseContext(Context base) {
         super.attachBaseContext(Language.updateResources(base, Preferences.getInstance().getLanguage(base)));
     }
 
@@ -66,16 +84,28 @@ public class Home_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Paper.init(this);
+        preferences = Preferences.getInstance();
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         fragmentManager = this.getSupportFragmentManager();
 
+        userModel = preferences.getUserData(this);
+        String visitTime = preferences.getVisitTime(this);
+        Calendar calendar = Calendar.getInstance();
+        long timeNow = calendar.getTimeInMillis();
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        String date = dateFormat.format(new Date(timeNow));
+
+        if (!date.equals(visitTime)) {
+            addVisit(date);
+        }
         if (savedInstanceState == null) {
             DisplayFragmentHome();
             DisplayFragmentMain();
 
 
         }
+
     }
 
     public void DisplayFragmentHome() {
@@ -105,13 +135,13 @@ public class Home_Activity extends AppCompatActivity {
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_main_child, fragment_main, "fragment_main").addToBackStack("fragment_main").commit();
         }
-        if (fragment_home != null&& fragment_home.isAdded()) {
+        if (fragment_home != null && fragment_home.isAdded()) {
             fragment_home.updateBottomNavigationPosition(0);
         }
     }
 
     public void DisplayFragmentCalculateprice() {
-fragment_count+=1;
+        fragment_count += 1;
         if (fragment_calculate_price == null) {
             fragment_calculate_price = Fragment_Calculate_price.newInstance();
         }
@@ -121,12 +151,13 @@ fragment_count+=1;
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_calculate_price, "fragment_calculate_price").addToBackStack("fragment_calculate_price").commit();
         }
-        if(fragment_home!=null&& fragment_home.isAdded()){
+        if (fragment_home != null && fragment_home.isAdded()) {
             fragment_home.updateBottomNavigationPosition(1);
         }
     }
+
     public void DisplayFragmentComputrizedprice() {
-        fragment_count+=1;
+        fragment_count += 1;
         if (fragment_computrized_price == null) {
             fragment_computrized_price = Fragment_Computrized_Price.newInstance();
         }
@@ -138,8 +169,9 @@ fragment_count+=1;
         }
 
     }
+
     public void DisplayFragmentTrackTheShipment() {
-        fragment_count+=1;
+        fragment_count += 1;
 
 
         fragment_track_the_shipment = Fragment_Track_The_Shipment.newInstance(2);
@@ -150,10 +182,11 @@ fragment_count+=1;
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_track_the_shipment, "fragment_track_the_shipment").addToBackStack("fragment_track_the_shipment").commit();
         }
-        if(fragment_home!=null&&fragment_home.isAdded()){
+        if (fragment_home != null && fragment_home.isAdded()) {
             fragment_home.updateBottomNavigationPosition(2);
         }
     }
+
     public void DisplayFragmentProfile() {
 
         fragment_count += 1;
@@ -169,6 +202,7 @@ fragment_count+=1;
         }
 
     }
+
     public void DisplayFragmentHelp() {
 
         fragment_count += 1;
@@ -184,6 +218,7 @@ fragment_count+=1;
         }
 
     }
+
     public void DisplayFragmentPayments() {
 
         fragment_count += 1;
@@ -199,6 +234,7 @@ fragment_count+=1;
         }
 
     }
+
     public void DisplayFragmentshipments() {
 
         fragment_count += 1;
@@ -214,8 +250,9 @@ fragment_count+=1;
         }
 
     }
+
     public void DisplayFragmentServiceCenters() {
-        fragment_count+=1;
+        fragment_count += 1;
 
 
         fragment_service_centers = Fragment_Service_Centers.newInstance(2);
@@ -273,6 +310,7 @@ fragment_count+=1;
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ٍEdit_name, "fragment_ٍEdit_name").addToBackStack("fragment_ٍEdit_name").commit();
         }
     }
+
     public void DisplayFragmentMyaddress() {
         fragment_count += 1;
 
@@ -286,6 +324,7 @@ fragment_count+=1;
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ٍMy_address, "fragment_ٍMy_address").addToBackStack("fragment_ٍMy_address").commit();
         }
     }
+
     public void DisplayFragmentAddcreditCard() {
         fragment_count += 1;
 
@@ -299,6 +338,7 @@ fragment_count+=1;
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_add_credit_cart, "fragment_add_credit_cart").addToBackStack("fragment_add_credit_cart").commit();
         }
     }
+
     public void DisplayFragmentEditphone() {
         fragment_count += 1;
 
@@ -312,6 +352,7 @@ fragment_count+=1;
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ٍEdit_phone, "fragment_ٍEdit_phone").addToBackStack("fragment_ٍEdit_phone").commit();
         }
     }
+
     public void DisplayFragmentSearchforaddress() {
         fragment_count += 1;
 
@@ -325,32 +366,33 @@ fragment_count+=1;
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_search_for_address, "fragment_search_for_address").addToBackStack("fragment_search_for_address").commit();
         }
     }
+
     @Override
     public void onBackPressed() {
         Back();
     }
 
     public void Back() {
-        if(fragment_home!=null&&fragment_home.mDrawer.isDrawerOpen(GravityCompat.START)){
+        if (fragment_home != null && fragment_home.mDrawer.isDrawerOpen(GravityCompat.START)) {
 
-                fragment_home.mDrawer.closeDrawers();
+            fragment_home.mDrawer.closeDrawers();
 
-        }
-        else{
-        if (fragment_count > 1) {
-            fragment_count -= 1;
-            super.onBackPressed();
         } else {
-            if (fragment_home != null && fragment_home.isVisible()) {
-                if (fragment_main != null && fragment_main.isVisible()) {
-                    finish();
-                } else {
-                    DisplayFragmentMain();
-                }
+            if (fragment_count > 1) {
+                fragment_count -= 1;
+                super.onBackPressed();
             } else {
-                DisplayFragmentHome();
+                if (fragment_home != null && fragment_home.isVisible()) {
+                    if (fragment_main != null && fragment_main.isVisible()) {
+                        finish();
+                    } else {
+                        DisplayFragmentMain();
+                    }
+                } else {
+                    DisplayFragmentHome();
+                }
             }
-        }}
+        }
     }
 
     public void RefreshActivity(String selected_language) {
@@ -366,12 +408,55 @@ fragment_count+=1;
     }
 
     public void startscdeule(int param) {
-        Intent intent=new Intent(Home_Activity.this, Scedule_Activity.class);
-        intent.putExtra("param",param);
+        Intent intent = new Intent(Home_Activity.this, Scedule_Activity.class);
+        intent.putExtra("param", param);
         startActivity(intent);
     }
 
 
+    public void Logout() {
+        userModel = null;
+        preferences.create_update_userdata(this, userModel);
+        preferences.create_update_session(this, Tags.session_logout);
+        Intent intent = new Intent(Home_Activity.this, Register_Activity.class);
+        startActivity(intent);
+        finish();
+    }
+    private void addVisit(final String timeNow) {
+        final ProgressDialog dialog = Common.createProgressDialog(this, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService()
+                .updateVisit("1", timeNow)
+                .enqueue(new Callback<Visit_Model>() {
+                    @Override
+                    public void onResponse(Call<Visit_Model> call, Response<Visit_Model> response) {
+                        dialog.dismiss();
+                        if (response.isSuccessful()) {
+
+                            preferences.saveVisitTime(Home_Activity.this, timeNow);
+                            // Log.e("msg",response.body().toString());
+
+                        } else {
+                            try {
+                                Log.e("error_code", response.code() + response.errorBody().string());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Visit_Model> call, Throwable t) {
+                        dialog.dismiss();
+                        try {
+                            Log.e("Error", t.getMessage());
+                        } catch (Exception e) {
+                        }
+                    }
+                });
+
+    }
 
 }
 

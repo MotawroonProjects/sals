@@ -38,7 +38,7 @@ import retrofit2.Response;
 public class Fragment_Profile extends Fragment {
     private Home_Activity activity;
     private ImageView arrow1, arrow2, arrow3, arrow4, arrow5, arrow6, back_arrow;
-    private TextView tv_fname, tv_lname;
+    private TextView tv_fname, tv_lname,tv_phone,tv_email;
     private ConstraintLayout co_name, co_address, co_phone, co_email, co_language;
     private LinearLayout ll_mange_card;
     private FrameLayout fr_logout;
@@ -76,6 +76,8 @@ public class Fragment_Profile extends Fragment {
         arrow6 = view.findViewById(R.id.arrow6);
         tv_fname = view.findViewById(R.id.tv_fname);
         tv_lname = view.findViewById(R.id.tv_lname);
+        tv_phone=view.findViewById(R.id.tv_phone);
+        tv_email=view.findViewById(R.id.tv_email);
         co_address = view.findViewById(R.id.co_address);
         co_email = view.findViewById(R.id.co_email);
         co_name = view.findViewById(R.id.co_name);
@@ -173,6 +175,12 @@ public class Fragment_Profile extends Fragment {
             }
             if(userModel.getUser().getLast_name()!=null){
                 tv_lname.setText(userModel.getUser().getLast_name());
+            }
+            if(userModel.getUser().getMobile_number()!=null){
+                tv_phone.setText(userModel.getUser().getMobile_number());
+            }
+            if(userModel.getUser().getEmail()!=null){
+                tv_email.setText(userModel.getUser().getEmail());
             }
         }
     }

@@ -118,18 +118,19 @@ public class Fragment_Confirm_Code extends Fragment {
         final ProgressDialog progressDialog = Common.createProgressDialog(register_activity, getResources().getString(R.string.wait));
         progressDialog.setCancelable(false);
         progressDialog.show();
+
         Api.getService().checkcode(phone_code, phone, code).enqueue(new Callback<UserModel>() {
             @Override
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                 progressDialog.dismiss();
                 if (response.isSuccessful()) {
-                    Log.e("ssssssssssss",response.code()+response.body().getMessage());
+                    //Log.e("ssssssssssss",response.code()+response.body().getMessage());
                     countDownTimer.cancel();
                     preferences.create_update_userdata(register_activity, response.body());
                     register_activity.openhomeactivity();
 
                 } else {
-                    Log.e("msg",response.code()+""+response.errorBody()+"");
+                    Log.e("msg",response.code()+""+response.errorBody()+""+response.raw()+response.message()+phone+phone_code+"  "+code+response.headers()+response.raw());
                     if (response.code() == 404) {
                         Common.CreateSignAlertDialog(register_activity, getString(R.string.inc_code_verification));
                     } else {

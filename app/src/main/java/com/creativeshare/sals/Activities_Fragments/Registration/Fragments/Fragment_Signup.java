@@ -107,7 +107,8 @@ ccp_country_code.registerCarrierNumberEditText(edt_phone);
     private void checkdata() {
 
 String phone=edt_phone.getText().toString();
-String phone_code=ccp_country_code.getSelectedCountryCode().replace("+","00");
+String phone_code=ccp_country_code.getSelectedCountryCodeWithPlus().replace("+","00");
+Log.e("code",phone_code);
 if(TextUtils.isEmpty(phone)||!ccp_country_code.isValidFullNumber()){
     edt_phone.setError(getResources().getString(R.string.field_req));
 }
@@ -115,7 +116,9 @@ else {
 if(phone.startsWith("0")){
     phone=phone.replaceFirst("0","");
     edt_phone.setError(null);
-Login(phone,phone_code);
+    Common.CloseKeyBoard(register_activity,edt_phone);
+
+    Login(phone,phone_code);
 }
 }
     }

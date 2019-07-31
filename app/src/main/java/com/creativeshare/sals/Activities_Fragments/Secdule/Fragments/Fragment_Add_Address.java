@@ -175,6 +175,8 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
         this.location = location;
         lat = location.getLatitude();
         lang = location.getLongitude();
+        AddMarker(lat, lang);
+
         if (googleApiClient != null) {
             googleApiClient.disconnect();
         }

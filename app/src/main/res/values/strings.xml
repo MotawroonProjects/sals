@@ -164,5 +164,7 @@
     <string name="notifications">notifications</string>
     <string name="inc_code_verification">Incorrect Code Verification</string>
     <string name="user_is_logedin">User Loged In</string>
+    <string name="additional_detials">additional_detials</string>
+    <string name="save_as_main_titile">Save as main titile</string>
 
 </resources>

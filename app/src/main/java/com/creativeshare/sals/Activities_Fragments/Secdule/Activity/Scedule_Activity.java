@@ -1,7 +1,6 @@
 package com.creativeshare.sals.Activities_Fragments.Secdule.Activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Additional_services;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Confirmation;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Delivry_Chooser;
-import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Search_For_Address;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Add_Address;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Secdule;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Shipping_Dementions;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Shipping_Detials;
@@ -28,7 +27,7 @@ public class Scedule_Activity extends AppCompatActivity {
     private Fragment_Secdule fragment_secdule;
     private Fragment_Additional_services fragment_additional_services;
     private Fragment_Shipping_Dementions fragment_shipping_dementions;
-    private Fragment_Search_For_Address fragment_search_for_address;
+    private Fragment_Add_Address fragment_search_for_address;
     private Fragment_The_Recepit fragment_the_recepit;
     private Fragment_Shipping_Detials fragment_shipping_detials;
     private Fragment_Delivry_Chooser fragment_delivry_chooser;
@@ -105,13 +104,13 @@ public class Scedule_Activity extends AppCompatActivity {
         fragment_count += 1;
 
         if (fragment_search_for_address == null) {
-            fragment_search_for_address = Fragment_Search_For_Address.newInstance(2);
+            fragment_search_for_address = Fragment_Add_Address.newInstance(2);
         }
 
         if (fragment_search_for_address.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_search_for_address).commit();
         } else {
-            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_search_for_address, "fragment_search_for_address").addToBackStack("fragment_search_for_address").commit();
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_search_for_address, "fragment_add_address").addToBackStack("fragment_add_address").commit();
         }
     }
 

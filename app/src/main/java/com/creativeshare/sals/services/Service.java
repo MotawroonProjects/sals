@@ -3,6 +3,7 @@ package com.creativeshare.sals.services;
 
 
 
+import com.creativeshare.sals.models.Address_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.models.Visit_Model;
 
@@ -62,6 +63,11 @@ public interface Service {
     Call<UserModel> updateName(@Field("first_name") String first_name,
                                @Field("last_name") String last_name,
                                  @Header("Authorization") String Authorization
+    );
+    @GET("api/profile/address/all")
+    Call<Address_Model> getalladdress(
+            @Header("Authorization") String Authorization
+
     );
 
 }

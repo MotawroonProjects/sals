@@ -46,160 +46,107 @@
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <ScrollView
+    <fragment
+        android:id="@+id/fragment_map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/white"
-        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
 
-        <LinearLayout
+        />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fitsSystemWindows="true"
+        android:layout_marginTop="200dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_map"
+        app:layout_constraintTop_toTopOf="@+id/fragment_map">
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="250dp">
-
-                <fragment
-                    android:id="@+id/fragment_map"
-                    android:name="com.google.android.gms.maps.SupportMapFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    />
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/white"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_target_location"
-                    android:tint="@color/gray4" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@color/white">
-
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <ImageView
-                                android:id="@+id/im_location"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:layout_marginLeft="15dp"
-                                android:layout_marginTop="17dp"
-                                android:src="@drawable/ic_target_location"
-                                android:tint="@color/colorPrimary"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-
-                                />
-
-                            <TextView
-                                android:id="@+id/tv_address"
-                                android:layout_width="0dp"
-                                android:layout_height="25dp"
-                                android:layout_marginStart="5dp"
-                                android:layout_marginTop="15dp"
-                                android:gravity="center_vertical"
-                                android:text="@string/addres"
-                                android:textColor="@color/black"
-                                android:textSize="15sp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/im_location"
-                                app:layout_constraintTop_toTopOf="parent"
-                                tools:ignore="RtlCompat" />
-
-                            <TextView
-                                android:id="@+id/tv_location"
-                                android:layout_width="match_parent"
-                                android:layout_height="45dp"
-                                android:layout_marginLeft="30dp"
-                                android:layout_marginRight="30dp"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="15dp"
-                                android:paddingRight="15dp"
-                                android:text="@string/addres"
-                                android:textColor="@color/gray4"
-                                android:textSize="15sp"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_address" />
-
-                            <LinearLayout
-                                android:id="@+id/ll"
-                                android:layout_width="match_parent"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="15dp"
-                                android:layout_marginRight="15dp"
-                                android:orientation="horizontal"
-                                android:weightSum="1"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_location">
-
-                                <ImageView
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_weight=".06"
-                                    android:src="@drawable/timer" />
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight=".91"
-                                    android:gravity="center_vertical"
-                                    android:text="@string/time"
-                                    android:textColor="@color/gray4"
-                                    android:textSize="15sp" />
-
-                                <ImageView
-                                    android:id="@+id/arrow2"
-                                    android:layout_width="70dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="5dp"
-                                    android:layout_marginRight="5dp"
-                                    android:layout_weight=".04"
-                                    android:padding="20dp"
-                                    android:src="@drawable/ic_info" />
-
-                            </LinearLayout>
-
-                            <TextView
-
-                                android:layout_width="match_parent"
-                                android:layout_height="45dp"
-                                android:layout_marginTop="5dp"
-                                android:background="@color/gray4"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:text="@string/additional_services"
-                                android:textColor="@color/black"
-                                android:textSize="15sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/ll"
-
-
-                                />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </LinearLayout>
-            </FrameLayout>
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="300dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/im_location"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="17dp"
+                        android:src="@drawable/ic_target_location"
+                        android:tint="@color/colorPrimary"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/addres"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/im_location"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:id="@+id/tv_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="@string/addres"
+                        android:textColor="@color/gray4"
+                        android:textSize="15sp"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/gray4"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="@string/additional_detials"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+
+
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -247,14 +194,13 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
+                            android:background="@color/white"
                             android:hint="example 3"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:textColor="@color/gray0"
                             android:textColorHint="@color/gray4"
-                            android:textSize="14sp"
-                            android:background="@color/white"
-                            />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -276,13 +222,13 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
+                            android:background="@color/white"
                             android:hint="example 3"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:textColor="@color/gray0"
                             android:textColorHint="@color/gray4"
                             android:textSize="14sp"
-                            android:background="@color/white"
 
                             />
                     </LinearLayout>
@@ -348,16 +294,6 @@
                     android:layout_marginTop="10dp"
                     android:background="@color/gray4" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="Save as title"
-                    android:textColor="@color/gray0"
-                    android:textSize="15sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -371,7 +307,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight=".96"
                         android:gravity="center_vertical"
-                        android:text="@string/save_sign_in_for_payments"
+                        android:text="@string/save_as_main_titile"
                         android:textColor="@color/gray0"
                         android:textSize="14sp" />
 
@@ -384,8 +320,7 @@
 
 
                 </LinearLayout>
-
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

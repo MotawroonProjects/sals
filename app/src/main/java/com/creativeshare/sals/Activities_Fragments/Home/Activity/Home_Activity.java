@@ -28,7 +28,7 @@ import com.creativeshare.sals.Activities_Fragments.Registration.Activity.Registe
 import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Service_Centers;
 import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Track_The_Shipment;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
-import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Search_For_Address;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Add_Address;
 import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.Share.Common;
@@ -45,7 +45,6 @@ import java.util.Date;
 import java.util.Locale;
 
 import io.paperdb.Paper;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -67,7 +66,7 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_ٍMy_Address fragment_ٍMy_address;
     private Fragment_Add_Credit_Cart fragment_add_credit_cart;
     private Fragment_ٍEdit_Phone fragment_ٍEdit_phone;
-    private Fragment_Search_For_Address fragment_search_for_address;
+    private Fragment_Add_Address fragment_search_for_address;
     private Fragment_Track_The_Shipment fragment_track_the_shipment;
     private int fragment_count = 0;
     private String current_lang;
@@ -357,13 +356,13 @@ public class Home_Activity extends AppCompatActivity {
         fragment_count += 1;
 
         if (fragment_search_for_address == null) {
-            fragment_search_for_address = Fragment_Search_For_Address.newInstance(1);
+            fragment_search_for_address = Fragment_Add_Address.newInstance(1);
         }
 
         if (fragment_search_for_address.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_search_for_address).commit();
         } else {
-            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_search_for_address, "fragment_search_for_address").addToBackStack("fragment_search_for_address").commit();
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_search_for_address, "fragment_add_address").addToBackStack("fragment_add_address").commit();
         }
     }
 

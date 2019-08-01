@@ -61,6 +61,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
 
@@ -70,7 +71,8 @@
         android:id="@+id/coordinator"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:fitsSystemWindows="true"
+        android:clickable="false"
+        android:focusable="false"
         android:layout_marginTop="200dp"
         app:layout_constraintBottom_toBottomOf="@+id/fragment_map"
         app:layout_constraintTop_toTopOf="@+id/fragment_map">
@@ -78,7 +80,8 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:descendantFocusability="blocksDescendants"
+            android:clickable="false"
+            android:focusable="false"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
             >
@@ -128,7 +131,7 @@
                     <TextView
                         android:id="@+id/tv_location"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
                         android:gravity="center_vertical"

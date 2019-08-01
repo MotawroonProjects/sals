@@ -32,6 +32,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -79,7 +80,7 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
         View view = inflater.inflate(R.layout.fragment_update_address, container, false);
         updateUI();
         initView(view);
-        Log.e("add",address_id+"");
+       // Log.e("add",address_id+"");
         getaddress(address_id);
 
 
@@ -128,7 +129,7 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
             edt_floor.setText(body.getAddress().getFloor_number());
         }
         if (body.getAddress().getFlat_number() != null) {
-            edt_floor.setText(body.getAddress().getFlat_number());
+            edt_flatnum.setText(body.getAddress().getFlat_number());
         }
         if (body.getAddress().getNotes() != null) {
             edt_desc.setText(body.getAddress().getNotes());
@@ -195,7 +196,7 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
                 checkdata();
             }
         });
-        coordinatorLayout.scrollTo(0, coordinatorLayout.getScrollY());
+   //     coordinatorLayout.scrollTo(0, coordinatorLayout.getScrollY());
         //scrollView.fullScroll(View.FOCUS_UP);
         //scrollView.smoothScrollTo(0,0);
         // scrollView.fullScroll(View.FOCUS_DOWN);
@@ -286,6 +287,7 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
                 }
             });
 
+
         }
     }
 
@@ -310,6 +312,7 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
             marker.setPosition(new LatLng(lat, lang));
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lang), zoom));
         }
+
     }
 
     private void getGeoData(final double lat, final double lng) {

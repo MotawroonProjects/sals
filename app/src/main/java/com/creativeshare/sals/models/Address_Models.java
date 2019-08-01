@@ -1,20 +1,20 @@
 package com.creativeshare.sals.models;
 
 import java.io.Serializable;
-import java.util.List;
 
-public class Address_Model implements Serializable {
+public class Address_Models implements Serializable {
     private String message;
-    private List<Addresses> addresses;
+    private Address address;
 
     public String getMessage() {
         return message;
     }
-    public List<Addresses> getAddresses() {
-        return addresses;
+
+    public Address getAddress() {
+        return address;
     }
 
-    public  class Addresses implements Serializable
+    public  class Address implements Serializable
     {
         private int id;
             private double latitude;

@@ -1,14 +1,7 @@
-package com.creativeshare.sals.Activities_Fragments.Secdule.Fragments;
+package com.creativeshare.sals.Activities_Fragments.Home.Fragments;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Dialog;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Location;
 import android.os.Bundle;
-import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,85 +16,59 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.app.ActivityCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
 import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
-import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
 import com.creativeshare.sals.R;
-
 import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.Address_Model;
+import com.creativeshare.sals.models.Address_Models;
 import com.creativeshare.sals.models.PlaceGeocodeData;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationSettingsRequest;
-import com.google.android.gms.location.LocationSettingsResult;
-import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.ui.IconGenerator;
 
 import java.io.IOException;
 import java.util.Locale;
-import java.util.concurrent.TimeoutException;
 
 import io.paperdb.Paper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Fragment_Add_Address extends Fragment implements GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks, LocationListener, OnMapReadyCallback {
-    private Scedule_Activity activity;
+public class Fragment_Update_Address extends Fragment implements OnMapReadyCallback {
     private Home_Activity home_activity;
     private String current_lang;
     private ImageView back_arrow;
-    private int param;
-    final static private String Tag = "chec_activity";
+    private int address_id;
+    final static private String Tag = "address_id";
     private CoordinatorLayout coordinatorLayout;
     private EditText edt_buildnum, edt_floor, edt_flatnum, edt_desc, edt_type;
     private TextView tv_save,tv_location;
+    ;
     private SwitchCompat switch_primary;
     private int primary = 0;
     private String formated_address;
     private double lat, lang;
-    private final String gps_perm = Manifest.permission.ACCESS_FINE_LOCATION;
-    private final int gps_req = 22;
-    private GoogleApiClient googleApiClient;
-    private LocationRequest locationRequest;
-    private LocationCallback locationCallback;
-    private Location location;
-    private boolean stop = false;
     private float zoom = 15.6f;
     private Marker marker;
     private GoogleMap mMap;
     private Preferences preferences;
     private UserModel userModel;
 
-    public static Fragment_Add_Address newInstance(int param) {
-        Fragment_Add_Address fragment_search_for_address = new Fragment_Add_Address();
+    public static Fragment_Update_Address newInstance(int address_id) {
+        Fragment_Update_Address fragment_search_for_address = new Fragment_Update_Address();
         Bundle bundle = new Bundle();
-        bundle.putInt(Tag, param);
+        bundle.putInt(Tag, address_id);
         fragment_search_for_address.setArguments(bundle);
         return fragment_search_for_address;
     }
@@ -109,27 +76,85 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_add_address, container, false);
+        View view = inflater.inflate(R.layout.fragment_update_address, container, false);
         updateUI();
         initView(view);
-
-        CheckPermission();
+        Log.e("add",address_id+"");
+        getaddress(address_id);
 
 
         return view;
     }
 
+    private void getaddress(int address_id) {
+        final Dialog dialog = Common.createProgressDialog(getActivity(), getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService().Singleadress("Bearer" + " " + userModel.getToken(), address_id + "").enqueue(new Callback<Address_Models>() {
+            @Override
+            public void onResponse(Call<Address_Models> call, Response<Address_Models> response) {
+                dialog.dismiss();
+                if (response.isSuccessful()) {
+
+                    updatedata(response.body());
+
+                } else {
+                    Toast.makeText(getActivity(), getResources().getString(R.string.failed), Toast.LENGTH_LONG).show();
+                    Log.e("Errot_Code", response.code() + " " + response.errorBody());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Address_Models> call, Throwable t) {
+                dialog.dismiss();
+                Log.e("Erorr", t.getMessage());
+
+//Toast.makeText(getActivity(),getResources().getString(R.string.))
+            }
+        });
+
+    }
+
+    private void updatedata(Address_Models body) {
+        if (body.getAddress().getAddress() != null) {
+            formated_address=body.getAddress().getAddress();
+            tv_location.setText(formated_address);
+
+        }
+        if (body.getAddress().getBuilding_number() != null) {
+            edt_buildnum.setText(body.getAddress().getBuilding_number());
+        }
+        if (body.getAddress().getFloor_number() != null) {
+            edt_floor.setText(body.getAddress().getFloor_number());
+        }
+        if (body.getAddress().getFlat_number() != null) {
+            edt_floor.setText(body.getAddress().getFlat_number());
+        }
+        if (body.getAddress().getNotes() != null) {
+            edt_desc.setText(body.getAddress().getNotes());
+        }
+        if (body.getAddress().getAddress_type() != null) {
+            edt_type.setText(body.getAddress().getAddress_type());
+        }
+        if (body.getAddress().getIs_primary() == 1) {
+            switch_primary.setChecked(true);
+        } else {
+            switch_primary.setChecked(false);
+        }
+        lat = body.getAddress().getLatitude();
+        lang = body.getAddress().getLongitude();
+        AddMarker(lat, lang);
+
+    }
+
     private void initView(View view) {
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(getActivity());
-        param = getArguments().getInt(Tag);
-        if (param == 1) {
-            home_activity = (Home_Activity) getActivity();
-            Paper.init(home_activity);
-        } else {
-            activity = (Scedule_Activity) getActivity();
-            Paper.init(activity);
-        }
+        address_id = getArguments().getInt(Tag);
+
+        home_activity = (Home_Activity) getActivity();
+        Paper.init(home_activity);
+
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
 
         back_arrow = view.findViewById(R.id.arrow);
@@ -140,19 +165,18 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
         edt_desc = view.findViewById(R.id.edt_desc);
         edt_type = view.findViewById(R.id.edt_type);
         switch_primary = view.findViewById(R.id.switch_primary);
-        tv_location=view.findViewById(R.id.tv_location);
+        tv_location = view.findViewById(R.id.tv_location);
+
         tv_save = view.findViewById(R.id.tv_save);
+
         if (current_lang.equals("ar")) {
             back_arrow.setRotation(180.0f);
         }
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (param == 1) {
-                    home_activity.Back();
-                } else {
-                    activity.Back();
-                }
+                home_activity.Back();
+
             }
         });
         switch_primary.setOnClickListener(new View.OnClickListener() {
@@ -189,7 +213,7 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
         String desc = edt_desc.getText().toString();
         String address_type = edt_type.getText().toString();
         if (!TextUtils.isEmpty(buildnum) && !TextUtils.isEmpty(floor) && !TextUtils.isEmpty(flatnum) && !TextUtils.isEmpty(desc) && !TextUtils.isEmpty(desc) && !TextUtils.isEmpty(address_type) && formated_address != null) {
-            addnewaddress(buildnum, floor, flatnum, desc, address_type, formated_address, primary);
+            updateaddress(buildnum, floor, flatnum, desc, address_type, formated_address, primary);
         } else {
             if (TextUtils.isEmpty(buildnum)) {
                 edt_buildnum.setError(getResources().getString(R.string.field_req));
@@ -212,21 +236,19 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
         }
     }
 
-    private void addnewaddress(String buildnum, String floor, String flatnum, String desc, String address_type, String formated_address, int primary) {
+    private void updateaddress(String buildnum, String floor, String flatnum, String desc, String address_type, String formated_address, int primary) {
         final Dialog dialog = Common.createProgressDialog(getActivity(), getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService().Addadress("Bearer" + " " + userModel.getToken(), buildnum, floor, flatnum, desc, address_type, formated_address, lat + "", lang + "", primary + "").enqueue(new Callback<Address_Model>() {
+        Api.getService().updateadress("Bearer" + " " + userModel.getToken(), buildnum, floor, flatnum, desc, address_type, formated_address, lat + "", lang + "", primary + "",address_id+"").enqueue(new Callback<Address_Model>() {
             @Override
             public void onResponse(Call<Address_Model> call, Response<Address_Model> response) {
                 dialog.dismiss();
                 if (response.isSuccessful()) {
-                    if (param == 1) {
-                        home_activity.updatedata(response.body());
-                        home_activity.Back();
-                    } else if (param == 2) {
-                        activity.Back();
-                    }
+
+                    home_activity.updatedata(response.body());
+                    home_activity.Back();
+
                 } else {
                     Toast.makeText(getActivity(), getResources().getString(R.string.failed), Toast.LENGTH_LONG).show();
                     Log.e("Errot_Code", response.code() + " " + response.errorBody());
@@ -244,117 +266,6 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
 
     }
 
-    private void CheckPermission() {
-        if (ActivityCompat.checkSelfPermission(getActivity(), gps_perm) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(getActivity(), new String[]{gps_perm}, gps_req);
-        } else {
-            initGoogleApiClient();
-
-        }
-    }
-
-    private void initGoogleApiClient() {
-        googleApiClient = new GoogleApiClient.
-                Builder(getActivity()).
-                addOnConnectionFailedListener(this).
-                addConnectionCallbacks(this).
-                addApi(LocationServices.API).build();
-        googleApiClient.connect();
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1255) {
-            if (requestCode == Activity.RESULT_OK) {
-                startLocationUpdate();
-            }
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == gps_req && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            initGoogleApiClient();
-        }
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        this.location = location;
-        lat = location.getLatitude();
-        lang = location.getLongitude();
-        getGeoData(lat, lang);
-        //AddMarker(lat, lang);
-
-        if (googleApiClient != null) {
-            googleApiClient.disconnect();
-        }
-        if (locationRequest != null) ;
-        {
-            LocationServices.getFusedLocationProviderClient(getActivity()).removeLocationUpdates(locationCallback);
-        }
-    }
-
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-        intLocationRequest();
-
-    }
-
-    private void intLocationRequest() {
-        locationRequest = new LocationRequest();
-        locationRequest.setFastestInterval(1000 * 60 * 2);
-        locationRequest.setInterval(1000 * 60 * 2);
-        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder().addLocationRequest(locationRequest);
-        PendingResult<LocationSettingsResult> result = LocationServices.SettingsApi.checkLocationSettings(googleApiClient, builder.build());
-        result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
-            @Override
-            public void onResult(@NonNull LocationSettingsResult locationSettingsResult) {
-                Status status = locationSettingsResult.getStatus();
-                switch (status.getStatusCode()) {
-                    case LocationSettingsStatusCodes.SUCCESS:
-                        startLocationUpdate();
-                        break;
-                    case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
-                        try {
-                            status.startResolutionForResult(getActivity(), 1255);
-                        } catch (Exception e) {
-
-                        }
-                        break;
-                    case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
-                        Log.e("not available", "not available");
-                        break;
-                }
-            }
-        });
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-        if (googleApiClient != null) {
-            googleApiClient.connect();
-        }
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
-
-    @SuppressLint("MissingPermission")
-    private void startLocationUpdate() {
-        locationCallback = new LocationCallback() {
-            @Override
-            public void onLocationResult(LocationResult locationResult) {
-                onLocationChanged(locationResult.getLastLocation());
-            }
-        };
-        LocationServices.getFusedLocationProviderClient(getActivity()).requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper());
-    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -416,6 +327,7 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
                                 formated_address = response.body().getResults().get(0).getFormatted_address().replace("Unnamed Road,", "");
                                 // address.setText(formatedaddress);
                                 tv_location.setText(formated_address);
+
                                 AddMarker(lat, lng);
                                 //place_id = response.body().getCandidates().get(0).getPlace_id();
                                 //   Log.e("kkk", formatedaddress);

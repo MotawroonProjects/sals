@@ -1,9 +1,9 @@
 package com.creativeshare.sals.services;
 
 
-
-
 import com.creativeshare.sals.models.Address_Model;
+import com.creativeshare.sals.models.Address_Models;
+import com.creativeshare.sals.models.PlaceGeocodeData;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.models.Visit_Model;
 
@@ -24,23 +24,29 @@ import retrofit2.http.Query;
 
 
 public interface Service {
+    @GET("geocode/json")
+    Call<PlaceGeocodeData> getGeoData(@Query(value = "latlng") String latlng,
+                                      @Query(value = "language") String language,
+                                      @Query(value = "key") String key);
+
     @FormUrlEncoded
     @POST("api/login")
     Call<UserModel> SignIn(@Field("mobile_code") String mobile_code,
                            @Field("mobile_number") String mobile_number,
                            @Field("software_type") String software_type
-                           );
+    );
+
     @FormUrlEncoded
     @POST("api/resend")
     Call<UserModel> resendsms(@Field("mobile_code") String mobile_code,
-                           @Field("mobile_number") String mobile_number
+                              @Field("mobile_number") String mobile_number
     );
 
     @FormUrlEncoded
     @POST("api/verify")
     Call<UserModel> checkcode(@Field("mobile_code") String mobile_code,
-                           @Field("mobile_number") String mobile_number,
-                           @Field("verification") String verification
+                              @Field("mobile_number") String mobile_number,
+                              @Field("verification") String verification
     );
 
     @POST("api/logout")
@@ -58,16 +64,59 @@ public interface Service {
             @Header("Authorization") String Authorization
 
     );
+
     @FormUrlEncoded
     @POST("api/profile/name/update")
     Call<UserModel> updateName(@Field("first_name") String first_name,
                                @Field("last_name") String last_name,
-                                 @Header("Authorization") String Authorization
+                               @Header("Authorization") String Authorization
     );
+
     @GET("api/profile/address/all")
     Call<Address_Model> getalladdress(
             @Header("Authorization") String Authorization
 
     );
 
+    @FormUrlEncoded
+    @POST("api/profile/address/add")
+    Call<Address_Model> Addadress(
+            @Header("Authorization") String Authorization,
+
+            @Field("building_number") String building_number,
+            @Field("floor_number") String floor_number,
+            @Field("flat_number") String flat_number,
+
+            @Field("notes") String notes,
+            @Field("address_type") String address_type,
+            @Field("address") String address,
+            @Field("latitude") String latitude,
+            @Field("longitude") String longitude,
+            @Field("is_primary") String is_primary
+    );
+    @FormUrlEncoded
+    @POST("api/profile/address")
+    Call<Address_Models>Singleadress(
+            @Header("Authorization") String Authorization,
+
+            @Field("address_id") String address_id
+
+    );
+    @FormUrlEncoded
+    @POST("api/profile/address/update")
+    Call<Address_Model> updateadress(
+            @Header("Authorization") String Authorization,
+
+            @Field("building_number") String building_number,
+            @Field("floor_number") String floor_number,
+            @Field("flat_number") String flat_number,
+
+            @Field("notes") String notes,
+            @Field("address_type") String address_type,
+            @Field("address") String address,
+            @Field("latitude") String latitude,
+            @Field("longitude") String longitude,
+            @Field("is_primary") String is_primary,
+            @Field("address_id") String address_id
+    );
 }

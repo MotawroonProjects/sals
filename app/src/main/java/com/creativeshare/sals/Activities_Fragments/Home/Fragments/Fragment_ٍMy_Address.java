@@ -125,9 +125,18 @@ public class Fragment_ٍMy_Address extends Fragment {
         fr_searchadress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.DisplayFragmentSearchforaddress();
+                activity.DisplayFragmentAddaddress();
 
             }
         });
     }
+
+    public void updatedata(Address_Model body) {
+        addressesList.clear();
+        Log.e("eee",addressesList.size()+"");
+        addressesList.addAll(body.getAddresses());
+
+        address_adapter.notifyDataSetChanged();
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.creativeshare.sals.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,11 +74,25 @@ public class Address_Adapter extends RecyclerView.Adapter<Address_Adapter.Eyas_H
             content += model.getFlat_number();
         }
         viewHolder.tv_content.setText(content);
+
+        if (model.getIs_primary() == 1) {
+            Log.e("kkkkk", model.getIs_primary() + "" + content);
+            viewHolder.tv_addrss.setTextColor(homeActivity.getResources().getColor(R.color.colorAccent));
+            viewHolder.tv_content.setTextColor(homeActivity.getResources().getColor(R.color.colorAccent));
+
+        } else if (model.getIs_primary() == 0) {
+            viewHolder.tv_addrss.setTextColor(homeActivity.getResources().getColor(R.color.black));
+            viewHolder.tv_content.setTextColor(homeActivity.getResources().getColor(R.color.black));
+        }
         if (current_lang.equals("en")) {
             viewHolder.arrow.setRotation(180.0f);
         }
-
-
+viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        homeActivity.DisplayFragmentUpdateaddress(list.get(viewHolder.getLayoutPosition()).getId());
+    }
+});
 
     }
 

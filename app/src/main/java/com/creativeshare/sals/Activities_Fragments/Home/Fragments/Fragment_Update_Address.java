@@ -37,6 +37,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.ui.IconGenerator;
+import com.qhutch.bottomsheetlayout.BottomSheetLayout;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -54,8 +55,8 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
     final static private String Tag = "address_id";
     private CoordinatorLayout coordinatorLayout;
     private EditText edt_buildnum, edt_floor, edt_flatnum, edt_desc, edt_type;
-    private TextView tv_save,tv_location;
-    ;
+    private TextView tv_save, tv_location;
+    private BottomSheetLayout layout;
     private SwitchCompat switch_primary;
     private int primary = 0;
     private String formated_address;
@@ -80,7 +81,7 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
         View view = inflater.inflate(R.layout.fragment_update_address, container, false);
         updateUI();
         initView(view);
-       // Log.e("add",address_id+"");
+        // Log.e("add",address_id+"");
         getaddress(address_id);
 
 
@@ -118,7 +119,7 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
 
     private void updatedata(Address_Models body) {
         if (body.getAddress().getAddress() != null) {
-            formated_address=body.getAddress().getAddress();
+            formated_address = body.getAddress().getAddress();
             tv_location.setText(formated_address);
 
         }
@@ -138,8 +139,10 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
             edt_type.setText(body.getAddress().getAddress_type());
         }
         if (body.getAddress().getIs_primary() == 1) {
+            primary = 1;
             switch_primary.setChecked(true);
         } else {
+            primary = 0;
             switch_primary.setChecked(false);
         }
         lat = body.getAddress().getLatitude();
@@ -149,6 +152,9 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
     }
 
     private void initView(View view) {
+layout    =view.findViewById(R.id.bottom_sheet_layout);
+
+        layout.toggle();
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(getActivity());
         address_id = getArguments().getInt(Tag);
@@ -169,6 +175,7 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
         tv_location = view.findViewById(R.id.tv_location);
 
         tv_save = view.findViewById(R.id.tv_save);
+
 
         if (current_lang.equals("ar")) {
             back_arrow.setRotation(180.0f);
@@ -196,7 +203,7 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
                 checkdata();
             }
         });
-   //     coordinatorLayout.scrollTo(0, coordinatorLayout.getScrollY());
+        //     coordinatorLayout.scrollTo(0, coordinatorLayout.getScrollY());
         //scrollView.fullScroll(View.FOCUS_UP);
         //scrollView.smoothScrollTo(0,0);
         // scrollView.fullScroll(View.FOCUS_DOWN);
@@ -241,7 +248,7 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
         final Dialog dialog = Common.createProgressDialog(getActivity(), getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService().updateadress("Bearer" + " " + userModel.getToken(), buildnum, floor, flatnum, desc, address_type, formated_address, lat + "", lang + "", primary + "",address_id+"").enqueue(new Callback<Address_Model>() {
+        Api.getService().updateadress("Bearer" + " " + userModel.getToken(), buildnum, floor, flatnum, desc, address_type, formated_address, lat + "", lang + "", primary + "", address_id + "").enqueue(new Callback<Address_Model>() {
             @Override
             public void onResponse(Call<Address_Model> call, Response<Address_Model> response) {
                 dialog.dismiss();

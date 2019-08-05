@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
 import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
@@ -56,7 +57,7 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
     private CoordinatorLayout coordinatorLayout;
     private EditText edt_buildnum, edt_floor, edt_flatnum, edt_desc, edt_type;
     private TextView tv_save, tv_location;
-    private BottomSheetLayout layout;
+    private NestedScrollView layout;
     private SwitchCompat switch_primary;
     private int primary = 0;
     private String formated_address;
@@ -152,9 +153,9 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
     }
 
     private void initView(View view) {
-layout    =view.findViewById(R.id.bottom_sheet_layout);
+layout    =view.findViewById(R.id.bottom_sheet);
 
-        layout.toggle();
+
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(getActivity());
         address_id = getArguments().getInt(Tag);
@@ -165,7 +166,7 @@ layout    =view.findViewById(R.id.bottom_sheet_layout);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
 
         back_arrow = view.findViewById(R.id.arrow);
-        coordinatorLayout = view.findViewById(R.id.coordinator);
+      //  coordinatorLayout = view.findViewById(R.id.coordinator);
         edt_buildnum = view.findViewById(R.id.edt_build_name);
         edt_floor = view.findViewById(R.id.edt_floor);
         edt_flatnum = view.findViewById(R.id.edt_flat_num);

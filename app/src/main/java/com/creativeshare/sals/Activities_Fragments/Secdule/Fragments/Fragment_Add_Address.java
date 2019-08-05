@@ -133,7 +133,7 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
 
         back_arrow = view.findViewById(R.id.arrow);
-        coordinatorLayout = view.findViewById(R.id.coordinator);
+     //   coordinatorLayout = view.findViewById(R.id.coordinator);
         edt_buildnum = view.findViewById(R.id.edt_build_name);
         edt_floor = view.findViewById(R.id.edt_floor);
         edt_flatnum = view.findViewById(R.id.edt_flat_num);
@@ -171,7 +171,7 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
                 checkdata();
             }
         });
-        coordinatorLayout.scrollTo(0, coordinatorLayout.getScrollY());
+       // coordinatorLayout.scrollTo(0, coordinatorLayout.getScrollY());
         //scrollView.fullScroll(View.FOCUS_UP);
         //scrollView.smoothScrollTo(0,0);
         // scrollView.fullScroll(View.FOCUS_DOWN);

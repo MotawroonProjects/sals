@@ -23,17 +23,17 @@ import io.paperdb.Paper;
 public class Other_Services_Adapter extends RecyclerView.Adapter<Other_Services_Adapter.Eyas_Holder> {
     List<Other_Services_Model.Services> list;
     Context context;
-    private String current_lang;
-    private Home_Activity homeActivity;
+   // private String current_lang;
+   // private Home_Activity homeActivity;
     // private int select;
     //private Fragment_Main fragment_main;
 
     public Other_Services_Adapter(List<Other_Services_Model.Services> list, Context context) {
         this.list = list;
         this.context = context;
-        homeActivity = (Home_Activity) context;
-        Paper.init(homeActivity);
-        current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
+      //  homeActivity = (Home_Activity) context;
+        //Paper.init(homeActivity);
+        //current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
 
     }
 

@@ -4,6 +4,7 @@ package com.creativeshare.sals.services;
 import com.creativeshare.sals.models.Address_Model;
 import com.creativeshare.sals.models.Address_Models;
 import com.creativeshare.sals.models.PlaceGeocodeData;
+import com.creativeshare.sals.models.Questions_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.models.Visit_Model;
 
@@ -118,5 +119,11 @@ public interface Service {
             @Field("longitude") String longitude,
             @Field("is_primary") String is_primary,
             @Field("address_id") String address_id
+    );
+    @GET("api/faqs")
+    Call<Questions_Model> getQuestions(
+            @Header("Authorization") String Authorization,
+            @Header("lang") String lang
+
     );
 }

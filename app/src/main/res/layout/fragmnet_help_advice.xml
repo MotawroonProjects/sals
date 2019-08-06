@@ -68,16 +68,13 @@
            android:text="@string/most_frequently_asked_questions"
            android:textColor="@color/black"
            android:textSize="15sp" />
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="45dp"
-    android:text="@string/how_can_i_check_the_status_of_my_truck"
-   android:textColor="@color/black"
-    android:textSize="15sp"
-    android:paddingRight="10dp"
-    android:paddingLeft="10dp"
-    android:gravity="center_vertical"
-    />
+
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/rec_question"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+       </androidx.recyclerview.widget.RecyclerView>
        <TextView
            android:layout_width="match_parent"
            android:layout_height="50dp"

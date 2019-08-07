@@ -45,7 +45,7 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
     final static private String Tag = "chec_activity";
     private float zoom = 15.6f;
 
-    private Marker marker[];
+    private Marker marker;
     private GoogleMap mMap;
     private List<Sercvices_Centers.Centers> centers;
     public static Fragment_Service_Centers newInstance(int param) {
@@ -89,7 +89,7 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
         iconGenerator.setContentView(view);
         iconGenerator.setBackground(null);
         //   iconGenerator.setContentView(view);
-        marker=new Marker[centers.size()];
+
         //  LatLngBounds.Builder builder = new LatLngBounds.Builder();
 
         for (int i = 0; i < centers.size(); i++) {
@@ -97,7 +97,7 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
 
             // bld.include(ll);
             //Log.e("dd", x[i] + "");
-            marker[i] = mMap.addMarker(new MarkerOptions()
+            marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(centers.get(i).getLatitude(), centers.get(i).getLongitude()))
 
                     .icon(BitmapDescriptorFactory.fromBitmap(iconGenerator.makeIcon())).anchor(iconGenerator.getAnchorU(), iconGenerator.getAnchorV()));

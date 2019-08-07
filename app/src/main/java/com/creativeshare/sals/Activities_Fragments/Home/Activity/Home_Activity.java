@@ -147,7 +147,7 @@ public class Home_Activity extends AppCompatActivity {
 
     public void DisplayFragmentCalculateprice() {
         fragment_count += 1;
-            fragment_calculate_price = Fragment_Calculate_price.newInstance();
+        fragment_calculate_price = Fragment_Calculate_price.newInstance();
 
 
         if (fragment_calculate_price.isAdded()) {
@@ -159,6 +159,7 @@ public class Home_Activity extends AppCompatActivity {
             fragment_home.updateBottomNavigationPosition(1);
         }
     }
+
     public void DisplayFragmentShippingDimentions() {
         fragment_count += 1;
 
@@ -172,10 +173,11 @@ public class Home_Activity extends AppCompatActivity {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_shipping_dementions, "fragment_shipping_dementions").addToBackStack("fragment_shipping_dementions").commit();
         }
     }
+
     public void DisplayFragmentComputrizedprice() {
         fragment_count += 1;
 
-            fragment_computrized_price = Fragment_Computrized_Price.newInstance();
+        fragment_computrized_price = Fragment_Computrized_Price.newInstance();
 
 
         if (fragment_computrized_price.isAdded()) {
@@ -373,7 +375,7 @@ public class Home_Activity extends AppCompatActivity {
         fragment_count += 1;
 
 
-            fragment_add_address = Fragment_Add_Address.newInstance(1);
+        fragment_add_address = Fragment_Add_Address.newInstance(1);
 
 
         if (fragment_add_address.isAdded()) {
@@ -382,11 +384,12 @@ public class Home_Activity extends AppCompatActivity {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_add_address, "fragment_add_address").addToBackStack("fragment_add_address").commit();
         }
     }
+
     public void DisplayFragmentUpdateaddress(int address_id) {
         fragment_count += 1;
 
 
-            fragment_update_address = Fragment_Update_Address.newInstance(address_id);
+        fragment_update_address = Fragment_Update_Address.newInstance(address_id);
 
 
         if (fragment_update_address.isAdded()) {
@@ -395,6 +398,7 @@ public class Home_Activity extends AppCompatActivity {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_update_address, "fragment_update_address").addToBackStack("fragment_update_address").commit();
         }
     }
+
     @Override
     public void onBackPressed() {
         Back();
@@ -424,7 +428,7 @@ public class Home_Activity extends AppCompatActivity {
     }
 
     public void RefreshActivity(String selected_language) {
-        preferences.create_update_language(this,selected_language);
+        preferences.create_update_language(this, selected_language);
         Paper.book().write("lang", selected_language);
         Language.setNewLocale(this, selected_language);
 
@@ -451,6 +455,7 @@ public class Home_Activity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
     private void addVisit(final String timeNow) {
         final ProgressDialog dialog = Common.createProgressDialog(this, getString(R.string.wait));
         dialog.setCancelable(false);
@@ -488,13 +493,13 @@ public class Home_Activity extends AppCompatActivity {
     }
 
     public void upadateprefrece(UserModel body) {
-        if(fragment_profile!=null){
+        if (fragment_profile != null) {
             fragment_profile.upadateprefrece(body);
         }
     }
 
     public void updatedata(Address_Model body) {
-        if(fragment_ٍMy_address!=null&&fragment_ٍMy_address.isAdded()){
+        if (fragment_ٍMy_address != null && fragment_ٍMy_address.isAdded()) {
             fragment_ٍMy_address.updatedata(body);
         }
     }

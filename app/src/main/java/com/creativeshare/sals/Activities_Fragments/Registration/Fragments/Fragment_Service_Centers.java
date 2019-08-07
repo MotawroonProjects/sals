@@ -106,7 +106,9 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
 
 
         }
-
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(new LatLng(centers.get(0).getLatitude()+25, centers.get(0).getLongitude()));
+        marker=mMap.addMarker(markerOptions);
         // CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(builder.build(),200);
 
         // mMap.animateCamera(cameraUpdate);

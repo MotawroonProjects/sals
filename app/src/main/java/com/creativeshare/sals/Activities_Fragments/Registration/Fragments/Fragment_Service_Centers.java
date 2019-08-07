@@ -84,11 +84,11 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
     private void AddMarker() {
 
 
-        IconGenerator iconGenerator = new IconGenerator(getActivity());
-        iconGenerator.setBackground(null);
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.search_map_icon, null);
-        iconGenerator.setContentView(view);
-        iconGenerator.setBackground(null);
+       // IconGenerator iconGenerator = new IconGenerator(getActivity());
+        //iconGenerator.setBackground(null);
+        //View view = LayoutInflater.from(getActivity()).inflate(R.layout.search_map_icon, null);
+        //iconGenerator.setContentView(view);
+        //iconGenerator.setBackground(null);
         //   iconGenerator.setContentView(view);
 
         //  LatLngBounds.Builder builder = new LatLngBounds.Builder();
@@ -99,16 +99,14 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
             // bld.include(ll);
             //Log.e("dd", x[i] + "");
             MarkerOptions markerOptions = new MarkerOptions();
-            markerOptions.position(new LatLng(centers.get(i).getLatitude(), centers.get(i).getLongitude()));
+            markerOptions.position(new LatLng(centers.get(i).getLatitude()+i*25, centers.get(i).getLongitude()));
             marker=mMap.addMarker(markerOptions);
             //  builder.include(marker[i].getPosition());
          //   mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(centers.get(i).getLatitude(), centers.get(i).getLongitude()), zoom));
 
 
         }
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(new LatLng(centers.get(0).getLatitude()+25, centers.get(0).getLongitude()));
-        marker=mMap.addMarker(markerOptions);
+
         // CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(builder.build(),200);
 
         // mMap.animateCamera(cameraUpdate);

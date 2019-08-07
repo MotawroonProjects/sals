@@ -70,7 +70,7 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
 
         if (googleMap != null) {
             mMap = googleMap;
-            //   mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(getActivity(), R.raw.maps));
+           // mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(getActivity(), R.raw.maps));
             mMap.setTrafficEnabled(false);
             mMap.setBuildingsEnabled(false);
             mMap.setIndoorEnabled(true);
@@ -99,10 +99,10 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
             // bld.include(ll);
             //Log.e("dd", x[i] + "");
             MarkerOptions markerOptions = new MarkerOptions();
-            markerOptions.position(new LatLng(centers.get(i).getLatitude()+i*25, centers.get(i).getLongitude()));
+            markerOptions.position(new LatLng(centers.get(i).getLatitude(), centers.get(i).getLongitude()));
             marker=mMap.addMarker(markerOptions);
             //  builder.include(marker[i].getPosition());
-         //   mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(centers.get(i).getLatitude(), centers.get(i).getLongitude()), zoom));
+         // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(centers.get(i).getLatitude(), centers.get(i).getLongitude()), zoom));
 
 
         }

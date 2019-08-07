@@ -90,9 +90,9 @@ public class Scedule_Activity extends AppCompatActivity {
     public void DisplayFragmentShippingDimentions() {
         fragment_count += 1;
 
-        if (fragment_shipping_dementions == null) {
+
             fragment_shipping_dementions = Fragment_Shipping_Dementions.newInstance();
-        }
+
 
         if (fragment_shipping_dementions.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_shipping_dementions).commit();

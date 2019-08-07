@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,7 +28,9 @@ public class Fragment_Calculate_price extends Fragment {
     private FrameLayout fr_document,fr_parcel;
     private ImageView im_document,im_parcel;
     private TextView tv_document,tv_parcel;
-private Button bt_claculate;
+private Button bt_claculate,bt_Shipping_dimensions;
+    private EditText edt_desc;
+
     public static Fragment_Calculate_price newInstance() {
         return new Fragment_Calculate_price();
     }
@@ -51,6 +54,8 @@ private Button bt_claculate;
         tv_document=view.findViewById(R.id.tv_document);
         tv_parcel=view.findViewById(R.id.tv_parcel);
         bt_claculate=view.findViewById(R.id.bt_claculate);
+        edt_desc=view.findViewById(R.id.edt_desc);
+        bt_Shipping_dimensions=view.findViewById(R.id.bt_shipping_dimensions);
         if(current_lang.equals("ar")){
             back_arrow.setRotation(180.0f);
         }
@@ -66,6 +71,8 @@ private Button bt_claculate;
                 im_parcel.setColorFilter(getResources().getColor(R.color.colorPrimary));
                 tv_document.setTextColor(getResources().getColor(R.color.white));
                 tv_parcel.setTextColor(getResources().getColor(R.color.colorPrimary));
+                bt_Shipping_dimensions.setVisibility(View.GONE);
+                edt_desc.setVisibility(View.GONE);
             }
         });
         fr_parcel.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +84,8 @@ private Button bt_claculate;
                 im_parcel.setColorFilter(getResources().getColor(R.color.white));
                 tv_document.setTextColor(getResources().getColor(R.color.colorPrimary));
                 tv_parcel.setTextColor(getResources().getColor(R.color.white));
+                bt_Shipping_dimensions.setVisibility(View.VISIBLE);
+                edt_desc.setVisibility(View.VISIBLE);
             }
         });
         back_arrow.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +98,12 @@ private Button bt_claculate;
             @Override
             public void onClick(View view) {
                 activity.DisplayFragmentComputrizedprice();
+            }
+        });
+        bt_Shipping_dimensions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.DisplayFragmentShippingDimentions();
             }
         });
     }

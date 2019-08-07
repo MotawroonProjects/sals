@@ -30,6 +30,7 @@ import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragme
 import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Track_The_Shipment;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Add_Address;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Shipping_Dementions;
 import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.Share.Common;
@@ -56,6 +57,8 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_Home fragment_home;
     private Fragment_Main fragment_main;
     private Fragment_Calculate_price fragment_calculate_price;
+    private Fragment_Shipping_Dementions fragment_shipping_dementions;
+
     private Fragment_Computrized_Price fragment_computrized_price;
     private Fragment_Profile fragment_profile;
     private Fragment_Help_Advice fragment_help_advice;
@@ -144,9 +147,8 @@ public class Home_Activity extends AppCompatActivity {
 
     public void DisplayFragmentCalculateprice() {
         fragment_count += 1;
-        if (fragment_calculate_price == null) {
             fragment_calculate_price = Fragment_Calculate_price.newInstance();
-        }
+
 
         if (fragment_calculate_price.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_calculate_price).commit();
@@ -157,12 +159,24 @@ public class Home_Activity extends AppCompatActivity {
             fragment_home.updateBottomNavigationPosition(1);
         }
     }
+    public void DisplayFragmentShippingDimentions() {
+        fragment_count += 1;
 
+
+        fragment_shipping_dementions = Fragment_Shipping_Dementions.newInstance();
+
+
+        if (fragment_shipping_dementions.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_shipping_dementions).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_shipping_dementions, "fragment_shipping_dementions").addToBackStack("fragment_shipping_dementions").commit();
+        }
+    }
     public void DisplayFragmentComputrizedprice() {
         fragment_count += 1;
-        if (fragment_computrized_price == null) {
+
             fragment_computrized_price = Fragment_Computrized_Price.newInstance();
-        }
+
 
         if (fragment_computrized_price.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_computrized_price).commit();
@@ -484,5 +498,6 @@ public class Home_Activity extends AppCompatActivity {
             fragment_ٍMy_address.updatedata(body);
         }
     }
+
 }
 

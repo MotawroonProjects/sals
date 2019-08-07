@@ -26,11 +26,12 @@ import io.paperdb.Paper;
 public class Fragment_Shipping_Detials extends Fragment {
     private Scedule_Activity activity;
     private String current_lang;
-    private Button next,bt_Shipping_dimensions;
-    private FrameLayout fr_document,fr_parcel;
-    private ImageView im_document,im_parcel;
-    private TextView tv_document,tv_parcel;
+    private Button next, bt_Shipping_dimensions;
+    private FrameLayout fr_document, fr_parcel;
+    private ImageView im_document, im_parcel;
+    private TextView tv_document, tv_parcel;
     private EditText edt_desc;
+
     public static Fragment_Shipping_Detials newInstance() {
         return new Fragment_Shipping_Detials();
     }
@@ -42,19 +43,20 @@ public class Fragment_Shipping_Detials extends Fragment {
         initView(view);
         return view;
     }
+
     private void initView(View view) {
         activity = (Scedule_Activity) getActivity();
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
-        fr_document=view.findViewById(R.id.fr_document);
-        fr_parcel=view.findViewById(R.id.fr_parcel);
-        im_document=view.findViewById(R.id.im_document);
-        im_parcel=view.findViewById(R.id.im_parcel);
-        tv_document=view.findViewById(R.id.tv_document);
-        tv_parcel=view.findViewById(R.id.tv_parcel);
-        edt_desc=view.findViewById(R.id.edt_desc);
-        bt_Shipping_dimensions=view.findViewById(R.id.bt_shipping_dimensions);
-        next=view.findViewById(R.id.bt_next);
+        fr_document = view.findViewById(R.id.fr_document);
+        fr_parcel = view.findViewById(R.id.fr_parcel);
+        im_document = view.findViewById(R.id.im_document);
+        im_parcel = view.findViewById(R.id.im_parcel);
+        tv_document = view.findViewById(R.id.tv_document);
+        tv_parcel = view.findViewById(R.id.tv_parcel);
+        edt_desc = view.findViewById(R.id.edt_desc);
+        bt_Shipping_dimensions = view.findViewById(R.id.bt_shipping_dimensions);
+        next = view.findViewById(R.id.bt_next);
 
         fr_document.setOnClickListener(new View.OnClickListener() {
             @Override

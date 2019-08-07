@@ -286,7 +286,7 @@
 <EditText
     android:id="@+id/edt_desc"
     android:layout_width="match_parent"
-    android:layout_height="45dp"
+    android:layout_height="80dp"
     android:hint="@string/description"
     android:textColor="@color/black"
     android:textColorHint="@color/gray4"

@@ -244,6 +244,17 @@
 
 
         </LinearLayout>
+        <EditText
+            android:id="@+id/edt_desc"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="@string/description"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray4"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:visibility="gone"
+            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -334,6 +345,21 @@
         android:textColorHint="@color/gray4"
         />
         </LinearLayout>
+        <Button
+            android:id="@+id/bt_shipping_dimensions"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="120dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_shape"
+            android:gravity="center"
+            android:text="@string/shipping_dimensions"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:visibility="gone"
+            />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="45dp"

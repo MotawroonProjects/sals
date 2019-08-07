@@ -48,6 +48,7 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
     private Marker marker;
     private GoogleMap mMap;
     private List<Sercvices_Centers.Centers> centers;
+
     public static Fragment_Service_Centers newInstance(int param) {
 
         Fragment_Service_Centers fragment_service_centers = new Fragment_Service_Centers();
@@ -56,6 +57,7 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
         fragment_service_centers.setArguments(bundle);
         return fragment_service_centers;
     }
+
     private void updateUI() {
 
         SupportMapFragment fragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.fragment_map);
@@ -78,9 +80,8 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
 
         }
     }
+
     private void AddMarker() {
-
-
 
 
         IconGenerator iconGenerator = new IconGenerator(getActivity());
@@ -97,13 +98,11 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
 
             // bld.include(ll);
             //Log.e("dd", x[i] + "");
-            marker = mMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(centers.get(i).getLatitude(), centers.get(i).getLongitude()))
-
-                    .icon(BitmapDescriptorFactory.fromBitmap(iconGenerator.makeIcon())).anchor(iconGenerator.getAnchorU(), iconGenerator.getAnchorV()));
-
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(new LatLng(centers.get(i).getLatitude(), centers.get(i).getLongitude()));
+            marker=mMap.addMarker(markerOptions);
             //  builder.include(marker[i].getPosition());
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(centers.get(i).getLatitude(),centers.get(i).getLongitude()),zoom));
+         //   mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(centers.get(i).getLatitude(), centers.get(i).getLongitude()), zoom));
 
 
         }
@@ -111,7 +110,6 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
         // CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(builder.build(),200);
 
         // mMap.animateCamera(cameraUpdate);
-
 
 
     }
@@ -130,9 +128,9 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
         Api.getService().getservicescenter(current_lang).enqueue(new Callback<Sercvices_Centers>() {
             @Override
             public void onResponse(Call<Sercvices_Centers> call, Response<Sercvices_Centers> response) {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     centers.clear();
-                    if(response.body()!=null&&response.body().getCenters()!=null&&response.body().getCenters().size()>0){
+                    if (response.body() != null && response.body().getCenters() != null && response.body().getCenters().size() > 0) {
                         centers.addAll(response.body().getCenters());
                         AddMarker();
                     }
@@ -147,7 +145,7 @@ public class Fragment_Service_Centers extends Fragment implements OnMapReadyCall
     }
 
     private void initview(View view) {
-        centers=new ArrayList<>();
+        centers = new ArrayList<>();
         param = getArguments().getInt(Tag);
         if (param == 1) {
             register_activity = (Register_Activity) getActivity();

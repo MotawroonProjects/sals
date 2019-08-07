@@ -6,6 +6,7 @@ import com.creativeshare.sals.models.Address_Models;
 import com.creativeshare.sals.models.Other_Services_Model;
 import com.creativeshare.sals.models.PlaceGeocodeData;
 import com.creativeshare.sals.models.Questions_Model;
+import com.creativeshare.sals.models.Sercvices_Centers;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.models.Visit_Model;
 
@@ -130,6 +131,12 @@ public interface Service {
     @GET("api/other-services")
     Call<Other_Services_Model> getOtherservices(
             @Header("Authorization") String Authorization,
+            @Header("lang") String lang
+
+    );
+    @GET("api/centers")
+    Call<Sercvices_Centers> getservicescenter(
+
             @Header("lang") String lang
 
     );

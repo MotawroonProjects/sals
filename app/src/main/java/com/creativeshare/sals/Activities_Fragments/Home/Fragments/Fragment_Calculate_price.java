@@ -315,6 +315,8 @@ getQoute(wegights);
             public void onResponse(Call<Quote_Model> call, Response<Quote_Model> response) {
                 dialog.dismiss();
                 if(response.isSuccessful()){
+               //     assert response.body() != null;
+                //    Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getWeightCharge());
                     activity.DisplayFragmentComputrizedprice();
                 }
                 else {

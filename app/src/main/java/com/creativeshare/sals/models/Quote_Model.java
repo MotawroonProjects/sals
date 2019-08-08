@@ -18,82 +18,21 @@ public class Quote_Model implements Serializable {
         }
 
         public class GetQuoteResponse implements Serializable{
-            private Response  Response;
 private BkgDetails BkgDetails;
 
-            public Data.GetQuoteResponse.Response getResponse() {
-                return Response;
-            }
 
             public Data.GetQuoteResponse.BkgDetails getBkgDetails() {
                 return BkgDetails;
             }
 
-            public class Response implements Serializable{
-                private ServiceHeader ServiceHeader;
-
-                public Data.GetQuoteResponse.Response.ServiceHeader getServiceHeader() {
-                    return ServiceHeader;
-                }
-
-                public class ServiceHeader implements Serializable{
-                    private String MessageTime;
-                            private String MessageReference;
-                           private String SiteID;
-
-                    public String getMessageTime() {
-                        return MessageTime;
-                    }
-
-                    public String getMessageReference() {
-                        return MessageReference;
-                    }
-
-                    public String getSiteID() {
-                        return SiteID;
-                    }
-                }
-            }
             public class BkgDetails implements Serializable{
-                private OriginServiceArea OriginServiceArea;
-private DestinationServiceArea DestinationServiceArea;
 private List<QtdShp> QtdShp;
-                public Data.GetQuoteResponse.BkgDetails.OriginServiceArea getOriginServiceArea() {
-                    return OriginServiceArea;
-                }
 
-                public Data.GetQuoteResponse.BkgDetails.DestinationServiceArea getDestinationServiceArea() {
-                    return DestinationServiceArea;
-                }
 
                 public List<Data.GetQuoteResponse.BkgDetails.QtdShp> getQtdShp() {
                     return QtdShp;
                 }
 
-                public class  OriginServiceArea  implements Serializable{
-                    private String FacilityCode;
-                            private String ServiceAreaCode;
-
-                    public String getFacilityCode() {
-                        return FacilityCode;
-                    }
-
-                    public String getServiceAreaCode() {
-                        return ServiceAreaCode;
-                    }
-                }
-                public class DestinationServiceArea implements Serializable{
-                        private String FacilityCode;
-                        private String ServiceAreaCode;
-
-                    public String getFacilityCode() {
-                        return FacilityCode;
-                    }
-
-                    public String getServiceAreaCode() {
-                        return ServiceAreaCode;
-                    }
-                }
                 public class QtdShp implements Serializable {
 
                         private String GlobalProductCode;
@@ -125,40 +64,99 @@ private List<QtdShp> QtdShp;
                             private String WeightUnit;
                             private String PickupDayOfWeekNum;
                             private String DestinationDayOfWeekNum;
-                            public class QtdShpExChrg  implements Serializable{
-                        private String SpecialServiceType;
-                                private String LocalServiceType;
-                                private String GlobalServiceName;
-                                private String LocalServiceTypeName;
-                                private String SOfferedCustAgreement;
-                                private String ChargeCodeType;
-                                private String CurrencyCode;
-                                private String ChargeValue;
-                                private String ChargeTaxAmount;
-                                public class  ChargeTaxAmountDet implements Serializable {
-                            private String TaxTypeRate;
-                                    private String TaxTypeCode;
-                                   private String TaxAmount;
-                                    private String BaseAmount;
-                        }
-                        private List<QtdSExtrChrgInAdCur>  QtdSExtrChrgInAdCur;
-                        public class QtdSExtrChrgInAdCur implements Serializable
-                        {
-                            private String ChargeValue;
-                                private String ChargeTaxAmount;
-                                private String CurrencyCode;
-                                private String CurrencyRoleTypeCode;
-                                private String ChargeTaxAmountDet;
-                           private String TaxTypeRate;;
-                                   private String TaxTypeCode;
-                                    private String TaxAmount;
-                                    private String BaseAmount;
-                        }
-                        }
 
-
+                    public String getGlobalProductCode() {
+                        return GlobalProductCode;
                     }
-                        private String PricingDate;
+
+                    public String getLocalProductCode() {
+                        return LocalProductCode;
+                    }
+
+                    public String getProductShortName() {
+                        return ProductShortName;
+                    }
+
+                    public String getLocalProductName() {
+                        return LocalProductName;
+                    }
+
+                    public String getNetworkTypeCode() {
+                        return NetworkTypeCode;
+                    }
+
+                    public String getPOfferedCustAgreement() {
+                        return POfferedCustAgreement;
+                    }
+
+                    public String getTransInd() {
+                        return TransInd;
+                    }
+
+                    public String getPickupDate() {
+                        return PickupDate;
+                    }
+
+                    public String getPickupCutoffTime() {
+                        return PickupCutoffTime;
+                    }
+
+                    public String getBookingTime() {
+                        return BookingTime;
+                    }
+
+                    public String getCurrencyCode() {
+                        return CurrencyCode;
+                    }
+
+                    public String getExchangeRate() {
+                        return ExchangeRate;
+                    }
+
+                    public String getWeightCharge() {
+                        return WeightCharge;
+                    }
+
+                    public String getWeightChargeTax() {
+                        return WeightChargeTax;
+                    }
+
+                    public String getTotalTransitDays() {
+                        return TotalTransitDays;
+                    }
+
+                    public String getPickupPostalLocAddDays() {
+                        return PickupPostalLocAddDays;
+                    }
+
+                    public String getDeliveryPostalLocAddDays() {
+                        return DeliveryPostalLocAddDays;
+                    }
+
+                    public String getDeliveryDate() {
+                        return DeliveryDate;
+                    }
+
+                    public String getDeliveryTime() {
+                        return DeliveryTime;
+                    }
+
+                    public String getDimensionalWeight() {
+                        return DimensionalWeight;
+                    }
+
+                    public String getWeightUnit() {
+                        return WeightUnit;
+                    }
+
+                    public String getPickupDayOfWeekNum() {
+                        return PickupDayOfWeekNum;
+                    }
+
+                    public String getDestinationDayOfWeekNum() {
+                        return DestinationDayOfWeekNum;
+                    }
+                }
 
                     }
                 }

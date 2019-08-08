@@ -314,7 +314,7 @@ layout    =view.findViewById(R.id.bottom_sheet);
             iconGenerator.setBackground(null);
             View view = LayoutInflater.from(getActivity()).inflate(R.layout.search_map_icon, null);
             iconGenerator.setContentView(view);
-            marker = mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lang)).icon(BitmapDescriptorFactory.fromBitmap(iconGenerator.makeIcon())).anchor(iconGenerator.getAnchorU(), iconGenerator.getAnchorV()).draggable(true));
+            marker = mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lang)));
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lang), zoom));
         } else {
             marker.setPosition(new LatLng(lat, lang));

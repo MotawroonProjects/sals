@@ -20,11 +20,11 @@ import java.util.Locale;
 import io.paperdb.Paper;
 
 public class Spinner_City_Adapter extends BaseAdapter {
-    private List<CityModel> cityModelList;
+    private List<CityModel.Cities> cityModelList;
     private LayoutInflater inflater;
     private String current_language;
 
-    public Spinner_City_Adapter(Context context, List<CityModel> cityModelList) {
+    public Spinner_City_Adapter(Context context, List<CityModel.Cities> cityModelList) {
         this.cityModelList = cityModelList;
         inflater = LayoutInflater.from(context);
         Paper.init(context);
@@ -54,13 +54,13 @@ public class Spinner_City_Adapter extends BaseAdapter {
         }
         TextView tv_name = convertView.findViewById(R.id.tv_name);
 
-        CityModel cityModel = cityModelList.get(position);
+        CityModel.Cities cityModel = cityModelList.get(position);
 if(current_language.equals("ar")){
-    tv_name.setText(cityModel.getAr_city_title());
+    tv_name.setText(cityModel.getAr_name());
 
 }
 else {
-    tv_name.setText(cityModel.getEn_city_title());
+    tv_name.setText(cityModel.getEn_name());
 }
         return convertView;
     }

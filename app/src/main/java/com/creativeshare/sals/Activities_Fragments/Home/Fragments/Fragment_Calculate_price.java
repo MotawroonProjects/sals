@@ -2,6 +2,7 @@ package com.creativeshare.sals.Activities_Fragments.Home.Fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,22 +58,22 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
     private ImageView back_arrow;
     private FrameLayout fr_document, fr_parcel;
     private ImageView im_document, im_parcel;
-    private TextView tv_document, tv_parcel, tv_date, tv_time;
-    private Button bt_claculate, bt_Shipping_dimensions;
-    private EditText edt_desc;
+    private TextView tv_document, tv_parcel, tv_date, tv_time, tv_Quantity;
+    private Button bt_claculate, bt_Shipping_dimensions, bt_incremental, bt_decremantal;
+    private EditText edt_desc, edt_weight;
     private LinearLayout ll_time, ll_date;
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
-    private Spinner spinner_city_from,spinner_country_from,spinner_city_to,spinner_country_to;
+    private Spinner spinner_city_from, spinner_country_from, spinner_city_to, spinner_country_to;
 
     private String date;
     private String time;
-    private List<CityModel> cityModelList;
+    private List<CityModel.Cities> cityModelList;
     private Spinner_City_Adapter city_adapter;
     private List<Country_Model.Countries> countriesList;
     private Spinner_Country_Adapter country_adapter;
-
-    private String is_dutiable = "1", special_service_type = "WY", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", dutiable_value = "100.0", dutiable_currency = "CHF", payment_country_code, from_country_code, from_city, from_postal_code, to_postal_code, to_city, to_country_code;
+    private int quantity = 1;
+    private String is_dutiable = "0", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", payment_country_code = "SA", from_country_code = "SA", from_city, to_city, to_country_code = "SA";
 
     public static Fragment_Calculate_price newInstance() {
         return new Fragment_Calculate_price();
@@ -83,18 +84,18 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calculate_price, container, false);
         initView(view);
-        getCountry();
+        //   getCountry();
         getCities();
         return view;
     }
 
     private void initView(View view) {
         cityModelList = new ArrayList<>();
-        countriesList=new ArrayList<>();
+        countriesList = new ArrayList<>();
         activity = (Home_Activity) getActivity();
         Paper.init(activity);
-        preferences=Preferences.getInstance();
-        userModel=preferences.getUserData(activity);
+        preferences = Preferences.getInstance();
+        userModel = preferences.getUserData(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         back_arrow = view.findViewById(R.id.arrow);
         fr_document = view.findViewById(R.id.fr_document);
@@ -107,20 +108,23 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
         ll_time = view.findViewById(R.id.ll_time);
         ll_date = view.findViewById(R.id.ll_date);
         edt_desc = view.findViewById(R.id.edt_desc);
+        bt_incremental = view.findViewById(R.id.increment);
+        bt_decremantal = view.findViewById(R.id.decrement);
         bt_Shipping_dimensions = view.findViewById(R.id.bt_shipping_dimensions);
         tv_date = view.findViewById(R.id.tv_date);
         tv_time = view.findViewById(R.id.tv_time);
-        spinner_country_from=view.findViewById(R.id.sp_countryfrom);
-        spinner_city_from=view.findViewById(R.id.sp_cityfrom);
-        spinner_country_to=view.findViewById(R.id.sp_countryto);
-        spinner_city_to=view.findViewById(R.id.sp_cityto);
-        city_adapter=new Spinner_City_Adapter(activity,cityModelList);
-        country_adapter=new Spinner_Country_Adapter(activity,countriesList);
+        tv_Quantity = view.findViewById(R.id.tv_quantity);
+        spinner_country_from = view.findViewById(R.id.sp_countryfrom);
+        spinner_city_from = view.findViewById(R.id.sp_cityfrom);
+        spinner_country_to = view.findViewById(R.id.sp_countryto);
+        spinner_city_to = view.findViewById(R.id.sp_cityto);
+        city_adapter = new Spinner_City_Adapter(activity, cityModelList);
+        country_adapter = new Spinner_Country_Adapter(activity, countriesList);
         spinner_city_to.setAdapter(city_adapter);
         spinner_city_from.setAdapter(city_adapter);
         spinner_country_from.setAdapter(country_adapter);
         spinner_country_to.setAdapter(country_adapter);
-
+        edt_weight = view.findViewById(R.id.edt_weight);
         if (current_lang.equals("ar")) {
             back_arrow.setRotation(180.0f);
         }
@@ -128,12 +132,10 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
         spinner_city_from.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position ==0)
-                {
-                    from_city ="";
-                }else
-                {
-                    from_city = cityModelList.get(position).getEn_city_title();
+                if (position == 0) {
+                    from_city = "";
+                } else {
+                    from_city = cityModelList.get(position).getEn_name();
                 }
             }
 
@@ -145,12 +147,10 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
         spinner_city_to.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position ==0)
-                {
-                    to_city ="";
-                }else
-                {
-                   to_city = cityModelList.get(position).getEn_city_title();
+                if (position == 0) {
+                    to_city = "";
+                } else {
+                    to_city = cityModelList.get(position).getEn_name();
                 }
             }
 
@@ -159,7 +159,7 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
 
             }
         });
-        spinner_country_from.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+      /*  spinner_country_from.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position ==0)
@@ -175,8 +175,8 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
-        spinner_country_to.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        });*/
+       /* spinner_country_to.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position ==0)
@@ -191,6 +191,22 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });*/
+        bt_incremental.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                quantity += 1;
+                tv_Quantity.setText(quantity + "");
+            }
+        });
+        bt_decremantal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (quantity > 1) {
+                    quantity -= 1;
+                    tv_Quantity.setText(quantity + "");
+                }
             }
         });
         fr_document.setOnClickListener(new View.OnClickListener() {
@@ -234,7 +250,10 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
         bt_Shipping_dimensions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.DisplayFragmentShippingDimentions();
+
+
+                checkdata();
+                // activity.DisplayFragmentShippingDimentions();
             }
         });
         ll_date.setOnClickListener(new View.OnClickListener() {
@@ -253,6 +272,35 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
         createDatePickerDialog();
         createTimePickerDialog();
 
+    }
+
+    private void checkdata() {
+        String weight=edt_weight.getText().toString();
+        if (TextUtils.isEmpty(from_city) || TextUtils.isEmpty(to_city) ||TextUtils.isEmpty(weight)||TextUtils.isEmpty(date)||TextUtils.isEmpty(time)){
+            if(TextUtils.isEmpty(from_city)|| TextUtils.isEmpty(to_city) ){
+                Toast.makeText(activity,getResources().getString(R.string.add_city),Toast.LENGTH_LONG).show();
+            }
+            if(TextUtils.isEmpty(weight)){
+                edt_weight.setError(getResources().getString(R.string.field_req));
+            }
+            if(TextUtils.isEmpty(date)){
+                tv_date.setError(getResources().getString(R.string.field_req));
+            }
+            if(TextUtils.isEmpty(time)){
+                tv_time.setError(getResources().getString(R.string.field_req));
+            }
+        }
+        else {
+            List<String> wegights=new ArrayList<>();
+            edt_weight.setError(null);
+            tv_date.setError(null);
+            tv_time.setError(null);
+            for(int i=0;i<quantity;i++){
+                wegights.add(weight);
+            }
+
+
+        }
     }
 
     private void createTimePickerDialog() {
@@ -317,32 +365,28 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
         //time = calendar.getTimeInMillis();
     }
 
-    private void getCities()
-    {
+    private void getCities() {
 
-        final ProgressDialog dialog = Common.createProgressDialog(activity,getString(R.string.wait));
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
 
         Api.getService(Tags.base_url)
-                .getCity("Bearer"+userModel.getToken(),current_lang)
-                .enqueue(new Callback<List<CityModel>>() {
+                .getCity("Bearer" + userModel.getToken(), current_lang)
+                .enqueue(new Callback<CityModel>() {
                     @Override
-                    public void onResponse(Call<List<CityModel>> call, Response<List<CityModel>> response) {
+                    public void onResponse(Call<CityModel> call, Response<CityModel> response) {
                         dialog.dismiss();
 
-                        if (response.isSuccessful())
-                        {
-                            if (response.body()!=null)
-                            {
+                        if (response.isSuccessful()) {
+                            if (response.body() != null) {
                                 cityModelList.clear();
-                                cityModelList.add(new CityModel("إختر","Choose"));
-                                cityModelList.addAll(response.body());
+                                cityModelList.add(new CityModel.Cities("إختر", "Choose"));
+                                cityModelList.addAll(response.body().getCities());
                                 city_adapter.notifyDataSetChanged();
 
                             }
-                        }else
-                        {
+                        } else {
                             try {
                                 Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
                                 Log.e("Error_code", response.code() + "" + response.errorBody().string());
@@ -353,7 +397,7 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
                     }
 
                     @Override
-                    public void onFailure(Call<List<CityModel>> call, Throwable t) {
+                    public void onFailure(Call<CityModel> call, Throwable t) {
                         try {
                             dialog.dismiss();
                             Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
@@ -365,32 +409,29 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
                 });
 
     }
-    private void getCountry()
-    {
 
-        final ProgressDialog dialog = Common.createProgressDialog(activity,getString(R.string.wait));
+    private void getCountry() {
+
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
 
         Api.getService(Tags.base_url)
-                .getCoutry("Bearer"+userModel.getToken(),current_lang)
+                .getCoutry("Bearer" + userModel.getToken(), current_lang)
                 .enqueue(new Callback<Country_Model>() {
                     @Override
                     public void onResponse(Call<Country_Model> call, Response<Country_Model> response) {
                         dialog.dismiss();
 
-                        if (response.isSuccessful())
-                        {
-                            if (response.body()!=null)
-                            {
+                        if (response.isSuccessful()) {
+                            if (response.body() != null) {
                                 countriesList.clear();
-                                countriesList.add(new Country_Model.Countries("Choose","إختر"));
+                                countriesList.add(new Country_Model.Countries("Choose", "إختر"));
                                 countriesList.addAll(response.body().getCountries());
                                 country_adapter.notifyDataSetChanged();
 
                             }
-                        }else
-                        {
+                        } else {
                             try {
                                 Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
                                 Log.e("Error_code", response.code() + "" + response.errorBody().string());

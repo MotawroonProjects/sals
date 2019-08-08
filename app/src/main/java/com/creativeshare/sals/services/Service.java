@@ -148,10 +148,11 @@ public interface Service {
             @Header("lang") String lang
 
     );
-    @GET("api/other-services")
-    Call<List<CityModel>> getCity(
+    @GET("/api/cities")
+    Call<CityModel> getCity(
             @Header("Authorization") String Authorization,
             @Header("lang") String lang
 
     );
+
 }

@@ -1,28 +1,46 @@
 package com.creativeshare.sals.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class CityModel implements Serializable {
+private List<Cities> cities;
 
-    private String id_city;
-    private String ar_city_title;
-    private String en_city_title;
-
-
-    public CityModel(String ar_city_title, String en_city_title) {
-        this.ar_city_title = ar_city_title;
-        this.en_city_title = en_city_title;
+    public List<Cities> getCities() {
+        return cities;
     }
 
-    public String getId_city() {
-        return id_city;
-    }
+    public static class Cities implements Serializable
+    {
+        private int id;
+            private String ar_name;
+            private String en_name;
+            private int province_id_fk;
+            private int country_id_fk;
 
-    public String getAr_city_title() {
-        return ar_city_title;
-    }
+        public Cities(String ar_name, String en_name) {
+            this.ar_name = ar_name;
+            this.en_name = en_name;
+        }
 
-    public String getEn_city_title() {
-        return en_city_title;
+        public int getId() {
+            return id;
+        }
+
+        public String getAr_name() {
+            return ar_name;
+        }
+
+        public String getEn_name() {
+            return en_name;
+        }
+
+        public int getProvince_id_fk() {
+            return province_id_fk;
+        }
+
+        public int getCountry_id_fk() {
+            return country_id_fk;
+        }
     }
 }

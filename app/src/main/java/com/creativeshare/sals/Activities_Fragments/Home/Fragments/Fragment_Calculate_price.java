@@ -29,6 +29,7 @@ import com.creativeshare.sals.R;
 import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.CityModel;
 import com.creativeshare.sals.models.Country_Model;
+import com.creativeshare.sals.models.Quote_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
@@ -244,7 +245,9 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
         bt_claculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.DisplayFragmentComputrizedprice();
+                checkdata();
+
+               //
             }
         });
         bt_Shipping_dimensions.setOnClickListener(new View.OnClickListener() {
@@ -298,9 +301,43 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
             for(int i=0;i<quantity;i++){
                 wegights.add(weight);
             }
-
+getQoute(wegights);
 
         }
+    }
+
+    private void getQoute(List<String> wegights) {
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService().get_quote("Bearer"+" "+ userModel.getToken(),date,wegights,is_dutiable,time,ready_time_gmt_offset,dimension_unit,weight_unit,payment_country_code,from_country_code,from_city,to_city,to_country_code).enqueue(new Callback<Quote_Model>() {
+            @Override
+            public void onResponse(Call<Quote_Model> call, Response<Quote_Model> response) {
+                dialog.dismiss();
+                if(response.isSuccessful()){
+                    activity.DisplayFragmentComputrizedprice();
+                }
+                else {
+                    try {
+                        Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
+                        Log.e("Error_code", response.code() + "" + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Quote_Model> call, Throwable t) {
+                try {
+                    dialog.dismiss();
+                    Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+                    Log.e("Error", t.getMessage());
+                } catch (Exception e) {
+
+                }
+            }
+        });
     }
 
     private void createTimePickerDialog() {
@@ -372,7 +409,7 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
         dialog.show();
 
         Api.getService(Tags.base_url)
-                .getCity("Bearer" + userModel.getToken(), current_lang)
+                .getCity("Bearer"+" "+ userModel.getToken(), current_lang)
                 .enqueue(new Callback<CityModel>() {
                     @Override
                     public void onResponse(Call<CityModel> call, Response<CityModel> response) {
@@ -417,7 +454,7 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
         dialog.show();
 
         Api.getService(Tags.base_url)
-                .getCoutry("Bearer" + userModel.getToken(), current_lang)
+                .getCoutry("Bearer"+" " + userModel.getToken(), current_lang)
                 .enqueue(new Callback<Country_Model>() {
                     @Override
                     public void onResponse(Call<Country_Model> call, Response<Country_Model> response) {

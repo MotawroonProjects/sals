@@ -84,7 +84,6 @@
     <string name="deserved_amount">المبلغ المستحق</string>
     <string name="confirmation">تاكيد</string>
     <string name="pickup_date_time">اختر التاريخ والوقت</string>
-    <string name="time">الوقت</string>
     <string name="cash">كاش</string>
     <string name="credit_card">فيزا</string>
     <string name="shipping_to">يشحن إلى</string>
@@ -168,6 +167,7 @@
     <string name="additional_detials">additional_detials</string>
     <string name="save_as_main_titile">Save as main titile</string>
     <string name="flat_num">flat number</string>
+    <string name="time">الوقت</string>
 
 
 </resources>

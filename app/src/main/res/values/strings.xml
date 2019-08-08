@@ -83,7 +83,6 @@
     <string name="deserved_amount">deserved amount</string>
     <string name="confirmation">confirmation</string>
     <string name="pickup_date_time">choose pickup data and time frame</string>
-    <string name="time">time</string>
     <string name="cash">Cash</string>
     <string name="credit_card">Credit Card</string>
     <string name="shipping_to">shipping to</string>
@@ -167,5 +166,5 @@
     <string name="additional_detials">additional_detials</string>
     <string name="save_as_main_titile">Save as main titile</string>
     <string name="flat_num">flat number</string>
-
+    <string name="time">Time</string>
 </resources>

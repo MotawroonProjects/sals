@@ -384,8 +384,9 @@ getQoute(wegights);
         Log.e("kkkk", calendar.getTime().getMonth() + "");
 
         tv_date.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-        date = calendar.getTime().getYear() + "-" + (calendar.getTime().getMonth()) + "-" + calendar.getTime().getDay();
-
+date=calendar.get(Calendar.YEAR)+"-"+calendar.get(Calendar.MONTH)+"-"+calendar.get(Calendar.DAY_OF_MONTH);
+       // date = calendar.get(Calendar.YEAR) + "-" + (calendar.getTime().getMonth()<10?"0"+calendar.getTime().getMonth():calendar.getTime().getMonth()) + "-" + (calendar.getTime().getDay()<10?"0"+calendar.getTime().getDay():calendar.getTime().getDay());
+Log.e("kkk",date);
     }
 
     @Override

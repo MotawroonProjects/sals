@@ -75,7 +75,7 @@
                     android:hint="@string/email_addres"
                     android:textColorHint="@color/gray4"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="24sp"
                     android:background="@color/white"
                    />
                 <View
@@ -97,7 +97,7 @@
                     android:background="@drawable/button_shape"
                     android:text="@string/save"
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="25sp" />
             </LinearLayout>
 
 

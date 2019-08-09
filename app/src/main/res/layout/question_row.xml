@@ -10,7 +10,7 @@
         android:layout_height="45dp"
         android:text="@string/how_can_i_check_the_status_of_my_truck"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="25sp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:gravity="center_vertical"

@@ -17,7 +17,7 @@
             android:padding="10dp"
             android:text="@string/select_the_receiving_address"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="25sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/current_user"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="25sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/add_a_new_title"
                     android:textColor="@color/gray0"
-                    android:textSize="15sp" />
+                    android:textSize="25sp" />
             </LinearLayout>
 
             <ImageView
@@ -76,7 +76,7 @@
             android:padding="10dp"
             android:text="@string/pickup_date_time"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="25sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -98,7 +98,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/date"
                 android:textColor="@color/colorPrimary"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
 
             <ImageView
                 android:id="@+id/arrow1"
@@ -107,7 +107,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight=".04"
-                android:padding="15dp"
+                android:padding="25dp"
                 android:src="@drawable/ic_left_arrow"
                 android:tint="@color/gray2" />
 
@@ -140,7 +140,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/time"
                 android:textColor="@color/colorPrimary"
-                android:textSize="15sp" />
+                android:textSize="25sp" />
 
             <ImageView
                 android:id="@+id/arrow2"
@@ -162,7 +162,7 @@
             android:padding="10dp"
             android:text="@string/what_is_the_total_volume_of_all_your_shipments_with_us"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="25sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -210,7 +210,7 @@
                     android:gravity="center"
                     android:text="@string/fit_the_bike"
                     android:textColor="@color/gray4"
-                    android:textSize="14sp" />
+                    android:textSize="24sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -252,7 +252,7 @@
                     android:gravity="center"
                     android:text="@string/fit_the_car"
                     android:textColor="@color/gray4"
-                    android:textSize="14sp" />
+                    android:textSize="24sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -294,7 +294,7 @@
                     android:gravity="center"
                     android:text="@string/fit_the_truck"
                     android:textColor="@color/gray4"
-                    android:textSize="14sp" />
+                    android:textSize="24sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -345,7 +345,7 @@
                 android:gravity="center"
                 android:text="@string/price_calculate"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="24sp" />
         </LinearLayout>
 
     </LinearLayout>

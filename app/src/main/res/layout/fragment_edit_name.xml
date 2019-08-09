@@ -67,14 +67,14 @@
                     android:id="@+id/edt_fname"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="25dp"
                     android:gravity="center_vertical"
                     android:inputType="textEmailAddress"
                     android:padding="5dp"
                     android:hint="@string/email_addres"
                     android:textColorHint="@color/gray4"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="24sp"
                     android:background="@color/white"
                     />
                 <View
@@ -91,25 +91,25 @@
                     android:id="@+id/edt_lname"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="25dp"
                     android:gravity="center_vertical"
                     android:inputType="textEmailAddress"
                     android:padding="5dp"
                     android:hint="@string/last_name"
                     android:textColorHint="@color/gray4"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="24sp"
                     android:background="@color/white" />
                 <Button
                     android:id="@+id/bt_save"
                     android:layout_width="250dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="25dp"
                     android:background="@drawable/button_shape"
                     android:text="@string/save"
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="25sp" />
             </LinearLayout>
 
 

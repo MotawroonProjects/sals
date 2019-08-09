@@ -87,7 +87,7 @@
                     android:scrollHorizontally="true"
                     android:singleLine="true"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="24sp" />
 
                 <ImageView
                     android:id="@+id/im_search"

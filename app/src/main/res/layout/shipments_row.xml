@@ -100,7 +100,7 @@ android:gravity="center"
         android:layout_marginRight="45dp"
         android:layout_marginLeft="45dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textSize="14sp"
+        android:textSize="24sp"
         android:textColor="@color/black"
 
         />
@@ -112,7 +112,7 @@ android:gravity="center"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:textSize="14sp"
+        android:textSize="24sp"
         android:textColor="@color/black"
 
         />

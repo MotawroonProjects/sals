@@ -12,7 +12,7 @@
         android:text="@string/cash_on_delivry_service"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
-        android:textSize="15sp"
+        android:textSize="25sp"
 
         />
     <View

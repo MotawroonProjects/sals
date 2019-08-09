@@ -77,7 +77,7 @@
               android:padding="10dp"
               android:text="@string/number_of_pieces"
               android:textColor="@color/black"
-              android:textSize="15sp" />
+              android:textSize="25sp" />
 
           <LinearLayout
               android:layout_width="0dp"
@@ -138,7 +138,7 @@ android:orientation="vertical"
     android:layout_height="45dp"
     android:text="@string/demintion_for_eacj_piece"
     android:textColor="@color/black"
-    android:textSize="15sp"
+    android:textSize="25sp"
     />
 
     <LinearLayout
@@ -152,7 +152,7 @@ android:orientation="vertical"
             android:layout_height="45dp"
             android:text="@string/length_cm"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="25sp"
             android:layout_weight="1"
 
             />
@@ -161,7 +161,7 @@ android:orientation="vertical"
             android:layout_height="45dp"
             android:text="@string/width_cm"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="25sp"
             android:layout_weight="1"
             />
         <TextView
@@ -169,7 +169,7 @@ android:orientation="vertical"
             android:layout_height="45dp"
             android:text="@string/hight_cm"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="25sp"
             android:layout_weight="1"
             />
     </LinearLayout>
@@ -183,7 +183,7 @@ android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="25sp"
             android:layout_weight="1"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -192,7 +192,7 @@ android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="25sp"
             android:layout_weight="1"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
@@ -201,7 +201,7 @@ android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="25sp"
             android:layout_weight="1"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
@@ -223,7 +223,7 @@ android:orientation="vertical"
             android:padding="10dp"
             android:text="@string/volumetric_weight"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="25sp" />
 
         <EditText
             android:layout_width="0dp"
@@ -234,7 +234,7 @@ android:orientation="vertical"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textColorHint="@color/gray4"
-            android:textSize="14sp"
+            android:textSize="24sp"
             android:theme="@style/AppTheme.LighterEditText" />
 
 
@@ -258,7 +258,7 @@ android:background="@color/white"
               android:padding="10dp"
               android:text="@string/gross_weight"
               android:textColor="@color/black"
-              android:textSize="15sp" />
+              android:textSize="25sp" />
 
           <EditText
               android:layout_width="0dp"
@@ -269,7 +269,7 @@ android:background="@color/white"
               android:padding="10dp"
               android:textColor="@color/black"
               android:textColorHint="@color/gray4"
-              android:textSize="14sp"
+              android:textSize="24sp"
               android:theme="@style/AppTheme.LighterEditText" />
 
 
@@ -291,7 +291,7 @@ android:background="@color/white"
               android:padding="10dp"
               android:text="@string/total_weight"
               android:textColor="@color/black"
-              android:textSize="15sp" />
+              android:textSize="25sp" />
 
           <EditText
               android:layout_width="0dp"
@@ -302,7 +302,7 @@ android:background="@color/white"
               android:padding="10dp"
               android:textColor="@color/black"
               android:textColorHint="@color/gray4"
-              android:textSize="14sp"
+              android:textSize="24sp"
               android:theme="@style/AppTheme.LighterEditText" />
 
 
@@ -319,7 +319,7 @@ android:background="@color/white"
           android:gravity="center"
           android:text="@string/save"
           android:textColor="@color/white"
-          android:textSize="15sp" />
+          android:textSize="25sp" />
   </LinearLayout>
 </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

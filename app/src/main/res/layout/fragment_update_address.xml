@@ -298,6 +298,7 @@
                     android:textColor="@color/black"
                     android:textSize="25sp" />
 
+
                 <EditText
                     android:id="@+id/edt_type"
                     android:layout_width="match_parent"

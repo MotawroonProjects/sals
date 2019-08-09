@@ -172,4 +172,6 @@
     <string name="pieces">pieces</string>
     <string name="kg">kg</string>
     <string name="ryal">Ryial</string>
+    <string name="Delivery">Delivery will be through</string>
+    <string name="days">Days</string>
 </resources>

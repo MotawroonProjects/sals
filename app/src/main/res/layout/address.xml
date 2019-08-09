@@ -41,7 +41,7 @@
                 android:gravity="center"
                 android:text="@string/search_address"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="25sp" />
 
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -105,7 +105,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/addres"
                         android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/im_location"
                         app:layout_constraintTop_toTopOf="parent"
@@ -122,7 +122,7 @@
                         android:paddingRight="15dp"
                         android:text="@string/addres"
                         android:textColor="@color/gray4"
-                        android:textSize="15sp"
+                        android:textSize="25sp"
                         app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
 
@@ -139,8 +139,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/additional_detials"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-
+                    android:textSize="25sp"
 
                     />
 
@@ -150,7 +149,7 @@
                     android:padding="10dp"
                     android:text="@string/name_or_building_number"
                     android:textColor="@color/gray0"
-                    android:textSize="15sp" />
+                    android:textSize="25sp" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -185,7 +184,7 @@
                             android:paddingRight="10dp"
                             android:text="@string/floor"
                             android:textColor="@color/gray0"
-                            android:textSize="15sp" />
+                            android:textSize="25sp"/>
 
                         <EditText
                             android:layout_width="match_parent"
@@ -213,7 +212,7 @@
                             android:paddingRight="10dp"
                             android:text="@string/apartment"
                             android:textColor="@color/gray0"
-                            android:textSize="15sp" />
+                            android:textSize="25sp" />
 
                         <EditText
                             android:layout_width="match_parent"
@@ -244,7 +243,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/additional_description"
                     android:textColor="@color/gray0"
-                    android:textSize="15sp" />
+                    android:textSize="25sp" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -271,7 +270,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/address_type"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="25sp" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -305,7 +304,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/save_as_main_titile"
                         android:textColor="@color/gray0"
-                        android:textSize="14sp" />
+                        android:textSize="25sp" />
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:layout_width="45dp"

@@ -46,7 +46,7 @@ public class Fragment_Computrized_Price extends Fragment {
         tv_cityf.setText(Computrized_Model.getCity_From());
         tv_cityt.setText(Computrized_Model.getCity_to());
         tv_num.setText(Computrized_Model.getQuantity() + getResources().getString(R.string.pieces) + Computrized_Model.getWeight() + getResources().getString(R.string.kg));
-        tv_day.setText(Computrized_Model.getDay_number());
+        tv_day.setText(getResources().getString(R.string.Delivery)+Computrized_Model.getDay_number()+getResources().getString(R.string.days));
         tv_price.setText(Computrized_Model.getPrice() + getResources().getString(R.string.ryal));
         tv_time.setText(Computrized_Model.getTime());
     }

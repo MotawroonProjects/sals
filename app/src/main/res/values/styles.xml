@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:typeface">serif</item>
 
+
     </style>
     <style name="AppTheme.LighterEditText" parent="Widget.AppCompat.EditText">
         <item name="colorControlActivated">@color/gray2</item>

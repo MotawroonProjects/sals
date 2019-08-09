@@ -19,8 +19,7 @@
         android:paddingTop="5dp"
         android:text="@string/notifications"
         android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textSize="30sp"        android:textStyle="bold" />
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
@@ -62,7 +61,7 @@
             android:layout_height="match_parent"
             android:background="#00000000"
             android:text="@string/ok"
-            android:textSize="18sp"
+            android:textSize="30sp"
             android:textColor="@color/colorPrimary"
             />
 

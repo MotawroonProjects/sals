@@ -173,6 +173,8 @@
     <string name="pieces">قطعه</string>
     <string name="kg">كج</string>
     <string name="ryal">ريال</string>
+    <string name="Delivery">Delivery will be through</string>
+    <string name="days">Days</string>
 
 
 </resources>

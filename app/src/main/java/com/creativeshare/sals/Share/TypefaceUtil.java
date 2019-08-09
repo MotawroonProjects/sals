@@ -20,6 +20,7 @@ public class TypefaceUtil {
             final Typeface customFontTypeface = Typeface.createFromAsset(context.getAssets(), customFontFileNameInAssets);
 
             final Field defaultFontTypefaceField = Typeface.class.getDeclaredField(defaultFontNameToOverride);
+
             defaultFontTypefaceField.setAccessible(true);
             defaultFontTypefaceField.set(null, customFontTypeface);
         } catch (Exception e) {

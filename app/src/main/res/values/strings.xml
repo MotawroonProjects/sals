@@ -168,4 +168,8 @@
     <string name="flat_num">flat number</string>
     <string name="time">Time</string>
     <string name="add_city">Add City</string>
+    <string name="saudia">Saudia</string>
+    <string name="pieces">pieces</string>
+    <string name="kg">kg</string>
+    <string name="ryal">Ryial</string>
 </resources>

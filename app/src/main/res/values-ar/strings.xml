@@ -156,19 +156,23 @@
     <string name="volumetric_weight">الوزن الحجمى</string>
     <string name="gross_weight">الوزن القائم</string>
     <string name="total_weight">الوزن الاجمالى</string>
-    <string name="field_req">Field Required</string>
-    <string name="wait">Wait</string>
-    <string name="failed">Failed</string>
-    <string name="something">Something went haywire try again later</string>
+    <string name="field_req">حقل مطلوب</string>
+    <string name="wait">انتظر قليلا</string>
+    <string name="failed">فشل</string>
+    <string name="something">حدث خطا ما تحقق من الاتصال بالانترت</string>
     <string name="resend">Resend</string>
-    <string name="notifications">notifications</string>
-    <string name="inc_code_verification">Incorrect Code Verification</string>
-    <string name="user_is_logedin">User Loged In</string>
-    <string name="additional_detials">additional_detials</string>
-    <string name="save_as_main_titile">Save as main titile</string>
-    <string name="flat_num">flat number</string>
+    <string name="notifications">اشعارات</string>
+    <string name="inc_code_verification">هذا الكود خاطئ</string>
+    <string name="user_is_logedin">المستخدم سجل من قبل</string>
+    <string name="additional_detials">خدمات اضافيه</string>
+    <string name="save_as_main_titile">احفظ كعنوان رئيسى</string>
+    <string name="flat_num">رقم الطابق</string>
     <string name="time">الوقت</string>
-    <string name="add_city">Add City</string>
+    <string name="add_city">اضف المدينه</string>
+    <string name="saudia">السعوديه</string>
+    <string name="pieces">قطعه</string>
+    <string name="kg">كج</string>
+    <string name="ryal">ريال</string>
 
 
 </resources>

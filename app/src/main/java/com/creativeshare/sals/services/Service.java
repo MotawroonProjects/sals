@@ -174,4 +174,10 @@ public interface Service {
             @Field("to_country_code") String to_country_code
 
             );
+    @FormUrlEncoded
+    @POST("pi/firebase-token")
+    Call<ResponseBody>updateToken(
+            @Header("Authorization") String Authorization,
+            @Field("number_token") String number_token
+);
 }

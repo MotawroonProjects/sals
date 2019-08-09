@@ -28,6 +28,7 @@ import com.creativeshare.sals.Adapter.Spinner_Country_Adapter;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.CityModel;
+import com.creativeshare.sals.models.Computrized_Model;
 import com.creativeshare.sals.models.Country_Model;
 import com.creativeshare.sals.models.Quote_Model;
 import com.creativeshare.sals.models.UserModel;
@@ -137,6 +138,13 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
                     from_city = "";
                 } else {
                     from_city = cityModelList.get(position).getEn_name();
+                    if(current_lang.equals("en")){
+                        Computrized_Model.setCity_From(cityModelList.get(position).getEn_name());
+                    }
+                    else {
+                        Computrized_Model.setCity_From(cityModelList.get(position).getAr_name());
+
+                    }
                 }
             }
 
@@ -152,6 +160,13 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
                     to_city = "";
                 } else {
                     to_city = cityModelList.get(position).getEn_name();
+                    if(current_lang.equals("en")){
+                        Computrized_Model.setCity_to(cityModelList.get(position).getEn_name());
+                    }
+                    else {
+                        Computrized_Model.setCity_to(cityModelList.get(position).getAr_name());
+
+                    }
                 }
             }
 
@@ -221,6 +236,7 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
                 tv_parcel.setTextColor(getResources().getColor(R.color.colorPrimary));
                 //  bt_Shipping_dimensions.setVisibility(View.GONE);
                 //edt_desc.setVisibility(View.GONE);
+                Computrized_Model.setType(getResources().getString(R.string.documents));
             }
         });
         fr_parcel.setOnClickListener(new View.OnClickListener() {
@@ -234,6 +250,8 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
                 tv_parcel.setTextColor(getResources().getColor(R.color.white));
                 //bt_Shipping_dimensions.setVisibility(View.VISIBLE);
                 //edt_desc.setVisibility(View.VISIBLE);
+                Computrized_Model.setType(getResources().getString(R.string.parcels));
+
             }
         });
         back_arrow.setOnClickListener(new View.OnClickListener() {
@@ -301,7 +319,9 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
             for(int i=0;i<quantity;i++){
                 wegights.add(weight);
             }
-getQoute(wegights);
+            Computrized_Model.setQuantity(quantity+"");
+Computrized_Model.setWeight(weight);
+            getQoute(wegights);
 
         }
     }
@@ -316,8 +336,9 @@ getQoute(wegights);
                 dialog.dismiss();
                 if(response.isSuccessful()){
                //     assert response.body() != null;
-                   Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
-                    activity.DisplayFragmentComputrizedprice();
+                 //  Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
+                  //  activity.DisplayFragmentComputrizedprice();
+                    adddata(response.body());
                 }
                 else {
                     try {
@@ -340,6 +361,15 @@ getQoute(wegights);
                 }
             }
         });
+    }
+
+    private void adddata(Quote_Model body) {
+        Computrized_Model.setPrice(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
+        Computrized_Model.setDay_number(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getTotalTransitDays());
+
+        Computrized_Model.setTime(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getDeliveryTime());
+        activity.DisplayFragmentComputrizedprice();
+
     }
 
     private void createTimePickerDialog() {

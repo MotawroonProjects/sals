@@ -519,9 +519,9 @@ public class Home_Activity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<InstanceIdResult> task) {
                         if (task.isSuccessful()) {
                             String token = task.getResult().getToken();
-                            Log.e("s",token);
-                           /* Api.getService()
-                                    .updateToken(userModel.getUser_id(), token)
+                            //Log.e("s",token);
+                            Api.getService()
+                                    .updateToken("Bearer"+" "+userModel.getToken(), token)
                                     .enqueue(new Callback<ResponseBody>() {
                                         @Override
                                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -538,7 +538,7 @@ public class Home_Activity extends AppCompatActivity {
                                             } catch (Exception e) {
                                             }
                                         }
-                                    });*/
+                                    });
                         }
                     }
                 });

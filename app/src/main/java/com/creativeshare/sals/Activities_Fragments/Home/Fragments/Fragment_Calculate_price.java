@@ -316,7 +316,7 @@ getQoute(wegights);
                 dialog.dismiss();
                 if(response.isSuccessful()){
                //     assert response.body() != null;
-                //    Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getWeightCharge());
+                   Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
                     activity.DisplayFragmentComputrizedprice();
                 }
                 else {
@@ -386,8 +386,8 @@ getQoute(wegights);
         Log.e("kkkk", calendar.getTime().getMonth() + "");
 
         tv_date.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-date=calendar.get(Calendar.YEAR)+"-"+calendar.get(Calendar.MONTH)+"-"+calendar.get(Calendar.DAY_OF_MONTH);
-       // date = calendar.get(Calendar.YEAR) + "-" + (calendar.getTime().getMonth()<10?"0"+calendar.getTime().getMonth():calendar.getTime().getMonth()) + "-" + (calendar.getTime().getDay()<10?"0"+calendar.getTime().getDay():calendar.getTime().getDay());
+date=calendar.get(Calendar.YEAR)+"-"+(calendar.get(Calendar.MONTH)<10?"0"+calendar.get(Calendar.MONTH):calendar.get(Calendar.MONTH))+"-"+(calendar.get(Calendar.DAY_OF_MONTH)<10?"0"+calendar.get(Calendar.DAY_OF_MONTH):calendar.get(Calendar.DAY_OF_MONTH));
+       // date = calendar.get(Calendar.YEAR) + "-" + (calendar.getTime().getMonth()+calendar.getTime().getMonth():calendar.getTime().getMonth()) + "-" + (calendar.getTime().getDay()<10?"0"+calendar.getTime().getDay():calendar.getTime().getDay());
 Log.e("kkk",date);
     }
 

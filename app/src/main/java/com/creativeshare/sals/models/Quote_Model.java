@@ -26,10 +26,10 @@ private BkgDetails BkgDetails;
             }
 
             public class BkgDetails implements Serializable{
-private List<QtdShp> QtdShp;
+private QtdShp QtdShp;
 
 
-                public List<Data.GetQuoteResponse.BkgDetails.QtdShp> getQtdShp() {
+                public Data.GetQuoteResponse.BkgDetails.QtdShp getQtdShp() {
                     return QtdShp;
                 }
 

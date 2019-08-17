@@ -5,6 +5,7 @@ import com.creativeshare.sals.models.Address_Model;
 import com.creativeshare.sals.models.Address_Models;
 import com.creativeshare.sals.models.CityModel;
 import com.creativeshare.sals.models.Country_Model;
+import com.creativeshare.sals.models.Help_Cat_Model;
 import com.creativeshare.sals.models.Other_Services_Model;
 import com.creativeshare.sals.models.PlaceGeocodeData;
 import com.creativeshare.sals.models.Questions_Model;
@@ -132,6 +133,12 @@ public interface Service {
             @Header("lang") String lang
 
     );
+    @GET("api/faqs/categories")
+    Call<Help_Cat_Model> getHelpcat(
+            @Header("Authorization") String Authorization,
+            @Header("lang") String lang
+
+    );
     @GET("api/other-services")
     Call<Other_Services_Model> getOtherservices(
             @Header("Authorization") String Authorization,
@@ -175,7 +182,7 @@ public interface Service {
 
             );
     @FormUrlEncoded
-    @POST("pi/firebase-token")
+    @POST("api/firebase-token")
     Call<ResponseBody>updateToken(
             @Header("Authorization") String Authorization,
             @Field("number_token") String number_token

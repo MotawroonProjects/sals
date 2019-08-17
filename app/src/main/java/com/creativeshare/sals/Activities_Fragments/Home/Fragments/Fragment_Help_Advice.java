@@ -16,10 +16,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
+import com.creativeshare.sals.Adapter.Help_Cat_Adapter;
 import com.creativeshare.sals.Adapter.Question_Adapter;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.Address_Model;
+import com.creativeshare.sals.models.Help_Cat_Model;
 import com.creativeshare.sals.models.Questions_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
@@ -41,6 +43,9 @@ public class Fragment_Help_Advice extends Fragment {
 private RecyclerView rec_question;
 private List<Questions_Model.Faqs> faqs;
 private Question_Adapter question_adapter;
+    private RecyclerView rec_help_cat;
+    private List<Help_Cat_Model.Categories> categories;
+    private Help_Cat_Adapter help_cat_adapter;
 private Preferences preferences;
 private UserModel userModel;
     public static Fragment_Help_Advice newInstance() {
@@ -68,6 +73,7 @@ getquestion();
                     faqs.clear();
                    faqs.addAll(response.body().getFaqs());
                     question_adapter.notifyDataSetChanged();
+                    getHelpcat();
                 } else {
                     try {
                         Log.e("Error Code", response.code() + "_" + response.errorBody());
@@ -93,9 +99,47 @@ getquestion();
         });
 
     }
+    private void getHelpcat() {
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService().getHelpcat("Bearer" + " " + userModel.getToken(),current_lang).enqueue(new Callback<Help_Cat_Model>() {
+            @Override
+            public void onResponse(Call<Help_Cat_Model> call, Response<Help_Cat_Model> response) {
+                dialog.dismiss();
+                if (response.isSuccessful() && response.body().getCategories().size()>0) {
+                    categories.clear();
+                    categories.addAll(response.body().getCategories());
+                    help_cat_adapter.notifyDataSetChanged();
+                } else {
+                    try {
+                        Log.e("Error Code", response.code() + "_" + response.errorBody());
+
+                    } catch (Exception e) {
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Help_Cat_Model> call, Throwable t) {
+                //progBar.setVisibility(View.GONE);
+                dialog.dismiss();
+                try {
+                    Toast.makeText(activity, getResources().getString(R.string.something), Toast.LENGTH_LONG).show();
+                    Log.e("Error ", t.getMessage());
+
+                } catch (Exception e) {
+
+                }
+            }
+        });
+
+    }
 
     private void initView(View view) {
         faqs=new ArrayList<>();
+        categories=new ArrayList<>();
         activity = (Home_Activity) getActivity();
         preferences=Preferences.getInstance();
         userModel=preferences.getUserData(activity);
@@ -106,6 +150,13 @@ getquestion();
         question_adapter=new Question_Adapter(faqs,activity);
         rec_question.setLayoutManager(new GridLayoutManager(activity,1));
         rec_question.setAdapter(question_adapter);
+        rec_help_cat=view.findViewById(R.id.rec_help_cat);
+        help_cat_adapter=new Help_Cat_Adapter(categories,activity);
+        rec_help_cat.setLayoutManager(new GridLayoutManager(activity,1));
+        rec_help_cat.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+        rec_help_cat.setDrawingCacheEnabled(true);
+        rec_help_cat.setItemViewCacheSize(25);
+        rec_help_cat.setAdapter(help_cat_adapter);
         if (current_lang.equals("ar")) {
             back_arrow.setRotation(180.0f);
         }

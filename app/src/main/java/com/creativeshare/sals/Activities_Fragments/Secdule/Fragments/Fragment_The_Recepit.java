@@ -26,9 +26,10 @@ public class Fragment_The_Recepit extends Fragment {
     private Scedule_Activity activity;
     private String current_lang;
     private LinearLayout ll_search_for_address;
-    private FrameLayout fr_shape1,fr_shape2,fr_shape3;
-    private ImageView im_shape1,im_shape2,im_shape3,arrow_search_for_address,arrow1,arrow2;
-    private TextView tv_shape1,tv_shape2,tv_shape3;
+   // private FrameLayout fr_shape1,fr_shape2,fr_shape3;
+    private ImageView arrow_search_for_address,arrow1,arrow2;
+   // im_shape1,im_shape2,im_shape3,
+   // private TextView tv_shape1,tv_shape2,tv_shape3;
     private Button next;
 
     public static Fragment_The_Recepit newInstance() {
@@ -46,15 +47,15 @@ public class Fragment_The_Recepit extends Fragment {
         activity = (Scedule_Activity) getActivity();
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
-        fr_shape1=view.findViewById(R.id.fr_shape1);
-        fr_shape2=view.findViewById(R.id.fr_shape2);
-        fr_shape3=view.findViewById(R.id.fr_shape3);
-        im_shape1=view.findViewById(R.id.im_shape1);
-        im_shape2=view.findViewById(R.id.im_shape2);
-        im_shape3=view.findViewById(R.id.im_shape3);
-        tv_shape1=view.findViewById(R.id.tv_shape1);
-        tv_shape2=view.findViewById(R.id.tv_shape2);
-        tv_shape3=view.findViewById(R.id.tv_shape3);
+      //  fr_shape1=view.findViewById(R.id.fr_shape1);
+        //fr_shape2=view.findViewById(R.id.fr_shape2);
+        //fr_shape3=view.findViewById(R.id.fr_shape3);
+        //im_shape1=view.findViewById(R.id.im_shape1);
+        //im_shape2=view.findViewById(R.id.im_shape2);
+        //im_shape3=view.findViewById(R.id.im_shape3);
+        //tv_shape1=view.findViewById(R.id.tv_shape1);
+        //tv_shape2=view.findViewById(R.id.tv_shape2);
+        //tv_shape3=view.findViewById(R.id.tv_shape3);
         arrow_search_for_address=view.findViewById(R.id.arrow3);
         arrow1=view.findViewById(R.id.arrow1);
         arrow2=view.findViewById(R.id.arrow2);
@@ -71,6 +72,7 @@ public class Fragment_The_Recepit extends Fragment {
                 activity.DisplayFragmentSearchforaddress();
             }
         });
+        /*
 fr_shape1.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
@@ -115,7 +117,7 @@ fr_shape3.setOnClickListener(new View.OnClickListener() {
         tv_shape2.setTextColor(getResources().getColor(R.color.black));
         tv_shape1.setTextColor(getResources().getColor(R.color.black));
     }
-});
+});*/
         next=view.findViewById(R.id.bt_next);
 next.setOnClickListener(new View.OnClickListener() {
     @Override

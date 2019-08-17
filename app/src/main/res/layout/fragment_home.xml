@@ -32,7 +32,9 @@
             android:layout_width="70dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:tint="@color/white"
+            />
 
 
     </androidx.appcompat.widget.Toolbar>

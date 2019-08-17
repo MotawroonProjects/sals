@@ -83,7 +83,7 @@
                 android:paddingRight="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray4"
-                android:textSize="24sp"
+                android:textSize="19sp"
 
                 />
 
@@ -125,7 +125,7 @@
                 android:paddingRight="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray4"
-                android:textSize="24sp"
+                android:textSize="19sp"
 
                 />
 
@@ -165,7 +165,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:textColor="@color/gray4"
-                android:textSize="24sp"
+                android:textSize="19sp"
                 android:gravity="center_vertical"
 
                 />
@@ -197,7 +197,7 @@
             android:layout_marginTop="5dp"
             android:text="@string/what_you_want_to_ship"
             android:textColor="@color/black"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -239,7 +239,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/documents"
                         android:textColor="@color/white"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
             </FrameLayout>
 
@@ -275,7 +275,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/parcels"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
 
                         />
                 </LinearLayout>
@@ -310,7 +310,7 @@
                 android:padding="10dp"
                 android:text="@string/number_of_pieces"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -374,7 +374,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/approximate_weight_kg"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
 
             <EditText
                 android:layout_width="0dp"
@@ -385,7 +385,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray4"
-                android:textSize="24sp"
+                android:textSize="19sp"
                 android:theme="@style/AppTheme.LighterEditText" />
 
 
@@ -402,7 +402,7 @@
             android:gravity="center"
             android:text="@string/shipping_dimensions"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:visibility="gone"
             />
 
@@ -418,7 +418,7 @@
             android:gravity="center"
             android:text="@string/save"
             android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
 
 

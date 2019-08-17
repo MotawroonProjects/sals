@@ -108,7 +108,7 @@
                     android:longClickable="false"
                     android:text="@string/add_new_adddress"
                     android:textColor="@color/white"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
             </LinearLayout>
         </FrameLayout>
 

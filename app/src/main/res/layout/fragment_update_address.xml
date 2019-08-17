@@ -41,7 +41,7 @@
                 android:gravity="center"
                 android:text="@string/search_address"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_save"
@@ -52,7 +52,7 @@
                 android:paddingEnd="7dp"
                 android:text="@string/save"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 tools:ignore="RtlCompat" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -126,7 +126,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/addres"
                         android:textColor="@color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/im_location"
                         app:layout_constraintTop_toTopOf="parent"
@@ -143,7 +143,7 @@
                         android:paddingRight="15dp"
                         android:text="@string/addres"
                         android:textColor="@color/gray4"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
 
@@ -160,7 +160,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/additional_detials"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
 
 
                     />
@@ -171,7 +171,7 @@
                     android:padding="10dp"
                     android:text="@string/name_or_building_number"
                     android:textColor="@color/gray0"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/edt_build_name"
@@ -182,7 +182,7 @@
                     android:paddingRight="10dp"
                     android:textColor="@color/gray0"
                     android:textColorHint="@color/gray4"
-                    android:textSize="24sp"
+                    android:textSize="19sp"
                     android:theme="@style/AppTheme.LighterEditText2"
 
                     />
@@ -207,7 +207,7 @@
                             android:paddingRight="10dp"
                             android:text="@string/floor"
                             android:textColor="@color/gray0"
-                            android:textSize="25sp" />
+                            android:textSize="20sp" />
 
                         <EditText
                             android:id="@+id/edt_floor"
@@ -219,7 +219,7 @@
                             android:paddingRight="10dp"
                             android:textColor="@color/gray0"
                             android:textColorHint="@color/gray4"
-                            android:textSize="24sp" />
+                            android:textSize="19sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -236,7 +236,7 @@
                             android:paddingRight="10dp"
                             android:text="@string/flat_num"
                             android:textColor="@color/gray0"
-                            android:textSize="25sp" />
+                            android:textSize="20sp" />
 
                         <EditText
                             android:id="@+id/edt_flat_num"
@@ -248,7 +248,7 @@
                             android:paddingRight="10dp"
                             android:textColor="@color/gray0"
                             android:textColorHint="@color/gray4"
-                            android:textSize="24sp"
+                            android:textSize="19sp"
 
                             />
                     </LinearLayout>
@@ -268,7 +268,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/additional_description"
                     android:textColor="@color/gray0"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/edt_desc"
@@ -280,7 +280,7 @@
                     android:paddingRight="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray4"
-                    android:textSize="24sp" />
+                    android:textSize="19sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -296,7 +296,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/address_type"
                     android:textColor="@color/black"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
 
 
                 <EditText
@@ -309,7 +309,7 @@
                     android:paddingRight="10dp"
                     android:textColor="@color/gray0"
                     android:textColorHint="@color/gray4"
-                    android:textSize="24sp" />
+                    android:textSize="19sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -332,7 +332,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/save_as_main_titile"
                         android:textColor="@color/gray0"
-                        android:textSize="24sp" />
+                        android:textSize="19sp" />
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/switch_primary"

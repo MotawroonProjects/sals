@@ -3,6 +3,7 @@ package com.creativeshare.sals.services;
 
 import com.creativeshare.sals.models.Address_Model;
 import com.creativeshare.sals.models.Address_Models;
+import com.creativeshare.sals.models.Bike_Model;
 import com.creativeshare.sals.models.CityModel;
 import com.creativeshare.sals.models.Country_Model;
 import com.creativeshare.sals.models.Help_Cat_Model;
@@ -127,6 +128,12 @@ public interface Service {
             @Field("is_primary") String is_primary,
             @Field("address_id") String address_id
     );
+    @GET("api/sizes")
+    Call<Bike_Model> getBike(
+            @Header("Authorization") String Authorization,
+            @Header("lang") String lang
+
+    );
     @GET("api/faqs")
     Call<Questions_Model> getQuestions(
             @Header("Authorization") String Authorization,
@@ -139,6 +146,7 @@ public interface Service {
             @Header("lang") String lang
 
     );
+
     @GET("api/other-services")
     Call<Other_Services_Model> getOtherservices(
             @Header("Authorization") String Authorization,

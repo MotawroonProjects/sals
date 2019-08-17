@@ -14,7 +14,7 @@ public class Bike_Model  implements Serializable {
         {
             private int id;
                 private int parent_id;
-                private int image;
+                private String image;
                 private String deleted_at;
                 private String created_at;
                 private String updated_at;
@@ -29,7 +29,7 @@ public class Bike_Model  implements Serializable {
                 return parent_id;
             }
 
-            public int getImage() {
+            public String getImage() {
                 return image;
             }
 

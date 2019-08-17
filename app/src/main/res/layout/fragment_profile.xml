@@ -379,7 +379,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/save_sign_in_for_payments"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="24sp" />
+                    android:textSize="19sp" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:layout_width="45dp"
@@ -400,7 +400,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/alerts"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -422,7 +422,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/activate_notifications"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_notify"
@@ -442,7 +442,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/lang_setting"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/co_language"
@@ -473,7 +473,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/lang"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
 
                         />
 
@@ -483,7 +483,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/lang"
                         android:textColor="@color/gray4"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
 
                         />
 
@@ -514,7 +514,7 @@
                     android:lineSpacingExtra="10dp"
                     android:text="@string/app_notif"
                     android:textColor="@color/gray0"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
 
                 <FrameLayout
                     android:id="@+id/fr_logout"
@@ -544,7 +544,7 @@
                             android:gravity="center_vertical"
                             android:text="@string/log_out"
                             android:textColor="@color/white"
-                            android:textSize="25sp" />
+                            android:textSize="20sp" />
                     </LinearLayout>
                 </FrameLayout>
             </LinearLayout>

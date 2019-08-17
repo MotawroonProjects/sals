@@ -41,7 +41,7 @@
                 android:gravity="center"
                 android:text="@string/help_and_advice"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -67,7 +67,7 @@
            android:paddingRight="10dp"
            android:text="@string/most_frequently_asked_questions"
            android:textColor="@color/black"
-           android:textSize="25sp" />
+           android:textSize="20sp" />
 
        <androidx.recyclerview.widget.RecyclerView
            android:id="@+id/rec_question"
@@ -84,7 +84,7 @@
            android:paddingRight="10dp"
            android:text="@string/support_box"
            android:textColor="@color/black"
-           android:textSize="25sp" />
+           android:textSize="20sp" />
        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="45dp"
@@ -108,7 +108,7 @@
     android:gravity="center_vertical"
     android:paddingRight="10dp"
     android:paddingLeft="10dp"
-    android:textSize="25sp"
+    android:textSize="20sp"
     android:textColor="@color/black"
     />
        </LinearLayout>
@@ -121,7 +121,7 @@
            android:paddingRight="10dp"
            android:text="@string/help_categories"
            android:textColor="@color/black"
-           android:textSize="25sp" />
+           android:textSize="20sp" />
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/rec_help_cat"
     android:layout_width="match_parent"

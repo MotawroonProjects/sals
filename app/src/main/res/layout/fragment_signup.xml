@@ -71,7 +71,7 @@
                     app:ccp_showFullName="true"
                     app:ccp_showNameCode="false"
                     app:ccp_showPhoneCode="false"
-                    app:ccp_textSize="25sp">
+                    app:ccp_textSize="20sp">
 
 
                 </com.hbb20.CountryCodePicker>
@@ -94,7 +94,7 @@
                         android:singleLine="true"
                         android:textColor="@color/white"
                         android:textColorHint="@color/gray2"
-                        android:textSize="24sp"
+                        android:textSize="19sp"
                         android:theme="@style/AppTheme.LighterEditText2" />
 
                     <com.hbb20.CountryCodePicker
@@ -111,7 +111,7 @@
                         app:ccp_showFlag="false"
                         app:ccp_showFullName="false"
                         app:ccp_showNameCode="false"
-                        app:ccp_textSize="25sp"
+                        app:ccp_textSize="20sp"
 
 
                         />
@@ -124,7 +124,7 @@
                         android:background="@drawable/button_shape"
                         android:text="@string/ok"
                         android:textColor="@color/white"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
 
                         />
 
@@ -139,7 +139,7 @@
                     android:singleLine="true"
                     android:text="@string/message"
                     android:textColor="@color/white"
-                    android:textSize="24sp" />
+                    android:textSize="19sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -181,7 +181,7 @@
                         android:longClickable="false"
                         android:text="@string/salsserviccenter"
                         android:textColor="@color/white"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -218,7 +218,7 @@
                         android:longClickable="false"
                         android:text="@string/trackingshipments"
                         android:textColor="@color/white"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
 
                 </LinearLayout>
             </LinearLayout>

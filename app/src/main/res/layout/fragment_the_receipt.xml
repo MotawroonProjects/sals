@@ -17,7 +17,7 @@
             android:padding="10dp"
             android:text="@string/select_the_receiving_address"
             android:textColor="@color/black"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/current_user"
                     android:textColor="@color/black"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/add_a_new_title"
                     android:textColor="@color/gray0"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <ImageView
@@ -76,7 +76,7 @@
             android:padding="10dp"
             android:text="@string/pickup_date_time"
             android:textColor="@color/black"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,8 +85,8 @@
             android:weightSum="1">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight=".06"
                 android:src="@drawable/date" />
@@ -98,7 +98,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/date"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/arrow1"
@@ -107,7 +107,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight=".04"
-                android:padding="25dp"
+                android:padding="20dp"
                 android:src="@drawable/ic_left_arrow"
                 android:tint="@color/gray2" />
 
@@ -127,8 +127,8 @@
             android:weightSum="1">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight=".06"
                 android:src="@drawable/timer" />
@@ -140,7 +140,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/time"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/arrow2"
@@ -162,12 +162,15 @@
             android:padding="10dp"
             android:text="@string/what_is_the_total_volume_of_all_your_shipments_with_us"
             android:textColor="@color/black"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
        <androidx.recyclerview.widget.RecyclerView
            android:id="@+id/rec_bike"
            android:layout_width="match_parent"
-           android:layout_height="140dp">
+           android:layout_height="140dp"
+           android:layout_marginTop="8dp"
+           android:padding="5dp"
+           >
 
        </androidx.recyclerview.widget.RecyclerView>
 
@@ -217,7 +220,7 @@
                 android:gravity="center"
                 android:text="@string/price_calculate"
                 android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:textSize="19sp" />
         </LinearLayout>
 
     </LinearLayout>

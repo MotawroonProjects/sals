@@ -29,11 +29,12 @@
             android:tint="@color/white" />
         <ImageView
             android:id="@+id/im_logo"
-            android:layout_width="70dp"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:src="@drawable/logo"
             android:tint="@color/white"
+            android:scaleType="fitXY"
             />
 
 

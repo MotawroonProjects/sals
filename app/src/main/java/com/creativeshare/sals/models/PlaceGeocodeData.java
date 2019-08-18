@@ -27,6 +27,14 @@ public class PlaceGeocodeData implements Serializable {
         public String getPlace_id() {
             return place_id;
         }
+
+        public class ِِAddress_Components
+        {
+            "long_name" : "Vijfhuizerweg",
+                "short_name" : "Vijfhuizerweg",
+                "types" : [ "route" ]
+        }
+
     }
 
     public class Geometry implements Serializable

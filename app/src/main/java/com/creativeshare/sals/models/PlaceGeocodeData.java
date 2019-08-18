@@ -15,7 +15,7 @@ public class PlaceGeocodeData implements Serializable {
         private String formatted_address;
         private String place_id;
         private Geometry geometry;
-
+private List<Address_components> address_components;
         public String getFormatted_address() {
             return formatted_address;
         }
@@ -28,13 +28,9 @@ public class PlaceGeocodeData implements Serializable {
             return place_id;
         }
 
-        public class ِِAddress_Components
-        {
-            "long_name" : "Vijfhuizerweg",
-                "short_name" : "Vijfhuizerweg",
-                "types" : [ "route" ]
+        public List<Address_components> getAddress_components() {
+            return address_components;
         }
-
     }
 
     public class Geometry implements Serializable
@@ -56,6 +52,25 @@ public class PlaceGeocodeData implements Serializable {
 
         public double getLng() {
             return lng;
+        }
+    }
+    public class Address_components implements Serializable
+    {
+
+        private String long_name;
+           private String short_name;
+            private List<String> types;
+
+        public String getLong_name() {
+            return long_name;
+        }
+
+        public String getShort_name() {
+            return short_name;
+        }
+
+        public List<String> getTypes() {
+            return types;
         }
     }
 }

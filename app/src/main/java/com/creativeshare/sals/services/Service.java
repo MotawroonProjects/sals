@@ -112,6 +112,13 @@ public interface Service {
 
     );
     @FormUrlEncoded
+    @POST("api/profile/address/main")
+    Call<Address_Models>Singleadress(
+            @Header("Authorization") String Authorization
+
+
+    );
+    @FormUrlEncoded
     @POST("api/profile/address/update")
     Call<Address_Model> updateadress(
             @Header("Authorization") String Authorization,

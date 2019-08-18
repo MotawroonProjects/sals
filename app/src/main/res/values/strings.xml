@@ -174,4 +174,6 @@
     <string name="ryal">Ryial</string>
     <string name="Delivery">Delivery will be through</string>
     <string name="days">Days</string>
+    <string name="address_from">Address From</string>
+    <string name="address_to">address to</string>
 </resources>

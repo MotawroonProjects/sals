@@ -225,6 +225,7 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
                         home_activity.updatedata(response.body());
                         home_activity.Back();
                     } else if (param == 2) {
+                        activity.updatedata(formated_address);
                         activity.Back();
                     }
                 } else {

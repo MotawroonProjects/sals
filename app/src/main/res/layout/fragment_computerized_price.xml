@@ -49,7 +49,9 @@
                 android:gravity="center"
                 android:text="@string/done"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+               android:visibility="gone"
+                />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
@@ -64,8 +66,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
@@ -82,14 +83,13 @@
                 android:id="@+id/tv_document"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:background="@color/white"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/documents"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                android:background="@color/white"
-                />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -101,8 +101,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:orientation="horizontal"
                 android:background="@color/white"
+                android:orientation="horizontal"
 
                 >
 
@@ -132,8 +132,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:orientation="horizontal"
                 android:background="@color/white"
+                android:orientation="horizontal"
 
                 >
 
@@ -166,14 +166,13 @@
                 android:id="@+id/tv_num"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:background="@color/white"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/number_of_pieces"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                android:background="@color/white"
-                />
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -190,13 +189,13 @@
                 android:id="@+id/tv_day"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:background="@color/white"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/number_of_days"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:background="@color/white"
 
                 />
 
@@ -211,9 +210,9 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
                     android:layout_weight=".9999"
                     android:clickable="false"
+                    android:gravity="center_vertical"
                     android:longClickable="false"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -238,15 +237,16 @@
                 android:id="@+id/tv_price"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:background="@color/white"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/deserved_amount"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
-                android:background="@color/white"
 
                 />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -256,50 +256,52 @@
                 >
 
 
-                    <ImageView
-                        android:id="@+id/im_date"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight=".1"
-                        android:src="@drawable/date"
-                        android:tint="@color/gray3"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginStart="10dp"
-                        tools:ignore="RtlCompat" />
+                <ImageView
+                    android:id="@+id/im_date"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight=".1"
+                    android:src="@drawable/date"
+                    android:tint="@color/gray3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
 
-                    <TextView
-                        android:id="@+id/tv_time"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".9"
-                        android:gravity="center_vertical"
-                        android:text="@string/expected_delivery_on"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/im_date"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:paddingStart="10dp"
-                        tools:ignore="RtlCompat" />
                 <TextView
-                    android:id="@+id/tv_times"
+                    android:id="@+id/tv_time"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight=".9"
                     android:gravity="center_vertical"
+                    android:paddingStart="10dp"
                     android:text="@string/expected_delivery_on"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_time"
-                    app:layout_constraintStart_toEndOf="@+id/im_date"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:paddingStart="10dp"
-                    tools:ignore="RtlCompat"
+                    app:layout_constraintStart_toEndOf="@+id/im_date"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/tv_times"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="10dp"
+                    android:layout_weight=".9"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:text="@string/expected_delivery_on"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/im_date"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_time"
+                    tools:ignore="RtlCompat"
 
                     />
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -307,43 +309,38 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="40dp"
                     android:layout_marginBottom="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_times"
                     android:background="@drawable/button_shape"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    >
+                    app:layout_constraintTop_toBottomOf="@+id/tv_times">
 
                     <LinearLayout
                         android:id="@+id/ll_next"
                         android:layout_width="wrap_content"
                         android:layout_height="45dp"
                         android:layout_gravity="center"
-
-                        >
+                        android:visibility="gone">
 
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
+                            android:layout_gravity="center_vertical"
                             android:clickable="false"
                             android:longClickable="false"
-                            android:layout_gravity="center_vertical"
                             android:src="@drawable/timer_computrized" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:clickable="false"
                             android:gravity="center_vertical"
+                            android:longClickable="false"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
                             android:text="@string/specify_the_date_of_receipt"
                             android:textColor="@color/white"
-                            android:textSize="20sp"
-                            android:paddingRight="10dp"
-                            android:paddingLeft="10dp"
-                            android:clickable="false"
-                            android:longClickable="false"
-                            />
+                            android:textSize="20sp" />
                     </LinearLayout>
                 </FrameLayout>
-
-
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,7 @@ import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Sh
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_The_Recepit;
 import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.models.Address_Model;
 import com.creativeshare.sals.preferences.Preferences;
 
 import java.util.Locale;
@@ -255,5 +256,10 @@ public class Scedule_Activity extends AppCompatActivity {
     }
 
 
+    public void updatedata(String body) {
+        if(fragment_the_recepit!=null&&fragment_the_recepit.isAdded()){
+            fragment_the_recepit.updateaddreess(body);
+        }
+    }
 }
 

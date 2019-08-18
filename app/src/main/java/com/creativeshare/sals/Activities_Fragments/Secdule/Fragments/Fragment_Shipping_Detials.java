@@ -81,7 +81,7 @@ public class Fragment_Shipping_Detials extends Fragment {
                 tv_document.setTextColor(getResources().getColor(R.color.colorPrimary));
                 tv_parcel.setTextColor(getResources().getColor(R.color.white));
                 bt_Shipping_dimensions.setVisibility(View.VISIBLE);
-                edt_desc.setVisibility(View.VISIBLE);
+                edt_desc.setVisibility(View.GONE);
             }
         });
         bt_Shipping_dimensions.setOnClickListener(new View.OnClickListener() {

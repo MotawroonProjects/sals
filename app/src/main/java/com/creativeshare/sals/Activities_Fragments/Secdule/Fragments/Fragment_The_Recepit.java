@@ -34,12 +34,14 @@ import com.creativeshare.sals.models.Address_Model;
 import com.creativeshare.sals.models.Address_Models;
 import com.creativeshare.sals.models.Bike_Model;
 import com.creativeshare.sals.models.Help_Cat_Model;
+import com.creativeshare.sals.models.PlaceGeocodeData;
 import com.creativeshare.sals.models.Shipment_Send_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -59,7 +61,7 @@ public class Fragment_The_Recepit extends Fragment implements DatePickerDialog.O
     // im_shape1,im_shape2,im_shape3,
     // private TextView tv_shape1,tv_shape2,tv_shape3;
     private TextView tv_user, tv_addressf, tv_addresst, tv_date;
-    private String addressf,addreesst,desc,date;
+    private String addressf,addreesst,desc,date,postal_code,cityf;
     private EditText edt_desc;
     private Button next;
     private RecyclerView rec_bike;
@@ -282,6 +284,7 @@ checkdata();
     }
 
     private void updatedata(Address_Models body) {
+        getGeoData(body.getAddress().getLatitude(),body.getAddress().getLongitude());
         tv_user.setText(userModel.getUser().getFirst_name() + userModel.getUser().getLast_name());
         if (body != null) {
             if (body.getAddress() != null && body.getAddress().getAddress() != null) {
@@ -356,4 +359,67 @@ checkdata();
         //Log.e("kkk", date);
 
     }
+    private void getGeoData(final double lat, final double lng) {
+
+        String location = lat + "," + lng;
+        Api.getService("https://maps.googleapis.com/maps/api/")
+                .getGeoData(location, "en", getString(R.string.map_api_key))
+                .enqueue(new Callback<PlaceGeocodeData>() {
+                    @Override
+                    public void onResponse(Call<PlaceGeocodeData> call, Response<PlaceGeocodeData> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+
+
+                            if (response.body().getResults().size() > 0) {
+                              //  formated_address = response.body().getResults().get(0).getFormatted_address().replace("Unnamed Road,", "");
+                                // address.setText(formatedaddress);
+                                //tv_location.setText(formated_address);
+updatepostalcode(response.body().getResults().get(0).getAddress_components());
+                                //AddMarker(lat, lng);
+                                //place_id = response.body().getCandidates().get(0).getPlace_id();
+                                //   Log.e("kkk", formatedaddress);
+                            }
+                        } else {
+                            Log.e("error_code", response.errorBody() + " " + response.code());
+
+                            try {
+                                Log.e("error_code", response.errorBody().string());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<PlaceGeocodeData> call, Throwable t) {
+                        try {
+
+
+                            // Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_LONG).show();
+                        } catch (Exception e) {
+
+                        }
+                    }
+                });
+    }
+
+    private void updatepostalcode(List<PlaceGeocodeData.Address_components> address_components) {
+        for (int i=0;i<address_components.size();i++){
+            PlaceGeocodeData.Address_components address_component=address_components.get(i);
+            for(int j=0;j<address_component.getTypes().size();j++){
+                if(address_component.getTypes().get(j).equals("postal_code")){
+                    postal_code=address_component.getLong_name();
+                    Log.e("post",postal_code);
+                }
+                if(address_component.getTypes().get(j).equals("locality")){
+                    cityf=address_component.getLong_name();
+                    Log.e("cityf",cityf);
+                }
+            }
+        }
+    }
+
+
 }

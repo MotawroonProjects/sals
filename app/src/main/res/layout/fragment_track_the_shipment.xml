@@ -73,7 +73,6 @@
 
 
                 <EditText
-                    android:id="@+id/edt_shipment_num"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@color/gray2"
@@ -85,7 +84,6 @@
                     />
 
                 <ImageView
-                    android:id="@+id/im_search"
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_search"

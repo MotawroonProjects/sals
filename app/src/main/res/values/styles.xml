@@ -18,7 +18,4 @@
         <item name="colorControlActivated">@color/blue</item>
         <item name="colorControlNormal">@color/blue</item>
     </style>
-    <style name="Color1SwitchStyle">
-        <item name="colorControlActivated">@color/blue</item>
-    </style>
 </resources>

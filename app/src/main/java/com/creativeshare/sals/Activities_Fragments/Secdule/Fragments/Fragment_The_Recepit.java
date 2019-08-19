@@ -288,7 +288,7 @@ checkdata();
     private void updatedata(Address_Models body) {
        updatepostalcode(body.getAddress().getLatitude(),body.getAddress().getLongitude());
         tv_user.setText(userModel.getUser().getFirst_name() + userModel.getUser().getLast_name());
-        cityf=body.getAddress().getAddress().split(",")[1].split(" ")[0];
+        cityf=body.getAddress().getAddress().split(", ")[1];
         Log.e("c",cityf);
         if (body != null) {
             if (body.getAddress() != null && body.getAddress().getAddress() != null) {
@@ -416,19 +416,26 @@ checkdata();
         geocoder = new Geocoder(activity, Locale.getDefault());
 
         try {
-            addresses = geocoder.getFromLocation(latitude, longitude, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+            addresses = geocoder.getFromLocation(latitude, longitude,1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
-        String city = addresses.get(0).getLocality();
-        String state = addresses.get(0).getAdminArea();
-        String country = addresses.get(0).getCountryName();
-        String postalCode = addresses.get(0).getPostalCode();
-        String knownName = addresses.get(0).getFeatureName();
 
-    Log.e("ss",city+postalCode);
-    }
+        if (addresses != null && addresses.size() > 0) {
+
+            Address address;
+            for (int i = 0; i < addresses.size(); i++) {
+                address = addresses.get(i);
+                if (address.getPostalCode() != null) {
+                    postal_code = address.getPostalCode();
+                    break;
+                }
+
+            }
+
+
+            Log.e("ss", postal_code);
+        } }
 
 }

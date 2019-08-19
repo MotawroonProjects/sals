@@ -435,7 +435,9 @@ checkdata();
             }
 
 
-            Log.e("ss", postal_code);
-        } }
+        }
+        Log.e("ss", postal_code+"5");
+
+    }
 
 }

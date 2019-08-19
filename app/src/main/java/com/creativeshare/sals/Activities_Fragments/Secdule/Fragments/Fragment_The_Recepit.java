@@ -2,6 +2,8 @@ package com.creativeshare.sals.Activities_Fragments.Secdule.Fragments;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -111,7 +113,7 @@ public class Fragment_The_Recepit extends Fragment implements DatePickerDialog.O
         edt_desc=view.findViewById(R.id.edt_desc);
         arrow_search_for_address = view.findViewById(R.id.arrow3);
         arrow1 = view.findViewById(R.id.arrow1);
-        arrow2 = view.findViewById(R.id.arrow2);
+        //arrow2 = view.findViewById(R.id.arrow2);
         arrow4 = view.findViewById(R.id.arrow4);
         rec_bike = view.findViewById(R.id.rec_bike);
         bike_adapter = new Bike_Adapter(sizes, activity);
@@ -125,7 +127,7 @@ public class Fragment_The_Recepit extends Fragment implements DatePickerDialog.O
         if (current_lang.equals("en")) {
             arrow_search_for_address.setRotation(180.0f);
             arrow1.setRotation(180.0f);
-            arrow2.setRotation(180.0f);
+          //  arrow2.setRotation(180.0f);
             arrow4.setRotation(180.0f);
         }
         ll_search_for_address.setOnClickListener(new View.OnClickListener() {
@@ -268,7 +270,7 @@ checkdata();
 
                 } else {
                     Toast.makeText(getActivity(), getResources().getString(R.string.failed), Toast.LENGTH_LONG).show();
-                    Log.e("Errot_Code", response.code() + " " + response.errorBody());
+                    Log.e("Errot_Code", response.code() + " " + response.errorBody()+response.message());
                 }
             }
 
@@ -284,7 +286,7 @@ checkdata();
     }
 
     private void updatedata(Address_Models body) {
-        getGeoData(body.getAddress().getLatitude(),body.getAddress().getLongitude());
+       updatepostalcode(body.getAddress().getLatitude(),body.getAddress().getLongitude());
         tv_user.setText(userModel.getUser().getFirst_name() + userModel.getUser().getLast_name());
         if (body != null) {
             if (body.getAddress() != null && body.getAddress().getAddress() != null) {
@@ -374,7 +376,7 @@ checkdata();
                               //  formated_address = response.body().getResults().get(0).getFormatted_address().replace("Unnamed Road,", "");
                                 // address.setText(formatedaddress);
                                 //tv_location.setText(formated_address);
-updatepostalcode(response.body().getResults().get(0).getAddress_components());
+//updatepostalcode(response.body().getResults().get(0).getAddress_components());
                                 //AddMarker(lat, lng);
                                 //place_id = response.body().getCandidates().get(0).getPlace_id();
                                 //   Log.e("kkk", formatedaddress);
@@ -405,21 +407,26 @@ updatepostalcode(response.body().getResults().get(0).getAddress_components());
                 });
     }
 
-    private void updatepostalcode(List<PlaceGeocodeData.Address_components> address_components) {
-        for (int i=0;i<address_components.size();i++){
-            PlaceGeocodeData.Address_components address_component=address_components.get(i);
-            for(int j=0;j<address_component.getTypes().size();j++){
-                if(address_component.getTypes().get(j).equals("postal_code")){
-                    postal_code=address_component.getLong_name();
-                    Log.e("post",postal_code);
-                }
-                if(address_component.getTypes().get(j).equals("locality")){
-                    cityf=address_component.getLong_name();
-                    Log.e("cityf",cityf);
-                }
-            }
-        }
-    }
+    private void updatepostalcode(double latitude,double longitude) {
 
+        Geocoder geocoder;
+        List<Address> addresses = null;
+        geocoder = new Geocoder(activity, Locale.getDefault());
+
+        try {
+            addresses = geocoder.getFromLocation(latitude, longitude, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+        String city = addresses.get(0).getLocality();
+        String state = addresses.get(0).getAdminArea();
+        String country = addresses.get(0).getCountryName();
+        String postalCode = addresses.get(0).getPostalCode();
+        String knownName = addresses.get(0).getFeatureName();
+
+    Log.e("ss",city+postalCode);
+    }
 
 }

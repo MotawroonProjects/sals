@@ -111,7 +111,6 @@ public interface Service {
             @Field("address_id") String address_id
 
     );
-    @FormUrlEncoded
     @POST("api/profile/address/main")
     Call<Address_Models>Singleadress(
             @Header("Authorization") String Authorization

@@ -63,6 +63,7 @@ public class Fragment_Shipping_Detials extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shipping_details, container, false);
         initView(view);
+        getCities();
         return view;
     }
 

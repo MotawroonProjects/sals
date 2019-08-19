@@ -287,7 +287,9 @@ checkdata();
 
     private void updatedata(Address_Models body) {
        updatepostalcode(body.getAddress().getLatitude(),body.getAddress().getLongitude());
+
         tv_user.setText(userModel.getUser().getFirst_name() + userModel.getUser().getLast_name());
+        addressf=body.getAddress().getAddress();
         cityf=body.getAddress().getAddress().split(", ")[1];
         Log.e("c",cityf);
         if (body != null) {
@@ -416,7 +418,7 @@ checkdata();
         geocoder = new Geocoder(activity, Locale.getDefault());
 
         try {
-            addresses = geocoder.getFromLocation(latitude, longitude,1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+            addresses = geocoder.getFromLocation(latitude, longitude,5); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
         } catch (IOException e) {
             e.printStackTrace();
         }

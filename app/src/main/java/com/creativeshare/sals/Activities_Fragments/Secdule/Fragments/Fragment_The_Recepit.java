@@ -288,6 +288,8 @@ checkdata();
     private void updatedata(Address_Models body) {
        updatepostalcode(body.getAddress().getLatitude(),body.getAddress().getLongitude());
         tv_user.setText(userModel.getUser().getFirst_name() + userModel.getUser().getLast_name());
+        cityf=body.getAddress().getAddress().split(",")[1].split(" ")[0];
+        Log.e("c",cityf);
         if (body != null) {
             if (body.getAddress() != null && body.getAddress().getAddress() != null) {
 

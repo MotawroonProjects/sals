@@ -9,6 +9,7 @@ import com.creativeshare.sals.models.Country_Model;
 import com.creativeshare.sals.models.Help_Cat_Model;
 import com.creativeshare.sals.models.Other_Services_Model;
 import com.creativeshare.sals.models.PlaceGeocodeData;
+import com.creativeshare.sals.models.Prectage_Model;
 import com.creativeshare.sals.models.Questions_Model;
 import com.creativeshare.sals.models.Quote_Model;
 import com.creativeshare.sals.models.Sercvices_Centers;
@@ -76,6 +77,11 @@ public interface Service {
 
     @POST("api/profile/notification/update")
     Call<UserModel> changenotifystatus(
+            @Header("Authorization") String Authorization
+
+    );
+    @POST("getappcommission")
+    Call<Prectage_Model> getappcommission(
             @Header("Authorization") String Authorization
 
     );

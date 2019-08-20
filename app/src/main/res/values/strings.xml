@@ -159,5 +159,6 @@
     <string name="the_total_cost">the total cost</string>
     <string name="complete_profile">Complete Profile</string>
     <string name="from_dhl">From Dhl</string>
+    <string name="from_sals">From Sals</string>
 
 </resources>

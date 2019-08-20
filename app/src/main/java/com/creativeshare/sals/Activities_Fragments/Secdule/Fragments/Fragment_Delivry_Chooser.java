@@ -1,6 +1,8 @@
 package com.creativeshare.sals.Activities_Fragments.Secdule.Fragments;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,12 +18,20 @@ import androidx.fragment.app.Fragment;
 
 import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.Computrized_Model;
+import com.creativeshare.sals.models.Prectage_Model;
 import com.creativeshare.sals.models.Shipment_Send_Model;
+import com.creativeshare.sals.models.UserModel;
+import com.creativeshare.sals.preferences.Preferences;
+import com.creativeshare.sals.remote.Api;
 
 import java.util.Locale;
 
 import io.paperdb.Paper;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Fragment_Delivry_Chooser extends Fragment {
     private Scedule_Activity activity;
@@ -29,8 +40,10 @@ public class Fragment_Delivry_Chooser extends Fragment {
     private Button next;
     private LinearLayout ll_additional_services;
     private ImageView im_additional_Services,arrow1;
-    private TextView tv_document,  tv_cityt, tv_day, tv_num, tv_total_pricedhl,tv_address;
-
+    private TextView tv_document,  tv_cityt, tv_day, tv_num, tv_total_pricedhl,tv_total_pricesals,tv_address;
+    private Preferences preferences;
+    private UserModel userModel;
+    private Double price;
     public static Fragment_Delivry_Chooser newInstance() {
         return new Fragment_Delivry_Chooser();
     }
@@ -40,13 +53,15 @@ public class Fragment_Delivry_Chooser extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_delivry_choose, container, false);
         initView(view);
-        applydata();
+        getappcommission();
         return view;
     }
 
     private void initView(View view) {
         activity = (Scedule_Activity) getActivity();
         Paper.init(activity);
+        preferences=Preferences.getInstance();
+        userModel=preferences.getUserData(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         ll_additional_services = view.findViewById(R.id.ll_additional_Services);
          arrow1=view.findViewById(R.id.arrow1);
@@ -58,6 +73,7 @@ public class Fragment_Delivry_Chooser extends Fragment {
         tv_num = view.findViewById(R.id.tv_num);
         tv_day = view.findViewById(R.id.tv_day);
         tv_total_pricedhl = view.findViewById(R.id.tv_total_pricedhl);
+        tv_total_pricesals=view.findViewById(R.id.tv_total_pricesals);
      //   tv_time = view.findViewById(R.id.tv_times);
         next = view.findViewById(R.id.bt_next);
 
@@ -99,7 +115,42 @@ public class Fragment_Delivry_Chooser extends Fragment {
         tv_num.setText(Shipment_Send_Model.getWegights().size() + getResources().getString(R.string.pieces) +Shipment_Send_Model.getWegights().get(0) + getResources().getString(R.string.kg));
         tv_day.setText(getResources().getString(R.string.Delivery)+Shipment_Send_Model.getDay_number()+getResources().getString(R.string.days));
         tv_total_pricedhl.setText(getResources().getString(R.string.from_dhl)+Shipment_Send_Model.getPrice() + getResources().getString(R.string.ryal));
-       // tv_day.setText(Computrized_Model.getTime());
+        tv_total_pricesals.setText(getResources().getString(R.string.from_sals)+(Double.parseDouble(Shipment_Send_Model.getPrice())*price)/100 + getResources().getString(R.string.ryal));
+
+
+        // tv_day.setText(Computrized_Model.getTime());
+    }
+    private void getappcommission() {
+       // getbankaccounts();
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService().getappcommission("Bearer"+" "+ userModel.getToken()).enqueue(new Callback<Prectage_Model>() {
+            @Override
+            public void onResponse(Call<Prectage_Model> call, Response<Prectage_Model> response) {
+
+                dialog.dismiss();
+                if (response.isSuccessful() && response.body() != null) {
+                    updateappcommission(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Prectage_Model> call, Throwable t) {
+                try {
+                    dialog.dismiss();
+                    // smoothprogressbar.setVisibility(View.GONE);
+                    Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
+                    Log.e("Error", t.getMessage());
+                } catch (Exception e) {
+                }
+            }
+        });
     }
 
+    private void updateappcommission(Prectage_Model body) {
+        price=Double.parseDouble(body.getRate());
+        applydata();
+
+    }
 }

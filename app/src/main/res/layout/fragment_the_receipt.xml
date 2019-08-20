@@ -162,6 +162,42 @@
                 android:tint="@color/gray2" />
 
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_time"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight=".06"
+                android:src="@drawable/timer" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".91"
+                android:gravity="center_vertical"
+                android:text="@string/time"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/arrow2"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight=".04"
+                android:padding="20dp"
+                android:src="@drawable/ic_left_arrow"
+                android:tint="@color/gray2" />
+
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"

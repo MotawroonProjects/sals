@@ -153,10 +153,11 @@
     <string name="ryal">Ryial</string>
     <string name="Delivery">Delivery will be through</string>
     <string name="days">Days</string>
-    <string name="address_from">Address From</string>
-    <string name="address_to">address to</string>
+    <string name="address_from">Shipping  From</string>
+    <string name="address_to">Shipping to</string>
     <string name="cost_of_delivery">Cost of delivery</string>
     <string name="the_total_cost">the total cost</string>
     <string name="complete_profile">Complete Profile</string>
+    <string name="from_dhl">From Dhl</string>
 
 </resources>

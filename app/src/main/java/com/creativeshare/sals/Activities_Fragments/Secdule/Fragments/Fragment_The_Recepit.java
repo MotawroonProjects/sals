@@ -42,8 +42,12 @@ import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
+import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -54,16 +58,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Fragment_The_Recepit extends Fragment implements DatePickerDialog.OnDateSetListener {
+public class Fragment_The_Recepit extends Fragment implements DatePickerDialog.OnDateSetListener , TimePickerDialog.OnTimeSetListener{
     private Scedule_Activity activity;
     private String current_lang;
-    private LinearLayout ll_search_for_address, ll_search_for_addressto, ll_date;
+    private LinearLayout ll_search_for_address, ll_search_for_addressto, ll_date,ll_time;
     // private FrameLayout fr_shape1,fr_shape2,fr_shape3;
     private ImageView arrow_search_for_address, arrow1, arrow2, arrow4;
     // im_shape1,im_shape2,im_shape3,
     // private TextView tv_shape1,tv_shape2,tv_shape3;
-    private TextView tv_user, tv_addressf, tv_addresst, tv_date;
-    private String addressf,addreesst,desc,date,postal_code,cityf;
+    private TextView tv_user, tv_addressf, tv_addresst, tv_date,tv_time;
+    private String addressf,addreesst,desc,date,postal_code,cityf,time;
     private EditText edt_desc;
     private Button next;
     private RecyclerView rec_bike;
@@ -72,6 +76,7 @@ public class Fragment_The_Recepit extends Fragment implements DatePickerDialog.O
     private Preferences preferences;
     private UserModel userModel;
     private DatePickerDialog datePickerDialog;
+    private TimePickerDialog timePickerDialog;
 
     private int type;
 
@@ -106,14 +111,16 @@ public class Fragment_The_Recepit extends Fragment implements DatePickerDialog.O
         //tv_shape2=view.findViewById(R.id.tv_shape2);
         //tv_shape3=view.findViewById(R.id.tv_shape3);
         ll_date = view.findViewById(R.id.ll_date);
+        ll_time=view.findViewById(R.id.ll_time);
         tv_user = view.findViewById(R.id.tv_user);
         tv_date = view.findViewById(R.id.tv_date);
+        tv_time=view.findViewById(R.id.tv_time);
         tv_addressf = view.findViewById(R.id.tv_address);
         tv_addresst = view.findViewById(R.id.tv_addressto);
         edt_desc=view.findViewById(R.id.edt_desc);
         arrow_search_for_address = view.findViewById(R.id.arrow3);
         arrow1 = view.findViewById(R.id.arrow1);
-        //arrow2 = view.findViewById(R.id.arrow2);
+        arrow2 = view.findViewById(R.id.arrow2);
         arrow4 = view.findViewById(R.id.arrow4);
         rec_bike = view.findViewById(R.id.rec_bike);
         bike_adapter = new Bike_Adapter(sizes, activity);
@@ -127,7 +134,7 @@ public class Fragment_The_Recepit extends Fragment implements DatePickerDialog.O
         if (current_lang.equals("en")) {
             arrow_search_for_address.setRotation(180.0f);
             arrow1.setRotation(180.0f);
-          //  arrow2.setRotation(180.0f);
+            arrow2.setRotation(180.0f);
             arrow4.setRotation(180.0f);
         }
         ll_search_for_address.setOnClickListener(new View.OnClickListener() {
@@ -207,19 +214,32 @@ checkdata();
 
             }
         });
-        createDatePickerDialog();
+        ll_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                timePickerDialog.show(activity.getFragmentManager(), "");
+            }
+        });
 
+        createDatePickerDialog();
+        createTimePickerDialog();
 
     }
 
     private void checkdata() {
         desc=edt_desc.getText().toString();
-        if(!TextUtils.isEmpty(addressf)&&!TextUtils.isEmpty(date)&&!TextUtils.isEmpty(desc)){
+        if(!TextUtils.isEmpty(addressf)&&!TextUtils.isEmpty(date)&&!TextUtils.isEmpty(desc)&&!TextUtils.isEmpty(time)){
             edt_desc.setError(null);
+            tv_time.setError(null);
+            tv_addressf.setError(null);
+            tv_date.setError(null);
+            tv_user.setError(null);
             Shipment_Send_Model.setAddreessf(addressf);
            // Shipment_Send_Model.setAdddresst(addreesst);
             Shipment_Send_Model.setDate(date);
             Shipment_Send_Model.setDesc(desc);
+            Shipment_Send_Model.setCityf(cityf);
+            Shipment_Send_Model.settime(time);
             activity.DisplayFragmentshippingdetilas();
 
         }
@@ -235,6 +255,9 @@ checkdata();
                     tv_addressf.setError(getResources().getString(R.string.field_req));
                 }
 
+            }
+            if(TextUtils.isEmpty(time)){
+                tv_time.setError(getResources().getString(R.string.field_req));
             }
 
         }
@@ -431,6 +454,9 @@ updatepostalcode(response.body().getResults());
                      cityf=address_components1.get(j).getLong_name();
                      Log.e("c",cityf);
                     }
+                    if(typs.get(k).equals("country")){
+                        Shipment_Send_Model.setcode(address_components1.get(j).getShort_name());
+                    }
                 }
             }
         }
@@ -466,5 +492,30 @@ updatepostalcode(response.body().getResults());
         Log.e("ss", postal_code+"5"+" "+latitude+" "+longitude);
 
     }
+    private void createTimePickerDialog() {
+        Calendar calendar = Calendar.getInstance();
+        timePickerDialog = TimePickerDialog.newInstance(this, calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE), calendar.get(Calendar.SECOND), false);
+        timePickerDialog.dismissOnPause(true);
+        timePickerDialog.setAccentColor(ActivityCompat.getColor(activity, R.color.colorPrimary));
+        timePickerDialog.setCancelColor(ActivityCompat.getColor(activity, R.color.gray4));
+        timePickerDialog.setOkColor(ActivityCompat.getColor(activity, R.color.colorPrimary));
+        // datePickerDialog.setOkText(getString(R.string.select));
+        //datePickerDialog.setCancelText(getString(R.string.cancel));
+        timePickerDialog.setLocale(new Locale(current_lang));
+        timePickerDialog.setVersion(TimePickerDialog.Version.VERSION_2);
+        timePickerDialog.setMinTime(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), calendar.get(Calendar.SECOND));
+    }
 
+
+    @Override
+    public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        calendar.set(Calendar.MINUTE, minute);
+        calendar.set(Calendar.SECOND, second);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm aa", Locale.ENGLISH);
+        time = "PT" + calendar.getTime().getHours() + "H" + calendar.getTime().getMinutes() + "M";
+        tv_time.setText(time);
+    }
 }

@@ -2,10 +2,12 @@ package com.creativeshare.sals.Activities_Fragments.Secdule.Fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -26,6 +28,10 @@ import com.creativeshare.sals.Adapter.Spinner_Country_Adapter;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.CityModel;
+import com.creativeshare.sals.models.Computrized_Model;
+import com.creativeshare.sals.models.Dementions_Model;
+import com.creativeshare.sals.models.Quote_Model;
+import com.creativeshare.sals.models.Shipment_Send_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
@@ -46,14 +52,18 @@ public class Fragment_Shipping_Detials extends Fragment {
     private Preferences preferences;
     private UserModel userModel;
     private String current_lang;
-    private Button next, bt_Shipping_dimensions;
+    private Button next, bt_Shipping_dimensions, bt_incremental, bt_decremantal;
     private FrameLayout fr_document, fr_parcel;
     private ImageView im_document, im_parcel;
-    private TextView tv_document, tv_parcel;
-    private EditText edt_desc;
+    private TextView tv_document, tv_parcel,tv_Quantity;
+    private EditText edt_desc,edt_weight,edt_name,edt_phone,edt_address;
     private List<CityModel.Cities> cityModelList;
     private Spinner spinner_city_to;
     private Spinner_City_Adapter city_adapter;
+    private int quantity = 1;
+ private List<String> wegights,widths,hights,lengths,volumeweights;
+    private String is_dutiable = "0", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", payment_country_code = "SA",  to_city, to_country_code = "SA";
+private String parcel="0";
     public static Fragment_Shipping_Detials newInstance() {
         return new Fragment_Shipping_Detials();
     }
@@ -70,10 +80,18 @@ public class Fragment_Shipping_Detials extends Fragment {
     private void initView(View view) {
         cityModelList=new ArrayList<>();
         activity = (Scedule_Activity) getActivity();
+        wegights=new ArrayList<>();
+        lengths=new ArrayList<>();
+        widths=new ArrayList<>();
+        hights=new ArrayList<>();
+        volumeweights=new ArrayList<>();
         Paper.init(activity);
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
+        bt_incremental = view.findViewById(R.id.increment);
+        bt_decremantal = view.findViewById(R.id.decrement);
+        tv_Quantity = view.findViewById(R.id.tv_quantity);
         fr_document = view.findViewById(R.id.fr_document);
         fr_parcel = view.findViewById(R.id.fr_parcel);
         im_document = view.findViewById(R.id.im_document);
@@ -81,14 +99,58 @@ public class Fragment_Shipping_Detials extends Fragment {
         tv_document = view.findViewById(R.id.tv_document);
         tv_parcel = view.findViewById(R.id.tv_parcel);
         edt_desc = view.findViewById(R.id.edt_desc);
+        edt_name=view.findViewById(R.id.edt_name);
+        edt_phone=view.findViewById(R.id.edt_phone);
+        edt_address=view.findViewById(R.id.edt_address);
+        edt_weight=view.findViewById(R.id.edt_weight);
+
         bt_Shipping_dimensions = view.findViewById(R.id.bt_shipping_dimensions);
         next = view.findViewById(R.id.bt_next);
         spinner_city_to = view.findViewById(R.id.sp_cityto);
         city_adapter = new Spinner_City_Adapter(activity, cityModelList);
         spinner_city_to.setAdapter(city_adapter);
+        spinner_city_to.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    to_city = "";
+                } else {
+                    to_city = cityModelList.get(position).getEn_name();
+                    if(current_lang.equals("en")){
+                Shipment_Send_Model.setcityt(cityModelList.get(position).getEn_name());
+                    }
+                    else {
+                       Shipment_Send_Model.setcityt(cityModelList.get(position).getAr_name());
+
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        bt_incremental.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                quantity += 1;
+                tv_Quantity.setText(quantity + "");
+            }
+        });
+        bt_decremantal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (quantity > 1) {
+                    quantity -= 1;
+                    tv_Quantity.setText(quantity + "");
+                }
+            }
+        });
         fr_document.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                parcel="0";
                 fr_document.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 fr_parcel.setBackgroundColor(getResources().getColor(R.color.white));
                 im_document.setColorFilter(getResources().getColor(R.color.white));
@@ -102,6 +164,8 @@ public class Fragment_Shipping_Detials extends Fragment {
         fr_parcel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                parcel="1";
+
                 fr_document.setBackgroundColor(getResources().getColor(R.color.white));
                 fr_parcel.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 im_document.setColorFilter(getResources().getColor(R.color.colorPrimary));
@@ -121,7 +185,8 @@ public class Fragment_Shipping_Detials extends Fragment {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.DisplayFragmentdelivrychooser();
+                checkdata();
+               // activity.DisplayFragmentdelivrychooser();
             }
         });
 
@@ -170,5 +235,128 @@ public class Fragment_Shipping_Detials extends Fragment {
                 });
 
     }
+    private void checkdata() {
+        if(widths.size()!=0||parcel.equals("0")){
+        String weight=edt_weight.getText().toString();
+        String name=edt_name.getText().toString();
+        String phone=edt_phone.getText().toString();
+        String address=edt_address.getText().toString();
+        if ( TextUtils.isEmpty(to_city) ||TextUtils.isEmpty(weight)||TextUtils.isEmpty(name)||TextUtils.isEmpty(phone)||TextUtils.isEmpty(address)){
 
+            if(TextUtils.isEmpty(weight)){
+                edt_weight.setError(getResources().getString(R.string.field_req));
+            }
+            if(TextUtils.isEmpty(to_city)){
+                Common.CreateSignAlertDialog(activity,getResources().getString(R.string.add_city));
+            }
+            if(TextUtils.isEmpty(name)){
+                edt_name.setError(getResources().getString(R.string.field_req));
+            }
+            if(TextUtils.isEmpty(phone)){
+                edt_phone.setError(getResources().getString(R.string.field_req));
+            }
+            if(TextUtils.isEmpty(address)){
+                edt_address.setError(getResources().getString(R.string.field_req));
+            }
+
+        }
+        else {
+            List<String> wegights=new ArrayList<>();
+            edt_weight.setError(null);
+            //tv_date.setError(null);
+            //tv_time.setError(null);
+            int loop;
+            if(parcel.equals("1")){
+                loop=widths.size();
+            }
+            else {
+                loop=quantity;
+            }
+            for(int i=0;i<loop;i++){
+                wegights.add(weight);
+            }
+          //  Computrized_Model.setQuantity(quantity+"");
+          //  Computrized_Model.setWeight(weight);
+            Shipment_Send_Model.setWegights(wegights);
+            if(parcel.equals("1")){
+                Shipment_Send_Model.setWidths(widths);
+                Shipment_Send_Model.setHights(hights);
+                Shipment_Send_Model.setLengths(lengths);
+                Shipment_Send_Model.setVolumeweights(volumeweights);
+
+            }
+            Shipment_Send_Model.setParcel(parcel);
+            Shipment_Send_Model.setName(name);
+           // Shipment_Send_Model.setcityt(to_city);
+            Shipment_Send_Model.setPhone(phone);
+            Shipment_Send_Model.setAdddresst(address);
+
+            getQoute(wegights);
+
+        }}
+        else {
+            Common.CreateSignAlertDialog(activity,getResources().getString(R.string.demintion_for_eacj_piece));
+        }
+    }
+
+    private void getQoute(List<String> wegights) {
+      //  Log.e("data", Shipment_Send_Model.getDate()+wegights+is_dutiable+Shipment_Send_Model.getTime()+ready_time_gmt_offset+dimension_unit+weight_unit+payment_country_code+Shipment_Send_Model.getFromcountrycode()+Shipment_Send_Model.getCityf()+to_city+to_country_code);
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService().get_quote("Bearer"+" "+ userModel.getToken(), Shipment_Send_Model.getDate(),wegights,is_dutiable,Shipment_Send_Model.getTime(),ready_time_gmt_offset,dimension_unit,weight_unit,payment_country_code,Shipment_Send_Model.getFromcountrycode(),Shipment_Send_Model.getCityf(),to_city,to_country_code).enqueue(new Callback<Quote_Model>() {
+            @Override
+            public void onResponse(Call<Quote_Model> call, Response<Quote_Model> response) {
+                dialog.dismiss();
+                if(response.isSuccessful()){
+                    //     assert response.body() != null;
+                    //  Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
+                    //  activity.DisplayFragmentComputrizedprice();
+                  /*  if (response.body() != null) {
+                        Log.e("ss",response.body().toString()+response.raw()+response.headers()+response.body().getData().getGetQuoteResponse().getBkgDetails());
+                    }*/
+                    adddata(response.body());
+                }
+                else {
+                    try {
+                        Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
+                        Log.e("Error_code", response.code() + "" + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Quote_Model> call, Throwable t) {
+                try {
+                    dialog.dismiss();
+                    Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+                    Log.e("Error", t.getMessage());
+                } catch (Exception e) {
+
+                }
+            }
+        });
+    }
+    public void adddeminssion(Dementions_Model dementions_model) {
+       // Log.e("de",dementions_model.getGrossweight()+"");
+        for(int i=0;i<quantity;i++){
+
+            widths.add(dementions_model.getWidth()+"");
+            hights.add(dementions_model.getHight()+"");
+            lengths.add(dementions_model.getLength()+"");
+            volumeweights.add(dementions_model.getVoulumeweight()+"");
+        }
+
+
+    }
+    private void adddata(Quote_Model body) {
+        Shipment_Send_Model.setPrice(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
+        Shipment_Send_Model.setDay_number(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getTotalTransitDays());
+
+        Computrized_Model.setTime(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getDeliveryTime());
+        activity.DisplayFragmentdelivrychooser();
+
+    }
 }

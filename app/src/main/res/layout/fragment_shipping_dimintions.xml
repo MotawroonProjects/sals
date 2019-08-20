@@ -67,6 +67,7 @@
           android:orientation="horizontal"
           android:weightSum="2"
           android:background="@color/white"
+          android:visibility="gone"
           >
 
           <TextView
@@ -126,7 +127,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:layout_marginTop="10dp"
 
 android:orientation="vertical"
     android:paddingLeft="10dp"
@@ -155,14 +155,14 @@ android:orientation="vertical"
             android:layout_weight="1"
 
             />
+
         <TextView
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
             android:text="@string/width_cm"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:layout_weight="1"
-            />
+            android:textSize="20sp" />
         <TextView
             android:layout_width="0dp"
             android:layout_height="45dp"
@@ -179,6 +179,7 @@ android:orientation="vertical"
         android:weightSum="3"
         >
         <EditText
+            android:id="@+id/edt_length"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:textColor="@color/black"
@@ -186,8 +187,10 @@ android:orientation="vertical"
             android:layout_weight="1"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
+            android:inputType="numberDecimal"
             />
         <EditText
+            android:id="@+id/edt_width"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:textColor="@color/black"
@@ -195,8 +198,11 @@ android:orientation="vertical"
             android:layout_weight="1"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
+            android:inputType="numberDecimal"
+
             />
         <EditText
+            android:id="@+id/edt_hight"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:textColor="@color/black"
@@ -204,6 +210,8 @@ android:orientation="vertical"
             android:layout_weight="1"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
+            android:inputType="numberDecimal"
+
             />
     </LinearLayout>
     <LinearLayout
@@ -224,7 +232,8 @@ android:orientation="vertical"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
-        <EditText
+        <TextView
+            android:id="@+id/tv_volumeweight"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".4"
@@ -234,7 +243,9 @@ android:orientation="vertical"
             android:textColor="@color/black"
             android:textColorHint="@color/gray4"
             android:textSize="19sp"
-            android:theme="@style/AppTheme.LighterEditText" />
+            android:theme="@style/AppTheme.LighterEditText"
+
+            />
 
 
     </LinearLayout>
@@ -247,6 +258,7 @@ android:orientation="vertical"
           android:weightSum="1"
 android:background="@color/white"
           android:layout_marginTop="10dp"
+          android:visibility="gone"
           >
 
           <TextView
@@ -260,6 +272,7 @@ android:background="@color/white"
               android:textSize="20sp" />
 
           <EditText
+              android:id="@+id/edt_grossweight"
               android:layout_width="0dp"
               android:layout_height="match_parent"
               android:layout_weight=".4"
@@ -269,7 +282,10 @@ android:background="@color/white"
               android:textColor="@color/black"
               android:textColorHint="@color/gray4"
               android:textSize="19sp"
-              android:theme="@style/AppTheme.LighterEditText" />
+              android:theme="@style/AppTheme.LighterEditText"
+              android:inputType="numberDecimal"
+
+              />
 
 
       </LinearLayout>
@@ -280,6 +296,7 @@ android:background="@color/white"
           android:weightSum="1"
           android:background="@color/white"
           android:layout_marginTop="10dp"
+          android:visibility="gone"
           >
 
           <TextView
@@ -293,6 +310,7 @@ android:background="@color/white"
               android:textSize="20sp" />
 
           <EditText
+              android:id="@+id/edt_totalweight"
               android:layout_width="0dp"
               android:layout_height="match_parent"
               android:layout_weight=".4"
@@ -302,12 +320,15 @@ android:background="@color/white"
               android:textColor="@color/black"
               android:textColorHint="@color/gray4"
               android:textSize="19sp"
-              android:theme="@style/AppTheme.LighterEditText" />
+              android:theme="@style/AppTheme.LighterEditText"
+              android:inputType="numberDecimal"
+
+              />
 
 
       </LinearLayout>
       <Button
-          android:id="@+id/bt_next"
+          android:id="@+id/bt_save"
           android:layout_width="match_parent"
           android:layout_height="45dp"
           android:layout_marginLeft="20dp"

@@ -1,14 +1,19 @@
 package com.creativeshare.sals.models;
 
+import java.util.List;
+
 public class Computrized_Model {
     static String city_From;
     static String City_to;
-   static String price;
+    static String price;
     static String day_number;
     static String time;
-   static String type;
-static String quantity;
-static String weight;
+    static String type;
+    static String quantity;
+    static String weight;
+
+
+
 
     public static String getQuantity() {
         return quantity;
@@ -50,6 +55,8 @@ static String weight;
         Computrized_Model.price = price;
     }
 
+
+
     public static String getDay_number() {
         return day_number;
     }
@@ -73,4 +80,5 @@ static String weight;
     public static void setType(String type) {
         Computrized_Model.type = type;
     }
+
 }

@@ -152,11 +152,12 @@
     <string name="pieces">قطعه</string>
     <string name="kg">كج</string>
     <string name="ryal">ريال</string>
-    <string name="Delivery">Delivery will be through</string>
-    <string name="days">Days</string>
-    <string name="address_from">Address From</string>
-    <string name="address_to">address to</string>
+    <string name="Delivery">تسليم سيكون من خلال</string>
+    <string name="days">ايام</string>
+    <string name="address_from">يشحن من </string>
+    <string name="address_to">يشحن الى </string>
     <string name="cost_of_delivery">تكلفة التوصيل</string>
     <string name="the_total_cost">التكلفه الكليه</string>
-    <string name="complete_profile">Complete Profile</string>
+    <string name="complete_profile">اكمل بيانتك الشخصيه</string>
+    <string name="from_dhl">من دى اتش ال</string>
 </resources>

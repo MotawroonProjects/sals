@@ -11,9 +11,79 @@
     android:orientation="vertical"
     android:background="@color/white"
     >
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:text="@string/name"
+    android:gravity="center_vertical"
+    android:textSize="24sp"
+    android:textColor="@color/black"
+    android:paddingRight="8dp"
+    android:paddingLeft="8dp"
+    />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textSize="23sp"
+        android:hint="@string/name"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"/>
 
-
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="@string/credit_number"
+        android:gravity="center_vertical"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textSize="23sp"
+        android:hint="@string/credit_number"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="@string/cvc"
+        android:gravity="center_vertical"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textSize="23sp"
+        android:hint="@string/cvc"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"/>
     <Button
 
         android:layout_width="match_parent"

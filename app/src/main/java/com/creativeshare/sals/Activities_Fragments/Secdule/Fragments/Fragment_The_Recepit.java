@@ -364,6 +364,8 @@ getGeoData(body.getAddress().getAddress());
     public void updateaddreess(String body) {
         if (type == 0) {
             tv_addressf.setText(body);
+            getGeoData(body);
+            addressf=body;
         } else if (type == 1) {
             tv_addresst.setText(body);
         }

@@ -160,5 +160,7 @@
     <string name="complete_profile">Complete Profile</string>
     <string name="from_dhl">From Dhl</string>
     <string name="from_sals">From Sals</string>
+    <string name="credit_number">credit number</string>
+    <string name="cvc">CVC</string>
 
 </resources>

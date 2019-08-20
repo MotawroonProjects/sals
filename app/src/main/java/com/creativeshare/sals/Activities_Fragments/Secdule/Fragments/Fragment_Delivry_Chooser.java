@@ -95,7 +95,7 @@ public class Fragment_Delivry_Chooser extends Fragment {
 
 
 
-                //activity.DisplayFragmentconfirmation();
+                activity.DisplayFragmentconfirmation();
             }
         });
 

@@ -161,4 +161,6 @@
     <string name="complete_profile">اكمل بيانتك الشخصيه</string>
     <string name="from_dhl">من دى اتش ال</string>
     <string name="from_sals">From Sals</string>
+    <string name="credit_number">credit number</string>
+    <string name="cvc">CVC</string>
 </resources>

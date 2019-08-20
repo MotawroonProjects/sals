@@ -290,8 +290,8 @@ checkdata();
 getGeoData(body.getAddress().getAddress());
         tv_user.setText(userModel.getUser().getFirst_name() + userModel.getUser().getLast_name());
         addressf=body.getAddress().getAddress();
-        cityf=body.getAddress().getAddress().split(", ")[1];
-        Log.e("c",cityf);
+        //cityf=body.getAddress().getAddress().split(", ")[1];
+      //  Log.e("c",cityf);
         if (body != null) {
             if (body.getAddress() != null && body.getAddress().getAddress() != null) {
 

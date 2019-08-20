@@ -158,4 +158,5 @@
     <string name="address_to">address to</string>
     <string name="cost_of_delivery">تكلفة التوصيل</string>
     <string name="the_total_cost">التكلفه الكليه</string>
+    <string name="complete_profile">Complete Profile</string>
 </resources>

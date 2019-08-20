@@ -38,6 +38,12 @@ public interface Service {
                                       @Query(value = "language") String language,
                                       @Query(value = "key") String key);
 
+    @GET("geocode/json")
+    Call<PlaceGeocodeData> getGeoDatapos(@Query(value = "address") String address,
+                                         @Query(value = "language") String language,
+                                         @Query("ensor") Boolean ensor,
+                                         @Query(value = "key") String key);
+
     @FormUrlEncoded
     @POST("api/login")
     Call<UserModel> SignIn(@Field("mobile_code") String mobile_code,
@@ -103,20 +109,23 @@ public interface Service {
             @Field("longitude") String longitude,
             @Field("is_primary") String is_primary
     );
+
     @FormUrlEncoded
     @POST("api/profile/address")
-    Call<Address_Models>Singleadress(
+    Call<Address_Models> Singleadress(
             @Header("Authorization") String Authorization,
 
             @Field("address_id") String address_id
 
     );
+
     @POST("api/profile/address/main")
-    Call<Address_Models>Singleadress(
+    Call<Address_Models> Singleadress(
             @Header("Authorization") String Authorization
 
 
     );
+
     @FormUrlEncoded
     @POST("api/profile/address/update")
     Call<Address_Model> updateadress(
@@ -134,18 +143,21 @@ public interface Service {
             @Field("is_primary") String is_primary,
             @Field("address_id") String address_id
     );
+
     @GET("api/sizes")
     Call<Bike_Model> getBike(
             @Header("Authorization") String Authorization,
             @Header("lang") String lang
 
     );
+
     @GET("api/faqs")
     Call<Questions_Model> getQuestions(
             @Header("Authorization") String Authorization,
             @Header("lang") String lang
 
     );
+
     @GET("api/faqs/categories")
     Call<Help_Cat_Model> getHelpcat(
             @Header("Authorization") String Authorization,
@@ -159,27 +171,31 @@ public interface Service {
             @Header("lang") String lang
 
     );
+
     @GET("api/centers")
     Call<Sercvices_Centers> getservicescenter(
 
             @Header("lang") String lang
 
     );
+
     @GET("api/countries")
     Call<Country_Model> getCoutry(
             @Header("Authorization") String Authorization,
             @Header("lang") String lang
 
     );
+
     @GET("/api/cities")
     Call<CityModel> getCity(
             @Header("Authorization") String Authorization,
             @Header("lang") String lang
 
     );
+
     @FormUrlEncoded
     @POST("api/get-quote")
-    Call<Quote_Model>get_quote(
+    Call<Quote_Model> get_quote(
             @Header("Authorization") String Authorization,
             @Field("date") String date,
             @Field("pieces[][weight]") List<String> piece,
@@ -194,11 +210,12 @@ public interface Service {
             @Field("to_city") String to_city,
             @Field("to_country_code") String to_country_code
 
-            );
+    );
+
     @FormUrlEncoded
     @POST("api/firebase-token")
-    Call<ResponseBody>updateToken(
+    Call<ResponseBody> updateToken(
             @Header("Authorization") String Authorization,
             @Field("number_token") String number_token
-);
+    );
 }

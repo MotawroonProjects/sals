@@ -286,8 +286,8 @@ checkdata();
     }
 
     private void updatedata(Address_Models body) {
-       updatepostalcode(body.getAddress().getLatitude(),body.getAddress().getLongitude());
-
+      // updatepostalcode(body.getAddress().getLatitude(),body.getAddress().getLongitude());
+getGeoData(body.getAddress().getAddress());
         tv_user.setText(userModel.getUser().getFirst_name() + userModel.getUser().getLast_name());
         addressf=body.getAddress().getAddress();
         cityf=body.getAddress().getAddress().split(", ")[1];
@@ -365,11 +365,11 @@ checkdata();
         //Log.e("kkk", date);
 
     }
-    private void getGeoData(final double lat, final double lng) {
+    private void getGeoData(final String address) {
 
-        String location = lat + "," + lng;
+
         Api.getService("https://maps.googleapis.com/maps/api/")
-                .getGeoData(location, "en", getString(R.string.map_api_key))
+                .getGeoDatapos(address, "en",true, getString(R.string.map_api_key))
                 .enqueue(new Callback<PlaceGeocodeData>() {
                     @Override
                     public void onResponse(Call<PlaceGeocodeData> call, Response<PlaceGeocodeData> response) {
@@ -380,13 +380,13 @@ checkdata();
                               //  formated_address = response.body().getResults().get(0).getFormatted_address().replace("Unnamed Road,", "");
                                 // address.setText(formatedaddress);
                                 //tv_location.setText(formated_address);
-//updatepostalcode(response.body().getResults().get(0).getAddress_components());
+updatepostalcode(response.body().getResults());
                                 //AddMarker(lat, lng);
                                 //place_id = response.body().getCandidates().get(0).getPlace_id();
                                 //   Log.e("kkk", formatedaddress);
                             }
                         } else {
-                            Log.e("error_code", response.errorBody() + " " + response.code());
+                            Log.e("error_code", response.errorBody() + " " + response.code()+response.message());
 
                             try {
                                 Log.e("error_code", response.errorBody().string());
@@ -409,6 +409,31 @@ checkdata();
                         }
                     }
                 });
+    }
+
+    private void updatepostalcode(List<PlaceGeocodeData.Geocode> address_components) {
+        PlaceGeocodeData.Geocode geocode;
+        List<PlaceGeocodeData.Address_components> address_components1;
+        List<String> typs;
+        for(int i=0;i<address_components.size();i++){
+            geocode=address_components.get(i);
+            address_components1=geocode.getAddress_components();
+            for(int j=0;j<address_components1.size();j++){
+                typs=address_components1.get(j).getTypes();
+                for(int k=0;k<typs.size();k++){
+                    if(typs.get(k).equals("postal_code")){
+                        postal_code=address_components1.get(j).getLong_name();
+                        Log.e("postal",postal_code);
+                        ;
+                    }
+                    //Log.e("llll",address_components1.get(j).getLong_name());
+                    if(typs.get(k).equals("administrative_area_level_2")||typs.get(k).equals("locality")){
+                     cityf=address_components1.get(j).getLong_name();
+                     Log.e("c",cityf);
+                    }
+                }
+            }
+        }
     }
 
     private void updatepostalcode(double latitude,double longitude) {
@@ -438,7 +463,7 @@ checkdata();
 
 
         }
-        Log.e("ss", postal_code+"5");
+        Log.e("ss", postal_code+"5"+" "+latitude+" "+longitude);
 
     }
 

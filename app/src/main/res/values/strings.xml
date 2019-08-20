@@ -157,5 +157,6 @@
     <string name="address_to">address to</string>
     <string name="cost_of_delivery">Cost of delivery</string>
     <string name="the_total_cost">the total cost</string>
+    <string name="complete_profile">Complete Profile</string>
 
 </resources>

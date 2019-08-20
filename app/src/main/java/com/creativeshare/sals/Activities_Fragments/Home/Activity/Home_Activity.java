@@ -449,9 +449,13 @@ public class Home_Activity extends AppCompatActivity {
     }
 
     public void startscdeule(int param) {
+        if(userModel.getUser().getFirst_name()!=null&&userModel.getUser().getLast_name()!=null){
         Intent intent = new Intent(Home_Activity.this, Scedule_Activity.class);
         intent.putExtra("param", param);
-        startActivity(intent);
+        startActivity(intent);}
+        else {
+            Common.CreateSignAlertDialog(this,getResources().getString(R.string.complete_profile));
+        }
     }
 
 

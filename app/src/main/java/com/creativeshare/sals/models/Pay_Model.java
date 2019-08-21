@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Pay_Model implements Serializable {
 
-        private double amount;
+        private int amount;
 private Source source;
 private String callback_url;
 
@@ -20,7 +20,7 @@ private String callback_url;
         this.callback_url = callback_url;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 

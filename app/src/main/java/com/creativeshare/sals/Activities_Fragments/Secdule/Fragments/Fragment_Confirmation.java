@@ -26,6 +26,7 @@ import com.creativeshare.sals.models.Shipment_Send_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -97,10 +98,11 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
         pay_model.setSource(new Pay_Model.Source());
         pay_model.getSource().setName(name);
         pay_model.getSource().setNumber(num);
+
         pay_model.getSource().setCvc(Integer.parseInt(cvc));
-        pay_model.setAmount(Double.parseDouble(Shipment_Send_Model.getPrice()));
-        pay_model.getSource().setMonth(Calendar.MONTH+1);
-        pay_model.getSource().setYear(Calendar.YEAR);
+        pay_model.setAmount((int)Double.parseDouble(Shipment_Send_Model.getPrice()));
+        pay_model.getSource().setMonth(Calendar.getInstance().get(Calendar.MONTH)+1);
+        pay_model.getSource().setYear(Calendar.getInstance().get(Calendar.YEAR));
         pay_model.getSource().setType(Shipment_Send_Model.getSadad());
 pay_model.setCallback_url("https://www.google.com/");
             //  Log.e("data", Shipment_Send_Model.getDate()+wegights+is_dutiable+Shipment_Send_Model.getTime()+ready_time_gmt_offset+dimension_unit+weight_unit+payment_country_code+Shipment_Send_Model.getFromcountrycode()+Shipment_Send_Model.getCityf()+to_city+to_country_code);
@@ -112,13 +114,15 @@ pay_model.setCallback_url("https://www.google.com/");
                 public void onResponse(Call<Payment_Result_Model> call, Response<Payment_Result_Model> response) {
                     dialog.dismiss();
                     if(response.isSuccessful()){
+                        Gson gson = new Gson();
+                        String json = gson.toJson(pay_model);
                         //     assert response.body() != null;
                         //  Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
                         //  activity.DisplayFragmentComputrizedprice();
                   /*  if (response.body() != null) {
                         Log.e("ss",response.body().toString()+response.raw()+response.headers()+response.body().getData().getGetQuoteResponse().getBkgDetails());
                     }*/
-                  Log.e("jjj",response.body().getAmount()+"");
+Log.e("model",json+response.body().getAmount()+num.length());
                   makeshipment();
 
                     }

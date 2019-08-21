@@ -184,7 +184,8 @@
                     android:textColorHint="@color/gray4"
                     android:textSize="24sp"
                     android:theme="@style/AppTheme.LighterEditText2"
-
+android:inputType="number"
+                    android:singleLine="true"
                     />
 
                 <LinearLayout
@@ -219,7 +220,10 @@
                             android:paddingRight="10dp"
                             android:textColor="@color/gray0"
                             android:textColorHint="@color/gray4"
-                            android:textSize="24sp" />
+                            android:textSize="24sp"
+                            android:inputType="number"
+                            android:singleLine="true"
+                            />
                     </LinearLayout>
 
                     <LinearLayout
@@ -249,7 +253,8 @@
                             android:textColor="@color/gray0"
                             android:textColorHint="@color/gray4"
                             android:textSize="24sp"
-
+                            android:inputType="number"
+                            android:singleLine="true"
                             />
                     </LinearLayout>
 
@@ -280,7 +285,8 @@
                     android:paddingRight="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray4"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    />
 
                 <View
                     android:layout_width="match_parent"
@@ -308,7 +314,9 @@
                     android:paddingRight="10dp"
                     android:textColor="@color/gray0"
                     android:textColorHint="@color/gray4"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:singleLine="true"
+                    />
 
                 <View
                     android:layout_width="match_parent"

@@ -396,7 +396,7 @@ android:singleLine="true"
                 android:textColorHint="@color/gray4"
                 android:textSize="19sp"
                 android:theme="@style/AppTheme.LighterEditText"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:singleLine="true"
                 />
 

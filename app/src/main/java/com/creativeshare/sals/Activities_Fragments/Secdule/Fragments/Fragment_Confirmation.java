@@ -81,6 +81,17 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
             pay(name,num,cvc);
         }
         else {
+            if(Shipment_Send_Model.getSadad().equals("SADAD")){
+                if(!TextUtils.isEmpty(name)){
+                    pay(name,"","");
+                }
+                else {
+                    if(TextUtils.isEmpty(name)){
+                        edt_name.setError(getResources().getString(R.string.field_req));
+                    }
+                }
+            }
+            else {
             if(TextUtils.isEmpty(name)){
                 edt_name.setError(getResources().getString(R.string.field_req));
             }
@@ -89,7 +100,7 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
             }
             if(TextUtils.isEmpty(cvc)){
                 edt_cvc.setError(getResources().getString(R.string.field_req));
-            }
+            }}
         }
     }
 
@@ -97,13 +108,18 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
         Pay_Model pay_model=new Pay_Model();
         pay_model.setSource(new Pay_Model.Source());
         pay_model.getSource().setName(name);
-        pay_model.getSource().setNumber(num);
 
-        pay_model.getSource().setCvc(Integer.parseInt(cvc));
+        pay_model.getSource().setNumber(num);
+        if(Shipment_Send_Model.getSadad().equals("SADAD")){
+            pay_model.getSource().setCvc(0);
+        }
+        else {
+        pay_model.getSource().setCvc(Integer.parseInt(cvc));}
         pay_model.setAmount((int)Double.parseDouble(Shipment_Send_Model.getPrice()));
         pay_model.getSource().setMonth(Calendar.getInstance().get(Calendar.MONTH)+1);
         pay_model.getSource().setYear(Calendar.getInstance().get(Calendar.YEAR));
         pay_model.getSource().setType(Shipment_Send_Model.getSadad());
+
 pay_model.setCallback_url("https://www.google.com/");
             //  Log.e("data", Shipment_Send_Model.getDate()+wegights+is_dutiable+Shipment_Send_Model.getTime()+ready_time_gmt_offset+dimension_unit+weight_unit+payment_country_code+Shipment_Send_Model.getFromcountrycode()+Shipment_Send_Model.getCityf()+to_city+to_country_code);
             final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));

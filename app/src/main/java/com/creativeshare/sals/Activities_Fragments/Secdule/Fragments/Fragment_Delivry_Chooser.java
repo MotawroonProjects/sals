@@ -58,7 +58,7 @@ public class Fragment_Delivry_Chooser extends Fragment {
     }
 
     private void initView(View view) {
-        Shipment_Send_Model.setcredit("sadad");
+        Shipment_Send_Model.setcredit("SADAD");
         activity = (Scedule_Activity) getActivity();
         Paper.init(activity);
         preferences=Preferences.getInstance();
@@ -84,7 +84,7 @@ public class Fragment_Delivry_Chooser extends Fragment {
 ll_sadad.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        Shipment_Send_Model.setcredit("sadad");
+        Shipment_Send_Model.setcredit("SADAD");
         im_credit.setVisibility(View.GONE);
         im_sadad.setVisibility(View.VISIBLE);
     }

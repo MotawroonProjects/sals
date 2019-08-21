@@ -1,34 +1,34 @@
 package com.creativeshare.sals.models;
 
 public class Dementions_Model {
-    private double length;
-    private double width;
-    private double hight;
+    private int length;
+    private int width;
+    private int hight;
     private double voulumeweight;
   //  private double grossweight;
     //private double totalweigt;
 
-    public double getLength() {
+    public int getLength() {
         return length;
     }
 
-    public void setLength(double length) {
+    public void setLength(int length) {
         this.length = length;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
-    public double getHight() {
+    public int getHight() {
         return hight;
     }
 
-    public void setHight(double hight) {
+    public void setHight(int hight) {
         this.hight = hight;
     }
 

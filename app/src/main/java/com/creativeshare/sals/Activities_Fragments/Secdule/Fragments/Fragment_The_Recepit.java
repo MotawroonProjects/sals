@@ -234,7 +234,7 @@ checkdata();
             tv_addressf.setError(null);
             tv_date.setError(null);
             tv_user.setError(null);
-            Shipment_Send_Model.setAddreessf(addressf);
+            Shipment_Send_Model.setAddreessf(addressf.split(", ")[0]+addressf.split(", ")[1]);
            // Shipment_Send_Model.setAdddresst(addreesst);
             Shipment_Send_Model.setDate(date);
             Shipment_Send_Model.setDesc(desc);
@@ -449,6 +449,7 @@ updatepostalcode(response.body().getResults());
                     if(typs.get(k).equals("postal_code")){
                         postal_code=address_components1.get(j).getLong_name();
                         Log.e("postal",postal_code);
+                        Shipment_Send_Model.setpostalf(postal_code);
                         ;
                     }
                     //Log.e("llll",address_components1.get(j).getLong_name());
@@ -458,8 +459,12 @@ updatepostalcode(response.body().getResults());
                     }
                     if(typs.get(k).equals("country")){
                         Shipment_Send_Model.setcode(address_components1.get(j).getShort_name());
+                        Shipment_Send_Model.setcountryf(address_components1.get(j).getLong_name());
                     }
                 }
+            }
+            if(postal_code==null){
+                Shipment_Send_Model.setpostalf("0");
             }
         }
     }

@@ -17,6 +17,11 @@ private List<Cities> cities;
             private String en_name;
             private int province_id_fk;
             private int country_id_fk;
+        private String postal_code;
+
+        public String getPostal_code() {
+            return postal_code;
+        }
 
         public Cities(String ar_name, String en_name) {
             this.ar_name = ar_name;

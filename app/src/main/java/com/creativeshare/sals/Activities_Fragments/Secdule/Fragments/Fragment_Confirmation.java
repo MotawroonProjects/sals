@@ -22,6 +22,7 @@ import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.Pay_Model;
 import com.creativeshare.sals.models.Payment_Result_Model;
 import com.creativeshare.sals.models.Quote_Model;
+import com.creativeshare.sals.models.Shipment_Response_Model;
 import com.creativeshare.sals.models.Shipment_Send_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
@@ -30,9 +31,13 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
+import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
 import io.paperdb.Paper;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -44,6 +49,7 @@ public class Fragment_Confirmation extends Fragment {
     private UserModel userModel;
 private EditText edt_name,edt_num,edt_cvc;
 private Button bt_confirm;
+
     public static Fragment_Confirmation newInstance() {
         return new Fragment_Confirmation();
     }
@@ -56,6 +62,7 @@ private Button bt_confirm;
         return view;
     }
     private void initView(View view) {
+
         activity = (Scedule_Activity) getActivity();
         preferences=Preferences.getInstance();
         userModel=preferences.getUserData(activity);
@@ -139,13 +146,14 @@ pay_model.setCallback_url("https://www.google.com/");
                         Log.e("ss",response.body().toString()+response.raw()+response.headers()+response.body().getData().getGetQuoteResponse().getBkgDetails());
                     }*/
 Log.e("model",json+response.body().getAmount()+num.length());
-                  makeshipment();
+if(response.body().getAmount()!=0.0){
+                  makeshipment();}
 
                     }
                     else {
                         try {
                             Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
-                            Log.e("Error_code", response.code() + "" + response.errorBody().string());
+                            Log.e("Error_code", response.code() + "" + response.errorBody().string()+response.raw().request().body()+response.headers());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -169,7 +177,52 @@ Log.e("model",json+response.body().getAmount()+num.length());
     }
 
     private void makeshipment() {
+        HashMap<String, List>  hashMap=new HashMap();
+        hashMap.put("pieces[0][weight]",Shipment_Send_Model.getWegights());
+        hashMap.put("pieces[0][dim_weight]",Shipment_Send_Model.getVolumeweights());
+        hashMap.put("pieces[0][width]",Shipment_Send_Model.getWidths());
+        hashMap.put("pieces[0][height]",Shipment_Send_Model.getHights());
+        hashMap.put("pieces[0][depth]",Shipment_Send_Model.getLengths());
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+Api.getService().makeshipment("Bearer "+" "+userModel.getToken(),Shipment_Send_Model.getParcel(),userModel.getUser().getFirst_name()+userModel.getUser().getLast_name(),Shipment_Send_Model.getAddreessf(),Shipment_Send_Model.getCityf(),Shipment_Send_Model.getPostalf(),Shipment_Send_Model.getFromcountrycode(),Shipment_Send_Model.getCountryf(),userModel.getUser().getFirst_name()+userModel.getUser().getLast_name(),userModel.getUser().getMobile_number(), PhoneNumberUtil.createInstance(activity).getCountryCodeForRegion(Shipment_Send_Model.getFromcountrycode())+"",userModel.getUser().getEmail()+"test2@mail.com",Shipment_Send_Model.getName(),Shipment_Send_Model.getPhone(),"966",userModel.getUser().getEmail()+"test2@mail.com",Shipment_Send_Model.getDate(),Shipment_Send_Model.getDesc(),Shipment_Send_Model.getWegights().get(0),Shipment_Send_Model.getAdddresst(),Shipment_Send_Model.getCityt(),Shipment_Send_Model.getPostalt(),"SA","SAUDI ARABIA",Shipment_Send_Model.getName(),Shipment_Send_Model.getWegights().size()+"",Shipment_Send_Model.getWegights(),Shipment_Send_Model.getVolumeweights(),Shipment_Send_Model.getWidths(),Shipment_Send_Model.getHights(),Shipment_Send_Model.getLengths()).enqueue(new Callback<Shipment_Response_Model>() {
+    @Override
+    public void onResponse(Call<Shipment_Response_Model> call, Response<Shipment_Response_Model> response) {
+        dialog.dismiss();
 
+        if(response.isSuccessful()){
+if(response.body().getPiece()!=null){
+    Toast.makeText(activity, R.string.success, Toast.LENGTH_SHORT).show();
+    Log.e("suc",response.body().getPiece());
+}
+else {
+    Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
+    Log.e("ll",response.body().getResponse().getStatus().getCondition().getConditionData());
+
+}
+        }
+        else {
+            try {
+                Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
+                Log.e("Error_code", response.code() + "" + response.errorBody().string());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void onFailure(Call<Shipment_Response_Model> call, Throwable t) {
+        try {
+            dialog.dismiss();
+            Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+            Log.e("Error", t.getMessage());
+        } catch (Exception e) {
+
+        }
+    }
+});
     }
 
 }

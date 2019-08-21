@@ -15,11 +15,14 @@ import com.creativeshare.sals.models.Prectage_Model;
 import com.creativeshare.sals.models.Questions_Model;
 import com.creativeshare.sals.models.Quote_Model;
 import com.creativeshare.sals.models.Sercvices_Centers;
+import com.creativeshare.sals.models.Shipment_Response_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.models.Visit_Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -27,6 +30,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -232,4 +236,46 @@ public interface Service {
             @Header("Authorization") String Authorization,
             @Body Pay_Model pay_model
     );
+    @FormUrlEncoded
+    @POST("api/dhl-make-shipment")
+    Call<Shipment_Response_Model> makeshipment(
+            @Header("Authorization") String Authorization,
+
+            @Field("is_parcel") String is_parcel,
+            @Field("from_company_name") String from_company_name,
+            @Field("from_address") String from_address,
+
+            @Field("from_city") String from_city,
+            @Field("from_postal_code") String from_postal_code,
+            @Field("from_country_code") String from_country_code,
+            @Field("from_country_name") String from_country_name,
+            @Field("from_person_name") String from_person_name,
+            @Field("from_phone_number") String from_phone_number,
+            @Field("from_phone_ext") String from_phone_ext,
+            @Field("from_email") String from_email,
+            @Field("to_company_name") String to_company_name,
+
+            @Field("to_phone_number") String to_phone_number,
+            @Field("to_phone_ext") String to_phone_ext,
+            @Field("to_email") String to_email,
+            @Field("shipment_date") String shipment_date,
+            @Field("desc") String desc,
+            @Field("total_weight") String total_weight,
+            @Field("to_address") String to_address,
+            @Field("to_city") String to_city,
+            @Field("to_postal_code") String to_postal_code,
+            @Field("to_country_code") String to_country_code,
+            @Field("to_country_name") String to_country_name,
+            @Field("to_person_name") String to_person_name,
+            @Field("total_items") String total_items,
+            @Field("pieces[0][weight]") List<String> weight,
+            @Field("pieces[0][dim_weight]") List<String> dim_weight,
+            @Field("pieces[0][width]") List<String> width,
+            @Field("pieces[0][height]") List<String> height,
+            @Field("pieces[0][depth]") List<String> depth
+
+            // @FieldMap Map<String, List> hashMap
+
+
+            );
 }

@@ -172,9 +172,9 @@ bt_save.setOnClickListener(new View.OnClickListener() {
             }
            // grossweight=Double.parseDouble(grw);
             //totalweigt=Double.parseDouble(totw);
-            dementions_model.setWidth(width);
-            dementions_model.setHight(hight);
-            dementions_model.setLength(length);
+            dementions_model.setWidth((int)width);
+            dementions_model.setHight((int)hight);
+            dementions_model.setLength((int)length);
             dementions_model.setVoulumeweight(voulumeweight);
             //dementions_model.setGrossweight(grossweight);
             //dementions_model.setTotalweigt(totalweigt);

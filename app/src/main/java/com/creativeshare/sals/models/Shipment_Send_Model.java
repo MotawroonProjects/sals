@@ -22,6 +22,21 @@ public class Shipment_Send_Model {
     private static String cityt;
     private static String fromcountrycode;
     private static String sadad;
+    private static String postalf;
+    private static String countryf;
+    private static String postalt;
+
+    public static String getPostalt() {
+        return postalt;
+    }
+
+    public static String getCountryf() {
+        return countryf;
+    }
+
+    public static String getPostalf() {
+        return postalf;
+    }
 
     public static String getSadad() {
         return sadad;
@@ -179,5 +194,18 @@ public class Shipment_Send_Model {
 
     public static void setcredit(String sadad) {
         Shipment_Send_Model.sadad=sadad;
+    }
+
+
+    public static void setpostalf(String postal_code) {
+        Shipment_Send_Model.postalf=postal_code;
+    }
+
+    public static void setcountryf(String long_name) {
+        Shipment_Send_Model.countryf=long_name;
+    }
+
+    public static void setpostalt(String postal_code) {
+        Shipment_Send_Model.postalt=postal_code;
     }
 }

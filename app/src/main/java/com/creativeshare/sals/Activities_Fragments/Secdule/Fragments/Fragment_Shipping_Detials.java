@@ -337,7 +337,11 @@ if(parcel.equals("0")){
                   /*  if (response.body() != null) {
                         Log.e("ss",response.body().toString()+response.raw()+response.headers()+response.body().getData().getGetQuoteResponse().getBkgDetails());
                     }*/
-                    adddata(response.body());
+                    if(response.body().getData().getGetQuoteResponse().getBkgDetails()==null){
+//Log.e("res",response.body().getData().getResponse().getStatus().getCondition().getConditionData());
+                    }
+                    else {
+                    adddata(response.body());}
                 }
                 else {
                     try {

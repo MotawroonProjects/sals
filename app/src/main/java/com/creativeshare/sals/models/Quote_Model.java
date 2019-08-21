@@ -10,7 +10,40 @@ public class Quote_Model implements Serializable {
         return data;
     }
 
+
+
+
     public class Data implements Serializable{
+        private Response Response;
+
+        public Response getResponse() {
+            return Response;
+        }
+        public class  Response implements Serializable{
+            private Response.Status Status;
+
+            public Response.Status getStatus() {
+                return Status;
+            }
+
+            public class  Status implements Serializable {
+                private Response.Status.Condition Condition;
+
+                public Response.Status.Condition getCondition() {
+                    return Condition;
+                }
+
+                public class Condition {
+
+                    private String ConditionData;
+
+                    public String getConditionData() {
+                        return ConditionData;
+                    }
+                }}
+
+        }
+
         private GetQuoteResponse GetQuoteResponse;
 
         public Data.GetQuoteResponse getGetQuoteResponse() {

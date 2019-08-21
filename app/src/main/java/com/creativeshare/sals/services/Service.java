@@ -8,6 +8,8 @@ import com.creativeshare.sals.models.CityModel;
 import com.creativeshare.sals.models.Country_Model;
 import com.creativeshare.sals.models.Help_Cat_Model;
 import com.creativeshare.sals.models.Other_Services_Model;
+import com.creativeshare.sals.models.Pay_Model;
+import com.creativeshare.sals.models.Payment_Result_Model;
 import com.creativeshare.sals.models.PlaceGeocodeData;
 import com.creativeshare.sals.models.Prectage_Model;
 import com.creativeshare.sals.models.Questions_Model;
@@ -23,6 +25,7 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -223,5 +226,10 @@ public interface Service {
     Call<ResponseBody> updateToken(
             @Header("Authorization") String Authorization,
             @Field("number_token") String number_token
+    );
+    @POST("api/make-payment")
+    Call<Payment_Result_Model> Payship(
+            @Header("Authorization") String Authorization,
+            @Body Pay_Model pay_model
     );
 }

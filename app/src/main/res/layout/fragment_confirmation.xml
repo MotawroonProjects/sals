@@ -22,6 +22,7 @@
     android:paddingLeft="8dp"
     />
     <EditText
+        android:id="@+id/edt_name"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:textSize="23sp"
@@ -47,6 +48,7 @@
         android:paddingLeft="8dp"
         />
     <EditText
+        android:id="@+id/edt_num"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:textSize="23sp"
@@ -71,6 +73,7 @@
         android:paddingLeft="8dp"
         />
     <EditText
+        android:id="@+id/edt_cvc"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:textSize="23sp"
@@ -85,7 +88,7 @@
         android:layout_height="1px"
         android:background="@color/gray3"/>
     <Button
-
+android:id="@+id/bt_confirm"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@drawable/button_shape"

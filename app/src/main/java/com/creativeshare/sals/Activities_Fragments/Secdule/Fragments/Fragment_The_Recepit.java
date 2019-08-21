@@ -308,7 +308,7 @@ checkdata();
 
     }
 
-    private void updatedata(Address_Models body) {
+  public void updatedata(Address_Models body) {
       // updatepostalcode(body.getAddress().getLatitude(),body.getAddress().getLongitude());
 getGeoData(body.getAddress().getAddress());
         tv_user.setText(userModel.getUser().getFirst_name() + userModel.getUser().getLast_name());

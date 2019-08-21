@@ -204,9 +204,7 @@ Api.getService().makeshipment("Bearer "+" "+userModel.getToken(),Shipment_Send_M
 if(response.body().getPiece()!=null){
     Toast.makeText(activity, R.string.success, Toast.LENGTH_SHORT).show();
     Log.e("suc",response.body().getPiece()+" "+response.body().getPieces().getPiece().get(response.body().getPieces().getPiece().size()-1).getDepth()+""+response.body().getPieces().getPiece().get(0).getDepth());
-    Log.e("suc",response.body().getPiece()+" "+response.body().getPieces().getPiece().get(response.body().getPieces().getPiece().size()-2).getDepth()+""+response.body().getPieces().getPiece().get(0).getDepth());
 
-    Log.e("suc",response.body().getPiece()+" "+response.body().getPieces().getPiece().get(response.body().getPieces().getPiece().size()-3).getDepth()+""+response.body().getPieces().getPiece().get(0).getDepth());
 }
 
 else {

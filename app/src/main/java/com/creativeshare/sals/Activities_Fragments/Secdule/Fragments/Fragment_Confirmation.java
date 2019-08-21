@@ -177,16 +177,25 @@ if(response.body().getAmount()!=0.0){
     }
 
     private void makeshipment() {
-        HashMap<String, List>  hashMap=new HashMap();
-        hashMap.put("pieces[0][weight]",Shipment_Send_Model.getWegights());
+        HashMap<String, String>  hashMap=new HashMap();
+        Log.e("s",Shipment_Send_Model.getWidths().size()-1+"");
+        for(int i=0;i<Shipment_Send_Model.getWidths().size();i++){
+            hashMap.put("pieces["+i+"][weight]",Shipment_Send_Model.getWegights().get(i));
+            hashMap.put("pieces["+i+"][dim_weight]",Shipment_Send_Model.getVolumeweights().get(i));
+            hashMap.put("pieces["+i+"][width]",Shipment_Send_Model.getWidths().get(i));
+            hashMap.put("pieces["+i+"][height]",Shipment_Send_Model.getHights().get(i));
+            hashMap.put("pieces["+i+"][depth]",Shipment_Send_Model.getLengths().get(i));
+
+        }
+     /*   hashMap.put("pieces[0][weight]",Shipment_Send_Model.getWegights());
         hashMap.put("pieces[0][dim_weight]",Shipment_Send_Model.getVolumeweights());
         hashMap.put("pieces[0][width]",Shipment_Send_Model.getWidths());
         hashMap.put("pieces[0][height]",Shipment_Send_Model.getHights());
-        hashMap.put("pieces[0][depth]",Shipment_Send_Model.getLengths());
+        hashMap.put("pieces[0][depth]",Shipment_Send_Model.getLengths());*/
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-Api.getService().makeshipment("Bearer "+" "+userModel.getToken(),Shipment_Send_Model.getParcel(),userModel.getUser().getFirst_name()+userModel.getUser().getLast_name(),Shipment_Send_Model.getAddreessf(),Shipment_Send_Model.getCityf(),Shipment_Send_Model.getPostalf(),Shipment_Send_Model.getFromcountrycode(),Shipment_Send_Model.getCountryf(),userModel.getUser().getFirst_name()+userModel.getUser().getLast_name(),userModel.getUser().getMobile_number(), PhoneNumberUtil.createInstance(activity).getCountryCodeForRegion(Shipment_Send_Model.getFromcountrycode())+"",userModel.getUser().getEmail()+"test2@mail.com",Shipment_Send_Model.getName(),Shipment_Send_Model.getPhone(),"966",userModel.getUser().getEmail()+"test2@mail.com",Shipment_Send_Model.getDate(),Shipment_Send_Model.getDesc(),Shipment_Send_Model.getWegights().get(0),Shipment_Send_Model.getAdddresst(),Shipment_Send_Model.getCityt(),Shipment_Send_Model.getPostalt(),"SA","SAUDI ARABIA",Shipment_Send_Model.getName(),Shipment_Send_Model.getWegights().size()+"",Shipment_Send_Model.getWegights(),Shipment_Send_Model.getVolumeweights(),Shipment_Send_Model.getWidths(),Shipment_Send_Model.getHights(),Shipment_Send_Model.getLengths()).enqueue(new Callback<Shipment_Response_Model>() {
+Api.getService().makeshipment("Bearer "+" "+userModel.getToken(),Shipment_Send_Model.getParcel(),userModel.getUser().getFirst_name()+userModel.getUser().getLast_name(),Shipment_Send_Model.getAddreessf(),Shipment_Send_Model.getCityf(),Shipment_Send_Model.getPostalf(),Shipment_Send_Model.getFromcountrycode(),Shipment_Send_Model.getCountryf(),userModel.getUser().getFirst_name()+userModel.getUser().getLast_name(),userModel.getUser().getMobile_number(), PhoneNumberUtil.createInstance(activity).getCountryCodeForRegion(Shipment_Send_Model.getFromcountrycode())+"",userModel.getUser().getEmail()+"test2@mail.com",Shipment_Send_Model.getName(),Shipment_Send_Model.getPhone(),"966",userModel.getUser().getEmail()+"test2@mail.com",Shipment_Send_Model.getDate(),Shipment_Send_Model.getDesc(),Shipment_Send_Model.getWegights().get(0),Shipment_Send_Model.getAdddresst(),Shipment_Send_Model.getCityt(),Shipment_Send_Model.getPostalt(),"SA","SAUDI ARABIA",Shipment_Send_Model.getName(),Shipment_Send_Model.getWegights().size()+"",hashMap).enqueue(new Callback<Shipment_Response_Model>() {
     @Override
     public void onResponse(Call<Shipment_Response_Model> call, Response<Shipment_Response_Model> response) {
         dialog.dismiss();
@@ -194,11 +203,11 @@ Api.getService().makeshipment("Bearer "+" "+userModel.getToken(),Shipment_Send_M
         if(response.isSuccessful()){
 if(response.body().getPiece()!=null){
     Toast.makeText(activity, R.string.success, Toast.LENGTH_SHORT).show();
-    Log.e("suc",response.body().getPiece());
+    Log.e("suc",response.body().getPiece()+" "+response.body().getPieces().getPiece().get(response.body().getPieces().getPiece().size()-3).getDepth()+""+response.body().getPieces().getPiece().get(0).getDepth());
 }
 else {
     Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
-    Log.e("ll",response.body().getResponse().getStatus().getCondition().getConditionData());
+    Log.e("ll",response.body().getResponse().getStatus().getCondition().getConditionData()+" ");
 
 }
         }

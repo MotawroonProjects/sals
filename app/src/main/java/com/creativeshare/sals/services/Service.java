@@ -268,13 +268,13 @@ public interface Service {
             @Field("to_country_name") String to_country_name,
             @Field("to_person_name") String to_person_name,
             @Field("total_items") String total_items,
-            @Field("pieces[0][weight]") List<String> weight,
+         /*   @Field("pieces[0][weight]") List<String> weight,
             @Field("pieces[0][dim_weight]") List<String> dim_weight,
             @Field("pieces[0][width]") List<String> width,
             @Field("pieces[0][height]") List<String> height,
             @Field("pieces[0][depth]") List<String> depth
-
-            // @FieldMap Map<String, List> hashMap
+*/
+             @FieldMap Map<String, String> hashMap
 
 
             );

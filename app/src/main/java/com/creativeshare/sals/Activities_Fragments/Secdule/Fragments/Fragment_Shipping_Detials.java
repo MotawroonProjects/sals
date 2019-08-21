@@ -280,7 +280,12 @@ private String parcel="0";
             }
             for(int i=0;i<loop;i++){
                 wegights.add(weight);
-            }
+if(parcel.equals("0")){
+                widths.add("0");
+                hights.add("0");
+                lengths.add("0");
+                volumeweights.add("0");
+            }}
           //  Computrized_Model.setQuantity(quantity+"");
           //  Computrized_Model.setWeight(weight);
             Shipment_Send_Model.setWegights(wegights);
@@ -295,12 +300,13 @@ private String parcel="0";
                         volumeweights.add(volumeweights.get(ind)+"");
                     }
                 }
-                Shipment_Send_Model.setWidths(widths);
-                Shipment_Send_Model.setHights(hights);
-                Shipment_Send_Model.setLengths(lengths);
-                Shipment_Send_Model.setVolumeweights(volumeweights);
+
 
             }
+            Shipment_Send_Model.setWidths(widths);
+            Shipment_Send_Model.setHights(hights);
+            Shipment_Send_Model.setLengths(lengths);
+            Shipment_Send_Model.setVolumeweights(volumeweights);
             Shipment_Send_Model.setParcel(parcel);
             Shipment_Send_Model.setName(name);
            // Shipment_Send_Model.setcityt(to_city);

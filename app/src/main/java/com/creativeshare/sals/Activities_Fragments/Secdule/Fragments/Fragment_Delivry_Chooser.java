@@ -38,8 +38,8 @@ public class Fragment_Delivry_Chooser extends Fragment {
     private String current_lang;
 
     private Button next;
-    private LinearLayout ll_additional_services;
-    private ImageView im_additional_Services,arrow1;
+    private LinearLayout ll_additional_services,ll_sadad,ll_credit;
+    private ImageView im_additional_Services,arrow1,im_sadad,im_credit;
     private TextView tv_document,  tv_cityt, tv_day, tv_num, tv_total_pricedhl,tv_total_pricesals,tv_address;
     private Preferences preferences;
     private UserModel userModel;
@@ -58,6 +58,7 @@ public class Fragment_Delivry_Chooser extends Fragment {
     }
 
     private void initView(View view) {
+        Shipment_Send_Model.setcredit("sadad");
         activity = (Scedule_Activity) getActivity();
         Paper.init(activity);
         preferences=Preferences.getInstance();
@@ -75,8 +76,27 @@ public class Fragment_Delivry_Chooser extends Fragment {
         tv_total_pricedhl = view.findViewById(R.id.tv_total_pricedhl);
         tv_total_pricesals=view.findViewById(R.id.tv_total_pricesals);
      //   tv_time = view.findViewById(R.id.tv_times);
+        ll_sadad=view.findViewById(R.id.ll_sadad);
+        ll_credit=view.findViewById(R.id.ll_credit);
+        im_sadad=view.findViewById(R.id.im_sadad);
+        im_credit=view.findViewById(R.id.im_credit);
         next = view.findViewById(R.id.bt_next);
-
+ll_sadad.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Shipment_Send_Model.setcredit("sadad");
+        im_credit.setVisibility(View.GONE);
+        im_sadad.setVisibility(View.VISIBLE);
+    }
+});
+ll_credit.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Shipment_Send_Model.setcredit("creditcard");
+        im_credit.setVisibility(View.VISIBLE);
+        im_sadad.setVisibility(View.GONE);
+    }
+});
         if (current_lang.equals("en")) {
             im_additional_Services.setRotation(180.0f);
             arrow1.setRotation(180.0f);
@@ -115,8 +135,8 @@ public class Fragment_Delivry_Chooser extends Fragment {
         tv_num.setText(Shipment_Send_Model.getWegights().size() + getResources().getString(R.string.pieces) +Shipment_Send_Model.getWegights().get(0) + getResources().getString(R.string.kg));
         tv_day.setText(getResources().getString(R.string.Delivery)+Shipment_Send_Model.getDay_number()+getResources().getString(R.string.days));
         tv_total_pricedhl.setText(getResources().getString(R.string.from_dhl)+Shipment_Send_Model.getPrice() + getResources().getString(R.string.ryal));
-        tv_total_pricesals.setText(getResources().getString(R.string.from_sals)+(Double.parseDouble(Shipment_Send_Model.getPrice())*price)/100 + getResources().getString(R.string.ryal));
-
+        tv_total_pricesals.setText(getResources().getString(R.string.from_sals)+(Double.parseDouble(Shipment_Send_Model.getPrice())-(Double.parseDouble(Shipment_Send_Model.getPrice())*price)/100) + getResources().getString(R.string.ryal));
+Shipment_Send_Model.setPrice((Double.parseDouble(Shipment_Send_Model.getPrice())-(Double.parseDouble(Shipment_Send_Model.getPrice())*price)/100)+"");
 
         // tv_day.setText(Computrized_Model.getTime());
     }
@@ -132,6 +152,9 @@ public class Fragment_Delivry_Chooser extends Fragment {
                 dialog.dismiss();
                 if (response.isSuccessful() && response.body() != null) {
                     updateappcommission(response.body());
+                }
+                else {
+                    Log.e("ll",response.code()+""+response.errorBody());
                 }
             }
 

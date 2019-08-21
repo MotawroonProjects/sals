@@ -267,8 +267,12 @@ private String parcel="0";
             //tv_time.setError(null);
             int loop;
             if(parcel.equals("1")){
+                if(quantity>widths.size()){
+                    loop=quantity;
+                }
+                else {
                 loop=widths.size();
-            }
+            }}
             else {
                 loop=quantity;
             }
@@ -279,6 +283,16 @@ private String parcel="0";
           //  Computrized_Model.setWeight(weight);
             Shipment_Send_Model.setWegights(wegights);
             if(parcel.equals("1")){
+                if(quantity>widths.size()){
+                    int ind=widths.size()-1;
+                    for(int i=widths.size()-1;i<quantity;i++){
+
+                        widths.add(widths.get(ind)+"");
+                        hights.add(hights.get(ind)+"");
+                        lengths.add(lengths.get(ind)+"");
+                        volumeweights.add(volumeweights.get(ind)+"");
+                    }
+                }
                 Shipment_Send_Model.setWidths(widths);
                 Shipment_Send_Model.setHights(hights);
                 Shipment_Send_Model.setLengths(lengths);

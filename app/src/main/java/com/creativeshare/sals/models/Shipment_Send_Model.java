@@ -21,6 +21,11 @@ public class Shipment_Send_Model {
     private static String phone;
     private static String cityt;
     private static String fromcountrycode;
+    private static String sadad;
+
+    public static String getSadad() {
+        return sadad;
+    }
 
     public static String getFromcountrycode() {
         return fromcountrycode;
@@ -170,5 +175,9 @@ public class Shipment_Send_Model {
 
     public static void setcode(String short_name) {
         Shipment_Send_Model.fromcountrycode=short_name;
+    }
+
+    public static void setcredit(String sadad) {
+        Shipment_Send_Model.sadad=sadad;
     }
 }

@@ -21,7 +21,6 @@ public class Payment_Result_Model implements Serializable {
             private String created_at;
             private String updated_at;
             private Source source;
-
     public String getId() {
         return id;
     }

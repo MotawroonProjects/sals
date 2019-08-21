@@ -94,14 +94,15 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
 
     private void pay(String name, String num, String cvc) {
         Pay_Model pay_model=new Pay_Model();
+        pay_model.setSource(new Pay_Model.Source());
         pay_model.getSource().setName(name);
         pay_model.getSource().setNumber(num);
         pay_model.getSource().setCvc(Integer.parseInt(cvc));
         pay_model.setAmount(Double.parseDouble(Shipment_Send_Model.getPrice()));
         pay_model.getSource().setMonth(Calendar.MONTH+1);
         pay_model.getSource().setYear(Calendar.YEAR);
-        pay_model.getSource().setType("creditcard");
-
+        pay_model.getSource().setType(Shipment_Send_Model.getSadad());
+pay_model.setCallback_url("https://www.google.com/");
             //  Log.e("data", Shipment_Send_Model.getDate()+wegights+is_dutiable+Shipment_Send_Model.getTime()+ready_time_gmt_offset+dimension_unit+weight_unit+payment_country_code+Shipment_Send_Model.getFromcountrycode()+Shipment_Send_Model.getCityf()+to_city+to_country_code);
             final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
             dialog.setCancelable(false);
@@ -117,6 +118,7 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
                   /*  if (response.body() != null) {
                         Log.e("ss",response.body().toString()+response.raw()+response.headers()+response.body().getData().getGetQuoteResponse().getBkgDetails());
                     }*/
+                  Log.e("jjj",response.body().getAmount()+"");
                   makeshipment();
 
                     }

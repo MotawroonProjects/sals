@@ -6,6 +6,20 @@ public class Pay_Model implements Serializable {
 
         private double amount;
 private Source source;
+private String callback_url;
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public String getCallback_url() {
+        return callback_url;
+    }
+
+    public void setCallback_url(String callback_url) {
+        this.callback_url = callback_url;
+    }
+
     public void setAmount(double amount) {
         this.amount = amount;
     }
@@ -18,7 +32,7 @@ private Source source;
         this.source = source;
     }
 
-    public class Source implements Serializable{
+    public static class Source implements Serializable{
         private String type;
                 private String name;
                 private String number;

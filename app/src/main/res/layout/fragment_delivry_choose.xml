@@ -403,7 +403,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/ll_arabic"
+                    android:id="@+id/ll_sadad"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@color/white"
@@ -416,12 +416,12 @@
                         android:layout_height="match_parent"
                         android:layout_weight=".9"
                         android:gravity="center_vertical"
-                        android:text="@string/cash"
+                        android:text="@string/sadad"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
                     <ImageView
-                        android:id="@+id/im_ar"
+                        android:id="@+id/im_sadad"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_weight=".1"
@@ -434,7 +434,7 @@
                     android:background="@color/gray4"
                     />
                 <LinearLayout
-                    android:id="@+id/ll_english"
+                    android:id="@+id/ll_credit"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:orientation="horizontal"
@@ -453,7 +453,7 @@
                         android:textSize="15sp" />
 
                     <ImageView
-                        android:id="@+id/im_en"
+                        android:id="@+id/im_credit"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_weight=".1"

@@ -83,7 +83,7 @@ public interface Service {
             @Header("Authorization") String Authorization
 
     );
-    @POST("getappcommission")
+    @GET("api/get-rate")
     Call<Prectage_Model> getappcommission(
             @Header("Authorization") String Authorization
 

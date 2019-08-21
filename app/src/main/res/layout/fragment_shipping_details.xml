@@ -88,6 +88,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray4"
                 android:textSize="19sp"
+                android:singleLine="true"
 
                 />
 
@@ -131,7 +132,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray4"
                 android:textSize="19sp"
-
+android:singleLine="true"
                 />
 
             <ImageView
@@ -174,7 +175,7 @@
                 android:textColor="@color/gray4"
                 android:textSize="19sp"
                 android:gravity="center_vertical"
-
+android:singleLine="true"
                 />
 
             <ImageView
@@ -394,7 +395,10 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray4"
                 android:textSize="19sp"
-                android:theme="@style/AppTheme.LighterEditText" />
+                android:theme="@style/AppTheme.LighterEditText"
+                android:inputType="number"
+                android:singleLine="true"
+                />
 
 
         </LinearLayout>

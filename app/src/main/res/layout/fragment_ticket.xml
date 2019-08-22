@@ -128,7 +128,7 @@
             android:layout_weight=".97"
             android:gravity="center_vertical"
             android:text="No Shipment Selected"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/black"
             android:textSize="19sp"
             android:paddingRight="8dp"
             android:paddingLeft="8dp" />
@@ -145,6 +145,133 @@
             android:tint="@color/gray2" />
 
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textColor="@color/black"
+        android:text="@string/what_is_issue_relatef_to"
+        android:background="@color/gray4"
+        android:textSize="19sp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:gravity="center_vertical"
+        />
+    <LinearLayout
+        android:id="@+id/ll_cat"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".97"
+            android:gravity="center_vertical"
+            android:text="No Catogry Selected"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp" />
+
+        <ImageView
+            android:id="@+id/arrow6"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight=".04"
+            android:padding="20dp"
+            android:src="@drawable/ic_left_arrow"
+            android:tint="@color/gray2" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textColor="@color/black"
+        android:text="@string/description"
+        android:background="@color/gray4"
+        android:textSize="19sp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:gravity="center_vertical"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/white"
+        android:textSize="20sp"
+        android:hint="@string/description"
+        android:gravity="top"
+        android:padding="8dp"
+        android:textColorHint="@color/gray4"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textColor="@color/black"
+        android:text="@string/email_addres"
+        android:background="@color/gray4"
+        android:textSize="19sp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:gravity="center_vertical"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="@string/email_addres"
+        android:textSize="19sp"
+        android:textColor="@color/black"
+        android:singleLine="true"
+        android:background="@color/white"
+        android:textColorHint="@color/gray4"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/gray4"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".91"
+            android:gravity="center_vertical"
+            android:text="@string/request_call"
+            android:textColor="@color/black"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_notify"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_weight=".04" />
+    </LinearLayout>
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="45dp"
+    android:layout_gravity="center"
+    android:background="@drawable/button_shape"
+    android:textColor="@color/white"
+    android:text="@string/sendmessage"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp"
+    android:textSize="19sp"
+    />
 
 </LinearLayout>
 

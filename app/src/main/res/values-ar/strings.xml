@@ -165,4 +165,10 @@
     <string name="cvc">CVC</string>
     <string name="sadad">Sadad</string>
     <string name="success">Succces</string>
+    <string name="error_Email">Invalid Email</string>
+    <string name="support_ticket">Support Ticket</string>
+    <string name="is_about_shipment">is About Shipment</string>
+    <string name="yes">yes</string>
+    <string name="no">No</string>
+    <string name="select_shipments">Select Shipments</string>
 </resources>

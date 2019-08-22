@@ -25,6 +25,11 @@ public class Shipment_Send_Model {
     private static String postalf;
     private static String countryf;
     private static String postalt;
+    private static String emailt;
+
+    public static String getEmailt() {
+        return emailt;
+    }
 
     public static String getPostalt() {
         return postalt;
@@ -207,5 +212,9 @@ public class Shipment_Send_Model {
 
     public static void setpostalt(String postal_code) {
         Shipment_Send_Model.postalt=postal_code;
+    }
+
+    public static void setemailt(String email) {
+        Shipment_Send_Model.emailt=email;
     }
 }

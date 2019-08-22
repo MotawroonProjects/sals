@@ -147,7 +147,7 @@ public class Fragment_Confirm_Code extends Fragment {
         }
     }
 
-    private void checkconfirmation(String code) {
+    private void checkconfirmation(final String code) {
         final ProgressDialog progressDialog = Common.createProgressDialog(register_activity, getResources().getString(R.string.wait));
         progressDialog.setCancelable(false);
         progressDialog.show();

@@ -7,6 +7,7 @@ import com.creativeshare.sals.models.Bike_Model;
 import com.creativeshare.sals.models.CityModel;
 import com.creativeshare.sals.models.Country_Model;
 import com.creativeshare.sals.models.Help_Cat_Model;
+import com.creativeshare.sals.models.Orders_Model;
 import com.creativeshare.sals.models.Other_Services_Model;
 import com.creativeshare.sals.models.Pay_Model;
 import com.creativeshare.sals.models.Payment_Result_Model;
@@ -205,7 +206,20 @@ public interface Service {
             @Header("lang") String lang
 
     );
+    @GET("/api/orders-sent")
+    Call<Orders_Model> getsentorders(
+            @Query("page") int page,
+            @Header("Authorization") String Authorization,
+            @Header("lang") String lang
 
+    );
+    @GET("/api/orders-incoming")
+    Call<Orders_Model> getrecivedorders(
+            @Query("page") int page,
+            @Header("Authorization") String Authorization,
+            @Header("lang") String lang
+
+    );
     @FormUrlEncoded
     @POST("api/get-quote")
     Call<Quote_Model> get_quote(

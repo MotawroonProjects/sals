@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,10 +21,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
 import com.creativeshare.sals.Adapter.Spinner_City_Adapter;
-import com.creativeshare.sals.Adapter.Spinner_Country_Adapter;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.CityModel;
@@ -56,7 +54,7 @@ public class Fragment_Shipping_Detials extends Fragment {
     private FrameLayout fr_document, fr_parcel;
     private ImageView im_document, im_parcel;
     private TextView tv_document, tv_parcel,tv_Quantity;
-    private EditText edt_desc,edt_weight,edt_name,edt_phone,edt_address;
+    private EditText edt_desc,edt_weight,edt_name,edt_phone,edt_address,edt_email;
     private List<CityModel.Cities> cityModelList;
     private Spinner spinner_city_to;
     private Spinner_City_Adapter city_adapter;
@@ -103,7 +101,7 @@ private String parcel="0";
         edt_phone=view.findViewById(R.id.edt_phone);
         edt_address=view.findViewById(R.id.edt_address);
         edt_weight=view.findViewById(R.id.edt_weight);
-
+        edt_email=view.findViewById(R.id.edt_email);
         bt_Shipping_dimensions = view.findViewById(R.id.bt_shipping_dimensions);
         next = view.findViewById(R.id.bt_next);
         spinner_city_to = view.findViewById(R.id.sp_cityto);
@@ -243,7 +241,8 @@ private String parcel="0";
         String name=edt_name.getText().toString();
         String phone=edt_phone.getText().toString();
         String address=edt_address.getText().toString();
-        if ( TextUtils.isEmpty(to_city) ||TextUtils.isEmpty(weight)||TextUtils.isEmpty(name)||TextUtils.isEmpty(phone)||TextUtils.isEmpty(address)){
+        String email=edt_email.getText().toString();
+        if ( TextUtils.isEmpty(to_city) ||TextUtils.isEmpty(weight)||TextUtils.isEmpty(name)||TextUtils.isEmpty(phone)||TextUtils.isEmpty(address)||TextUtils.isEmpty(email)||! Patterns.EMAIL_ADDRESS.matcher(email).matches()){
 
             if(TextUtils.isEmpty(weight)){
                 edt_weight.setError(getResources().getString(R.string.field_req));
@@ -259,6 +258,12 @@ private String parcel="0";
             }
             if(TextUtils.isEmpty(address)){
                 edt_address.setError(getResources().getString(R.string.field_req));
+            }
+            if(TextUtils.isEmpty(email)){
+                edt_email.setError(getResources().getString(R.string.field_req));
+            }
+            if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                edt_email.setError(getResources().getString(R.string.error_Email));
             }
 
         }
@@ -308,6 +313,7 @@ if(parcel.equals("0")){
             Shipment_Send_Model.setLengths(lengths);
             Shipment_Send_Model.setVolumeweights(volumeweights);
             Shipment_Send_Model.setParcel(parcel);
+            Shipment_Send_Model.setemailt(email);
             Shipment_Send_Model.setName(name);
            // Shipment_Send_Model.setcityt(to_city);
             Shipment_Send_Model.setPhone(phone);

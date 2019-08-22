@@ -7,11 +7,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
 import com.creativeshare.sals.Activities_Fragments.Registration.Activity.Register_Activity;
+import com.creativeshare.sals.Adapter.Help_Cat_Adapter;
+import com.creativeshare.sals.Adapter.Track_Adapter;
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.models.Help_Cat_Model;
 
+import java.util.List;
 import java.util.Locale;
 
 import io.paperdb.Paper;
@@ -23,7 +28,9 @@ public class Fragment_Track_The_Shipment extends Fragment {
     private ImageView back_arrow;
     private int param;
     final static private String Tag = "chec_activity";
-
+    private RecyclerView rec_track;
+    private List<Help_Cat_Model.Categories> categories;
+    private Track_Adapter help_cat_adapter;
     public static Fragment_Track_The_Shipment newInstance(int param) {
 
       Fragment_Track_The_Shipment fragment_track_the_shipment=new Fragment_Track_The_Shipment();

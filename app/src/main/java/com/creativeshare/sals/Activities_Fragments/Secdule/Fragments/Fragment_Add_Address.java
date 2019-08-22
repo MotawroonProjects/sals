@@ -212,7 +212,7 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
         }
     }
 
-    private void addnewaddress(String buildnum, String floor, String flatnum, String desc, String address_type, String formated_address, int primary) {
+    private void addnewaddress(String buildnum, String floor, String flatnum, String desc, String address_type, final String formated_address, int primary) {
         final Dialog dialog = Common.createProgressDialog(getActivity(), getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();

@@ -20,6 +20,7 @@
       android:padding="8dp"
       />
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".9"
@@ -57,11 +58,21 @@
 
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textColor="@color/black"
+        android:text="@string/delivery_number"
+        app:layout_constraintTop_toBottomOf="@+id/lll"
+        android:gravity="center"
+
+        />
 <LinearLayout
     android:id="@+id/llll"
     android:layout_width="match_parent"
     android:layout_height="45dp"
-    app:layout_constraintTop_toBottomOf="@+id/lll"
+    app:layout_constraintTop_toBottomOf="@+id/tv_num"
     android:orientation="horizontal"
 android:gravity="center"
 
@@ -93,6 +104,7 @@ android:gravity="center"
 
 </LinearLayout>
     <TextView
+        android:id="@+id/tv_to"
         android:layout_width="45dp"
         android:layout_height="wrap_content"
         android:text="@string/to"
@@ -105,6 +117,7 @@ android:gravity="center"
 
         />
     <TextView
+        android:id="@+id/tv_from"
         android:layout_width="45dp"
         android:layout_height="wrap_content"
         android:text="@string/from"

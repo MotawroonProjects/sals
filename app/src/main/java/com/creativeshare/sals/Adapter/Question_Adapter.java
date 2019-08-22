@@ -50,7 +50,12 @@ public class Question_Adapter extends RecyclerView.Adapter<Question_Adapter.Eyas
         String content = "";
         Questions_Model.Faqs model = list.get(i);
       viewHolder.tv_Question.setText(model.getQuestion());
-
+viewHolder.tv_Question.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        homeActivity.DisplayFragmentQuestion(list.get(viewHolder.getLayoutPosition()));
+    }
+});
 
 
 

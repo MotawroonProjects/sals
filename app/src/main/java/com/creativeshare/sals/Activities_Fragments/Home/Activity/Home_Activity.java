@@ -21,6 +21,8 @@ import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Langu
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Payments;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Profile;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Main;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Question;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Ticket;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Update_Address;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍEdit_Name;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍEdit_Phone;
@@ -36,6 +38,7 @@ import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.Address_Model;
+import com.creativeshare.sals.models.Questions_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.models.Visit_Model;
 import com.creativeshare.sals.preferences.Preferences;
@@ -68,6 +71,8 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_Computrized_Price fragment_computrized_price;
     private Fragment_Profile fragment_profile;
     private Fragment_Help_Advice fragment_help_advice;
+    private Fragment_Ticket fragment_ticket;
+    private Fragment_Question fragment_question;
     private Fragment_Payments fragment_payments;
     private Fragment_ٍShipments fragment_ٍShipments;
     private Fragment_Service_Centers fragment_service_centers;
@@ -244,7 +249,36 @@ public class Home_Activity extends AppCompatActivity {
         }
 
     }
+    public void DisplayFragmentTicket() {
 
+        fragment_count += 1;
+
+        if (fragment_ticket == null) {
+            fragment_ticket = Fragment_Ticket.newInstance();
+        }
+
+        if (fragment_ticket.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_ticket).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ticket, "fragment_ticket").addToBackStack("fragment_ticket").commit();
+        }
+
+    }
+    public void DisplayFragmentQuestion(Questions_Model.Faqs faqs) {
+
+        fragment_count += 1;
+
+        if (fragment_question == null) {
+            fragment_question = Fragment_Question.newInstance(faqs);
+        }
+
+        if (fragment_question.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_question).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_question, "fragment_question").addToBackStack("fragment_question").commit();
+        }
+
+    }
     public void DisplayFragmentPayments() {
 
         fragment_count += 1;

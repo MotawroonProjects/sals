@@ -10,8 +10,7 @@ public class Questions_Model  implements Serializable {
         return faqs;
     }
 
-    public class  Faqs
-    {
+    public class  Faqs implements Serializable {
         private int id;
             private String created_at;
             private String updated_at;

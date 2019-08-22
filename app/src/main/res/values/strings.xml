@@ -172,5 +172,6 @@
     <string name="select_shipments">Select Shipments</string>
     <string name="what_is_issue_relatef_to">What is issue relatef to</string>
     <string name="request_call">Request Call</string>
+    <string name="is_answer_useful">is answer useful</string>
 
 </resources>

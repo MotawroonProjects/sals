@@ -61,7 +61,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/co_name"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:padding="5dp">
 
                 <ImageView
@@ -126,7 +126,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/co_address"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:padding="5dp">
 
                 <ImageView
@@ -189,7 +189,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/co_phone"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:padding="5dp">
 
                 <ImageView

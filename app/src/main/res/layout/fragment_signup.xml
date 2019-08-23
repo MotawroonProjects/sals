@@ -101,7 +101,6 @@
                         android:id="@+id/ccp_country_code"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:layout_weight=".1"
                         android:padding="6dp"
                         android:textColor="@color/white"

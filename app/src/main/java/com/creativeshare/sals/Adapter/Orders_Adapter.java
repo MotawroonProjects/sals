@@ -10,9 +10,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Shipments_Recived;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Shipments_Sent;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.models.Orders_Model;
 
@@ -25,12 +28,15 @@ public class Orders_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private List<Orders_Model.Orders.Data> data;
     private Context context;
     private Home_Activity activity;
-    public Orders_Adapter(List<Orders_Model.Orders.Data> data, Context context) {
+    Fragment fragment;
+    Fragment_Shipments_Sent fragment_shipments_sent;
+    Fragment_Shipments_Recived fragment_shipments_recived;
+    public Orders_Adapter(List<Orders_Model.Orders.Data> data, Context context, Fragment fragment) {
 
         this.data = data;
         this.context = context;
         activity=(Home_Activity)context;
-       // this.fragment = fragment;
+        this.fragment = fragment;
 
     }
 
@@ -69,7 +75,10 @@ public class Orders_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ((MyHolder)holder).itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    activity.setid(data.get((((MyHolder)holder).getLayoutPosition())).getId());
+                    if(fragment instanceof  Fragment_Shipments_Sent){
+                    activity.setid(data.get((((MyHolder)holder).getLayoutPosition())).getId(),0);}
+                    else  if(fragment instanceof  Fragment_Shipments_Recived){
+                        activity.setid(data.get((((MyHolder)holder).getLayoutPosition())).getId(),1);}
                 }
             });
 

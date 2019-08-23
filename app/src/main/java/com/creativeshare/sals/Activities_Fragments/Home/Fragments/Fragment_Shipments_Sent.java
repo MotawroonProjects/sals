@@ -77,7 +77,7 @@ private Orders_Adapter orders_adapter;
         rec_sent.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         rec_sent.setItemViewCacheSize(25);
         manager=new GridLayoutManager(activity,1);
-        orders_adapter=new Orders_Adapter(dataList,activity);
+        orders_adapter=new Orders_Adapter(dataList,activity,this);
         rec_sent.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {

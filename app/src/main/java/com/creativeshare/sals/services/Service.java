@@ -299,4 +299,17 @@ public interface Service {
 
 
             );
+    @FormUrlEncoded
+    @POST("api/support/tickets/create")
+    Call<Quote_Model> createticket(
+            @Header("Authorization") String Authorization,
+            @Field("email") String email,
+            @Field("desc") String desc,
+            @Field("order_related") String order_related,
+            @Field("order_type") String order_type,
+            @Field("is_callable") String is_callable,
+            @Field("definition_id") String definition_id,
+            @Field("order_id") String order_id
+
+    );
 }

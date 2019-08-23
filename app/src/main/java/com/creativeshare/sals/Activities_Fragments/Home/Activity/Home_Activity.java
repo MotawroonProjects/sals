@@ -601,9 +601,9 @@ public class Home_Activity extends AppCompatActivity {
                 });
     }
 
-    public void setid(int data) {
+    public void setid(int id, int data) {
         if(fragment_ticket!=null){
-            fragment_ticket.setid(data);
+            fragment_ticket.setid(id,data);
             Back();
         }
     }

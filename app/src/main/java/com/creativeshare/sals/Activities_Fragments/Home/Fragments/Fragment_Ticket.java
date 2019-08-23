@@ -42,16 +42,18 @@ import retrofit2.Response;
 
 public class Fragment_Ticket extends Fragment {
     private Home_Activity activity;
-    private ImageView back_arrow,arrow5,arrow6;
-    private EditText edt_desc,edt_email;
+    private ImageView back_arrow, arrow5, arrow6;
+    private EditText edt_desc, edt_email;
     private TextView tv_shipment;
-    private LinearLayout ll_shipment,ll_cat;
-    private Button bt_yes,bt_no;
+    private LinearLayout ll_shipment, ll_cat;
+    private Button bt_yes, bt_no, bt_send;
     private SwitchCompat sw_call;
     private String current_lang;
-private int Shipmentid,cat_id;
-private Preferences preferences;
-private UserModel userModel;
+    private int Shipmentid = 0, cat_id, related = 0, calable = 0, order_type;
+
+    private Preferences preferences;
+    private UserModel userModel;
+
     public static Fragment_Ticket newInstance() {
         return new Fragment_Ticket();
     }
@@ -60,39 +62,54 @@ private UserModel userModel;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ticket, container, false);
-initView(view);
+        initView(view);
         return view;
     }
 
 
-
     private void initView(View view) {
         activity = (Home_Activity) getActivity();
-        preferences=Preferences.getInstance();
-        userModel=preferences.getUserData(activity);
+        preferences = Preferences.getInstance();
+        userModel = preferences.getUserData(activity);
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         back_arrow = view.findViewById(R.id.arrow);
-        arrow5=view.findViewById(R.id.arrow5);
-        arrow6=view.findViewById(R.id.arrow6);
-bt_no=view.findViewById(R.id.bt_no);
-bt_yes=view.findViewById(R.id.bt_yes);
-ll_shipment=view.findViewById(R.id.ll_shipment);
-ll_cat=view.findViewById(R.id.ll_cat);
-tv_shipment=view.findViewById(R.id.tv_ship);
-edt_desc=view.findViewById(R.id.edt_desc);
-edt_email=view.findViewById(R.id.edt_email);
-bt_no.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        bt_no.setBackgroundColor(getResources().getColor(R.color.blue));
-        bt_no.setTextColor(getResources().getColor(R.color.white));
-        bt_yes.setBackgroundColor(getResources().getColor(R.color.white));
-        bt_yes.setTextColor(getResources().getColor(R.color.black));
-        ll_shipment.setVisibility(View.INVISIBLE);
-        tv_shipment.setVisibility(View.INVISIBLE);
-    }
-});
+        arrow5 = view.findViewById(R.id.arrow5);
+        arrow6 = view.findViewById(R.id.arrow6);
+        bt_no = view.findViewById(R.id.bt_no);
+        bt_yes = view.findViewById(R.id.bt_yes);
+        bt_send = view.findViewById(R.id.bt_send);
+        ll_shipment = view.findViewById(R.id.ll_shipment);
+        ll_cat = view.findViewById(R.id.ll_cat);
+        tv_shipment = view.findViewById(R.id.tv_ship);
+        edt_desc = view.findViewById(R.id.edt_desc);
+        edt_email = view.findViewById(R.id.edt_email);
+        sw_call = view.findViewById(R.id.switch_call);
+        sw_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (calable == 0) {
+                    calable = 1;
+                    sw_call.setChecked(true);
+                } else {
+                    calable = 0;
+                    sw_call.setChecked(false);
+                }
+
+            }
+        });
+        bt_no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bt_no.setBackgroundColor(getResources().getColor(R.color.blue));
+                bt_no.setTextColor(getResources().getColor(R.color.white));
+                bt_yes.setBackgroundColor(getResources().getColor(R.color.white));
+                bt_yes.setTextColor(getResources().getColor(R.color.black));
+                ll_shipment.setVisibility(View.GONE);
+                tv_shipment.setVisibility(View.GONE);
+                related = 0;
+            }
+        });
         bt_yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,6 +119,7 @@ bt_no.setOnClickListener(new View.OnClickListener() {
                 bt_no.setTextColor(getResources().getColor(R.color.black));
                 ll_shipment.setVisibility(View.VISIBLE);
                 tv_shipment.setVisibility(View.VISIBLE);
+                related = 1;
             }
         });
         ll_shipment.setOnClickListener(new View.OnClickListener() {
@@ -118,11 +136,17 @@ bt_no.setOnClickListener(new View.OnClickListener() {
         });
         if (current_lang.equals("ar")) {
             back_arrow.setRotation(180.0f);
-        }
-        else {
+        } else {
             arrow5.setRotation(180.0f);
             arrow6.setRotation(180.0f);
         }
+
+        bt_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkdata();
+            }
+        });
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,11 +155,17 @@ bt_no.setOnClickListener(new View.OnClickListener() {
         });
     }
 
-    public void setid(int data) {
-        Shipmentid=data;
+    private void checkdata() {
+
+
+    }
+
+    public void setid(int id, int data) {
+        Shipmentid = id;
+        order_type = data;
     }
 
     public void setcatid(int id) {
-        cat_id=id;
+        cat_id = id;
     }
 }

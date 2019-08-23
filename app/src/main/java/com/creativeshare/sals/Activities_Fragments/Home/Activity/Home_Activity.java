@@ -17,6 +17,7 @@ import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Compu
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Email_Address;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Help_Advice;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Home;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Issue_Catogry;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Language;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Payments;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Profile;
@@ -38,6 +39,7 @@ import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.Address_Model;
+import com.creativeshare.sals.models.Orders_Model;
 import com.creativeshare.sals.models.Questions_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.models.Visit_Model;
@@ -71,7 +73,9 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_Computrized_Price fragment_computrized_price;
     private Fragment_Profile fragment_profile;
     private Fragment_Help_Advice fragment_help_advice;
+
     private Fragment_Ticket fragment_ticket;
+    private Fragment_Issue_Catogry fragment_issue_catogry;
     private Fragment_Question fragment_question;
     private Fragment_Payments fragment_payments;
     private Fragment_ٍShipments fragment_ٍShipments;
@@ -253,14 +257,27 @@ public class Home_Activity extends AppCompatActivity {
 
         fragment_count += 1;
 
-        if (fragment_ticket == null) {
             fragment_ticket = Fragment_Ticket.newInstance();
-        }
+
 
         if (fragment_ticket.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_ticket).commit();
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ticket, "fragment_ticket").addToBackStack("fragment_ticket").commit();
+        }
+
+    }
+    public void DisplayFragmentIssue() {
+
+        fragment_count += 1;
+
+            fragment_issue_catogry = Fragment_Issue_Catogry.newInstance();
+
+
+        if (fragment_issue_catogry.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_issue_catogry).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_issue_catogry, "fragment_issue_catogry").addToBackStack("fragment_issue_catogry").commit();
         }
 
     }
@@ -582,6 +599,20 @@ public class Home_Activity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    public void setid(int data) {
+        if(fragment_ticket!=null){
+            fragment_ticket.setid(data);
+            Back();
+        }
+    }
+
+    public void setcatid(int id) {
+        if(fragment_ticket!=null){
+            fragment_ticket.setcatid(id);
+            Back();
+        }
     }
 }
 

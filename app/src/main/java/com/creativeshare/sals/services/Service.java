@@ -17,6 +17,7 @@ import com.creativeshare.sals.models.Questions_Model;
 import com.creativeshare.sals.models.Quote_Model;
 import com.creativeshare.sals.models.Sercvices_Centers;
 import com.creativeshare.sals.models.Shipment_Response_Model;
+import com.creativeshare.sals.models.Support_Catogry_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.models.Visit_Model;
 
@@ -178,7 +179,12 @@ public interface Service {
             @Header("lang") String lang
 
     );
+    @GET("api/support/tickets/categories")
+    Call<Support_Catogry_Model> getIssue(
+            @Header("Authorization") String Authorization,
+            @Header("lang") String lang
 
+    );
     @GET("api/other-services")
     Call<Other_Services_Model> getOtherservices(
             @Header("Authorization") String Authorization,
@@ -206,14 +212,15 @@ public interface Service {
             @Header("lang") String lang
 
     );
-    @GET("/api/orders-sent")
+
+    @GET("api/orders-sent")
     Call<Orders_Model> getsentorders(
             @Query("page") int page,
             @Header("Authorization") String Authorization,
             @Header("lang") String lang
 
     );
-    @GET("/api/orders-incoming")
+    @GET("api/orders-incoming")
     Call<Orders_Model> getrecivedorders(
             @Query("page") int page,
             @Header("Authorization") String Authorization,

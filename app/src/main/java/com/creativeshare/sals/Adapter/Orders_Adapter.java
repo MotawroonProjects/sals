@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.models.Orders_Model;
 
@@ -23,11 +24,12 @@ public class Orders_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private List<Orders_Model.Orders.Data> data;
     private Context context;
-
+    private Home_Activity activity;
     public Orders_Adapter(List<Orders_Model.Orders.Data> data, Context context) {
 
         this.data = data;
         this.context = context;
+        activity=(Home_Activity)context;
        // this.fragment = fragment;
 
     }
@@ -64,7 +66,12 @@ public class Orders_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ((MyHolder) holder).tv_num.setText(data1.getAwb_number());
             ((MyHolder) holder).tv_from.setText(data1.getFrom_city());
             ((MyHolder) holder).tv_to.setText(data1.getTo_city());
-
+            ((MyHolder)holder).itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    activity.setid(data.get((((MyHolder)holder).getLayoutPosition())).getId());
+                }
+            });
 
 
             //Log.e("msg",advertsing.getMain_image());

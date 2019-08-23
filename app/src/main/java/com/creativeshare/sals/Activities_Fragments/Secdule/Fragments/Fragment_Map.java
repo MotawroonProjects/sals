@@ -55,7 +55,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
     private LinearLayout ll_back;//ll_map_type;
     private EditText edt_search, edt_floor;
     //private ProgressBar progBar;
-    private TextView tv_address,tv_save;//tv_map_type;
+    private TextView tv_save;//tv_map_type;
    // private FloatingActionButton fab;
     private String current_language;
     private double lat = 0.0, lng = 0.0;
@@ -101,7 +101,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
         edt_floor = view.findViewById(R.id.edt_floor);
        // progBar = view.findViewById(R.id.progBar);
         //progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorAccent), PorterDuff.Mode.SRC_IN);
-        tv_address = view.findViewById(R.id.tv_address);
+        //tv_address = view.findViewById(R.id.tv_address);
         tv_save=view.findViewById(R.id.tv_save);
         tv_save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -271,7 +271,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
 
                                 address = response.body().getCandidates().get(0).getFormatted_address().replace("Unnamed Road,","");
                                 //place_id = response.body().getCandidates().get(0).getPlace_id();
-                                tv_address.setText(address+"");
+                                //tv_address.setText(address+"");
                                 AddMarker(response.body().getCandidates().get(0).getGeometry().getLocation().getLat(),response.body().getCandidates().get(0).getGeometry().getLocation().getLng(),false);
                             }
                         }
@@ -325,7 +325,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
                             {
                                 address =response.body().getResults().get(0).getFormatted_address().replace("Unnamed Road,","");
                                 place_id = response.body().getResults().get(0).getPlace_id();
-                                tv_address.setText(address+"");
+                                //tv_address.setText(address+"");
                                 stop = true;
                                 AddMarker(response.body().getResults().get(0).getGeometry().getLocation().getLat(),response.body().getResults().get(0).getGeometry().getLocation().getLng(),true);
                             }

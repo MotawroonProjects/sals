@@ -332,9 +332,9 @@ public class Home_Activity extends AppCompatActivity {
 
         fragment_count += 1;
 
-        if (fragment_ٍShipments == null) {
+
             fragment_ٍShipments = Fragment_ٍShipments.newInstance();
-        }
+
 
         if (fragment_ٍShipments.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_ٍShipments).commit();
@@ -632,6 +632,14 @@ public class Home_Activity extends AppCompatActivity {
         if(fragment_ticket!=null){
             fragment_ticket.setcatid(id);
             Back();
+        }
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK) {
+              DisplayFragmentshipments();
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.creativeshare.sals.Activities_Fragments.Secdule.Activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -267,6 +268,13 @@ public class Scedule_Activity extends AppCompatActivity {
         if(fragment_shipping_detials!=null&&fragment_shipping_detials.isAdded()){
             fragment_shipping_detials.adddeminssion(dementions_model);
         }
+    }
+
+    public void display() {
+        Intent intent = new Intent();
+       // intent.putExtra("editTextValue", "value_here")
+        setResult(RESULT_OK, intent);
+        finish();
     }
 }
 

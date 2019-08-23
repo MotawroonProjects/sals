@@ -88,14 +88,11 @@ public class Fragment_Home extends Fragment {
 
                         activity.DisplayFragmentCalculateprice();
                         break;
-                    case 2:
-                        activity.DisplayFragmentTrackTheShipment();
 
-                        break;
-                    case 3:
+                    case 2:
 
                         mDrawer.openDrawer(GravityCompat.START);
-                        updateBottomNavigationPosition(3);
+                        updateBottomNavigationPosition(2);
                         break;
                 }
                 return false;
@@ -149,7 +146,7 @@ public class Fragment_Home extends Fragment {
 
         ah_bottom_nav.addItem(item1);
         ah_bottom_nav.addItem(item2);
-        ah_bottom_nav.addItem(item3);
+        //ah_bottom_nav.addItem(item3);
         ah_bottom_nav.addItem(item4);
 
 

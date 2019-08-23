@@ -14,6 +14,7 @@
             android:icon="@drawable/payments"
             android:title="@string/payments"
             app:iconTint="@color/colorPrimary"
+            android:visible="false"
 
             />
         <item

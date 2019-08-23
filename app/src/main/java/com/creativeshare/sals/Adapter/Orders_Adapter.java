@@ -76,9 +76,9 @@ public class Orders_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 @Override
                 public void onClick(View view) {
                     if(fragment instanceof  Fragment_Shipments_Sent){
-                    activity.setid(data.get((((MyHolder)holder).getLayoutPosition())).getId(),0);}
+                    activity.setid(data.get((((MyHolder)holder).getLayoutPosition())),0);}
                     else  if(fragment instanceof  Fragment_Shipments_Recived){
-                        activity.setid(data.get((((MyHolder)holder).getLayoutPosition())).getId(),1);}
+                        activity.setid(data.get((((MyHolder)holder).getLayoutPosition())),1);}
                 }
             });
 

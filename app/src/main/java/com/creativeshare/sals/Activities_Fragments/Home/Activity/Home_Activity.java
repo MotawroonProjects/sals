@@ -28,6 +28,7 @@ import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Updat
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍEdit_Name;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍEdit_Phone;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍMy_Address;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍShipment_Details;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_ٍShipments;
 import com.creativeshare.sals.Activities_Fragments.Registration.Activity.Register_Activity;
 import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Service_Centers;
@@ -75,6 +76,7 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_Help_Advice fragment_help_advice;
 
     private Fragment_Ticket fragment_ticket;
+    private Fragment_ٍShipment_Details fragment_ٍShipment_details;
     private Fragment_Issue_Catogry fragment_issue_catogry;
     private Fragment_Question fragment_question;
     private Fragment_Payments fragment_payments;
@@ -264,6 +266,20 @@ public class Home_Activity extends AppCompatActivity {
             fragmentManager.beginTransaction().show(fragment_ticket).commit();
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ticket, "fragment_ticket").addToBackStack("fragment_ticket").commit();
+        }
+
+    }
+    public void DisplayFragmentshipmentdetails(Orders_Model.Orders.Data id) {
+
+        fragment_count += 1;
+
+        fragment_ٍShipment_details = Fragment_ٍShipment_Details.newInstance(id);
+
+
+        if (fragment_ٍShipment_details.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_ٍShipment_details).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ٍShipment_details, "fragment_ٍShipment_details").addToBackStack("fragment_ٍShipment_details").commit();
         }
 
     }
@@ -601,10 +617,13 @@ public class Home_Activity extends AppCompatActivity {
                 });
     }
 
-    public void setid(int id, int data) {
+    public void setid(Orders_Model.Orders.Data id, int data) {
         if(fragment_ticket!=null&&fragment_ticket.isAdded()){
-            fragment_ticket.setid(id,data);
+            fragment_ticket.setid(id.getId(),data);
             Back();
+        }
+        else {
+            DisplayFragmentshipmentdetails(id);
         }
 
     }

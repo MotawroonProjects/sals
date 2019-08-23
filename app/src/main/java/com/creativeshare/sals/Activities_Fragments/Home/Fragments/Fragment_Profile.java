@@ -37,7 +37,7 @@ import retrofit2.Response;
 
 public class Fragment_Profile extends Fragment {
     private Home_Activity activity;
-    private ImageView arrow1, arrow2, arrow3, arrow4, arrow5, arrow6, back_arrow;
+    private ImageView arrow1, arrow2, arrow3, arrow4, arrow5, arrow6, back_arrow,im1,im2,im3,im4;
     private TextView tv_fname, tv_lname,tv_phone,tv_email;
     private ConstraintLayout co_name, co_address, co_phone, co_email, co_language;
     private LinearLayout ll_mange_card;
@@ -74,6 +74,11 @@ public class Fragment_Profile extends Fragment {
         arrow4 = view.findViewById(R.id.arrow4);
         arrow5 = view.findViewById(R.id.arrow5);
         arrow6 = view.findViewById(R.id.arrow6);
+        im1=view.findViewById(R.id.im1);
+        im2=view.findViewById(R.id.im2);
+        im3=view.findViewById(R.id.im3);
+        im4=view.findViewById(R.id.im4);
+
         tv_fname = view.findViewById(R.id.tv_fname);
         tv_lname = view.findViewById(R.id.tv_lname);
         tv_phone=view.findViewById(R.id.tv_phone);
@@ -172,15 +177,42 @@ public class Fragment_Profile extends Fragment {
             }
             if(userModel.getUser().getFirst_name()!=null){
                 tv_fname.setText(userModel.getUser().getFirst_name());
+                im1.setImageResource(R.drawable.confirm_image);
+            }
+
+            else {
+                im1.setImageResource(R.drawable.uncheck);
+
             }
             if(userModel.getUser().getLast_name()!=null){
                 tv_lname.setText(userModel.getUser().getLast_name());
             }
+
             if(userModel.getUser().getMobile_number()!=null){
                 tv_phone.setText(userModel.getUser().getMobile_number());
+                im3.setImageResource(R.drawable.confirm_image);
+
+            }
+            else {
+                im3.setImageResource(R.drawable.uncheck);
+
             }
             if(userModel.getUser().getEmail()!=null){
                 tv_email.setText(userModel.getUser().getEmail());
+                im4.setImageResource(R.drawable.confirm_image);
+
+            }
+            else {
+                im4.setImageResource(R.drawable.uncheck);
+
+            }
+            if(userModel.getAddresses()!=null){
+                im2.setImageResource(R.drawable.confirm_image);
+
+            }
+            else {
+                im2.setImageResource(R.drawable.uncheck);
+
             }
         }
     }

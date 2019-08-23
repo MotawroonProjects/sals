@@ -572,6 +572,8 @@ public class Home_Activity extends AppCompatActivity {
     }
 
     public void upadateprefrece(UserModel body) {
+        body.setToken(userModel.getToken());
+        userModel=body;
         if (fragment_profile != null) {
             fragment_profile.upadateprefrece(body);
         }

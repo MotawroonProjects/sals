@@ -38,7 +38,7 @@ public class Fragment_Confirm_Code extends Fragment {
     private Register_Activity register_activity;
     private Preferences preferences;
     private String current_lang;
-    private ImageView back_arrow;
+    private ImageView back_arrow,im1;
     private Button bt_check;
     private TextView tv_resend;
     private EditText edt_confirm_code;
@@ -77,6 +77,7 @@ public class Fragment_Confirm_Code extends Fragment {
         edt_confirm_code = view.findViewById(R.id.edt_confirm_code);
         bt_check = view.findViewById(R.id.bt_check);
         tv_resend = view.findViewById(R.id.tv_resend);
+        im1=view.findViewById(R.id.im1);
         if (current_lang.equals("ar")) {
             back_arrow.setRotation(180.0f);
         }
@@ -98,6 +99,7 @@ public class Fragment_Confirm_Code extends Fragment {
             @Override
             public void onClick(View view) {
                 if (reseend) {
+
                     resendcode();
                 }
             }
@@ -115,6 +117,7 @@ public class Fragment_Confirm_Code extends Fragment {
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                 dialog.dismiss();
                 if (response.isSuccessful()) {
+                    im1.setImageResource(R.drawable.uncheck);
                     couter();
 
                 } else {
@@ -194,6 +197,7 @@ public class Fragment_Confirm_Code extends Fragment {
             public void onFinish() {
                 reseend = true;
                 tv_resend.setText(getResources().getString(R.string.resend));
+                im1.setImageResource(R.drawable.confirm_image);
             }
         }.start();
     }

@@ -69,7 +69,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginTop="4dp"
-                    android:src="@drawable/confirm_image"
+                    android:src="@drawable/uncheck"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:layout_editor_absoluteY="9dp" />
@@ -134,7 +134,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginTop="4dp"
-                    android:src="@drawable/confirm_image"
+                    android:src="@drawable/uncheck"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -197,7 +197,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginTop="4dp"
-                    android:src="@drawable/confirm_image"
+                    android:src="@drawable/uncheck"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -260,7 +260,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginTop="4dp"
-                    android:src="@drawable/confirm_image"
+                    android:src="@drawable/uncheck"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

@@ -2,7 +2,9 @@ package com.creativeshare.sals.Activities_Fragments.Home.Fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,7 @@ import com.creativeshare.sals.R;
 import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.Help_Cat_Model;
 import com.creativeshare.sals.models.Questions_Model;
+import com.creativeshare.sals.models.Quote_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
@@ -156,8 +159,63 @@ public class Fragment_Ticket extends Fragment {
     }
 
     private void checkdata() {
+String desc=edt_desc.getText().toString();
+String email=edt_email.getText().toString();
 
+if(!TextUtils.isEmpty(desc)&&!TextUtils.isEmpty(email)&&! Patterns.EMAIL_ADDRESS.matcher(email).matches()&&((related==1&&Shipmentid!=0)||related==0)&&cat_id!=0){
+    sendissue(desc,email);
+}
+else {
+    if(TextUtils.isEmpty(desc)){
+        edt_desc.setError(getResources().getString(R.string.field_req));
+    }
+    if(TextUtils.isEmpty(email)){
+        edt_email.setError(getResources().getString(R.string.field_req));
+    }
+    if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        edt_email.setError(getResources().getString(R.string.error_Email));
 
+    }
+    if(cat_id==0){
+        Common.CreateSignAlertDialog(activity,getResources().getString(R.string.addissue));
+    }
+    if(related==1&&Shipmentid==0){
+        Common.CreateSignAlertDialog(activity,getResources().getString(R.string.Shipment));
+
+    }
+}
+    }
+
+    private void sendissue(String desc, String email) {
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService().createticket("Bearer"+" "+ userModel.getToken(),email,desc,related+"",order_type+"",calable+"",cat_id+"",Shipmentid+"").enqueue(new Callback<Quote_Model>() {
+            @Override
+            public void onResponse(Call<Quote_Model> call, Response<Quote_Model> response) {
+
+                dialog.dismiss();
+                if (response.isSuccessful() && response.body() != null) {
+                    Toast.makeText(activity,getResources().getString(R.string.success),Toast.LENGTH_LONG).show();
+                    activity.Back();
+                    //updateappcommission(response.body());
+                }
+                else {
+                    Log.e("ll",response.code()+""+response.errorBody());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Quote_Model> call, Throwable t) {
+                try {
+                    dialog.dismiss();
+                    // smoothprogressbar.setVisibility(View.GONE);
+                    Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
+                    Log.e("Error", t.getMessage());
+                } catch (Exception e) {
+                }
+            }
+        });
     }
 
     public void setid(int id, int data) {

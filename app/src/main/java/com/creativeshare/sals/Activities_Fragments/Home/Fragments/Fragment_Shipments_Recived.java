@@ -155,7 +155,7 @@ public class Fragment_Shipments_Recived extends Fragment {
     }
     private void loadMore(int page) {
         Api.getService()
-                .getrecivedorders(1,"Bearer "+" "+userModel.getToken(),current_lang)
+                .getrecivedorders(page,"Bearer "+" "+userModel.getToken(),current_lang)
                 .enqueue(new Callback<Orders_Model>() {
                     @Override
                     public void onResponse(Call<Orders_Model> call, Response<Orders_Model> response) {

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,7 +29,8 @@ public class Fragment_Question extends Fragment {
 
 private Preferences preferences;
 private UserModel userModel;
-private Button bt_no;
+private TextView tv_ques,tv_answer;
+private Button bt_no,bt_yes;
     final static private String Tag = "question";
 private Questions_Model.Faqs faqss;
     public static Fragment_Question newInstance(Questions_Model.Faqs faqs) {
@@ -59,7 +61,14 @@ initView(view);
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         back_arrow = view.findViewById(R.id.arrow);
+        tv_ques=view.findViewById(R.id.tv_question);
+        tv_answer=view.findViewById(R.id.tv_ans);
         bt_no=view.findViewById(R.id.bt_no);
+        bt_yes=view.findViewById(R.id.bt_yes);
+        if(faqss!=null){
+            tv_ques.setText(faqss.getQuestion());
+            tv_answer.setText(faqss.getAnswer());
+        }
        // arrow5=view.findViewById(R.id.arrow5);
         //arrow6=view.findViewById(R.id.arrow6);
 bt_no.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +80,12 @@ bt_no.setOnClickListener(new View.OnClickListener() {
         if (current_lang.equals("ar")) {
             back_arrow.setRotation(180.0f);
         }
-
+bt_yes.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        activity.Back();
+    }
+});
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

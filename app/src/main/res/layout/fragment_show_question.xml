@@ -63,6 +63,7 @@
                 android:background="@color/gray4"
                 >
                 <TextView
+                    android:id="@+id/tv_question"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:textColor="@color/black"
@@ -73,6 +74,7 @@
                     android:paddingLeft="8dp"
                     />
                 <TextView
+                    android:id="@+id/tv_ans"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
@@ -104,6 +106,7 @@
                         android:gravity="center"
                         >
                         <Button
+                            android:id="@+id/bt_yes"
                             android:layout_width="180dp"
                             android:layout_height="50dp"
                             android:background="@color/blue"

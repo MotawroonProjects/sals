@@ -78,7 +78,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:orientation="horizontal"
                     android:weightSum="1">
@@ -94,13 +94,14 @@
                         android:singleLine="true"
                         android:textColor="@color/white"
                         android:textColorHint="@color/gray2"
-                        android:textSize="19sp"
+                        android:textSize="20sp"
                         android:theme="@style/AppTheme.LighterEditText2" />
 
                     <com.hbb20.CountryCodePicker
                         android:id="@+id/ccp_country_code"
                         android:layout_width="50dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_weight=".1"
                         android:padding="6dp"
                         android:textColor="@color/white"
@@ -112,7 +113,6 @@
                         app:ccp_showFullName="false"
                         app:ccp_showNameCode="false"
                         app:ccp_textSize="20sp"
-
 
                         />
 
@@ -150,9 +150,9 @@
                 android:layout_weight=".4995"
                 android:alpha=".9"
                 android:background="@drawable/sals_login_shape"
-                app:layout_constraintCircleRadius="10dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintCircleRadius="10dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ll"

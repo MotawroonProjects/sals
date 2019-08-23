@@ -163,7 +163,7 @@ public class Fragment_Ticket extends Fragment {
 String desc=edt_desc.getText().toString();
 String email=edt_email.getText().toString();
 
-if(!TextUtils.isEmpty(desc)&&!TextUtils.isEmpty(email)&&! Patterns.EMAIL_ADDRESS.matcher(email).matches()&&((related==1&&Shipmentid!=0)||related==0)&&cat_id!=0){
+if(!TextUtils.isEmpty(desc)&&!TextUtils.isEmpty(email)&&Patterns.EMAIL_ADDRESS.matcher(email).matches()&&((related==1&&Shipmentid!=0)||related==0)&&cat_id!=0){
     sendissue(desc,email);
 }
 else {
@@ -173,7 +173,7 @@ else {
     if(TextUtils.isEmpty(email)){
         edt_email.setError(getResources().getString(R.string.field_req));
     }
-    if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+    if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
         edt_email.setError(getResources().getString(R.string.error_Email));
 
     }

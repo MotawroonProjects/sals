@@ -125,7 +125,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight=".999"
                 android:background="@color/white"
-                android:hint="@string/phone"
+                android:hint="@string/email_addres"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"

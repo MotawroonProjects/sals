@@ -40,7 +40,7 @@
                 android:gravity="center"
                 android:text="@string/account"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -89,7 +89,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/name"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="15sp"
+                        android:textSize="20sp"
 
                         />
 
@@ -100,7 +100,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/name"
                         android:textColor="@color/gray4"
-                        android:textSize="15sp"
+                        android:textSize="20sp"
 
                         />
 
@@ -152,7 +152,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/addres"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="15sp"
+                        android:textSize="20sp"
 
                         />
 
@@ -162,7 +162,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/addres"
                         android:textColor="@color/gray4"
-                        android:textSize="15sp"
+                        android:textSize="20sp"
 
                         />
 
@@ -215,7 +215,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/phone"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="15sp"
+                        android:textSize="20sp"
 
                         />
 
@@ -226,7 +226,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/phone"
                         android:textColor="@color/gray4"
-                        android:textSize="15sp"
+                        android:textSize="20sp"
 
                         />
 
@@ -278,7 +278,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/email_addres"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="15sp"
+                        android:textSize="20sp"
 
                         />
 
@@ -289,7 +289,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/add_email_address"
                         android:textColor="@color/gray4"
-                        android:textSize="15sp"
+                        android:textSize="20sp"
 
                         />
 
@@ -316,7 +316,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/payment_setting"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:id="@+id/ll_mangecard"
@@ -339,7 +339,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/manage_my_carde"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="15sp" />
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:id="@+id/arrow5"

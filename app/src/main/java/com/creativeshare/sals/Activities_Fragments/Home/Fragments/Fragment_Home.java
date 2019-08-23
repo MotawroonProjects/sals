@@ -98,6 +98,7 @@ public class Fragment_Home extends Fragment {
                 return false;
             }
         });
+
         nvView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -143,6 +144,7 @@ public class Fragment_Home extends Fragment {
         ah_bottom_nav.setForceTint(true);
         ah_bottom_nav.setAccentColor(ContextCompat.getColor(activity, R.color.colorPrimaryDark));
         ah_bottom_nav.setInactiveColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+ah_bottom_nav.setTitleTextSizeInSp(20,20);
 
         ah_bottom_nav.addItem(item1);
         ah_bottom_nav.addItem(item2);

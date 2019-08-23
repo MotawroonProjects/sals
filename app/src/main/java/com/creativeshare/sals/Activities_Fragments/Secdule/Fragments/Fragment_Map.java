@@ -54,7 +54,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
     private ImageView arrow;// image_pin;
     private LinearLayout ll_back;//ll_map_type;
     private EditText edt_search, edt_floor;
-    private ProgressBar progBar;
+    //private ProgressBar progBar;
     private TextView tv_address,tv_save;//tv_map_type;
    // private FloatingActionButton fab;
     private String current_language;
@@ -99,8 +99,8 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
         ll_back = view.findViewById(R.id.ll_back);
         edt_search = view.findViewById(R.id.edt_search);
         edt_floor = view.findViewById(R.id.edt_floor);
-        progBar = view.findViewById(R.id.progBar);
-        progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorAccent), PorterDuff.Mode.SRC_IN);
+       // progBar = view.findViewById(R.id.progBar);
+        //progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorAccent), PorterDuff.Mode.SRC_IN);
         tv_address = view.findViewById(R.id.tv_address);
         tv_save=view.findViewById(R.id.tv_save);
         tv_save.setOnClickListener(new View.OnClickListener() {
@@ -253,7 +253,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
   private void Search(String query) {
 
         //image_pin.setVisibility(View.GONE);
-        progBar.setVisibility(View.VISIBLE);
+        //progBar.setVisibility(View.VISIBLE);
 
         String fields = "id,place_id,name,geometry,formatted_address";
 
@@ -265,7 +265,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
                         if (response.isSuccessful() && response.body() != null) {
 
                           //  image_pin.setVisibility(View.VISIBLE);
-                            progBar.setVisibility(View.GONE);
+                          //  progBar.setVisibility(View.GONE);
 
                             if (response.body().getCandidates().size() > 0) {
 
@@ -279,7 +279,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
                         {
 
 
-                            progBar.setVisibility(View.GONE);
+                            //progBar.setVisibility(View.GONE);
                             try {
                                 Log.e("error_code", response.errorBody().string());
                             } catch (IOException e) {
@@ -296,7 +296,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
 
 
                           //  image_pin.setVisibility(View.VISIBLE);
-                            progBar.setVisibility(View.GONE);
+                         //   progBar.setVisibility(View.GONE);
                             Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_LONG).show();
                         } catch (Exception e) {
 
@@ -308,7 +308,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
     private void getGeoData(final double lat, double lng)
     {
        // image_pin.setVisibility(View.GONE);
-        progBar.setVisibility(View.VISIBLE);
+       // progBar.setVisibility(View.VISIBLE);
 
         String location = lat+","+lng;
         Api.getService("https://maps.googleapis.com/maps/api/")
@@ -319,7 +319,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
                         if (response.isSuccessful() && response.body() != null) {
 
                           //  image_pin.setVisibility(View.VISIBLE);
-                            progBar.setVisibility(View.GONE);
+                         //   progBar.setVisibility(View.GONE);
 
                             if (response.body().getResults().size()>0)
                             {
@@ -334,7 +334,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
                         {
 
                          //   image_pin.setVisibility(View.VISIBLE);
-                            progBar.setVisibility(View.GONE);
+                          //  progBar.setVisibility(View.GONE);
                             try {
                                 Log.e("error_code", response.errorBody().string());
                             } catch (IOException e) {
@@ -351,7 +351,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
 
 
                           //  image_pin.setVisibility(View.VISIBLE);
-                            progBar.setVisibility(View.GONE);
+                          //  progBar.setVisibility(View.GONE);
                             Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_LONG).show();
                         } catch (Exception e) {
 

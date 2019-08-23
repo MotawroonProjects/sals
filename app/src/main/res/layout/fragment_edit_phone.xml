@@ -68,7 +68,7 @@
         >
     <com.hbb20.CountryCodePicker
         android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_height="match_parent"
         app:ccpDialog_textColor="@color/black"
         app:ccp_showFullName="false"
         app:ccp_showNameCode="false"
@@ -76,6 +76,7 @@
         android:layout_weight=".1"
         app:ccpDialog_backgroundColor="@color/white"
         android:background="@color/white"
+        android:gravity="center_vertical"
         ></com.hbb20.CountryCodePicker>
         <EditText
             android:layout_width="0dp"

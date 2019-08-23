@@ -7,6 +7,7 @@
             android:icon="@drawable/shipment_details"
             android:title="@string/shipping_details"
             app:iconTint="@color/colorPrimary"
+            
 
             />
         <item

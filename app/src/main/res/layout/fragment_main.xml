@@ -33,7 +33,7 @@
                 android:shadowColor="@color/white"
                 android:text="@string/welcome"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:padding="10dp"
                 />

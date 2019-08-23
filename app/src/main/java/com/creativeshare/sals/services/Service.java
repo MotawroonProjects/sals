@@ -12,6 +12,7 @@ import com.creativeshare.sals.models.Other_Services_Model;
 import com.creativeshare.sals.models.Pay_Model;
 import com.creativeshare.sals.models.Payment_Result_Model;
 import com.creativeshare.sals.models.PlaceGeocodeData;
+import com.creativeshare.sals.models.PlaceMapDetailsData;
 import com.creativeshare.sals.models.Prectage_Model;
 import com.creativeshare.sals.models.Questions_Model;
 import com.creativeshare.sals.models.Quote_Model;
@@ -312,5 +313,12 @@ public interface Service {
             @Field("definition_id") String definition_id,
             @Field("order_id") String order_id
 
+    );
+    @GET("place/findplacefromtext/json")
+    Call<PlaceMapDetailsData> searchOnMap(@Query(value = "inputtype") String inputtype,
+                                          @Query(value = "input") String input,
+                                          @Query(value = "fields") String fields,
+                                          @Query(value = "language") String language,
+                                          @Query(value = "key") String key
     );
 }

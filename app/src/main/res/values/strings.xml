@@ -176,5 +176,8 @@
     <string name="addissue">Select Catogry</string>
     <string name="Shipment">Select Shipment That Has Problem</string>
     <string name="search_for_address">search for address</string>
+    <string name="catogry_selected">Catogry Selected</string>
+    <string name="shipments_selected_from_sent_order">shipments selected from sent order</string>
+    <string name="shipments_selected_from_recived_order">shipments selected from recived order</string>
 
 </resources>

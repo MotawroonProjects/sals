@@ -48,7 +48,7 @@ public class Fragment_Ticket extends Fragment {
     private Home_Activity activity;
     private ImageView back_arrow, arrow5, arrow6;
     private EditText edt_desc, edt_email;
-    private TextView tv_shipment;
+    private TextView tv_shipment,tv_ships,tv_cats;
     private LinearLayout ll_shipment, ll_cat;
     private Button bt_yes, bt_no, bt_send;
     private SwitchCompat sw_call;
@@ -86,6 +86,8 @@ public class Fragment_Ticket extends Fragment {
         ll_shipment = view.findViewById(R.id.ll_shipment);
         ll_cat = view.findViewById(R.id.ll_cat);
         tv_shipment = view.findViewById(R.id.tv_ship);
+        tv_ships=view.findViewById(R.id.tv_ships);
+        tv_cats=view.findViewById(R.id.tv_cats);
         edt_desc = view.findViewById(R.id.edt_desc);
         edt_email = view.findViewById(R.id.edt_email);
         sw_call = view.findViewById(R.id.switch_call);
@@ -222,9 +224,17 @@ else {
     public void setid(int id, int data) {
         Shipmentid = id;
         order_type = data;
+        if(order_type==0){
+            tv_ships.setText("1"+getResources().getString(R.string.shipments_selected_from_sent_order));
+        }
+        else {
+            tv_ships.setText("1"+getResources().getString(R.string.shipments_selected_from_recived_order));
+
+        }
     }
 
     public void setcatid(int id) {
         cat_id = id;
+        tv_cats.setText("1"+getResources().getString(R.string.catogry_selected));
     }
 }

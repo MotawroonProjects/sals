@@ -79,6 +79,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_map, container, false);
+        updateUI();
         initView(view);
         return view;
     }
@@ -108,6 +109,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
             public void onClick(View view) {
                 if(address!=null){
                     activity.setaddress(address);
+                    activity.Back();
                 }
             }
         });

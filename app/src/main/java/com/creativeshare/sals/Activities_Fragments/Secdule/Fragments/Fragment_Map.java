@@ -55,7 +55,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
     private LinearLayout ll_back;//ll_map_type;
     private EditText edt_search, edt_floor;
     private ProgressBar progBar;
-    private TextView tv_address;//tv_map_type;
+    private TextView tv_address,tv_save;//tv_map_type;
    // private FloatingActionButton fab;
     private String current_language;
     private double lat = 0.0, lng = 0.0;
@@ -102,6 +102,15 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
         progBar = view.findViewById(R.id.progBar);
         progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorAccent), PorterDuff.Mode.SRC_IN);
         tv_address = view.findViewById(R.id.tv_address);
+        tv_save=view.findViewById(R.id.tv_save);
+        tv_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(address!=null){
+                    activity.setaddress(address);
+                }
+            }
+        });
        /* fab = view.findViewById(R.id.fab);
         ll_map_type = view.findViewById(R.id.ll_map_type);
         tv_map_type = view.findViewById(R.id.tv_map_type);

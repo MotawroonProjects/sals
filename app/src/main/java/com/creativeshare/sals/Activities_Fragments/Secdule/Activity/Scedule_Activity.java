@@ -11,6 +11,7 @@ import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Ad
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Confirmation;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Delivry_Chooser;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Add_Address;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Map;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Secdule;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Shipping_Dementions;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Shipping_Detials;
@@ -35,9 +36,12 @@ public class Scedule_Activity extends AppCompatActivity {
     private Fragment_Shipping_Detials fragment_shipping_detials;
     private Fragment_Delivry_Chooser fragment_delivry_chooser;
     private Fragment_Confirmation fragment_confirmation;
+    private Fragment_Map fragment_map;
+
     private int fragment_count = 0;
     private String current_lang;
     public int param;
+
     @Override
     protected void attachBaseContext(Context base)
     {
@@ -269,12 +273,37 @@ public class Scedule_Activity extends AppCompatActivity {
             fragment_shipping_detials.adddeminssion(dementions_model);
         }
     }
+    public void DisplayFragmentMap()
+    {
+        fragment_count+=1;
 
+
+            fragment_map = Fragment_Map.newInstance();
+
+
+
+        if (fragment_map.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_map).commit();
+
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_map, "fragment_map").addToBackStack("fragment_map").commit();
+        }
+
+
+
+    }
     public void display() {
         Intent intent = new Intent();
        // intent.putExtra("editTextValue", "value_here")
         setResult(RESULT_OK, intent);
         finish();
+    }
+
+    public void setaddress(String address) {
+        if(fragment_shipping_detials!=null&&fragment_shipping_detials.isAdded())
+        {
+            fragment_shipping_detials.setaddressto(address);
+        }
     }
 }
 

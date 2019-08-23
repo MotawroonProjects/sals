@@ -52,7 +52,7 @@ public class Fragment_Shipping_Detials extends Fragment {
     private String current_lang;
     private Button next, bt_Shipping_dimensions, bt_incremental, bt_decremantal;
     private FrameLayout fr_document, fr_parcel;
-    private ImageView im_document, im_parcel;
+    private ImageView im_document, im_parcel,im_map;
     private TextView tv_document, tv_parcel,tv_Quantity;
     private EditText edt_desc,edt_weight,edt_name,edt_phone,edt_address,edt_email;
     private List<CityModel.Cities> cityModelList;
@@ -92,7 +92,13 @@ private String parcel="0";
         tv_Quantity = view.findViewById(R.id.tv_quantity);
         fr_document = view.findViewById(R.id.fr_document);
         fr_parcel = view.findViewById(R.id.fr_parcel);
-        im_document = view.findViewById(R.id.im_document);
+        im_map = view.findViewById(R.id.im_map);
+        im_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.DisplayFragmentMap();
+            }
+        });
         im_parcel = view.findViewById(R.id.im_parcel);
         tv_document = view.findViewById(R.id.tv_document);
         tv_parcel = view.findViewById(R.id.tv_parcel);
@@ -390,5 +396,9 @@ if(parcel.equals("0")){
         Computrized_Model.setTime(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getDeliveryTime());
         activity.DisplayFragmentdelivrychooser();
 
+    }
+
+    public void setaddressto(String address) {
+        edt_address.setText(address);
     }
 }

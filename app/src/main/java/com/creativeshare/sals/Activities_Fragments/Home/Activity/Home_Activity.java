@@ -602,10 +602,11 @@ public class Home_Activity extends AppCompatActivity {
     }
 
     public void setid(int id, int data) {
-        if(fragment_ticket!=null){
+        if(fragment_ticket!=null&&fragment_ticket.isAdded()){
             fragment_ticket.setid(id,data);
             Back();
         }
+
     }
 
     public void setcatid(int id) {

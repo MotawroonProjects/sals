@@ -30,6 +30,7 @@ import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.Help_Cat_Model;
 import com.creativeshare.sals.models.Questions_Model;
 import com.creativeshare.sals.models.Quote_Model;
+import com.creativeshare.sals.models.Ticket_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
@@ -190,9 +191,9 @@ else {
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService().createticket("Bearer"+" "+ userModel.getToken(),email,desc,related+"",order_type+"",calable+"",cat_id+"",Shipmentid+"").enqueue(new Callback<Quote_Model>() {
+        Api.getService().createticket("Bearer"+" "+ userModel.getToken(),email,desc,related+"",order_type+"",calable+"",cat_id+"",Shipmentid+"").enqueue(new Callback<Ticket_Model>() {
             @Override
-            public void onResponse(Call<Quote_Model> call, Response<Quote_Model> response) {
+            public void onResponse(Call<Ticket_Model> call, Response<Ticket_Model> response) {
 
                 dialog.dismiss();
                 if (response.isSuccessful() && response.body() != null) {
@@ -206,7 +207,7 @@ else {
             }
 
             @Override
-            public void onFailure(Call<Quote_Model> call, Throwable t) {
+            public void onFailure(Call<Ticket_Model> call, Throwable t) {
                 try {
                     dialog.dismiss();
                     // smoothprogressbar.setVisibility(View.GONE);

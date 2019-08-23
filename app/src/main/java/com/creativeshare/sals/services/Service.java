@@ -18,6 +18,7 @@ import com.creativeshare.sals.models.Quote_Model;
 import com.creativeshare.sals.models.Sercvices_Centers;
 import com.creativeshare.sals.models.Shipment_Response_Model;
 import com.creativeshare.sals.models.Support_Catogry_Model;
+import com.creativeshare.sals.models.Ticket_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.models.Visit_Model;
 
@@ -301,7 +302,7 @@ public interface Service {
             );
     @FormUrlEncoded
     @POST("api/support/tickets/create")
-    Call<Quote_Model> createticket(
+    Call<Ticket_Model> createticket(
             @Header("Authorization") String Authorization,
             @Field("email") String email,
             @Field("desc") String desc,

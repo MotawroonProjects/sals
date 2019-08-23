@@ -40,7 +40,7 @@
                 android:gravity="center"
                 android:text="@string/computerized_price"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"

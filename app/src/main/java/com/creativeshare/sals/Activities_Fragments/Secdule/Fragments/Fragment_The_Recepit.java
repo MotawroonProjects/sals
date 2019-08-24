@@ -394,7 +394,7 @@ getGeoData(body.getAddress().getAddress());
 
 
         Api.getService("https://maps.googleapis.com/maps/api/")
-                .getGeoDatapos(address, "en",true, getString(R.string.map_api_key))
+                .getGeoDatapos(address, current_lang,true, getString(R.string.map_api_key))
                 .enqueue(new Callback<PlaceGeocodeData>() {
                     @Override
                     public void onResponse(Call<PlaceGeocodeData> call, Response<PlaceGeocodeData> response) {

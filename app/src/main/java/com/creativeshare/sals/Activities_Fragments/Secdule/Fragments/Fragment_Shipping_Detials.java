@@ -120,7 +120,7 @@ private String parcel="0";
                     to_city = "";
                 } else {
                     to_city = cityModelList.get(position).getEn_name();
-                    Shipment_Send_Model.setcityt(to_city);
+                   // Shipment_Send_Model.setcityt(to_city);
                     Shipment_Send_Model.setpostalt(cityModelList.get(position).getPostal_code());
                     if(current_lang.equals("en")){
                 Shipment_Send_Model.setcityt(cityModelList.get(position).getEn_name());

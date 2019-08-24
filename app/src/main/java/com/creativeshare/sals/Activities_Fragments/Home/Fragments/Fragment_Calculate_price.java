@@ -325,7 +325,7 @@ Computrized_Model.setWeight(weight);
         }
     }
 
-    private void getQoute(List<String> wegights) {
+    private void getQoute(final List<String> wegights) {
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
@@ -337,7 +337,9 @@ Computrized_Model.setWeight(weight);
                //     assert response.body() != null;
                  //  Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
                   //  activity.DisplayFragmentComputrizedprice();
+
                     adddata(response.body());
+
                 }
                 else {
                     try {
@@ -353,8 +355,48 @@ Computrized_Model.setWeight(weight);
             public void onFailure(Call<Quote_Model> call, Throwable t) {
                 try {
                     dialog.dismiss();
-                    Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
-                    Log.e("Error", t.getMessage());
+                    getQoute2(wegights);
+                    //Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+                    //Log.e("Error", t.getMessage());
+                } catch (Exception e) {
+
+                }
+            }
+        });
+    }
+    private void getQoute2(List<String> wegights) {
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService().get_quote("Bearer"+" "+ userModel.getToken(),date,wegights,is_dutiable,time,ready_time_gmt_offset,dimension_unit,weight_unit,payment_country_code,from_country_code,from_city,to_city,to_country_code).enqueue(new Callback<Quote_Model>() {
+            @Override
+            public void onResponse(Call<Quote_Model> call, Response<Quote_Model> response) {
+                dialog.dismiss();
+                if(response.isSuccessful()){
+                    //     assert response.body() != null;
+                    //  Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
+                    //  activity.DisplayFragmentComputrizedprice();
+
+                    adddata(response.body());
+
+                }
+                else {
+                    try {
+                        Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
+                        Log.e("Error_code", response.code() + "" + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Quote_Model> call, Throwable t) {
+                try {
+                    dialog.dismiss();
+
+                    //Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+                    //Log.e("Error", t.getMessage());
                 } catch (Exception e) {
 
                 }

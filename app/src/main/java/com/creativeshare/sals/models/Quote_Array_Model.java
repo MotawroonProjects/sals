@@ -3,7 +3,7 @@ package com.creativeshare.sals.models;
 import java.io.Serializable;
 import java.util.List;
 
-public class Quote_Model implements Serializable {
+public class Quote_Array_Model implements Serializable {
     private Data data;
 
     public Data getData() {
@@ -51,10 +51,9 @@ public class Quote_Model implements Serializable {
         }
 
         public class GetQuoteResponse implements Serializable{
-private BkgDetails BkgDetails;
+private List<BkgDetails> BkgDetails;
 
-
-            public Data.GetQuoteResponse.BkgDetails getBkgDetails() {
+            public List<BkgDetails> getBkgDetails() {
                 return BkgDetails;
             }
 

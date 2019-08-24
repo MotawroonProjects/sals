@@ -316,14 +316,18 @@
                 android:paddingRight="10dp"
                 android:text="@string/payment_setting"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:visibility="gone"
+                />
 
             <LinearLayout
                 android:id="@+id/ll_mangecard"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal"
-                android:weightSum="1">
+                android:weightSum="1"
+                android:visibility="gone"
+                >
 
                 <ImageView
                     android:layout_width="25dp"
@@ -355,6 +359,7 @@
             </LinearLayout>
 
             <View
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:background="@color/gray2" />
@@ -363,7 +368,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal"
-                android:weightSum="1">
+                android:weightSum="1"
+                android:visibility="gone"
+                >
 
                 <ImageView
                     android:layout_width="25dp"

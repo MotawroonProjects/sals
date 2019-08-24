@@ -15,6 +15,7 @@ import com.creativeshare.sals.models.PlaceGeocodeData;
 import com.creativeshare.sals.models.PlaceMapDetailsData;
 import com.creativeshare.sals.models.Prectage_Model;
 import com.creativeshare.sals.models.Questions_Model;
+import com.creativeshare.sals.models.Quote_Array_Model;
 import com.creativeshare.sals.models.Quote_Model;
 import com.creativeshare.sals.models.Sercvices_Centers;
 import com.creativeshare.sals.models.Shipment_Response_Model;
@@ -247,7 +248,24 @@ public interface Service {
             @Field("to_country_code") String to_country_code
 
     );
+    @FormUrlEncoded
+    @POST("api/get-quote")
+    Call<Quote_Array_Model> get_quote2(
+            @Header("Authorization") String Authorization,
+            @Field("date") String date,
+            @Field("pieces[][weight]") List<String> piece,
+            @Field("is_dutiable") String is_dutiable,
+            @Field("ready_time") String ready_time,
+            @Field("ready_time_gmt_offset") String ready_time_gmt_offset,
+            @Field("dimension_unit") String dimension_unit,
+            @Field("weight_unit") String weight_unit,
+            @Field("payment_country_code") String payment_country_code,
+            @Field("from_country_code") String from_country_code,
+            @Field("from_city") String from_city,
+            @Field("to_city") String to_city,
+            @Field("to_country_code") String to_country_code
 
+    );
     @FormUrlEncoded
     @POST("api/firebase-token")
     Call<ResponseBody> updateToken(

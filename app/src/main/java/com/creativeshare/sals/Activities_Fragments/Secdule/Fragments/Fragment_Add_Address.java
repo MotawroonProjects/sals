@@ -72,6 +72,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Fragment_Add_Address extends Fragment implements GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks, LocationListener, OnMapReadyCallback {
+
     private Scedule_Activity activity;
     private Home_Activity home_activity;
     private String current_lang;

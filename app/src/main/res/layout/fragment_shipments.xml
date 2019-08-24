@@ -55,11 +55,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            app:tabBackground="@drawable/tab_layout"
+            app:tabBackground="@color/colorAccent"
             app:tabSelectedTextColor="@color/white"
-            app:tabIndicatorColor="@color/colorPrimary"
-            app:tabTextColor="@color/black"
+            app:tabIndicatorColor="@color/white"
+            app:tabTextColor="@color/white"
             app:tabRippleColor="@color/colorPrimary"
+            app:tabIndicatorHeight="8dp"
             >
 
             <com.google.android.material.tabs.TabItem

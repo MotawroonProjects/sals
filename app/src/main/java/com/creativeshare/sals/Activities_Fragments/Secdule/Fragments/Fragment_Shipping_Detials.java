@@ -352,7 +352,7 @@ if(parcel.equals("0")){
            // Shipment_Send_Model.setcityt(to_city);
             Shipment_Send_Model.setPhone(phone);
             Shipment_Send_Model.setAdddresst(address);
-
+Shipment_Send_Model.setcode("SA");
             getQoute(wegights);
 
         }}

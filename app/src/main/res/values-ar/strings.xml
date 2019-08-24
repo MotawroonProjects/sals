@@ -180,4 +180,5 @@
     <string name="catogry_selected">العنصر التى اخترته</string>
     <string name="shipments_selected_from_sent_order">شحنه اخترتها من الطلبات المرسله</string>
     <string name="shipments_selected_from_recived_order">شحنه اخترتها من الطلبات الوارده</string>
+    <string name="error_data">Error Data</string>
 </resources>

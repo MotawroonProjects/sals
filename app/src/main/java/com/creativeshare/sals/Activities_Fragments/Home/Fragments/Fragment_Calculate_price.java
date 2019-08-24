@@ -339,7 +339,11 @@ Computrized_Model.setWeight(weight);
                  //  Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
                   //  activity.DisplayFragmentComputrizedprice();
 try {
-    adddata(response.body());
+    if(response.body().getData().getGetQuoteResponse()!=null){
+    adddata(response.body());}
+    else {
+       Toast.makeText(activity,getResources().getString(R.string.error_data),Toast.LENGTH_LONG).show();
+    }
 
 }
 catch (Exception e){
@@ -411,10 +415,10 @@ catch (Exception e){
     }
 
     private void adddata2(Quote_Array_Model body) {
-        Computrized_Model.setPrice(body.getData().getGetQuoteResponse().getBkgDetails().get(0).getQtdShp().getWeightCharge());
-        Computrized_Model.setDay_number(body.getData().getGetQuoteResponse().getBkgDetails().get(0).getQtdShp().getTotalTransitDays());
+        Computrized_Model.setPrice(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getWeightCharge());
+        Computrized_Model.setDay_number(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getTotalTransitDays());
 
-        Computrized_Model.setTime(body.getData().getGetQuoteResponse().getBkgDetails().get(0).getQtdShp().getDeliveryTime());
+        Computrized_Model.setTime(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getDeliveryTime());
         activity.DisplayFragmentComputrizedprice();
     }
 

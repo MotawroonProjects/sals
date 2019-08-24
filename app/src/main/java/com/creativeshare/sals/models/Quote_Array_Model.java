@@ -51,17 +51,17 @@ public class Quote_Array_Model implements Serializable {
         }
 
         public class GetQuoteResponse implements Serializable{
-private List<BkgDetails> BkgDetails;
+private BkgDetails BkgDetails;
 
-            public List<BkgDetails> getBkgDetails() {
+            public Data.GetQuoteResponse.BkgDetails getBkgDetails() {
                 return BkgDetails;
             }
 
             public class BkgDetails implements Serializable{
-private QtdShp QtdShp;
+private List <QtdShp> QtdShp;
 
 
-                public Data.GetQuoteResponse.BkgDetails.QtdShp getQtdShp() {
+                public List<Data.GetQuoteResponse.BkgDetails.QtdShp> getQtdShp() {
                     return QtdShp;
                 }
 

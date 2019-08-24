@@ -238,12 +238,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@color/white"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/deserved_amount"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
+
+                />
+            <TextView
+                android:id="@+id/tv_total_pricesals"
+
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="@string/_12000_ryal"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:background="@color/white"
 
                 />
 

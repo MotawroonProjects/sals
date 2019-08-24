@@ -99,6 +99,7 @@ private String parcel="0";
                 activity.DisplayFragmentMap();
             }
         });
+        im_document=view.findViewById(R.id.im_document);
         im_parcel = view.findViewById(R.id.im_parcel);
         tv_document = view.findViewById(R.id.tv_document);
         tv_parcel = view.findViewById(R.id.tv_parcel);

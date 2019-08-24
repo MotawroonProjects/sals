@@ -17,7 +17,7 @@
             android:padding="10dp"
             android:text="@string/select_the_receiving_address"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
         <TextView
             android:id="@+id/tv_user"
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:paddingRight="10dp"
             android:text="@string/current_user"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -54,7 +54,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/address_from"
                     android:textColor="@color/gray0"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                    android:gravity="center_vertical"
                     />
             </LinearLayout>
@@ -99,7 +99,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/address_to"
                     android:textColor="@color/gray0"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <ImageView
@@ -124,7 +124,7 @@
             android:padding="10dp"
             android:text="@string/pickup_date_time"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <LinearLayout
             android:id="@+id/ll_date"
@@ -148,7 +148,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/date"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <ImageView
                 android:id="@+id/arrow1"
@@ -184,7 +184,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/time"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <ImageView
                 android:id="@+id/arrow2"
@@ -215,7 +215,7 @@
             android:padding="10dp"
             android:text="@string/what_is_the_total_volume_of_all_your_shipments_with_us"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="15sp"
 
            android:visibility="gone" />
 
@@ -243,7 +243,7 @@
                 android:lineSpacingExtra="8dp"
                 android:text="@string/if_you_make_more_than_30kg_of_your_shipments_please_visit_our_nearest_customer_service_center"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -251,7 +251,7 @@
                 android:layout_marginTop="30dp"
                 android:text="@string/tell_us_about_any_additional_details"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/edt_desc"
@@ -277,7 +277,7 @@
                 android:gravity="center"
                 android:text="@string/price_calculate"
                 android:textColor="@color/white"
-                android:textSize="19sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
     </LinearLayout>

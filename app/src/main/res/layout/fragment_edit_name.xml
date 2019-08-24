@@ -40,7 +40,7 @@
                 android:gravity="center"
                 android:text="@string/name"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -74,7 +74,7 @@
                     android:hint="@string/email_addres"
                     android:textColorHint="@color/gray4"
                     android:textColor="@color/black"
-                    android:textSize="19sp"
+                    android:textSize="14sp"
                     android:background="@color/white"
                     />
                 <View
@@ -98,7 +98,7 @@
                     android:hint="@string/last_name"
                     android:textColorHint="@color/gray4"
                     android:textColor="@color/black"
-                    android:textSize="19sp"
+                    android:textSize="14sp"
                     android:background="@color/white" />
                 <Button
                     android:id="@+id/bt_save"
@@ -109,7 +109,7 @@
                     android:background="@drawable/button_shape"
                     android:text="@string/save"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
 

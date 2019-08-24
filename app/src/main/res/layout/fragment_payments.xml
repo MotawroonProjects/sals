@@ -40,7 +40,7 @@
                 android:gravity="center"
                 android:text="@string/payments"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -81,7 +81,7 @@
         android:gravity="center"
         android:text="@string/price_calculate"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintVertical_bias="1"
         app:layout_constraintTop_toBottomOf="@+id/rec_payments"
         app:layout_constraintBottom_toBottomOf="parent"

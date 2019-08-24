@@ -33,7 +33,7 @@
                 android:shadowColor="@color/white"
                 android:text="@string/welcome"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 android:padding="10dp"
                 />
@@ -82,7 +82,7 @@
              android:layout_gravity="center_vertical"
              android:text="@string/display_of_shantaghan"
              android:textColor="@color/colorPrimary"
-             android:textSize="20sp"
+             android:textSize="15sp"
 
              />
          <TextView
@@ -91,7 +91,7 @@
              android:layout_gravity="center_vertical"
              android:text="@string/shipments"
              android:textColor="@color/gray4"
-             android:textSize="20sp"
+             android:textSize="15sp"
 
              />
 
@@ -141,7 +141,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/account"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
+                android:textSize="15sp"
 
                 />
             <TextView
@@ -150,7 +150,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/account2"
                 android:textColor="@color/gray4"
-                android:textSize="20sp"
+                android:textSize="15sp"
 
                 />
 

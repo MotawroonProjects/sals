@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/black"
-                android:textSize="19sp"
+                android:textSize="14sp"
                 android:text="@string/search_address"
                 android:clickable="false"
                 android:longClickable="false"
@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/save"
-                android:textSize="19sp"
+                android:textSize="14sp"
                 android:textColor="@color/black"
                 android:gravity="center_vertical|end"
                 android:paddingLeft="8dp"
@@ -92,7 +92,7 @@
             android:scrollHorizontally="true"
             android:textColor="@color/black"
             android:layout_marginEnd="8dp"
-            android:textSize="19sp"
+            android:textSize="14sp"
             tools:ignore="RtlCompat" />
 
     </LinearLayout>

@@ -39,7 +39,7 @@
                 android:gravity="center"
                 android:text="@string/support_ticket"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -68,7 +68,7 @@
             android:textColor="@color/black"
             android:text="@string/is_about_shipment"
             android:background="@color/gray4"
-            android:textSize="19sp"
+            android:textSize="14sp"
             android:paddingRight="8dp"
             android:paddingLeft="8dp"
             />
@@ -89,7 +89,7 @@
                 android:layout_height="50dp"
                 android:background="@color/white"
                 android:text="@string/yes"
-                android:textSize="19sp"
+                android:textSize="14sp"
                 android:textColor="@color/black"
                 />
             <Button
@@ -98,7 +98,7 @@
                 android:layout_height="50dp"
                 android:background="@color/blue"
                 android:text="@string/no"
-                android:textSize="19sp"
+                android:textSize="14sp"
                 android:textColor="@color/white"
 
                 />
@@ -112,7 +112,7 @@
             android:textColor="@color/black"
             android:text="@string/select_shipments"
             android:background="@color/gray4"
-            android:textSize="19sp"
+            android:textSize="14sp"
             android:paddingRight="8dp"
             android:paddingLeft="8dp"
             />
@@ -133,7 +133,7 @@
             android:gravity="center_vertical"
             android:text="No Shipment Selected"
             android:textColor="@color/black"
-            android:textSize="19sp"
+            android:textSize="14sp"
             android:paddingRight="8dp"
             android:paddingLeft="8dp" />
 
@@ -155,7 +155,7 @@
         android:textColor="@color/black"
         android:text="@string/what_is_issue_relatef_to"
         android:background="@color/gray4"
-        android:textSize="19sp"
+        android:textSize="14sp"
         android:paddingRight="8dp"
         android:paddingLeft="8dp"
         android:gravity="center_vertical"
@@ -176,7 +176,7 @@
             android:gravity="center_vertical"
             android:text="No Catogry Selected"
             android:textColor="@color/black"
-            android:textSize="19sp"
+            android:textSize="14sp"
             android:paddingRight="8dp"
             android:paddingLeft="8dp" />
 
@@ -198,7 +198,7 @@
         android:textColor="@color/black"
         android:text="@string/description"
         android:background="@color/gray4"
-        android:textSize="19sp"
+        android:textSize="14sp"
         android:paddingRight="8dp"
         android:paddingLeft="8dp"
         android:gravity="center_vertical"
@@ -208,7 +208,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@color/white"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:hint="@string/description"
         android:gravity="top"
         android:padding="8dp"
@@ -220,7 +220,7 @@
         android:textColor="@color/black"
         android:text="@string/email_addres"
         android:background="@color/gray4"
-        android:textSize="19sp"
+        android:textSize="14sp"
         android:paddingRight="8dp"
         android:paddingLeft="8dp"
         android:gravity="center_vertical"
@@ -230,7 +230,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="@string/email_addres"
-        android:textSize="19sp"
+        android:textSize="14sp"
         android:textColor="@color/black"
         android:singleLine="true"
         android:background="@color/white"
@@ -258,7 +258,7 @@
             android:textColor="@color/black"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switch_call"
@@ -278,7 +278,7 @@
     android:text="@string/sent"
     android:paddingRight="15dp"
     android:paddingLeft="15dp"
-    android:textSize="19sp"
+    android:textSize="14sp"
     />
 
 </LinearLayout>

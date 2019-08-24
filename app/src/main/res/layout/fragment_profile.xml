@@ -40,7 +40,7 @@
                 android:gravity="center"
                 android:text="@string/account"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -89,7 +89,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/name"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
 
                         />
 
@@ -100,7 +100,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/name"
                         android:textColor="@color/gray4"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
 
                         />
 
@@ -152,7 +152,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/addres"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
 
                         />
 
@@ -162,7 +162,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/addres"
                         android:textColor="@color/gray4"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
 
                         />
 
@@ -215,7 +215,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/phone"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
 
                         />
 
@@ -226,7 +226,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/phone"
                         android:textColor="@color/gray4"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
 
                         />
 
@@ -278,7 +278,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/email_addres"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
 
                         />
 
@@ -289,7 +289,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/add_email_address"
                         android:textColor="@color/gray4"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
 
                         />
 
@@ -316,7 +316,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/payment_setting"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:visibility="gone"
                 />
 
@@ -343,7 +343,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/manage_my_carde"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <ImageView
                     android:id="@+id/arrow5"
@@ -386,7 +386,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/save_sign_in_for_payments"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="19sp" />
+                    android:textSize="14sp" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:layout_width="45dp"
@@ -407,7 +407,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/alerts"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -429,7 +429,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/activate_notifications"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_notify"
@@ -449,7 +449,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/lang_setting"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/co_language"
@@ -480,7 +480,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/lang"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
 
                         />
 
@@ -490,7 +490,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="@string/lang"
                         android:textColor="@color/gray4"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
 
                         />
 
@@ -521,7 +521,7 @@
                     android:lineSpacingExtra="10dp"
                     android:text="@string/app_notif"
                     android:textColor="@color/gray0"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <FrameLayout
                     android:id="@+id/fr_logout"
@@ -551,7 +551,7 @@
                             android:gravity="center_vertical"
                             android:text="@string/log_out"
                             android:textColor="@color/white"
-                            android:textSize="20sp" />
+                            android:textSize="15sp" />
                     </LinearLayout>
                 </FrameLayout>
             </LinearLayout>

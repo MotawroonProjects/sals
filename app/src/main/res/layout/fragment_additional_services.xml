@@ -63,7 +63,7 @@
         android:padding="10dp"
          android:text="@string/choose_extra_services"
          android:textColor="@color/black"
-         android:textSize="20sp" />
+         android:textSize="15sp" />
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/rec_other"
     android:layout_width="match_parent"
@@ -99,7 +99,7 @@
              android:paddingRight="10dp"
              android:text="@string/ettra_charges_may_apply_by_selecting_certian_addotional_serrvices"
              android:textColor="@color/blue"
-             android:textSize="20sp"
+             android:textSize="15sp"
 
              />
 

@@ -40,7 +40,7 @@
                 android:gravity="center"
                 android:text="@string/computerized_price"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -77,7 +77,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/details_of_your_shipment"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_document"
@@ -89,7 +89,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/documents"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -115,7 +115,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/saudia"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -126,7 +126,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/saudia"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -147,7 +147,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/city"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/tv_cityt"
@@ -159,7 +159,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/city"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <TextView
@@ -172,7 +172,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/number_of_pieces"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -183,7 +183,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/connection_options"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_day"
@@ -195,7 +195,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/number_of_days"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="15sp"
 
                 />
 
@@ -218,7 +218,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/document_the_next_day"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <ImageView
                     android:id="@+id/im_additional_services"
@@ -243,7 +243,7 @@
                 android:paddingRight="10dp"
                 android:text="@string/deserved_amount"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
+                android:textSize="15sp"
 
                 />
             <TextView
@@ -253,7 +253,7 @@
                 android:layout_height="45dp"
                 android:text="@string/_12000_ryal"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:gravity="center"
                 android:padding="10dp"
                 android:background="@color/white"
@@ -291,7 +291,7 @@
                     android:paddingStart="10dp"
                     android:text="@string/expected_delivery_on"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/im_date"
                     app:layout_constraintTop_toTopOf="parent"
@@ -307,7 +307,7 @@
                     android:paddingStart="10dp"
                     android:text="@string/expected_delivery_on"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/im_date"
                     app:layout_constraintTop_toBottomOf="@+id/tv_time"
@@ -351,7 +351,7 @@
                             android:paddingRight="10dp"
                             android:text="@string/specify_the_date_of_receipt"
                             android:textColor="@color/white"
-                            android:textSize="20sp" />
+                            android:textSize="15sp" />
                     </LinearLayout>
                 </FrameLayout>
 

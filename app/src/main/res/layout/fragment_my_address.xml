@@ -39,7 +39,7 @@
                 android:gravity="center"
                 android:text="@string/my_address"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -108,7 +108,7 @@
                     android:longClickable="false"
                     android:text="@string/add_new_adddress"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
         </FrameLayout>
 

@@ -20,7 +20,7 @@
         android:paddingRight="10dp"
         android:text="@string/deliver_in"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:background="@color/gray4"
 
         />
@@ -47,7 +47,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/address_to"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
+                android:textSize="15sp"
 
                 />
 
@@ -58,7 +58,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/addres"
                 android:textColor="@color/gray4"
-                android:textSize="20sp"
+                android:textSize="15sp"
 
                 />
 
@@ -71,7 +71,7 @@
             android:padding="10dp"
             android:text="@string/_12000_ryal"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintTop_toBottomOf="@+id/ll"
             app:layout_constraintStart_toStartOf="parent"
             android:visibility="gone"
@@ -115,7 +115,7 @@
             android:gravity="center_vertical"
             android:text="@string/expected_delivery_on"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
 
     </LinearLayout>
@@ -127,7 +127,7 @@
         android:paddingRight="10dp"
         android:text="@string/additional_services"
         android:textColor="@color/gray0"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:background="@color/gray4"
         android:visibility="gone"
 
@@ -152,7 +152,7 @@
 
             android:text="@string/choose_extra_if_you_need"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:clickable="false"
             android:longClickable="false"
             />
@@ -195,7 +195,7 @@
             android:padding="10dp"
             android:text="@string/deserved_amount"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:layout_width="0dp"
@@ -205,7 +205,7 @@
             android:padding="10dp"
             android:text="@string/_12000_ryal"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="15sp"
 
             />
 
@@ -223,7 +223,7 @@
             app:layout_constraintVertical_bias="1"
             android:text="@string/my_shipments"
             android:gravity="center_vertical"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textColor="@color/black"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -240,7 +240,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".9"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textColor="@color/black"
                 android:text="@string/documents"
                 android:gravity="center_vertical"
@@ -257,7 +257,7 @@
             android:id="@+id/tv_num"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:text="@string/one_piece_5_kg"
             android:textColor="@color/black"
             android:gravity="center_vertical"
@@ -267,7 +267,7 @@
             android:id="@+id/tv_cityt"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:text="@string/to_ryad_sa"
             android:textColor="@color/black"
             android:gravity="center_vertical"
@@ -292,7 +292,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/deserved_amount"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:layout_weight=".7"
                 android:gravity="center_vertical"
                 android:padding="10dp"
@@ -303,7 +303,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/_12000_ryal"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:layout_weight=".3"
                 android:gravity="center_vertical"
                 android:padding="10dp"
@@ -322,7 +322,7 @@
             android:textColor="@color/blue"
             android:gravity="center_vertical"
             android:padding="10dp"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:visibility="gone"
 
             />
@@ -346,7 +346,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/total_deserved_amount"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:layout_weight=".66"
                 android:gravity="center_vertical"
                 android:padding="10dp"
@@ -361,7 +361,7 @@
             android:layout_height="45dp"
             android:text="@string/_12000_ryal"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:gravity="center"
             android:padding="10dp"
 
@@ -373,7 +373,7 @@
             android:layout_height="45dp"
             android:text="@string/_12000_ryal"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:gravity="center"
             android:padding="10dp"
 
@@ -394,7 +394,7 @@
                 android:padding="10dp"
                 android:text="@string/what_is_the_total_volume_of_all_your_shipments_with_us"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
 
             <LinearLayout
@@ -418,7 +418,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/sadad"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="15sp" />
 
                     <ImageView
                         android:id="@+id/im_sadad"
@@ -450,7 +450,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/credit_card"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="15sp" />
 
                     <ImageView
                         android:id="@+id/im_credit"
@@ -471,7 +471,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/button_shape"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:text="@string/confirmation"
                 android:textColor="@color/white"
                 android:layout_marginTop="20dp"
@@ -511,7 +511,7 @@ android:visibility="gone"
             android:paddingRight="10dp"
             android:text="@string/not_sure_if_your_goods_are_acceptable_for_shipping_click_here"
             android:textColor="@color/blue"
-            android:textSize="20sp"
+            android:textSize="15sp"
 android:visibility="gone"
             />
 
@@ -527,7 +527,7 @@ android:visibility="gone"
             android:gravity="center"
             android:text="@string/price_calculate"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:visibility="gone"
             />
     </LinearLayout>

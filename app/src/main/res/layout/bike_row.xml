@@ -30,7 +30,7 @@
             android:gravity="center"
             android:text="@string/small"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/tv_desc"
@@ -39,5 +39,5 @@
             android:gravity="center"
             android:text="@string/fit_the_bike"
             android:textColor="@color/gray4"
-            android:textSize="19sp" />
+            android:textSize="14sp" />
 </LinearLayout>

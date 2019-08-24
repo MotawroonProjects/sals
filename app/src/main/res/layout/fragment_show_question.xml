@@ -39,7 +39,7 @@
                 android:gravity="center"
                 android:text="@string/support_ticket"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -69,7 +69,7 @@
                     android:textColor="@color/black"
                     android:text="@string/most_frequently_asked_questions"
                     android:background="@color/gray4"
-                    android:textSize="19sp"
+                    android:textSize="14sp"
                     android:paddingRight="8dp"
                     android:paddingLeft="8dp"
                     />
@@ -78,7 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textColor="@color/black"
                     android:text="@string/most_frequently_asked_questions"
 />
@@ -87,7 +87,7 @@
                     android:layout_height="45dp"
                     android:text="@string/is_answer_useful"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:paddingRight="8dp"
                     android:paddingLeft="8dp"
                     android:gravity="center_vertical"
@@ -111,7 +111,7 @@
                             android:layout_height="50dp"
                             android:background="@color/blue"
                             android:text="@string/yes"
-                            android:textSize="19sp"
+                            android:textSize="14sp"
                             android:textColor="@color/white"
                            android:layout_marginLeft="8dp"
                             android:layout_marginRight="8dp"
@@ -124,7 +124,7 @@
                             android:layout_height="50dp"
                             android:background="@color/gray"
                             android:text="@string/no"
-                            android:textSize="19sp"
+                            android:textSize="14sp"
                             android:textColor="@color/black"
                             android:layout_marginLeft="8dp"
                             android:layout_marginRight="8dp"

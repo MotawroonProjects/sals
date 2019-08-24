@@ -114,6 +114,7 @@ private String parcel="0";
         spinner_city_from= view.findViewById(R.id.sp_cityfrom);
         city_adapter = new Spinner_City_Adapter(activity, cityModelList);
         spinner_city_to.setAdapter(city_adapter);
+        spinner_city_from.setAdapter(city_adapter);
         spinner_city_from.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

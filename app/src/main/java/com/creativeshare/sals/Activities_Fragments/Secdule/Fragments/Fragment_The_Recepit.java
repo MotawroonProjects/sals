@@ -67,7 +67,7 @@ public class Fragment_The_Recepit extends Fragment implements DatePickerDialog.O
     // im_shape1,im_shape2,im_shape3,
     // private TextView tv_shape1,tv_shape2,tv_shape3;
     private TextView tv_user, tv_addressf, tv_addresst, tv_date,tv_time;
-    private String addressf,addreesst,desc,date,postal_code,cityf,time;
+    private String addressf,addreesst,desc,date,time;
     private EditText edt_desc;
     private Button next;
     private RecyclerView rec_bike;
@@ -238,7 +238,6 @@ checkdata();
            // Shipment_Send_Model.setAdddresst(addreesst);
             Shipment_Send_Model.setDate(date);
             Shipment_Send_Model.setDesc(desc);
-            Shipment_Send_Model.setCityf(cityf);
             Shipment_Send_Model.settime(time);
             activity.DisplayFragmentshippingdetilas();
 
@@ -310,7 +309,7 @@ checkdata();
 
   public void updatedata(Address_Models body) {
       // updatepostalcode(body.getAddress().getLatitude(),body.getAddress().getLongitude());
-getGeoData(body.getAddress().getAddress());
+//getGeoData(body.getAddress().getAddress());
         tv_user.setText(userModel.getUser().getFirst_name() + userModel.getUser().getLast_name());
         addressf=body.getAddress().getAddress();
         //cityf=body.getAddress().getAddress().split(", ")[1];
@@ -364,7 +363,7 @@ getGeoData(body.getAddress().getAddress());
     public void updateaddreess(String body) {
         if (type == 0) {
             tv_addressf.setText(body);
-            getGeoData(body);
+          //  getGeoData(body);
             addressf=body;
         } else if (type == 1) {
             tv_addresst.setText(body);
@@ -389,7 +388,7 @@ getGeoData(body.getAddress().getAddress());
         // date = calendar.get(Calendar.YEAR) + "-" + (calendar.getTime().getMonth()+calendar.getTime().getMonth():calendar.getTime().getMonth()) + "-" + (calendar.getTime().getDay()<10?"0"+calendar.getTime().getDay():calendar.getTime().getDay());
         //Log.e("kkk", date);
 
-    }
+    }/*
     private void getGeoData(final String address) {
 
 
@@ -434,8 +433,8 @@ updatepostalcode(response.body().getResults());
                         }
                     }
                 });
-    }
-
+    }*/
+/*
     private void updatepostalcode(List<PlaceGeocodeData.Geocode> address_components) {
         PlaceGeocodeData.Geocode geocode;
         List<PlaceGeocodeData.Address_components> address_components1;
@@ -498,7 +497,7 @@ updatepostalcode(response.body().getResults());
         }
         Log.e("ss", postal_code+"5"+" "+latitude+" "+longitude);
 
-    }
+    }*/
     private void createTimePickerDialog() {
         Calendar calendar = Calendar.getInstance();
         timePickerDialog = TimePickerDialog.newInstance(this, calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE), calendar.get(Calendar.SECOND), false);

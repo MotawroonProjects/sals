@@ -56,11 +56,11 @@ public class Fragment_Shipping_Detials extends Fragment {
     private TextView tv_document, tv_parcel,tv_Quantity;
     private EditText edt_desc,edt_weight,edt_name,edt_phone,edt_address,edt_email;
     private List<CityModel.Cities> cityModelList;
-    private Spinner spinner_city_to;
+    private Spinner spinner_city_to,spinner_city_from;
     private Spinner_City_Adapter city_adapter;
     private int quantity = 1;
  private List<String> wegights,widths,hights,lengths,volumeweights;
-    private String is_dutiable = "0", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", payment_country_code = "SA",  to_city, to_country_code = "SA";
+    private String is_dutiable = "0", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", payment_country_code = "SA",  postal_codef,cityf,to_city, to_country_code = "SA";
 private String parcel="0";
     public static Fragment_Shipping_Detials newInstance() {
         return new Fragment_Shipping_Detials();
@@ -111,8 +111,33 @@ private String parcel="0";
         bt_Shipping_dimensions = view.findViewById(R.id.bt_shipping_dimensions);
         next = view.findViewById(R.id.bt_next);
         spinner_city_to = view.findViewById(R.id.sp_cityto);
+        spinner_city_from= view.findViewById(R.id.sp_cityfrom);
         city_adapter = new Spinner_City_Adapter(activity, cityModelList);
         spinner_city_to.setAdapter(city_adapter);
+        spinner_city_from.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    cityf = "";
+                } else {
+                    cityf = cityModelList.get(position).getEn_name();
+                    // Shipment_Send_Model.setcityt(to_city);
+                    Shipment_Send_Model.setpostalf(cityModelList.get(position).getPostal_code());
+                    if(current_lang.equals("en")){
+                        Shipment_Send_Model.setCityf(cityModelList.get(position).getEn_name());
+                    }
+                    else {
+                        Shipment_Send_Model.setCityf(cityModelList.get(position).getAr_name());
+
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         spinner_city_to.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -248,12 +273,12 @@ private String parcel="0";
         String phone=edt_phone.getText().toString();
         String address=edt_address.getText().toString();
         String email=edt_email.getText().toString();
-        if ( TextUtils.isEmpty(to_city) ||TextUtils.isEmpty(weight)||TextUtils.isEmpty(name)||TextUtils.isEmpty(phone)||TextUtils.isEmpty(address)||TextUtils.isEmpty(email)||! Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if ( TextUtils.isEmpty(to_city)||TextUtils.isEmpty(cityf) ||TextUtils.isEmpty(weight)||TextUtils.isEmpty(name)||TextUtils.isEmpty(phone)||TextUtils.isEmpty(address)||TextUtils.isEmpty(email)||! Patterns.EMAIL_ADDRESS.matcher(email).matches()){
 
             if(TextUtils.isEmpty(weight)){
                 edt_weight.setError(getResources().getString(R.string.field_req));
             }
-            if(TextUtils.isEmpty(to_city)){
+            if(TextUtils.isEmpty(to_city)||TextUtils.isEmpty(cityf)){
                 Common.CreateSignAlertDialog(activity,getResources().getString(R.string.add_city));
             }
             if(TextUtils.isEmpty(name)){

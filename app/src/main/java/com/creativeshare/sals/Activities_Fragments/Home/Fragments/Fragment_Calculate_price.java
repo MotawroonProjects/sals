@@ -338,8 +338,13 @@ Computrized_Model.setWeight(weight);
                //     assert response.body() != null;
                  //  Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
                   //  activity.DisplayFragmentComputrizedprice();
+try {
+    adddata(response.body());
 
-                    adddata(response.body());
+}
+catch (Exception e){
+
+}
 
                 }
                 else {
@@ -397,7 +402,7 @@ Computrized_Model.setWeight(weight);
                     dialog.dismiss();
 
                     //Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
-                    //Log.e("Error", t.getMessage());
+                    Log.e("Error", t.getMessage());
                 } catch (Exception e) {
 
                 }

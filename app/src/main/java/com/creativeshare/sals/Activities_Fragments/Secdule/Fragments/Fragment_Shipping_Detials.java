@@ -28,6 +28,7 @@ import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.CityModel;
 import com.creativeshare.sals.models.Computrized_Model;
 import com.creativeshare.sals.models.Dementions_Model;
+import com.creativeshare.sals.models.Quote_Array_Model;
 import com.creativeshare.sals.models.Quote_Model;
 import com.creativeshare.sals.models.Shipment_Send_Model;
 import com.creativeshare.sals.models.UserModel;
@@ -361,7 +362,7 @@ Shipment_Send_Model.setcode("SA");
         }
     }
 
-    private void getQoute(List<String> wegights) {
+    private void getQoute(final List<String> wegights) {
       //  Log.e("data", Shipment_Send_Model.getDate()+wegights+is_dutiable+Shipment_Send_Model.getTime()+ready_time_gmt_offset+dimension_unit+weight_unit+payment_country_code+Shipment_Send_Model.getFromcountrycode()+Shipment_Send_Model.getCityf()+to_city+to_country_code);
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
@@ -397,7 +398,49 @@ Shipment_Send_Model.setcode("SA");
             public void onFailure(Call<Quote_Model> call, Throwable t) {
                 try {
                     dialog.dismiss();
-                    Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+getQoute2(wegights);                    Log.e("Error", t.getMessage());
+                } catch (Exception e) {
+
+                }
+            }
+        });
+    }
+    private void getQoute2(List<String> wegights) {
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService().get_quote2("Bearer"+" "+ userModel.getToken(),Shipment_Send_Model.getDate(),wegights,is_dutiable,Shipment_Send_Model.getTime(),ready_time_gmt_offset,dimension_unit,weight_unit,payment_country_code,Shipment_Send_Model.getFromcountrycode(),Shipment_Send_Model.getCityf(),to_city,to_country_code).enqueue(new Callback<Quote_Array_Model>() {
+            @Override
+            public void onResponse(Call<Quote_Array_Model> call, Response<Quote_Array_Model> response) {
+                dialog.dismiss();
+                if(response.isSuccessful()){
+                    //     assert response.body() != null;
+                    //  Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
+                    //  activity.DisplayFragmentComputrizedprice();
+                    if(response.body().getData().getGetQuoteResponse().getBkgDetails()==null){
+//Log.e("res",response.body().getData().getResponse().getStatus().getCondition().getConditionData());
+                    }
+                    else {
+                        adddata2(response.body());
+                }
+
+                }
+                else {
+                    try {
+                        Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
+                        Log.e("Error_code", response.code() + "" + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Quote_Array_Model> call, Throwable t) {
+                try {
+                    dialog.dismiss();
+
+                    //Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
                     Log.e("Error", t.getMessage());
                 } catch (Exception e) {
 
@@ -405,6 +448,7 @@ Shipment_Send_Model.setcode("SA");
             }
         });
     }
+
     public void adddeminssion(Dementions_Model dementions_model) {
        // Log.e("de",dementions_model.getGrossweight()+"");
         for(int i=0;i<quantity;i++){
@@ -425,7 +469,14 @@ Shipment_Send_Model.setcode("SA");
         activity.DisplayFragmentdelivrychooser();
 
     }
+    private void adddata2(Quote_Array_Model body) {
+        Shipment_Send_Model.setPrice(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getWeightCharge());
+        Shipment_Send_Model.setDay_number(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getTotalTransitDays());
 
+        Computrized_Model.setTime(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getDeliveryTime());
+        activity.DisplayFragmentdelivrychooser();
+
+    }
     public void setaddressto(String address) {
         edt_address.setText(address);
     }

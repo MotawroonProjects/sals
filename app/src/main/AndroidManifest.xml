@@ -38,19 +38,20 @@
     <activity
         android:name=".Activities_Fragments.Home.Activity.Home_Activity"
         android:configChanges="orientation|screenSize|keyboardHidden"
-        android:windowSoftInputMode="adjustPan">
+        android:windowSoftInputMode="stateHidden|adjustResize">
 
     </activity>
     <activity
         android:name=".Activities_Fragments.Secdule.Activity.Scedule_Activity"
         android:configChanges="orientation|screenSize|keyboardHidden"
-        android:windowSoftInputMode="adjustPan">
+        android:windowSoftInputMode="stateHidden|adjustResize"
+        >
 
     </activity>
     <activity
         android:name=".Activities_Fragments.Registration.Activity.Register_Activity"
         android:configChanges="orientation|screenSize|keyboardHidden"
-        android:windowSoftInputMode="adjustPan"
+        android:windowSoftInputMode="stateHidden|adjustResize"
         android:screenOrientation="portrait"
         >
 
@@ -59,7 +60,7 @@
       <activity
           android:name=".Activities_Fragments.splash_activity.SplashActivity"
           android:configChanges="orientation|screenSize|keyboardHidden"
-          android:windowSoftInputMode="adjustPan">
+          android:windowSoftInputMode="stateHidden|adjustResize"          >
           <intent-filter>
               <action android:name="android.intent.action.MAIN" />
 

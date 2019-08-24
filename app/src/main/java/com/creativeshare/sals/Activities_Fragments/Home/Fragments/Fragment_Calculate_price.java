@@ -30,6 +30,7 @@ import com.creativeshare.sals.Share.Common;
 import com.creativeshare.sals.models.CityModel;
 import com.creativeshare.sals.models.Computrized_Model;
 import com.creativeshare.sals.models.Country_Model;
+import com.creativeshare.sals.models.Quote_Array_Model;
 import com.creativeshare.sals.models.Quote_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
@@ -368,16 +369,16 @@ Computrized_Model.setWeight(weight);
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService().get_quote("Bearer"+" "+ userModel.getToken(),date,wegights,is_dutiable,time,ready_time_gmt_offset,dimension_unit,weight_unit,payment_country_code,from_country_code,from_city,to_city,to_country_code).enqueue(new Callback<Quote_Model>() {
+        Api.getService().get_quote2("Bearer"+" "+ userModel.getToken(),date,wegights,is_dutiable,time,ready_time_gmt_offset,dimension_unit,weight_unit,payment_country_code,from_country_code,from_city,to_city,to_country_code).enqueue(new Callback<Quote_Array_Model>() {
             @Override
-            public void onResponse(Call<Quote_Model> call, Response<Quote_Model> response) {
+            public void onResponse(Call<Quote_Array_Model> call, Response<Quote_Array_Model> response) {
                 dialog.dismiss();
                 if(response.isSuccessful()){
                     //     assert response.body() != null;
                     //  Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
                     //  activity.DisplayFragmentComputrizedprice();
 
-                    adddata(response.body());
+                    adddata2(response.body());
 
                 }
                 else {
@@ -391,7 +392,7 @@ Computrized_Model.setWeight(weight);
             }
 
             @Override
-            public void onFailure(Call<Quote_Model> call, Throwable t) {
+            public void onFailure(Call<Quote_Array_Model> call, Throwable t) {
                 try {
                     dialog.dismiss();
 
@@ -402,6 +403,14 @@ Computrized_Model.setWeight(weight);
                 }
             }
         });
+    }
+
+    private void adddata2(Quote_Array_Model body) {
+        Computrized_Model.setPrice(body.getData().getGetQuoteResponse().getBkgDetails().get(0).getQtdShp().getWeightCharge());
+        Computrized_Model.setDay_number(body.getData().getGetQuoteResponse().getBkgDetails().get(0).getQtdShp().getTotalTransitDays());
+
+        Computrized_Model.setTime(body.getData().getGetQuoteResponse().getBkgDetails().get(0).getQtdShp().getDeliveryTime());
+        activity.DisplayFragmentComputrizedprice();
     }
 
     private void adddata(Quote_Model body) {

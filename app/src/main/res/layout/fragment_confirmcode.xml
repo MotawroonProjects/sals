@@ -119,7 +119,7 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/uncheck" />
+                        android:src="@drawable/ic_empty" />
 
                     <TextView
                         android:layout_width="match_parent"

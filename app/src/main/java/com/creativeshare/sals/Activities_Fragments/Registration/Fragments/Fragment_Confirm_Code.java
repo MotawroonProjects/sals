@@ -117,7 +117,7 @@ public class Fragment_Confirm_Code extends Fragment {
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                 dialog.dismiss();
                 if (response.isSuccessful()) {
-                    im1.setImageResource(R.drawable.uncheck);
+                    im1.setImageResource(R.drawable.ic_empty);
                     couter();
 
                 } else {
@@ -197,7 +197,7 @@ public class Fragment_Confirm_Code extends Fragment {
             public void onFinish() {
                 reseend = true;
                 tv_resend.setText(getResources().getString(R.string.resend));
-                im1.setImageResource(R.drawable.confirm_image);
+                im1.setImageResource(R.drawable.ic_checked);
             }
         }.start();
     }

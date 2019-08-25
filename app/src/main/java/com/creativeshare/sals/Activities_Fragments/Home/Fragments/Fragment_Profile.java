@@ -177,11 +177,11 @@ public class Fragment_Profile extends Fragment {
             }
             if(userModel.getUser().getFirst_name()!=null){
                 tv_fname.setText(userModel.getUser().getFirst_name());
-                im1.setImageResource(R.drawable.confirm_image);
+                im1.setImageResource(R.drawable.ic_checked);
             }
 
             else {
-                im1.setImageResource(R.drawable.uncheck);
+                im1.setImageResource(R.drawable.ic_empty);
 
             }
             if(userModel.getUser().getLast_name()!=null){
@@ -190,28 +190,28 @@ public class Fragment_Profile extends Fragment {
 
             if(userModel.getUser().getMobile_number()!=null){
                 tv_phone.setText(userModel.getUser().getMobile_number());
-                im3.setImageResource(R.drawable.confirm_image);
+                im3.setImageResource(R.drawable.ic_checked);
 
             }
             else {
-                im3.setImageResource(R.drawable.uncheck);
+                im3.setImageResource(R.drawable.ic_empty);
 
             }
             if(userModel.getUser().getEmail()!=null){
                 tv_email.setText(userModel.getUser().getEmail());
-                im4.setImageResource(R.drawable.confirm_image);
+                im4.setImageResource(R.drawable.ic_checked);
 
             }
             else {
-                im4.setImageResource(R.drawable.uncheck);
+                im4.setImageResource(R.drawable.ic_empty);
 
             }
             if(userModel.getAddresses()!=null){
-                im2.setImageResource(R.drawable.confirm_image);
+                im2.setImageResource(R.drawable.ic_checked);
 
             }
             else {
-                im2.setImageResource(R.drawable.uncheck);
+                im2.setImageResource(R.drawable.ic_empty);
 
             }
         }

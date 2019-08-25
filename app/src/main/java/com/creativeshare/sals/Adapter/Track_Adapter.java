@@ -1,73 +1,94 @@
 package com.creativeshare.sals.Adapter;
 
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Shipments_Recived;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Shipments_Sent;
 import com.creativeshare.sals.R;
-import com.creativeshare.sals.models.Questions_Model;
+import com.creativeshare.sals.models.Orders_Model;
+import com.creativeshare.sals.models.Track_Model;
 
 import java.util.List;
-import java.util.Locale;
 
-import io.paperdb.Paper;
+public class Track_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-public class Track_Adapter extends RecyclerView.Adapter<Track_Adapter.Eyas_Holder> {
-    List<Questions_Model.Faqs> list;
-    Context context;
-    private String current_lang;
-    private Home_Activity homeActivity;
-    // private int select;
-    //private Fragment_Main fragment_main;
 
-    public Track_Adapter(List<Questions_Model.Faqs> list, Context context) {
-        this.list = list;
+    private List<Track_Model.AWBInfo> data;
+    private Context context;
+    private Home_Activity activity;
+
+    public Track_Adapter(List<Track_Model.AWBInfo> data, Context context) {
+
+        this.data = data;
         this.context = context;
-        homeActivity = (Home_Activity) context;
-        Paper.init(homeActivity);
-        current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
+        activity=(Home_Activity)context;
+
+    }
+
+    @NonNull
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+
+            View view = LayoutInflater.from(context).inflate(R.layout.shipments_row, parent, false);
+            return new MyHolder(view);
+
 
     }
 
     @Override
-    public Eyas_Holder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.question_row, viewGroup, false);
-        Eyas_Holder eas = new Eyas_Holder(v);
-        return eas;
+    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position) {
+
+
+
+            final MyHolder myHolder = (MyHolder) holder;
+            final Track_Model.AWBInfo data1 = data.get(position);
+
+            ((MyHolder) holder).tv_num.setText(data1.getAWBNumber());
+            ((MyHolder) holder).tv_from.setText(data1.getShipmentInfo().getOriginServiceArea().getDescription());
+            ((MyHolder) holder).tv_to.setText(data1.getShipmentInfo().getDestinationServiceArea().getDescription());
+
+
+
+
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull final Eyas_Holder viewHolder, final int i) {
-        String content = "";
-        Questions_Model.Faqs model = list.get(i);
-      viewHolder.tv_Question.setText(model.getQuestion());
-
-
-
-
-    }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return data.size();
     }
 
-    class Eyas_Holder extends RecyclerView.ViewHolder {
-        TextView tv_Question;
+    public class MyHolder extends RecyclerView.ViewHolder {
+        private TextView tv_title, tv_num, tv_from, tv_to;
 
-        public Eyas_Holder(@NonNull View itemView) {
+        public MyHolder(View itemView) {
             super(itemView);
-            tv_Question = itemView.findViewById(R.id.tv_question);
+
+            tv_title = itemView.findViewById(R.id.tv_title);
+
+            tv_num = itemView.findViewById(R.id.tv_num);
+            tv_from = itemView.findViewById(R.id.tv_from);
+            tv_to = itemView.findViewById(R.id.tv_to);
 
 
         }
 
-
     }
+
+
+
+
 }

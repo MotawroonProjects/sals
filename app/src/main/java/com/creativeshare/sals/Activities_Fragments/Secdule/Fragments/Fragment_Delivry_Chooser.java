@@ -58,7 +58,7 @@ public class Fragment_Delivry_Chooser extends Fragment {
     }
 
     private void initView(View view) {
-        Shipment_Send_Model.setcredit("SADAD");
+        Shipment_Send_Model.setcredit("creditcard");
         activity = (Scedule_Activity) getActivity();
         Paper.init(activity);
         preferences=Preferences.getInstance();

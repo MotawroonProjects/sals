@@ -36,6 +36,7 @@ import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragme
 import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Add_Address;
 import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Shipping_Dementions;
+import com.creativeshare.sals.Activities_Fragments.customer_service_activity.Customer_service_Activity;
 import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.Share.Common;
@@ -484,6 +485,7 @@ public class Home_Activity extends AppCompatActivity {
 
             fragment_home.mDrawer.closeDrawers();
 
+
         } else {
             if (fragment_count > 1) {
                 fragment_count -= 1;
@@ -516,7 +518,7 @@ public class Home_Activity extends AppCompatActivity {
     }
 
     public void startscdeule(int param) {
-        if(userModel.getUser().getFirst_name()!=null&&userModel.getUser().getLast_name()!=null){
+        if(userModel.getUser().getFirst_name()!=null&&userModel.getUser().getLast_name()!=null||userModel.getUser().getEmail()!=null){
         Intent intent = new Intent(Home_Activity.this, Scedule_Activity.class);
         intent.putExtra("param", param);
         startActivityForResult(intent,1);}
@@ -639,10 +641,19 @@ public class Home_Activity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
+            if (fragment_home != null && fragment_home.isAdded()) {
+                fragment_home.updateBottomNavigationPosition(0);
+            }
             if(resultCode == RESULT_OK) {
               DisplayFragmentshipments();
             }
         }
+    }
+
+    public void startcustomactivity() {
+        Intent intent = new Intent(Home_Activity.this, Customer_service_Activity.class);
+        startActivity(intent);
+
     }
 }
 

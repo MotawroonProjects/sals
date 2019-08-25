@@ -186,6 +186,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lll"
         android:orientation="horizontal"
         android:gravity="center"
+        android:layout_marginTop="15dp"
 
         >
         <ImageView
@@ -193,13 +194,13 @@
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:src="@drawable/ic_circular"
-            android:tint="@color/white"
+            android:tint="@color/gray2"
             android:layout_gravity="center_vertical"
             />
         <View
             android:layout_width="300dp"
             android:layout_height="10px"
-            android:background="@color/white"
+            android:background="@color/gray4"
             android:layout_gravity="center_vertical"
             />
         <ImageView

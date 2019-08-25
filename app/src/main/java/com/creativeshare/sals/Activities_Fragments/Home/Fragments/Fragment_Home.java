@@ -1,7 +1,9 @@
 package com.creativeshare.sals.Activities_Fragments.Home.Fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -88,11 +90,14 @@ public class Fragment_Home extends Fragment {
 
                         activity.DisplayFragmentCalculateprice();
                         break;
-
                     case 2:
 
+                        activity.DisplayFragmentTrackTheShipment();
+                        break;
+                    case 3:
+
                         mDrawer.openDrawer(GravityCompat.START);
-                        updateBottomNavigationPosition(2);
+                        updateBottomNavigationPosition(3);
                         break;
                 }
                 return false;
@@ -139,16 +144,16 @@ public class Fragment_Home extends Fragment {
         AHBottomNavigationItem item4 = new AHBottomNavigationItem(getString(R.string.more), R.drawable.ic_more);
 
         ah_bottom_nav.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
-        ah_bottom_nav.setDefaultBackgroundColor(ContextCompat.getColor(activity, R.color.gray4));
+        ah_bottom_nav.setDefaultBackgroundColor(ContextCompat.getColor(activity, R.color.gray0));
         ah_bottom_nav.setTitleTextSizeInSp(14, 12);
         ah_bottom_nav.setForceTint(true);
-        ah_bottom_nav.setAccentColor(ContextCompat.getColor(activity, R.color.colorPrimaryDark));
-        ah_bottom_nav.setInactiveColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+        ah_bottom_nav.setAccentColor(ContextCompat.getColor(activity, R.color.black));
+        ah_bottom_nav.setInactiveColor(ContextCompat.getColor(activity, R.color.gray4));
 
 
         ah_bottom_nav.addItem(item1);
         ah_bottom_nav.addItem(item2);
-        //ah_bottom_nav.addItem(item3);
+        ah_bottom_nav.addItem(item3);
         ah_bottom_nav.addItem(item4);
 
 
@@ -158,6 +163,5 @@ public class Fragment_Home extends Fragment {
 
         ah_bottom_nav.setCurrentItem(pos, false);
     }
-
 
 }

@@ -60,6 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/gray0"
         >
     </com.aurelhubert.ahbottomnavigation.AHBottomNavigation>
 
@@ -75,5 +76,8 @@
         app:headerLayout="@layout/slide_menu_header"
         android:layout_gravity="start"
         app:itemIconTint="@color/colorPrimary"
+
+        app:itemIconPadding="@dimen/design_navigation_icon_size"
+
         />
 </androidx.drawerlayout.widget.DrawerLayout>

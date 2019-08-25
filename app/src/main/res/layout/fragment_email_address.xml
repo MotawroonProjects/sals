@@ -66,6 +66,7 @@
 
 
                 <EditText
+                    android:id="@+id/edt_email"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_marginTop="8dp"
@@ -77,6 +78,8 @@
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:background="@color/white"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
                    />
                 <View
                     android:layout_width="match_parent"

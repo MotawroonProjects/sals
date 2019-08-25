@@ -58,7 +58,7 @@ initview(view);
         ccp_country_code=view.findViewById(R.id.ccp_country_code);
         bt_apply=view.findViewById(R.id.bt_apply);
         ll_service_centers=view.findViewById(R.id.lll);
-        //ll_track_the_shipment=view.findViewById(R.id.llll);
+        ll_track_the_shipment=view.findViewById(R.id.llll);
 ccp_country_code.registerCarrierNumberEditText(edt_phone);
         ccp_choose_country.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
             @Override
@@ -96,12 +96,12 @@ ccp_country_code.registerCarrierNumberEditText(edt_phone);
                 register_activity.DisplayFragmentServiceCenters();
             }
         });
-        /*ll_track_the_shipment.setOnClickListener(new View.OnClickListener() {
+        ll_track_the_shipment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 register_activity.DisplayFragmentTrackTheShipment();
             }
-        });*/
+        });
     }
 
     private void checkdata() {

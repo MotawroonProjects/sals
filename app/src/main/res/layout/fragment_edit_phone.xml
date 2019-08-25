@@ -58,48 +58,40 @@
     android:orientation="vertical"
     android:padding="20dp"
     >
-    <LinearLayout
+   <TextView
+       android:id="@+id/tv_phone"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textSize="15sp"
+       android:textColor="@color/colorAccent"
+       />
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal"
-        android:weightSum="1"
-        android:background="@drawable/linear_shape_gray"
-        android:padding="4dp"
-        >
-    <com.hbb20.CountryCodePicker
-        android:layout_width="45dp"
-        android:layout_height="match_parent"
-        app:ccpDialog_textColor="@color/black"
-        app:ccp_showFullName="false"
-        app:ccp_showNameCode="false"
-        app:ccp_showFlag="false"
-        android:layout_weight=".1"
-        app:ccpDialog_backgroundColor="@color/white"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        ></com.hbb20.CountryCodePicker>
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".9"
-            android:textSize="14sp"
-            android:textColor="@color/black"
-            android:gravity="center_vertical"
-            android:background="@color/white"
-            android:inputType="phone"
-            />
-
-    </LinearLayout>
-    <Button
-        android:id="@+id/bt_save"
-        android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:text="@string/your_shipments_are_linked_to_the_above_phone_number"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:text="@string/if_you_need_to_change_the_phone_number_connected_to_your_account_smoothly"
+        />
+    <TextView
+        android:id="@+id/tv_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_customer_service"
+        android:textColor="@color/blue"
         android:layout_marginTop="15dp"
-        android:background="@drawable/button_shape"
-        android:text="@string/save"
-        android:textColor="@color/white"
-        android:textSize="15sp" />
+        android:textSize="16sp"
+        android:autoLink="all"
+        android:linksClickable="true"
+
+        />
 </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

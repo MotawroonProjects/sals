@@ -72,11 +72,11 @@ private Orders_Adapter orders_adapter;
         progBar = view.findViewById(R.id.progBar);
         ll_no_order = view.findViewById(R.id.ll_no_order);
         progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
-        progBar.setVisibility(View.GONE);
         rec_sent.setDrawingCacheEnabled(true);
         rec_sent.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         rec_sent.setItemViewCacheSize(25);
         manager=new GridLayoutManager(activity,1);
+        rec_sent.setLayoutManager(manager);
         orders_adapter=new Orders_Adapter(dataList,activity,this);
         rec_sent.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -120,7 +120,7 @@ private Orders_Adapter orders_adapter;
                             dataList.addAll(response.body().getOrders().getData());
                             if (response.body().getOrders().getData().size() > 0) {
                                // rec_sent.setVisibility(View.VISIBLE);
-
+Log.e("lll",response.body().getOrders().getData().get(0).getAwb_number());
                                 ll_no_order.setVisibility(View.GONE);
                                 orders_adapter.notifyDataSetChanged();
                              //   total_page = response.body().getMeta().getLast_page();
@@ -145,7 +145,8 @@ private Orders_Adapter orders_adapter;
                         try {
 
                             progBar.setVisibility(View.GONE);
-                            Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
+                            ll_no_order.setVisibility(View.VISIBLE);
+                           // Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
                             Log.e("error", t.getMessage());
                         } catch (Exception e) {
                         }
@@ -155,7 +156,7 @@ private Orders_Adapter orders_adapter;
     }
     private void loadMore(int page) {
         Api.getService()
-                .getsentorders(1,"Bearer "+" "+userModel.getToken(),current_lang)
+                .getsentorders(page,"Bearer "+" "+userModel.getToken(),current_lang)
                 .enqueue(new Callback<Orders_Model>() {
                     @Override
                     public void onResponse(Call<Orders_Model> call, Response<Orders_Model> response) {
@@ -185,7 +186,7 @@ private Orders_Adapter orders_adapter;
                             dataList.remove(dataList.size() - 1);
                             orders_adapter.notifyItemRemoved(dataList.size() - 1);
                             isLoading = false;
-                            Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
                             Log.e("error", t.getMessage());
                         } catch (Exception e) {
                         }

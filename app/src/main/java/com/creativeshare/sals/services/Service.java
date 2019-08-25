@@ -21,6 +21,7 @@ import com.creativeshare.sals.models.Sercvices_Centers;
 import com.creativeshare.sals.models.Shipment_Response_Model;
 import com.creativeshare.sals.models.Support_Catogry_Model;
 import com.creativeshare.sals.models.Ticket_Model;
+import com.creativeshare.sals.models.Track_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.models.Visit_Model;
 
@@ -104,7 +105,12 @@ public interface Service {
                                @Field("last_name") String last_name,
                                @Header("Authorization") String Authorization
     );
+    @FormUrlEncoded
+    @POST("api/profile/email/update")
+    Call<UserModel> updatermail(@Field("email") String email,
 
+                               @Header("Authorization") String Authorization
+    );
     @GET("api/profile/address/all")
     Call<Address_Model> getalladdress(
             @Header("Authorization") String Authorization
@@ -218,7 +224,7 @@ public interface Service {
 
     @GET("api/orders-sent")
     Call<Orders_Model> getsentorders(
-            @Query("page") int page,
+            @Header("page") int page,
             @Header("Authorization") String Authorization,
             @Header("lang") String lang
 
@@ -330,6 +336,14 @@ public interface Service {
             @Field("is_callable") String is_callable,
             @Field("definition_id") String definition_id,
             @Field("order_id") String order_id
+
+    );
+    @FormUrlEncoded
+    @POST("api/dhl-track-shipment")
+    Call<Track_Model> track(
+
+            @Field("awb_number") String awb_number
+
 
     );
     @GET("place/findplacefromtext/json")

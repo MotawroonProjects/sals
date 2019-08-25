@@ -349,7 +349,7 @@ if(parcel.equals("0")){
             Shipment_Send_Model.setParcel(parcel);
             Shipment_Send_Model.setemailt(email);
             Shipment_Send_Model.setName(name);
-            Shipment_Send_Model.setcountryf("");
+            Shipment_Send_Model.setcountryf("SAUDI ARABIA");
            // Shipment_Send_Model.setcityt(to_city);
             Shipment_Send_Model.setPhone(phone);
             Shipment_Send_Model.setAdddresst(address);

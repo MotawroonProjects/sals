@@ -159,8 +159,8 @@
     <string name="cost_of_delivery">تكلفة التوصيل</string>
     <string name="the_total_cost">التكلفه الكليه</string>
     <string name="complete_profile">اكمل بيانتك الشخصيه</string>
-    <string name="from_dhl">من دى اتش ال</string>
-    <string name="from_sals">من سلس</string>
+    <string name="from_dhl">السعر الاول </string>
+    <string name="from_sals">السعر النهائى</string>
     <string name="credit_number">رقم بطاقه الائتمان</string>
     <string name="cvc">CVC</string>
     <string name="sadad">سداد</string>
@@ -180,5 +180,8 @@
     <string name="catogry_selected">العنصر التى اخترته</string>
     <string name="shipments_selected_from_sent_order">شحنه اخترتها من الطلبات المرسله</string>
     <string name="shipments_selected_from_recived_order">شحنه اخترتها من الطلبات الوارده</string>
-    <string name="error_data">Error Data</string>
+    <string name="error_data">خطا فى البيانات</string>
+    <string name="your_shipments_are_linked_to_the_above_phone_number">ترتبط الشحنات الخاصه بك برقم الهاتف المذكور اعلاه</string>
+    <string name="if_you_need_to_change_the_phone_number_connected_to_your_account_smoothly">اذا كنت بحاجه لتغيير رقم الهاتف المتصل بحسابك فى سلس :</string>
+    <string name="contact_customer_service"><a herf="اتصل بخدمة العملاء">اتصل بخدمة العملاء</a></string>
 </resources>

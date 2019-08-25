@@ -426,6 +426,7 @@
                         android:layout_height="25dp"
                         android:layout_weight=".1"
                         android:src="@drawable/lang_check"
+                      android:visibility="gone"
                         />
                 </LinearLayout>
                 <View
@@ -458,7 +459,6 @@
                         android:layout_height="25dp"
                         android:layout_weight=".1"
                         android:src="@drawable/lang_check"
-                        android:visibility="gone"
                         />
                 </LinearLayout>
 

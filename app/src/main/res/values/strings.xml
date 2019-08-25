@@ -158,8 +158,8 @@
     <string name="cost_of_delivery">Cost of delivery</string>
     <string name="the_total_cost">the total cost</string>
     <string name="complete_profile">Complete Profile</string>
-    <string name="from_dhl">From Dhl</string>
-    <string name="from_sals">From Sals</string>
+    <string name="from_dhl">First Price</string>
+    <string name="from_sals">Final Price</string>
     <string name="credit_number">credit number</string>
     <string name="cvc">CVC</string>
     <string name="sadad">Sadad</string>
@@ -180,5 +180,8 @@
     <string name="shipments_selected_from_sent_order">shipments selected from sent order</string>
     <string name="shipments_selected_from_recived_order">shipments selected from recived order</string>
     <string name="error_data">Error Data</string>
+    <string name="your_shipments_are_linked_to_the_above_phone_number">Your shipments are linked to the above phone number</string>
+    <string name="if_you_need_to_change_the_phone_number_connected_to_your_account_smoothly">If you need to change the phone number connected to your account smoothly:</string>
+    <string name="contact_customer_service"><a herf="Contact Customer Service">Contact Customer Service</a></string>
 
 </resources>

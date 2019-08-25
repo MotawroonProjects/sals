@@ -1,6 +1,7 @@
 package com.creativeshare.sals.Activities_Fragments.Home.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +53,8 @@ showdata();
                 tv_book.setText(getResources().getString(R.string.parcels));
 
             }
-            tv_num.setText(data.getTotal_items());
+            Log.e("yi",data.getTotal_items()+"");
+            tv_num.setText(data.getTotal_items()+"");
             tv_from.setText(getResources().getString(R.string.from)+" "+data.getFrom_city());
             tv_to.setText(getResources().getString(R.string.to)+" "+data.getTo_city());
 tv_trucknum.setText(data.getAwb_number());
@@ -68,7 +70,9 @@ tv_trucknum.setText(data.getAwb_number());
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         back_arrow = view.findViewById(R.id.arrow);
         tv_book=view.findViewById(R.id.tv_book);
-        tv_num=view.findViewById(R.id.tv_num_truck);
+        tv_num=view.findViewById(R.id.tv_num_of_book);
+        tv_trucknum=view.findViewById(R.id.tv_num_truck);
+
         tv_to=view.findViewById(R.id.tv_to);
         tv_from=view.findViewById(R.id.tv_from);
         tv_price=view.findViewById(R.id.tv_price);

@@ -5,10 +5,19 @@
     <color name="colorAccent">#e32219</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
-    <color name="gray">#f9f8f2</color>
-    <color name="gray0">#2e2e2e</color>
-    <color name="gray2">#cdcdcd</color>
-    <color name="gray3">#fafafa</color>
-    <color name="gray4">#dbdbdb</color>
-    <color name="blue">#191970</color>
+    <color name="delete">#ed1f24</color>
+    <color name="gray0">#FAFAFA</color>
+    <color name="gray1">#F5F5F5</color>
+    <color name="gray2">#EEEEEE</color>
+    <color name="gray3">#E0E0E0</color>
+    <color name="gray4">#bababa</color>
+    <color name="gray5">#424242</color>
+    <color name="gray6">#212121</color>
+    <color name="gray7">#757575</color>
+    <color name="gray8">#ebeff7</color>
+    <!-- <color name="green0">#vfbb42</color>-->
+    <color name="green">#58b400</color>
+    <color name="gray">#6e6e6e</color>
+    <color name="black2">#222222</color>
+    <color name="blue">#2474bb</color>
 </resources>

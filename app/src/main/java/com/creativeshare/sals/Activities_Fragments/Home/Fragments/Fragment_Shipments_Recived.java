@@ -77,6 +77,7 @@ public class Fragment_Shipments_Recived extends Fragment {
         rec_sent.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         rec_sent.setItemViewCacheSize(25);
         manager=new GridLayoutManager(activity,1);
+        rec_sent.setLayoutManager(manager);
         orders_adapter=new Orders_Adapter(dataList,activity,this);
         rec_sent.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -145,7 +146,8 @@ public class Fragment_Shipments_Recived extends Fragment {
                         try {
 
                             progBar.setVisibility(View.GONE);
-                            Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
+                            ll_no_order.setVisibility(View.VISIBLE);
+                        //    Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
                             Log.e("error", t.getMessage());
                         } catch (Exception e) {
                         }
@@ -185,7 +187,7 @@ public class Fragment_Shipments_Recived extends Fragment {
                             dataList.remove(dataList.size() - 1);
                             orders_adapter.notifyItemRemoved(dataList.size() - 1);
                             isLoading = false;
-                            Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
+                        //    Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
                             Log.e("error", t.getMessage());
                         } catch (Exception e) {
                         }

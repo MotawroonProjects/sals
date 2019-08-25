@@ -234,7 +234,11 @@ checkdata();
             tv_addressf.setError(null);
             tv_date.setError(null);
             tv_user.setError(null);
-            Shipment_Send_Model.setAddreessf(addressf.split(", ")[0]+addressf.split(", ")[1]);
+            if (addressf.length()>33){
+                addressf=addressf.substring(0,32);
+            }
+
+            Shipment_Send_Model.setAddreessf(addressf);
            // Shipment_Send_Model.setAdddresst(addreesst);
             Shipment_Send_Model.setDate(date);
             Shipment_Send_Model.setDesc(desc);

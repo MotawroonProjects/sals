@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:clickable="true"
     android:focusable="true"
     android:background="@color/gray">
@@ -71,17 +72,25 @@
 
 
                 <EditText
+                    android:id="@+id/edt_awbnum"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@color/gray2"
                     android:hint="@string/delivery_number"
-                    android:singleLine="true"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
                     android:layout_weight=".9"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true"
+                    android:scrollHorizontally="true"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="14sp"
+                    tools:ignore="RtlCompat"
+                    android:paddingRight="8dp"
+                    android:paddingLeft="8dp"
                     />
 
                 <ImageView
+
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_search"
@@ -104,6 +113,33 @@
             </androidx.recyclerview.widget.RecyclerView>
 
 
+            <ProgressBar
+                android:id="@+id/progBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:id="@+id/ll_no_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_orders"
+                    android:tint="@color/black" />
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,14 +31,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:background="@drawable/linear_underline_shape"
             >
 
             <Spinner
                 android:id="@+id/sp_cityfrom"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="@color/white">
 
@@ -59,14 +59,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:background="@drawable/linear_underline_shape"
             >
 
             <Spinner
                 android:id="@+id/sp_cityto"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="@color/white">
 

@@ -241,7 +241,7 @@ private String parcel="0";
                         if (response.isSuccessful()) {
                             if (response.body() != null) {
                                 cityModelList.clear();
-                                cityModelList.add(new CityModel.Cities("إختر", "Choose"));
+                                cityModelList.add(new CityModel.Cities("إختر المدينه", "Choose city"));
                                 cityModelList.addAll(response.body().getCities());
                                 city_adapter.notifyDataSetChanged();
 

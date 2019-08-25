@@ -41,7 +41,7 @@
                 android:gravity="center"
                 android:text="@string/search_address"
                 android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_save"
@@ -52,7 +52,7 @@
                 android:paddingEnd="7dp"
                 android:text="@string/save"
                 android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 tools:ignore="RtlCompat" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -80,7 +80,7 @@
 
             android:fitsSystemWindows="true"
             app:behavior_hideable="false"
-            app:behavior_peekHeight="90dp"
+            app:behavior_peekHeight="100dp"
             >
 
 
@@ -120,13 +120,13 @@
                     <TextView
                         android:id="@+id/tv_address"
                         android:layout_width="0dp"
-                        android:layout_height="25dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="15dp"
                         android:gravity="center_vertical"
                         android:text="@string/addres"
                         android:textColor="@color/black"
-                        android:textSize="25sp"
+                        android:textSize="15sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/im_location"
                         app:layout_constraintTop_toTopOf="parent"
@@ -154,7 +154,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_marginTop="5dp"
-                    android:background="@color/gray4"
+                    android:background="@color/gray3"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -170,7 +170,7 @@
                     android:layout_height="45dp"
                     android:padding="10dp"
                     android:text="@string/name_or_building_number"
-                    android:textColor="@color/gray0"
+                    android:textColor="@color/black"
                     android:textSize="15sp" />
 
                 <EditText
@@ -180,11 +180,10 @@
                     android:hint="@string/example_elawdy_132"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:textColor="@color/gray0"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray4"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:theme="@style/AppTheme.LighterEditText2"
-android:inputType="number"
                     android:singleLine="true"
                     />
 
@@ -207,7 +206,7 @@ android:inputType="number"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="@string/floor"
-                            android:textColor="@color/gray0"
+                            android:textColor="@color/black"
                             android:textSize="15sp" />
 
                         <EditText
@@ -215,12 +214,12 @@ android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
                             android:background="@color/white"
-                            android:hint="example 3"
+                            android:hint="@string/example_3"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:textColor="@color/gray0"
+                            android:textColor="@color/black"
                             android:textColorHint="@color/gray4"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:inputType="number"
                             android:singleLine="true"
                             />
@@ -239,7 +238,7 @@ android:inputType="number"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="@string/flat_num"
-                            android:textColor="@color/gray0"
+                            android:textColor="@color/black"
                             android:textSize="15sp" />
 
                         <EditText
@@ -247,12 +246,12 @@ android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
                             android:background="@color/white"
-                            android:hint="example 3"
+                            android:hint="@string/example_3"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:textColor="@color/gray0"
+                            android:textColor="@color/black"
                             android:textColorHint="@color/gray4"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:inputType="number"
                             android:singleLine="true"
                             />
@@ -263,7 +262,7 @@ android:inputType="number"
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@color/gray4" />
+                    android:background="@color/gray3" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -272,7 +271,7 @@ android:inputType="number"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="@string/additional_description"
-                    android:textColor="@color/gray0"
+                    android:textColor="@color/black"
                     android:textSize="15sp" />
 
                 <EditText
@@ -285,14 +284,13 @@ android:inputType="number"
                     android:paddingRight="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray4"
-                    android:textSize="16sp"
-                    />
+                    android:textSize="14sp" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
                     android:layout_marginTop="10dp"
-                    android:background="@color/gray4" />
+                    android:background="@color/gray3" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -304,6 +302,7 @@ android:inputType="number"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
+
                 <EditText
                     android:id="@+id/edt_type"
                     android:layout_width="match_parent"
@@ -312,9 +311,9 @@ android:inputType="number"
                     android:hint="@string/such_as_work_or_home"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:textColor="@color/gray0"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray4"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:singleLine="true"
                     />
 
@@ -338,8 +337,8 @@ android:inputType="number"
                         android:layout_weight=".96"
                         android:gravity="center_vertical"
                         android:text="@string/save_as_main_titile"
-                        android:textColor="@color/gray0"
-                        android:textSize="15sp" />
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/switch_primary"

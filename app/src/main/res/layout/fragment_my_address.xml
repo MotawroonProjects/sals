@@ -48,7 +48,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/gray4"
+        android:background="@color/gray3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
 
@@ -60,7 +60,9 @@
             android:layout_height="0dp"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="@+id/fr_searchadress"
-            app:layout_constraintTop_toTopOf="parent"></androidx.recyclerview.widget.RecyclerView>
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/gray3"
+            ></androidx.recyclerview.widget.RecyclerView>
         <ProgressBar
             android:id="@+id/progBar"
             android:layout_width="wrap_content"

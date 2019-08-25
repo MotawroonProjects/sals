@@ -56,32 +56,32 @@
                 tools:ignore="RtlCompat" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    app:layout_constraintTop_toBottomOf="@+id/toolbar"
-    app:layout_constraintBottom_toBottomOf="parent"
-    >
-    <fragment
-        android:id="@+id/fragment_map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-
-        />
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/bottom_sheet"
-
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:fillViewport="true"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-
-        android:fitsSystemWindows="true"
-        app:behavior_hideable="false"
-        app:behavior_peekHeight="90dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
         >
+        <fragment
+            android:id="@+id/fragment_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+
+            />
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/bottom_sheet"
+
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+
+            android:fitsSystemWindows="true"
+            app:behavior_hideable="false"
+            app:behavior_peekHeight="100dp"
+            >
 
 
 
@@ -120,7 +120,7 @@
                     <TextView
                         android:id="@+id/tv_address"
                         android:layout_width="0dp"
-                        android:layout_height="25dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="15dp"
                         android:gravity="center_vertical"
@@ -154,7 +154,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_marginTop="5dp"
-                    android:background="@color/gray4"
+                    android:background="@color/gray3"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -170,7 +170,7 @@
                     android:layout_height="45dp"
                     android:padding="10dp"
                     android:text="@string/name_or_building_number"
-                    android:textColor="@color/gray0"
+                    android:textColor="@color/black"
                     android:textSize="15sp" />
 
                 <EditText
@@ -180,11 +180,10 @@
                     android:hint="@string/example_elawdy_132"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:textColor="@color/gray0"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray4"
                     android:textSize="14sp"
                     android:theme="@style/AppTheme.LighterEditText2"
-android:inputType="number"
                     android:singleLine="true"
                     />
 
@@ -207,7 +206,7 @@ android:inputType="number"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="@string/floor"
-                            android:textColor="@color/gray0"
+                            android:textColor="@color/black"
                             android:textSize="15sp" />
 
                         <EditText
@@ -215,10 +214,10 @@ android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
                             android:background="@color/white"
-                            android:hint="example 3"
+                            android:hint="@string/example_3"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:textColor="@color/gray0"
+                            android:textColor="@color/black"
                             android:textColorHint="@color/gray4"
                             android:textSize="14sp"
                             android:inputType="number"
@@ -239,7 +238,7 @@ android:inputType="number"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="@string/flat_num"
-                            android:textColor="@color/gray0"
+                            android:textColor="@color/black"
                             android:textSize="15sp" />
 
                         <EditText
@@ -247,10 +246,10 @@ android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
                             android:background="@color/white"
-                            android:hint="example 3"
+                            android:hint="@string/example_3"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:textColor="@color/gray0"
+                            android:textColor="@color/black"
                             android:textColorHint="@color/gray4"
                             android:textSize="14sp"
                             android:inputType="number"
@@ -263,7 +262,7 @@ android:inputType="number"
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@color/gray4" />
+                    android:background="@color/gray3" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -272,7 +271,7 @@ android:inputType="number"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="@string/additional_description"
-                    android:textColor="@color/gray0"
+                    android:textColor="@color/black"
                     android:textSize="15sp" />
 
                 <EditText
@@ -291,7 +290,7 @@ android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="1px"
                     android:layout_marginTop="10dp"
-                    android:background="@color/gray4" />
+                    android:background="@color/gray3" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -312,7 +311,7 @@ android:inputType="number"
                     android:hint="@string/such_as_work_or_home"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:textColor="@color/gray0"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray4"
                     android:textSize="14sp"
                     android:singleLine="true"
@@ -338,7 +337,7 @@ android:inputType="number"
                         android:layout_weight=".96"
                         android:gravity="center_vertical"
                         android:text="@string/save_as_main_titile"
-                        android:textColor="@color/gray0"
+                        android:textColor="@color/black"
                         android:textSize="14sp" />
 
                     <androidx.appcompat.widget.SwitchCompat
@@ -352,6 +351,6 @@ android:inputType="number"
 
                 </LinearLayout>
             </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

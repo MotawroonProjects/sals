@@ -58,7 +58,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/gray4"
+        android:background="@color/gray3"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -71,7 +71,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:background="@color/gray4"
+                android:background="@color/gray3"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
@@ -177,7 +177,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:background="@color/gray4"
+                android:background="@color/gray3"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
@@ -263,7 +263,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/gray4"
+                android:background="@color/gray3"
                 android:paddingTop="10dp"
 
                 >
@@ -277,7 +277,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight=".1"
                     android:src="@drawable/date"
-                    android:tint="@color/gray3"
+                    android:tint="@color/gray0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="RtlCompat" />

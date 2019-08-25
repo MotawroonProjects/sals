@@ -183,5 +183,9 @@
     <string name="your_shipments_are_linked_to_the_above_phone_number">Your shipments are linked to the above phone number</string>
     <string name="if_you_need_to_change_the_phone_number_connected_to_your_account_smoothly">If you need to change the phone number connected to your account smoothly:</string>
     <string name="contact_customer_service"><a herf="Contact Customer Service">Contact Customer Service</a></string>
+    <string name="example_3">example 3</string>
+    <string name="name_must_have_space">Name Must Have Space</string>
+    <string name="shipping_from">Shipping From</string>
+    <string name="main">Main</string>
 
 </resources>

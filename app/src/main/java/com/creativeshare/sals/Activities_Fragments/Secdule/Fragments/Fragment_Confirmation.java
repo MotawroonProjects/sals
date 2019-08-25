@@ -85,7 +85,7 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
         String name=edt_name.getText().toString();
         String num=edt_num.getText().toString();
         String cvc=edt_cvc.getText().toString();
-        if(!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(num)&&!TextUtils.isEmpty(cvc)){
+        if(!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(num)&&!TextUtils.isEmpty(cvc)&&name.split(" ").length>1){
             pay(name,num,cvc);
         }
         else {
@@ -97,7 +97,11 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
                     if(TextUtils.isEmpty(name)){
                         edt_name.setError(getResources().getString(R.string.field_req));
                     }
+                    if(name.split(" ").length<=1){
+                        edt_name.setError(getResources().getString(R.string.name_must_have_space));
+                    }
                 }
+
             }
             else {
             if(TextUtils.isEmpty(name)){

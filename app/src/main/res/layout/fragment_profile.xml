@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="@color/gray3"
     android:clickable="true"
     android:focusable="true">
 
@@ -112,7 +112,7 @@
                     android:layout_height="match_parent"
                     android:padding="15dp"
                     android:src="@drawable/ic_left_arrow"
-                    android:tint="@color/gray2"
+                    android:tint="@color/gray7"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -121,7 +121,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/gray2" />
+                android:background="@color/gray7" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/co_address"
@@ -174,7 +174,7 @@
                     android:layout_height="match_parent"
                     android:padding="15dp"
                     android:src="@drawable/ic_left_arrow"
-                    android:tint="@color/gray2"
+                    android:tint="@color/gray7"
 
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -184,7 +184,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/gray2" />
+                android:background="@color/gray7" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/co_phone"
@@ -238,7 +238,7 @@
                     android:layout_height="match_parent"
                     android:padding="15dp"
                     android:src="@drawable/ic_left_arrow"
-                    android:tint="@color/gray2"
+                    android:tint="@color/gray7"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -247,7 +247,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/gray2" />
+                android:background="@color/gray7" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/co_email"
@@ -301,7 +301,7 @@
                     android:layout_height="match_parent"
                     android:padding="15dp"
                     android:src="@drawable/ic_left_arrow"
-                    android:tint="@color/gray2"
+                    android:tint="@color/gray7"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -502,7 +502,7 @@
                     android:layout_height="40dp"
                     android:padding="10dp"
                     android:src="@drawable/ic_left_arrow"
-                    android:tint="@color/gray2"
+                    android:tint="@color/gray7"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

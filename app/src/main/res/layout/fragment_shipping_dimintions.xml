@@ -51,7 +51,7 @@
     app:layout_constraintTop_toBottomOf="@+id/toolbar"
     app:layout_constraintBottom_toBottomOf="parent"
     android:fillViewport="true"
-    android:background="@color/gray4"
+    android:background="@color/gray3"
     >
   <LinearLayout
       android:layout_width="match_parent"
@@ -188,6 +188,8 @@ android:orientation="vertical"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:inputType="numberDecimal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             />
         <EditText
             android:id="@+id/edt_width"
@@ -199,6 +201,8 @@ android:orientation="vertical"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
             android:inputType="numberDecimal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
 
             />
         <EditText
@@ -211,6 +215,8 @@ android:orientation="vertical"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
             android:inputType="numberDecimal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
 
             />
     </LinearLayout>
@@ -243,6 +249,8 @@ android:orientation="vertical"
             android:textColor="@color/black"
             android:textColorHint="@color/gray4"
             android:textSize="14sp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:theme="@style/AppTheme.LighterEditText"
 
             />

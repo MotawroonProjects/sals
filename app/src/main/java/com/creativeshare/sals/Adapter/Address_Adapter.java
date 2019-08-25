@@ -76,13 +76,11 @@ public class Address_Adapter extends RecyclerView.Adapter<Address_Adapter.Eyas_H
         viewHolder.tv_content.setText(content);
 
         if (model.getIs_primary() == 1) {
-            Log.e("kkkkk", model.getIs_primary() + "" + content);
-            viewHolder.tv_addrss.setTextColor(homeActivity.getResources().getColor(R.color.colorAccent));
-            viewHolder.tv_content.setTextColor(homeActivity.getResources().getColor(R.color.colorAccent));
+          viewHolder.tv_main.setVisibility(View.VISIBLE);
 
         } else if (model.getIs_primary() == 0) {
-            viewHolder.tv_addrss.setTextColor(homeActivity.getResources().getColor(R.color.black));
-            viewHolder.tv_content.setTextColor(homeActivity.getResources().getColor(R.color.black));
+            viewHolder.tv_main.setVisibility(View.GONE);
+
         }
         if (current_lang.equals("en")) {
             viewHolder.arrow.setRotation(180.0f);
@@ -102,7 +100,7 @@ viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
     }
 
     class Eyas_Holder extends RecyclerView.ViewHolder {
-        TextView tv_addrss, tv_content;
+        TextView tv_addrss, tv_content,tv_main;
         ImageView arrow;
 
         public Eyas_Holder(@NonNull View itemView) {
@@ -110,6 +108,7 @@ viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             tv_addrss = itemView.findViewById(R.id.tv_address);
 
             tv_content = itemView.findViewById(R.id.tv_content);
+            tv_main=itemView.findViewById(R.id.tv_main);
             arrow = itemView.findViewById(R.id.arrow);
         }
 

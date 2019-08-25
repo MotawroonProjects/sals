@@ -27,13 +27,13 @@ public class Track_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private List<Track_Model.AWBInfo> data;
     private Context context;
-    private Home_Activity activity;
+ //   private Home_Activity activity;
 
     public Track_Adapter(List<Track_Model.AWBInfo> data, Context context) {
 
         this.data = data;
         this.context = context;
-        activity=(Home_Activity)context;
+//        activity=(Home_Activity)context;
 
     }
 

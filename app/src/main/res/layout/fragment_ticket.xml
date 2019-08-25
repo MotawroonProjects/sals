@@ -117,6 +117,7 @@
             android:paddingRight="8dp"
             android:paddingLeft="8dp"
             android:gravity="center_vertical"
+            android:visibility="gone"
             />
     </LinearLayout>
     <LinearLayout
@@ -124,6 +125,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
+        android:visibility="gone"
         android:weightSum="1">
 
 

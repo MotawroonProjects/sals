@@ -57,7 +57,7 @@ showdata();
             tv_num.setText(data.getTotal_items()+"");
             tv_from.setText(getResources().getString(R.string.from)+" "+data.getFrom_city());
             tv_to.setText(getResources().getString(R.string.to)+" "+data.getTo_city());
-tv_trucknum.setText(data.getAwb_number());
+tv_trucknum.setText(getResources().getString(R.string.awbnumber)+" "+data.getAwb_number());
 //tv_price.setText(data.get);
         }
     }

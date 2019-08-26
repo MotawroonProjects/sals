@@ -55,8 +55,9 @@ public class Track_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
             final MyHolder myHolder = (MyHolder) holder;
             final Track_Model.AWBInfo data1 = data.get(position);
+        ((MyHolder) holder).tv_title.setText(data1.getShipmentInfo().getShipperName());
 
-            ((MyHolder) holder).tv_num.setText(data1.getAWBNumber());
+            ((MyHolder) holder).tv_num.setText(context.getResources().getString(R.string.awbnumber)+" "+data1.getAWBNumber());
             ((MyHolder) holder).tv_from.setText(data1.getShipmentInfo().getOriginServiceArea().getDescription());
             ((MyHolder) holder).tv_to.setText(data1.getShipmentInfo().getDestinationServiceArea().getDescription());
 

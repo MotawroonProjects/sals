@@ -187,5 +187,7 @@
     <string name="name_must_have_space">Name Must Have Space</string>
     <string name="shipping_from">Shipping From</string>
     <string name="main">Main</string>
+    <string name="first_name">First name</string>
+    <string name="awbnumber">Sipment Number : </string>
 
 </resources>

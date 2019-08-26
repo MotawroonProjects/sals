@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/gray4"
+    android:background="@color/white"
     android:layout_marginBottom="8dp"
     >
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         android:weightSum="1"
@@ -33,12 +33,22 @@
             />
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="@string/delivery_number"
+        app:layout_constraintTop_toBottomOf="@+id/ll"
+        android:gravity="center"
+
+        />
     <LinearLayout
         android:id="@+id/lll"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/ll"
+        app:layout_constraintTop_toBottomOf="@+id/tv_num"
         android:weightSum="1"
         >
         <ImageView
@@ -60,23 +70,16 @@
 
 
     </LinearLayout>
-    <TextView
-        android:id="@+id/tv_num"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:textColor="@color/black"
-        android:text="@string/delivery_number"
-        app:layout_constraintTop_toBottomOf="@+id/lll"
-        android:gravity="center"
 
-        />
 <LinearLayout
     android:id="@+id/llll"
     android:layout_width="match_parent"
-    android:layout_height="45dp"
-    app:layout_constraintTop_toBottomOf="@+id/tv_num"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/lll"
     android:orientation="horizontal"
 android:gravity="center"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
 
     >
     <ImageView
@@ -84,22 +87,23 @@ android:gravity="center"
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:src="@drawable/ic_circular"
-        android:tint="@color/white"
+        android:tint="@color/gray3"
         android:layout_gravity="center_vertical"
         />
     <View
         android:layout_width="300dp"
         android:layout_height="10px"
-        android:background="@color/white"
+        android:background="@color/gray4"
         android:layout_gravity="center_vertical"
         />
+
     <ImageView
         android:id="@+id/im2"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:src="@drawable/ic_circular"
-        android:tint="@color/gray2"
+        android:layout_width="13dp"
+        android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_circular"
+        android:tint="@color/gray3"
 
         />
 
@@ -107,12 +111,12 @@ android:gravity="center"
 </LinearLayout>
     <TextView
         android:id="@+id/tv_to"
-        android:layout_width="45dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/to"
         app:layout_constraintTop_toBottomOf="@+id/llll"
-        android:layout_marginRight="45dp"
-        android:layout_marginLeft="45dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="14sp"
         android:textColor="@color/black"
@@ -120,7 +124,7 @@ android:gravity="center"
         />
     <TextView
         android:id="@+id/tv_from"
-        android:layout_width="45dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/from"
         app:layout_constraintTop_toBottomOf="@+id/llll"

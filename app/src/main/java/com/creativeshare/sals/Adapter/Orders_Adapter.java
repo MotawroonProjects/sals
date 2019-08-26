@@ -69,7 +69,7 @@ public class Orders_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 ((MyHolder) holder).tv_title.setText(R.string.parcels);
 
             }
-            ((MyHolder) holder).tv_num.setText(data1.getAwb_number());
+            ((MyHolder) holder).tv_num.setText(context.getResources().getString(R.string.awbnumber)+" "+data1.getAwb_number());
             ((MyHolder) holder).tv_from.setText(data1.getFrom_city());
             ((MyHolder) holder).tv_to.setText(data1.getTo_city());
             ((MyHolder)holder).itemView.setOnClickListener(new View.OnClickListener() {

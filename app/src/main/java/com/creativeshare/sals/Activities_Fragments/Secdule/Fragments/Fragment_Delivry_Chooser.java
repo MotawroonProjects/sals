@@ -132,10 +132,10 @@ ll_credit.setOnClickListener(new View.OnClickListener() {
        // tv_cityf.setText(Computrized_Model.getCity_From());
         tv_address.setText(Shipment_Send_Model.getAdddresst());
         tv_cityt.setText(Shipment_Send_Model.getCityt());
-        tv_num.setText(Shipment_Send_Model.getWegights().size() + getResources().getString(R.string.pieces) +Shipment_Send_Model.getWegights().get(0) + getResources().getString(R.string.kg));
-        tv_day.setText(getResources().getString(R.string.Delivery)+Shipment_Send_Model.getDay_number()+getResources().getString(R.string.days));
-        tv_total_pricedhl.setText(getResources().getString(R.string.from_dhl)+Shipment_Send_Model.getPrice() + getResources().getString(R.string.ryal));
-        tv_total_pricesals.setText(getResources().getString(R.string.from_sals)+(Double.parseDouble(Shipment_Send_Model.getPrice())-(Double.parseDouble(Shipment_Send_Model.getPrice())*price)/100) + getResources().getString(R.string.ryal));
+        tv_num.setText(Shipment_Send_Model.getWegights().size()+" " + getResources().getString(R.string.pieces) +Shipment_Send_Model.getWegights().get(0) + getResources().getString(R.string.kg));
+        tv_day.setText(getResources().getString(R.string.Delivery)+" "+Shipment_Send_Model.getDay_number()+getResources().getString(R.string.days));
+        tv_total_pricedhl.setText(getResources().getString(R.string.from_dhl)+" "+Shipment_Send_Model.getPrice() + getResources().getString(R.string.ryal));
+        tv_total_pricesals.setText(getResources().getString(R.string.from_sals)+" "+(Double.parseDouble(Shipment_Send_Model.getPrice())-(Double.parseDouble(Shipment_Send_Model.getPrice())*price)/100) + getResources().getString(R.string.ryal));
 Shipment_Send_Model.setPrice((Double.parseDouble(Shipment_Send_Model.getPrice())-(Double.parseDouble(Shipment_Send_Model.getPrice())*price)/100)+"");
 
         // tv_day.setText(Computrized_Model.getTime());

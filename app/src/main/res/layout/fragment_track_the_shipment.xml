@@ -48,7 +48,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/white"
+            android:background="@color/gray3"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:layout_constraintBottom_toBottomOf="parent"
             >
@@ -85,6 +85,7 @@
                     android:layout_marginEnd="8dp"
                     android:textSize="14sp"
                     tools:ignore="RtlCompat"
+                    android:inputType="number"
                     android:paddingRight="8dp"
                     android:paddingLeft="8dp"
                     />

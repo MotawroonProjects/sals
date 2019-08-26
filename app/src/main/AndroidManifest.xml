@@ -16,6 +16,7 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
+        android:largeHeap="true"
         android:name=".Share.Local"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -55,7 +56,6 @@
         <activity
             android:name=".Activities_Fragments.Registration.Activity.Register_Activity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize"></activity>
         <activity
             android:name=".Activities_Fragments.splash_activity.SplashActivity"

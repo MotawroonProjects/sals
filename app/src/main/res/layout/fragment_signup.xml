@@ -38,9 +38,9 @@
                 android:id="@+id/ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="5dp"
                 android:alpha=".9"
                 android:background="@drawable/sals_login_shape"
                 android:orientation="vertical"
@@ -99,7 +99,7 @@
 
                     <com.hbb20.CountryCodePicker
                         android:id="@+id/ccp_country_code"
-                        android:layout_width="50dp"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:layout_weight=".1"
                         android:padding="6dp"
@@ -117,15 +117,15 @@
 
                     <Button
                         android:id="@+id/bt_apply"
-                        android:layout_width="40dp"
+                        android:layout_width="30dp"
                         android:layout_height="45dp"
                         android:layout_weight=".3"
                         android:background="@drawable/button_shape"
                         android:text="@string/ok"
                         android:textColor="@color/white"
                         android:textSize="15sp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
 
                         />
 
@@ -154,8 +154,8 @@
                  app:layout_constraintBottom_toBottomOf="parent"
                  app:layout_constraintTop_toBottomOf="@+id/ll"
                  app:layout_constraintVertical_bias="1"
-android:layout_marginLeft="15dp"
-             android:layout_marginRight="15dp"
+android:layout_marginLeft="5dp"
+             android:layout_marginRight="5dp"
                  >
 
                  <LinearLayout

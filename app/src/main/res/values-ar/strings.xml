@@ -86,7 +86,7 @@
     <string name="expected_delivery_on">التسليم المتوقع في</string>
     <string name="additional_services">خدمات إضافية</string>
     <string name="choose_extra_if_you_need">اختيار إضافي إذا كنت في حاجة</string>
-    <string name="schedule_pickup">الجدول الزمني لاقط</string>
+    <string name="schedule_pickup">الجدوله </string>
     <string name="choose_extra_services">اختيار خدمات اضافية</string>
     <string name="cash_on_delivry_service">نقدا عند التسليم الخدمة</string>
     <string name="ettra_charges_may_apply_by_selecting_certian_addotional_serrvices">قد يتم تطبيق رسوم إضافية عن طريق اختيار خدمات إضافية معينة</string>
@@ -185,7 +185,9 @@
     <string name="if_you_need_to_change_the_phone_number_connected_to_your_account_smoothly">اذا كنت بحاجه لتغيير رقم الهاتف المتصل بحسابك فى سلس :</string>
     <string name="contact_customer_service"><a herf="اتصل بخدمة العملاء">اتصل بخدمة العملاء</a></string>
     <string name="example_3">مثال 3</string>
-    <string name="name_must_have_space">Name Must Have Space</string>
-    <string name="shipping_from">Shipping From</string>
-    <string name="main">Main</string>
+    <string name="name_must_have_space">الاسم يجب ان يحتوى على مسافه</string>
+    <string name="shipping_from">يشحن من</string>
+    <string name="main">رئيسى </string>
+    <string name="first_name">الاسم الاول</string>
+    <string name="awbnumber">رقم الشحنه :</string>
 </resources>

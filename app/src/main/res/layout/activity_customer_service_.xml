@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities_Fragments.customer_service_activity.Customer_service_Activity">
+    tools:context=".activities_fragments.customer_service_activity.Customer_service_Activity">
     <WebView
         android:id="@+id/activity_main_webview"
         android:layout_width="match_parent"

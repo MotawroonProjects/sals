@@ -1,23 +1,15 @@
 package com.creativeshare.sals.Adapter;
 
 import android.content.Context;
-import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
-import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Shipments_Recived;
-import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Shipments_Sent;
 import com.creativeshare.sals.R;
-import com.creativeshare.sals.models.Orders_Model;
 import com.creativeshare.sals.models.Track_Model;
 
 import java.util.List;

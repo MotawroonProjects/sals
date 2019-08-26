@@ -14,8 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
-import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Shipments_Recived;
-import com.creativeshare.sals.Activities_Fragments.Home.Fragments.Fragment_Shipments_Sent;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.fragment_shipment.fragment_shipment_orders.Fragment_Shipments_Recived;
+import com.creativeshare.sals.Activities_Fragments.Home.Fragments.fragment_shipment.fragment_shipment_orders.Fragment_Shipments_Sent;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.models.Orders_Model;
 

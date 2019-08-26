@@ -7,18 +7,17 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Additional_services;
-import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Confirmation;
-import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Delivry_Chooser;
-import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Add_Address;
-import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Map;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.fragment_shipping_detials.Fragment_Additional_services;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.fragment_paymen_type_confirmation.Fragment_Confirmation;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.fragment_paymen_type_confirmation.Fragment_Delivry_Chooser;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.fragment_shipping_detials.Fragment_Add_Address;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.fragment_recepit.Fragment_Map;
 import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Secdule;
-import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Shipping_Dementions;
-import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_Shipping_Detials;
-import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.Fragment_The_Recepit;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.fragment_shipping_detials.Fragment_Shipping_Dementions;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.fragment_shipping_detials.Fragment_Shipping_Detials;
+import com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.fragment_recepit.Fragment_The_Recepit;
 import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
-import com.creativeshare.sals.models.Address_Model;
 import com.creativeshare.sals.models.Dementions_Model;
 import com.creativeshare.sals.preferences.Preferences;
 

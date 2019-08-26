@@ -8,10 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
-import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Confirm_Code;
-import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Service_Centers;
-import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Signup;
-import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.Fragment_Track_The_Shipment;
+import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.fragment_signup_confirm.Fragment_Confirm_Code;
+import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.fragment_services.Fragment_Service_Centers;
+import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.fragment_signup_confirm.Fragment_Signup;
+import com.creativeshare.sals.Activities_Fragments.Registration.Fragments.fragment_track.Fragment_Track_The_Shipment;
 import com.creativeshare.sals.Language.Language;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.preferences.Preferences;

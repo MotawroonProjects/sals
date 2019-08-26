@@ -26,7 +26,9 @@
             android:paddingTop="13dp"
             android:paddingBottom="13dp"
             android:src="@drawable/ic_left_arrows"
-            android:tint="@color/white" />
+            android:tint="@color/white"
+            android:visibility="invisible"
+            />
         <ImageView
             android:layout_width="100dp"
             android:layout_height="50dp"

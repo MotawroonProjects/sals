@@ -124,6 +124,8 @@
                         android:text="@string/ok"
                         android:textColor="@color/white"
                         android:textSize="15sp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginLeft="8dp"
 
                         />
 
@@ -152,7 +154,8 @@
                  app:layout_constraintBottom_toBottomOf="parent"
                  app:layout_constraintTop_toBottomOf="@+id/ll"
                  app:layout_constraintVertical_bias="1"
-
+android:layout_marginLeft="15dp"
+             android:layout_marginRight="15dp"
                  >
 
                  <LinearLayout
@@ -161,7 +164,7 @@
                      android:layout_height="match_parent"
                      android:layout_weight=".4995"
                      android:alpha=".9"
-                     android:background="@color/black"
+                     android:background="@drawable/sals_login_shape_cor_left"
                      android:orientation="vertical"
                      android:layout_gravity="center"
                      >
@@ -201,7 +204,7 @@
                      android:layout_height="match_parent"
                      android:layout_weight=".4995"
                      android:alpha=".9"
-                     android:background="@color/black"
+                     android:background="@drawable/sals_login_shape_cor_right"
                      android:orientation="vertical"
                      >
 

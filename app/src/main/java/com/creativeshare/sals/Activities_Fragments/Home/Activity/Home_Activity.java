@@ -229,9 +229,9 @@ public class Home_Activity extends AppCompatActivity {
 
         fragment_count += 1;
 
-        if (fragment_profile == null) {
+
             fragment_profile = Fragment_Profile.newInstance();
-        }
+
 
         if (fragment_profile.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_profile).commit();
@@ -245,9 +245,9 @@ public class Home_Activity extends AppCompatActivity {
 
         fragment_count += 1;
 
-        if (fragment_help_advice == null) {
+
             fragment_help_advice = Fragment_Help_Advice.newInstance();
-        }
+
 
         if (fragment_help_advice.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_help_advice).commit();
@@ -302,9 +302,9 @@ public class Home_Activity extends AppCompatActivity {
 
         fragment_count += 1;
 
-        if (fragment_question == null) {
+
             fragment_question = Fragment_Question.newInstance(faqs);
-        }
+
 
         if (fragment_question.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_question).commit();
@@ -317,9 +317,9 @@ public class Home_Activity extends AppCompatActivity {
 
         fragment_count += 1;
 
-        if (fragment_payments == null) {
+
             fragment_payments = Fragment_Payments.newInstance();
-        }
+
 
         if (fragment_payments.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_payments).commit();
@@ -379,9 +379,8 @@ public class Home_Activity extends AppCompatActivity {
 
         fragment_count += 1;
 
-        if (fragment_email_address == null) {
             fragment_email_address = Fragment_Email_Address.newInstance();
-        }
+
 
         if (fragment_email_address.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_email_address).commit();
@@ -394,9 +393,8 @@ public class Home_Activity extends AppCompatActivity {
     public void DisplayFragmentEditname() {
         fragment_count += 1;
 
-        if (fragment_ٍEdit_name == null) {
             fragment_ٍEdit_name = Fragment_ٍEdit_Name.newInstance();
-        }
+
 
         if (fragment_ٍEdit_name.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_ٍEdit_name).commit();
@@ -408,9 +406,8 @@ public class Home_Activity extends AppCompatActivity {
     public void DisplayFragmentMyaddress() {
         fragment_count += 1;
 
-        if (fragment_ٍMy_address == null) {
             fragment_ٍMy_address = Fragment_ٍMy_Address.newInstance();
-        }
+
 
         if (fragment_ٍMy_address.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_ٍMy_address).commit();
@@ -422,9 +419,8 @@ public class Home_Activity extends AppCompatActivity {
     public void DisplayFragmentAddcreditCard() {
         fragment_count += 1;
 
-        if (fragment_add_credit_cart == null) {
             fragment_add_credit_cart = Fragment_Add_Credit_Cart.newInstance();
-        }
+
 
         if (fragment_add_credit_cart.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_add_credit_cart).commit();
@@ -436,9 +432,8 @@ public class Home_Activity extends AppCompatActivity {
     public void DisplayFragmentEditphone() {
         fragment_count += 1;
 
-        if (fragment_ٍEdit_phone == null) {
             fragment_ٍEdit_phone = Fragment_ٍEdit_Phone.newInstance();
-        }
+
 
         if (fragment_ٍEdit_phone.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_ٍEdit_phone).commit();
@@ -549,7 +544,11 @@ public class Home_Activity extends AppCompatActivity {
                         dialog.dismiss();
                         if (response.isSuccessful()) {
 
-                            preferences.saveVisitTime(Home_Activity.this, timeNow);
+                            try {
+                                preferences.saveVisitTime(Home_Activity.this, timeNow);
+                            } catch (Exception e) {
+                               // e.printStackTrace();
+                            }
                             // Log.e("msg",response.body().toString());
 
                         } else {
@@ -602,7 +601,11 @@ public class Home_Activity extends AppCompatActivity {
                                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
                                             if (response.isSuccessful()) {
-                                                Log.e("Success", "token updated");
+                                                try {
+                                                    Log.e("Success", "token updated");
+                                                } catch (Exception e) {
+                                                  //  e.printStackTrace();
+                                                }
                                             }
 
 

@@ -382,15 +382,15 @@ android:singleLine="true"
                 android:weightSum="3"
                 >
 
-                <Button
+                <ImageButton
                     android:id="@+id/decrement"
                     android:layout_width="0dp"
                     android:layout_height="35dp"
-                    android:text="-"
                     android:layout_weight="1"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
+                   android:src="@drawable/ic_minus"
                     android:background="@drawable/linear_shape"
+                   android:tint="@color/colorAccent"
+
                     />
 
                 <TextView
@@ -403,13 +403,12 @@ android:singleLine="true"
                     android:layout_weight="1"
                     />
 
-                <Button
+                <ImageButton
                     android:id="@+id/increment"
                     android:layout_width="0dp"
                     android:layout_height="35dp"
-                    android:text="+"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
+                    android:src="@drawable/ic_add"
+                 android:tint="@color/colorAccent"
                     android:layout_weight="1"
                     android:background="@drawable/linear_shape"
                     />

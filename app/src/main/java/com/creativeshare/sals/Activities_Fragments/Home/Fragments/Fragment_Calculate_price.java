@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -61,7 +62,8 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
     private FrameLayout fr_document, fr_parcel;
     private ImageView im_document, im_parcel;
     private TextView tv_document, tv_parcel, tv_date, tv_time, tv_Quantity;
-    private Button bt_claculate, bt_Shipping_dimensions, bt_incremental, bt_decremantal;
+    private Button bt_claculate, bt_Shipping_dimensions;
+    private ImageButton bt_incremental, bt_decremantal;
     private EditText edt_desc, edt_weight;
     private LinearLayout ll_time, ll_date;
     private DatePickerDialog datePickerDialog;

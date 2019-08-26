@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -51,7 +52,8 @@ public class Fragment_Shipping_Detials extends Fragment {
     private Preferences preferences;
     private UserModel userModel;
     private String current_lang;
-    private Button next, bt_Shipping_dimensions, bt_incremental, bt_decremantal;
+    private Button next, bt_Shipping_dimensions;
+   private ImageButton bt_incremental, bt_decremantal;
     private FrameLayout fr_document, fr_parcel;
     private ImageView im_document, im_parcel,im_map;
     private TextView tv_document, tv_parcel,tv_Quantity;

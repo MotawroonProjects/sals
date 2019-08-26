@@ -89,6 +89,7 @@
                         android:textColor="@color/white"
                         android:textColorHint="@color/gray2"
                         android:textSize="14sp"
+                        android:inputType="number"
                         android:theme="@style/AppTheme.LighterEditText2" />
 
 

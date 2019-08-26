@@ -1,4 +1,4 @@
-package com.creativeshare.sals.Activities_Fragments.Home.Fragments.fragment_profile;
+package com.creativeshare.sals.activities_fragments.home.fragments.fragment_profile;
 
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -18,8 +18,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
-import com.creativeshare.sals.Adapter.Address_Adapter;
+import com.creativeshare.sals.activities_fragments.home.activity.Home_Activity;
+import com.creativeshare.sals.adapter.Address_Adapter;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.models.Address_Model;
 import com.creativeshare.sals.models.UserModel;

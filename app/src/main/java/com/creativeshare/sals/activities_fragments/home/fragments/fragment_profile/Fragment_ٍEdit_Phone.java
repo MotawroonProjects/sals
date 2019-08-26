@@ -1,4 +1,4 @@
-package com.creativeshare.sals.Activities_Fragments.Home.Fragments.fragment_profile;
+package com.creativeshare.sals.activities_fragments.home.fragments.fragment_profile;
 
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
+import com.creativeshare.sals.activities_fragments.home.activity.Home_Activity;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;

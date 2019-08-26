@@ -1,4 +1,4 @@
-package com.creativeshare.sals.Activities_Fragments.Home.Fragments.fragment_calculate_price.fragment_calculate;
+package com.creativeshare.sals.activities_fragments.home.fragments.fragment_calculate_price.fragment_calculate;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -23,11 +23,11 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
-import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
-import com.creativeshare.sals.Adapter.Spinner_City_Adapter;
-import com.creativeshare.sals.Adapter.Spinner_Country_Adapter;
+import com.creativeshare.sals.activities_fragments.home.activity.Home_Activity;
+import com.creativeshare.sals.adapter.Spinner_City_Adapter;
+import com.creativeshare.sals.adapter.Spinner_Country_Adapter;
 import com.creativeshare.sals.R;
-import com.creativeshare.sals.Share.Common;
+import com.creativeshare.sals.share.Common;
 import com.creativeshare.sals.models.CityModel;
 import com.creativeshare.sals.models.Computrized_Model;
 import com.creativeshare.sals.models.Country_Model;

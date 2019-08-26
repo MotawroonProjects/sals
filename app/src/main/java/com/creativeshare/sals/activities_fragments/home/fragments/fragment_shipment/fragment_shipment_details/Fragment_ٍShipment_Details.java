@@ -1,4 +1,4 @@
-package com.creativeshare.sals.Activities_Fragments.Home.Fragments.fragment_shipment.fragment_shipment_details;
+package com.creativeshare.sals.activities_fragments.home.fragments.fragment_shipment.fragment_shipment_details;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
+import com.creativeshare.sals.activities_fragments.home.activity.Home_Activity;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.models.Orders_Model;
 

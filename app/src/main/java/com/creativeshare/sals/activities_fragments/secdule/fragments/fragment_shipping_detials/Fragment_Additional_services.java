@@ -1,4 +1,4 @@
-package com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.fragment_shipping_detials;
+package com.creativeshare.sals.activities_fragments.secdule.fragments.fragment_shipping_detials;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -15,10 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
-import com.creativeshare.sals.Adapter.Other_Services_Adapter;
+import com.creativeshare.sals.activities_fragments.secdule.activity.Scedule_Activity;
+import com.creativeshare.sals.adapter.Other_Services_Adapter;
 import com.creativeshare.sals.R;
-import com.creativeshare.sals.Share.Common;
+import com.creativeshare.sals.share.Common;
 import com.creativeshare.sals.models.Other_Services_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;

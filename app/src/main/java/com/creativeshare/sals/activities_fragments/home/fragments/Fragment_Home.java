@@ -1,15 +1,11 @@
-package com.creativeshare.sals.Activities_Fragments.Home.Fragments;
+package com.creativeshare.sals.activities_fragments.home.fragments;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,8 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
-import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
-import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
+import com.creativeshare.sals.activities_fragments.home.activity.Home_Activity;
 import com.creativeshare.sals.R;
 import com.google.android.material.navigation.NavigationView;
 

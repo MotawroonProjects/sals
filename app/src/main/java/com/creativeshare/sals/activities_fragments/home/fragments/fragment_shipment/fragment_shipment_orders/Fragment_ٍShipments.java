@@ -1,4 +1,4 @@
-package com.creativeshare.sals.Activities_Fragments.Home.Fragments.fragment_shipment.fragment_shipment_orders;
+package com.creativeshare.sals.activities_fragments.home.fragments.fragment_shipment.fragment_shipment_orders;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
-import com.creativeshare.sals.Adapter.PageAdapter;
+import com.creativeshare.sals.activities_fragments.home.activity.Home_Activity;
+import com.creativeshare.sals.adapter.PageAdapter;
 import com.creativeshare.sals.R;
 import com.google.android.material.tabs.TabLayout;
 

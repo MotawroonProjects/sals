@@ -1,4 +1,4 @@
-package com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.fragment_recepit;
+package com.creativeshare.sals.activities_fragments.secdule.fragments.fragment_recepit;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -22,10 +22,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
-import com.creativeshare.sals.Adapter.Bike_Adapter;
+import com.creativeshare.sals.activities_fragments.secdule.activity.Scedule_Activity;
+import com.creativeshare.sals.adapter.Bike_Adapter;
 import com.creativeshare.sals.R;
-import com.creativeshare.sals.Share.Common;
+import com.creativeshare.sals.share.Common;
 import com.creativeshare.sals.models.Address_Models;
 import com.creativeshare.sals.models.Bike_Model;
 import com.creativeshare.sals.models.Shipment_Send_Model;

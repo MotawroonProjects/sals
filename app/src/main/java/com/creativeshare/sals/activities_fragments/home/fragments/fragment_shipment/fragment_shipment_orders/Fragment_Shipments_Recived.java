@@ -1,4 +1,4 @@
-package com.creativeshare.sals.Activities_Fragments.Home.Fragments.fragment_shipment.fragment_shipment_orders;
+package com.creativeshare.sals.activities_fragments.home.fragments.fragment_shipment.fragment_shipment_orders;
 
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -17,8 +17,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
-import com.creativeshare.sals.Adapter.Orders_Adapter;
+import com.creativeshare.sals.activities_fragments.home.activity.Home_Activity;
+import com.creativeshare.sals.adapter.Orders_Adapter;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.models.Orders_Model;
 import com.creativeshare.sals.models.UserModel;

@@ -51,7 +51,7 @@ public class Issue_Cat_Adapter extends RecyclerView.Adapter<Issue_Cat_Adapter.Ey
         Support_Catogry_Model.support_cats model = list.get(i);
       viewHolder.tv_title.setText(model.getTitle());
 
-        Picasso.with(context).load(Uri.parse(Tags.IMAGE_URL+model.getImage())).fit().into(viewHolder.imageView);
+        Picasso.with(context).load(Uri.parse(Tags.IMAGE_URL2+model.getImage())).fit().into(viewHolder.imageView);
 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {

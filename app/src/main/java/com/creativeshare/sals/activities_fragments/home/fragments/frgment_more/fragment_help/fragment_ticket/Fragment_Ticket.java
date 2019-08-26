@@ -1,4 +1,4 @@
-package com.creativeshare.sals.Activities_Fragments.Home.Fragments.frgment_more.fragment_help.fragment_ticket;
+package com.creativeshare.sals.activities_fragments.home.fragments.frgment_more.fragment_help.fragment_ticket;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -20,9 +20,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
-import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
+import com.creativeshare.sals.activities_fragments.home.activity.Home_Activity;
 import com.creativeshare.sals.R;
-import com.creativeshare.sals.Share.Common;
+import com.creativeshare.sals.share.Common;
 import com.creativeshare.sals.models.Ticket_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;

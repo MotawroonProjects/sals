@@ -1,4 +1,4 @@
-package com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.fragment_recepit;
+package com.creativeshare.sals.activities_fragments.secdule.fragments.fragment_recepit;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,7 +19,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 
-import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
+import com.creativeshare.sals.activities_fragments.secdule.activity.Scedule_Activity;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.models.PlaceGeocodeData;
 import com.creativeshare.sals.models.PlaceMapDetailsData;

@@ -1,4 +1,4 @@
-package com.creativeshare.sals.Activities_Fragments.Secdule.Fragments.fragment_shipping_detials;
+package com.creativeshare.sals.activities_fragments.secdule.fragments.fragment_shipping_detials;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -22,10 +22,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.creativeshare.sals.Activities_Fragments.Secdule.Activity.Scedule_Activity;
-import com.creativeshare.sals.Adapter.Spinner_City_Adapter;
+import com.creativeshare.sals.activities_fragments.secdule.activity.Scedule_Activity;
+import com.creativeshare.sals.adapter.Spinner_City_Adapter;
 import com.creativeshare.sals.R;
-import com.creativeshare.sals.Share.Common;
+import com.creativeshare.sals.share.Common;
 import com.creativeshare.sals.models.CityModel;
 import com.creativeshare.sals.models.Computrized_Model;
 import com.creativeshare.sals.models.Dementions_Model;

@@ -1,4 +1,4 @@
-package com.creativeshare.sals.Activities_Fragments.Home.Fragments.frgment_more.fragment_help;
+package com.creativeshare.sals.activities_fragments.home.fragments.frgment_more.fragment_help;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -15,11 +15,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.creativeshare.sals.Activities_Fragments.Home.Activity.Home_Activity;
-import com.creativeshare.sals.Adapter.Help_Cat_Adapter;
-import com.creativeshare.sals.Adapter.Question_Adapter;
+import com.creativeshare.sals.activities_fragments.home.activity.Home_Activity;
+import com.creativeshare.sals.adapter.Help_Cat_Adapter;
+import com.creativeshare.sals.adapter.Question_Adapter;
 import com.creativeshare.sals.R;
-import com.creativeshare.sals.Share.Common;
+import com.creativeshare.sals.share.Common;
 import com.creativeshare.sals.models.Help_Cat_Model;
 import com.creativeshare.sals.models.Questions_Model;
 import com.creativeshare.sals.models.UserModel;

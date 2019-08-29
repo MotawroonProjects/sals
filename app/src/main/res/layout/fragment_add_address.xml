@@ -39,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight=".69"
                 android:gravity="center"
-                android:text="@string/search_address"
+                android:text="@string/add_address"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 
@@ -56,12 +56,13 @@
                 tools:ignore="RtlCompat" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
         <fragment
             android:id="@+id/fragment_map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -70,25 +71,18 @@
 
 
             />
+
         <androidx.core.widget.NestedScrollView
             android:id="@+id/bottom_sheet"
 
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:fillViewport="true"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-
             android:fitsSystemWindows="true"
+
             app:behavior_hideable="false"
             app:behavior_peekHeight="100dp"
-            >
-
-
-
-
-
-
-
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
 
             <LinearLayout
@@ -180,12 +174,11 @@
                     android:hint="@string/example_elawdy_132"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:singleLine="true"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray4"
                     android:textSize="14sp"
-                    android:theme="@style/AppTheme.LighterEditText2"
-                    android:singleLine="true"
-                    />
+                    android:theme="@style/AppTheme.LighterEditText2" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -215,14 +208,13 @@
                             android:layout_height="45dp"
                             android:background="@color/white"
                             android:hint="@string/example_3"
+                            android:inputType="number"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
+                            android:singleLine="true"
                             android:textColor="@color/black"
                             android:textColorHint="@color/gray4"
-                            android:textSize="14sp"
-                            android:inputType="number"
-                            android:singleLine="true"
-                            />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -247,14 +239,13 @@
                             android:layout_height="45dp"
                             android:background="@color/white"
                             android:hint="@string/example_3"
+                            android:inputType="number"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
+                            android:singleLine="true"
                             android:textColor="@color/black"
                             android:textColorHint="@color/gray4"
-                            android:textSize="14sp"
-                            android:inputType="number"
-                            android:singleLine="true"
-                            />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -311,11 +302,10 @@
                     android:hint="@string/such_as_work_or_home"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:singleLine="true"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray4"
-                    android:textSize="14sp"
-                    android:singleLine="true"
-                    />
+                    android:textSize="14sp" />
 
                 <View
                     android:layout_width="match_parent"

@@ -190,4 +190,8 @@
     <string name="main">رئيسى </string>
     <string name="first_name">الاسم الاول</string>
     <string name="awbnumber">رقم الشحنه :</string>
+    <string name="update_address">تحديث العنوان</string>
+    <string name="show_question">عرض السؤال</string>
+    <string name="add_address">اضافة العنوان</string>
+    <string name="issue_catogry">فئة القضية</string>
 </resources>

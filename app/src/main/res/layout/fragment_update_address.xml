@@ -39,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight=".69"
                 android:gravity="center"
-                android:text="@string/search_address"
+                android:text="@string/update_address"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 

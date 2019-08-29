@@ -39,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight=".99"
                 android:gravity="center"
-                android:text="@string/help_and_advice"
+                android:text="@string/issue_catogry"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 

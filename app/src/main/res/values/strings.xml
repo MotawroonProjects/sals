@@ -189,5 +189,9 @@
     <string name="main">Main</string>
     <string name="first_name">First name</string>
     <string name="awbnumber">Sipment Number : </string>
+    <string name="update_address">Update Address</string>
+    <string name="show_question">Show Question</string>
+    <string name="add_address">Add Address</string>
+    <string name="issue_catogry">Issue Catogry</string>
 
 </resources>

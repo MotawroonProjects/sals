@@ -7,6 +7,7 @@ public class Shipment_Response_Model implements Serializable {
     private Response Response;
     private String Piece;
 private Pieces Pieces;
+private Barcodes Barcodes;
 
     public Shipment_Response_Model.Pieces getPieces() {
         return Pieces;
@@ -19,7 +20,34 @@ private Pieces Pieces;
         return Response;
     }
 
-    public class  Response implements Serializable{
+    public Shipment_Response_Model.Barcodes getBarcodes() {
+        return Barcodes;
+    }
+
+    public class Barcodes implements Serializable {
+       private String AWBBarCode;
+     private String OriginDestnBarcode;
+     private String ClientIDBarCode;
+     private String DHLRoutingBarCode;
+
+     public String getAWBBarCode() {
+         return AWBBarCode;
+     }
+
+     public String getOriginDestnBarcode() {
+         return OriginDestnBarcode;
+     }
+
+     public String getClientIDBarCode() {
+         return ClientIDBarCode;
+     }
+
+     public String getDHLRoutingBarCode() {
+         return DHLRoutingBarCode;
+     }
+ }
+
+        public class  Response implements Serializable{
         private Status Status;
 
         public Shipment_Response_Model.Response.Status getStatus() {
@@ -59,7 +87,7 @@ private Pieces Pieces;
                 private String Height;
                private String Weight;
                 private String DimWeight;
-
+private String LicensePlateBarCode;
             public String getPieceNumber() {
                 return PieceNumber;
             }
@@ -82,6 +110,10 @@ private Pieces Pieces;
 
             public String getDimWeight() {
                 return DimWeight;
+            }
+
+            public String getLicensePlateBarCode() {
+                return LicensePlateBarCode;
             }
         }
 }}

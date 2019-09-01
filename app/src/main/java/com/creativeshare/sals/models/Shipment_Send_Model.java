@@ -26,6 +26,7 @@ public class Shipment_Send_Model {
     private static String countryf;
     private static String postalt;
     private static String emailt;
+    private static Shipment_Response_Model shipment_response_model;
 
     public static String getEmailt() {
         return emailt;
@@ -216,5 +217,13 @@ public class Shipment_Send_Model {
 
     public static void setemailt(String email) {
         Shipment_Send_Model.emailt=email;
+    }
+
+    public static void setshipment(Shipment_Response_Model body) {
+        Shipment_Send_Model.shipment_response_model=body;
+    }
+
+    public static Shipment_Response_Model getShipment_response_model() {
+        return shipment_response_model;
     }
 }

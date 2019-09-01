@@ -10,10 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.creativeshare.sals.activities_fragments.secdule.activity.Scedule_Activity;
@@ -27,6 +29,7 @@ import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
 import com.google.gson.Gson;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -39,14 +42,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Fragment_Confirmation extends Fragment {
+public class Fragment_Confirmation extends Fragment  implements DatePickerDialog.OnDateSetListener{
     private Scedule_Activity activity;
     private String current_lang;
     private Preferences preferences;
     private UserModel userModel;
 private EditText edt_name,edt_num,edt_cvc;
-private Button bt_confirm;
+    private DatePickerDialog datePickerDialog;
 
+private TextView tv_date;
+private Button bt_confirm;
+   private Calendar calendar;
     public static Fragment_Confirmation newInstance() {
         return new Fragment_Confirmation();
     }
@@ -63,12 +69,21 @@ private Button bt_confirm;
         activity = (Scedule_Activity) getActivity();
         preferences=Preferences.getInstance();
         userModel=preferences.getUserData(activity);
+        tv_date=view.findViewById(R.id.tv_date);
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
 edt_name=view.findViewById(R.id.edt_name);
 edt_num=view.findViewById(R.id.edt_num);
 edt_cvc=view.findViewById(R.id.edt_cvc);
 bt_confirm=view.findViewById(R.id.bt_confirm);
+        tv_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePickerDialog.show(activity.getFragmentManager(), "");
+            }
+        });
+        createDatePickerDialog();
+
 bt_confirm.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
@@ -76,12 +91,31 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
     }
 });
     }
+    private void createDatePickerDialog() {
+        Calendar calendar = Calendar.getInstance();
+        datePickerDialog = DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.dismissOnPause(true);
+        datePickerDialog.setAccentColor(ActivityCompat.getColor(activity, R.color.colorPrimary));
+        datePickerDialog.setCancelColor(ActivityCompat.getColor(activity, R.color.gray4));
+        datePickerDialog.setOkColor(ActivityCompat.getColor(activity, R.color.colorPrimary));
+        // datePickerDialog.setOkText(getString(R.string.select));
+        //datePickerDialog.setCancelText(getString(R.string.cancel));
+        datePickerDialog.setLocale(new Locale(current_lang));
+        datePickerDialog.setVersion(DatePickerDialog.Version.VERSION_2);
+        datePickerDialog.setMinDate(calendar);
 
+
+    }
     private void checkdata() {
         String name=edt_name.getText().toString();
         String num=edt_num.getText().toString();
         String cvc=edt_cvc.getText().toString();
-        if(!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(num)&&!TextUtils.isEmpty(cvc)&&name.split(" ").length>1){
+        String date=tv_date.getText().toString();
+        if(!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(num)&&!TextUtils.isEmpty(cvc)&&name.split(" ").length>1&&!TextUtils.isEmpty(date)){
+           tv_date.setError(null);
+           edt_cvc.setError(null);
+edt_name.setError(null);
+edt_num.setError(null);
             pay(name,num,cvc);
         }
         else {
@@ -108,7 +142,12 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
             }
             if(TextUtils.isEmpty(cvc)){
                 edt_cvc.setError(getResources().getString(R.string.field_req));
-            }}
+
+            }
+            if(TextUtils.isEmpty(date)){
+                tv_date.setError(getResources().getString(R.string.field_req));
+            }
+            }
         }
     }
 
@@ -124,8 +163,9 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
         else {
         pay_model.getSource().setCvc(Integer.parseInt(cvc));}
         pay_model.setAmount((int)Double.parseDouble(Shipment_Send_Model.getPrice()));
-        pay_model.getSource().setMonth(Calendar.getInstance().get(Calendar.MONTH)+1);
-        pay_model.getSource().setYear(Calendar.getInstance().get(Calendar.YEAR));
+        Log.e("date",calendar.get(Calendar.MONTH)+"");
+        pay_model.getSource().setMonth(calendar.get(Calendar.MONTH));
+        pay_model.getSource().setYear(calendar.get(Calendar.YEAR));
         pay_model.getSource().setType(Shipment_Send_Model.getSadad());
 
 pay_model.setCallback_url("https://www.google.com/");
@@ -202,10 +242,12 @@ Api.getService().makeshipment("Bearer "+" "+userModel.getToken(),Shipment_Send_M
         dialog.dismiss();
 
         if(response.isSuccessful()){
-if(response.body().getPiece()!=null){
+if(response.body().getBarcodes()!=null){
     Toast.makeText(activity, R.string.success, Toast.LENGTH_SHORT).show();
 //    Log.e("suc",response.body().getPiece()+" "+response.body().getPieces().getPiece().get(response.body().getPieces().getPiece().size()-1).getDepth()+""+response.body().getPieces().getPiece().get(0).getDepth());
-activity.display();
+//activity.display();
+    Shipment_Send_Model.setshipment(response.body());
+    activity.DisplayFragmentPolicy();
 }
 
 else {
@@ -237,4 +279,19 @@ else {
 });
     }
 
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+       calendar= Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, monthOfYear + 1);
+        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+
+        // order_time_calender.set(Calendar.YEAR,year);
+        //order_time_calender.set(Calendar.MONTH,monthOfYear);
+        //order_time_calender.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+        Log.e("kkkk", calendar.getTime().getMonth() + "");
+
+        tv_date.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+    }
 }

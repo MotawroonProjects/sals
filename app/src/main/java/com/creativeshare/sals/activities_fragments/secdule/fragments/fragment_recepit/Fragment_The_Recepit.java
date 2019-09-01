@@ -226,6 +226,7 @@ checkdata();
                 addressf=addressf.substring(0,32);
             }
 
+
             Shipment_Send_Model.setAddreessf(addressf);
            // Shipment_Send_Model.setAdddresst(addreesst);
             Shipment_Send_Model.setDate(date);

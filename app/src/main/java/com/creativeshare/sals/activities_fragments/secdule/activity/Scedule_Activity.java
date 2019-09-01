@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.creativeshare.sals.activities_fragments.secdule.fragments.fragment_paymen_type_confirmation.Fragment_Policy;
 import com.creativeshare.sals.activities_fragments.secdule.fragments.fragment_shipping_detials.Fragment_Additional_services;
 import com.creativeshare.sals.activities_fragments.secdule.fragments.fragment_paymen_type_confirmation.Fragment_Confirmation;
 import com.creativeshare.sals.activities_fragments.secdule.fragments.fragment_paymen_type_confirmation.Fragment_Delivry_Chooser;
@@ -35,6 +36,7 @@ public class Scedule_Activity extends AppCompatActivity {
     private Fragment_Shipping_Detials fragment_shipping_detials;
     private Fragment_Delivry_Chooser fragment_delivry_chooser;
     private Fragment_Confirmation fragment_confirmation;
+    private Fragment_Policy fragment_policy;
     private Fragment_Map fragment_map;
 
     private int fragment_count = 0;
@@ -76,6 +78,21 @@ public class Scedule_Activity extends AppCompatActivity {
             fragmentManager.beginTransaction().show(fragment_secdule).commit();
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_secdule, "fragment_secdule").addToBackStack("fragment_secdule").commit();
+        }
+
+    }
+    public void DisplayFragmentPolicy() {
+
+        fragment_count += 1;
+
+        if (fragment_policy == null) {
+            fragment_policy = Fragment_Policy.newInstance();
+        }
+
+        if (fragment_policy.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_policy).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_policy, "fragment_policy").addToBackStack("fragment_policy").commit();
         }
 
     }

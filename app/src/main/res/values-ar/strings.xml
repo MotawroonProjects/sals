@@ -194,4 +194,6 @@
     <string name="show_question">عرض السؤال</string>
     <string name="add_address">اضافة العنوان</string>
     <string name="issue_catogry">فئة القضية</string>
+    <string name="share">شارك</string>
+    <string name="policy">البوليصه</string>
 </resources>

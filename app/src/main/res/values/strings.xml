@@ -193,5 +193,7 @@
     <string name="show_question">Show Question</string>
     <string name="add_address">Add Address</string>
     <string name="issue_catogry">Issue Catogry</string>
+    <string name="share">Share</string>
+    <string name="policy">Policy</string>
 
 </resources>

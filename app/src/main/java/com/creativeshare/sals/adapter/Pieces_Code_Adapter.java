@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,7 +50,7 @@ public class Pieces_Code_Adapter extends RecyclerView.Adapter<Pieces_Code_Adapte
         byte[] piecedecodedString = Base64.decode(model.getLicensePlateBarCode(), Base64.DEFAULT);
         Bitmap piecedecodedByte = BitmapFactory.decodeByteArray(piecedecodedString, 0, piecedecodedString.length);
         viewHolder.im_bar_code.setImageBitmap(piecedecodedByte);
-
+viewHolder.tv_content.setText("Piece"+(i+1));
 
 
 
@@ -61,12 +62,12 @@ public class Pieces_Code_Adapter extends RecyclerView.Adapter<Pieces_Code_Adapte
     }
 
     class Eyas_Holder extends RecyclerView.ViewHolder {
-     ImageView im_bar_code;
-
+    private ImageView im_bar_code;
+private TextView tv_content;
         public Eyas_Holder(@NonNull View itemView) {
             super(itemView);
             im_bar_code = itemView.findViewById(R.id.im_barcode);
-
+tv_content=itemView.findViewById(R.id.tv_content);
 
         }
 

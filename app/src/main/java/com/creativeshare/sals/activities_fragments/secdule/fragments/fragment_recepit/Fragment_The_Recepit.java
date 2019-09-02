@@ -222,9 +222,12 @@ checkdata();
             tv_addressf.setError(null);
             tv_date.setError(null);
             tv_user.setError(null);
-            if (addressf.length()>33){
-                addressf=addressf.substring(0,32);
-            }
+            addressf=addressf.replaceAll("،","");
+            addressf = addressf.replaceAll("\\s(\\d)", "");
+            addressf = addressf.replaceAll("(\\d)\\s", "");
+
+
+            Log.e("add",addressf);
 
 
             Shipment_Send_Model.setAddreessf(addressf);

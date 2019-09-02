@@ -128,13 +128,19 @@ public class Fragment_Shipping_Detials extends Fragment {
                 } else {
                     cityf = cityModelList.get(position).getEn_name();
                     // Shipment_Send_Model.setcityt(to_city);
+
                     Shipment_Send_Model.setpostalf(cityModelList.get(position).getPostal_code());
+                    if(cityModelList.get(position).getPostal_code().isEmpty()||cityModelList.get(position).getPostal_code()==null){
+                        Shipment_Send_Model.setpostalf("21589");
+                    }
                     if (current_lang.equals("en")) {
                         Shipment_Send_Model.setCityf(cityModelList.get(position).getEn_name());
+
                     } else {
                         Shipment_Send_Model.setCityf(cityModelList.get(position).getAr_name());
 
                     }
+                    Shipment_Send_Model.setcityfe(cityModelList.get(position).getEn_name());
                 }
             }
 
@@ -152,13 +158,17 @@ public class Fragment_Shipping_Detials extends Fragment {
                     to_city = cityModelList.get(position).getEn_name();
                     // Shipment_Send_Model.setcityt(to_city);
                     Shipment_Send_Model.setpostalt(cityModelList.get(position).getPostal_code());
-
+                    if(cityModelList.get(position).getPostal_code().isEmpty()||cityModelList.get(position).getPostal_code()==null){
+                        Shipment_Send_Model.setpostalt("11543");
+                    }
                     if (current_lang.equals("en")) {
                         Shipment_Send_Model.setcityt(cityModelList.get(position).getEn_name());
                     } else {
                         Shipment_Send_Model.setcityt(cityModelList.get(position).getAr_name());
 
                     }
+                    Shipment_Send_Model.setCityte(cityModelList.get(position).getEn_name());
+
                 }
             }
 
@@ -344,12 +354,13 @@ public class Fragment_Shipping_Detials extends Fragment {
                 if (parcel.equals("1")) {
                     if (quantity > widths.size()) {
                         int ind = widths.size() - 1;
-                        for (int i = widths.size() - 1; i < quantity; i++) {
+                        for (int i = widths.size() ; i < quantity; i++) {
 
                             widths.add(widths.get(ind) + "");
                             hights.add(hights.get(ind) + "");
                             lengths.add(lengths.get(ind) + "");
                             volumeweights.add(volumeweights.get(ind) + "");
+
                         }
                     }
 
@@ -365,11 +376,10 @@ public class Fragment_Shipping_Detials extends Fragment {
                 Shipment_Send_Model.setcountryf("SAUDI ARABIA");
                 // Shipment_Send_Model.setcityt(to_city);
                 Shipment_Send_Model.setPhone(phone);
-                if(address.length()>33){
+                address=address.replaceAll("،","");
+                address = address.replaceAll("\\s(\\d)", "");
+                address = address.replaceAll("(\\d)\\s", "");
 
-                        address=address.substring(0,32);
-
-                }
                 Shipment_Send_Model.setAdddresst(address);
                 Shipment_Send_Model.setcode("SA");
                 getQoute(wegights);

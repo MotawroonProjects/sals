@@ -27,6 +27,9 @@ public class Shipment_Send_Model {
     private static String postalt;
     private static String emailt;
     private static Shipment_Response_Model shipment_response_model;
+    private static String cityfe;
+    private static String cityte;
+
 
     public static String getEmailt() {
         return emailt;
@@ -225,5 +228,21 @@ public class Shipment_Send_Model {
 
     public static Shipment_Response_Model getShipment_response_model() {
         return shipment_response_model;
+    }
+
+    public static void setcityfe(String en_name) {
+        Shipment_Send_Model.cityfe=en_name;
+    }
+
+    public static String getCityfe() {
+        return cityfe;
+    }
+
+    public static String getCityte() {
+        return cityte;
+    }
+
+    public static void setCityte(String cityte) {
+        Shipment_Send_Model.cityte = cityte;
     }
 }

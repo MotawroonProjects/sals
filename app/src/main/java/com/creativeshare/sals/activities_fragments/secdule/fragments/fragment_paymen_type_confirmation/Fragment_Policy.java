@@ -1,17 +1,30 @@
 package com.creativeshare.sals.activities_fragments.secdule.fragments.fragment_paymen_type_confirmation;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,7 +38,13 @@ import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -42,7 +61,8 @@ public class Fragment_Policy extends Fragment {
     private RecyclerView rece_piece_barcode;
     private List<Shipment_Response_Model.Pieces.Piece> pieceList;
     private Pieces_Code_Adapter pieces_code_adapter;
-
+    private String sharePath="no";
+private Button bt_share;
     public static Fragment_Policy newInstance() {
         return new Fragment_Policy();
     }
@@ -57,27 +77,34 @@ public class Fragment_Policy extends Fragment {
     }
 
     private void updatedata() {
-        if(userModel!=null){
-        tv_namefrom.setText(userModel.getUser().getFirst_name() + " " + userModel.getUser().getLast_name());
-        tv_phonefrom.setText(userModel.getUser().getMobile_number());
-        tv_addressfrom.setText(Shipment_Send_Model.getAddreessf());
-        tv_nameto.setText(Shipment_Send_Model.getName());
-        tv_phoneto.setText(Shipment_Send_Model.getPhone());
-        tv_address_to.setText(Shipment_Send_Model.getAdddresst());
-        Shipment_Response_Model shipment_response_model = Shipment_Send_Model.getShipment_response_model();
-        byte[] awbdecodedString = Base64.decode(shipment_response_model.getBarcodes().getAWBBarCode(), Base64.DEFAULT);
-        Bitmap awbdecodedByte = BitmapFactory.decodeByteArray(awbdecodedString, 0, awbdecodedString.length);
-        im_awbbarcode.setImageBitmap(awbdecodedByte);
+        if(userModel!=null) {
+            tv_namefrom.setText(userModel.getUser().getFirst_name() + " " + userModel.getUser().getLast_name());
+            tv_phonefrom.setText(userModel.getUser().getMobile_number());
+            tv_addressfrom.setText(Shipment_Send_Model.getAddreessf());
+            tv_nameto.setText(Shipment_Send_Model.getName());
+            tv_phoneto.setText(Shipment_Send_Model.getPhone());
+            tv_address_to.setText(Shipment_Send_Model.getAdddresst());
+
+            Shipment_Response_Model shipment_response_model = Shipment_Send_Model.getShipment_response_model();
+
+            if(shipment_response_model.getBarcodes().getAWBBarCode()!=null) {
+
+                byte[] awbdecodedString = Base64.decode(shipment_response_model.getBarcodes().getAWBBarCode(), Base64.DEFAULT);
+                Bitmap awbdecodedByte = BitmapFactory.decodeByteArray(awbdecodedString, 0, awbdecodedString.length);
+                im_awbbarcode.setImageBitmap(awbdecodedByte);
+            }
+        if(shipment_response_model.getBarcodes().getClientIDBarCode()!=null){
         byte[] clientdecodedString = Base64.decode(shipment_response_model.getBarcodes().getClientIDBarCode(), Base64.DEFAULT);
         Bitmap clientdecodedByte = BitmapFactory.decodeByteArray(clientdecodedString, 0, clientdecodedString.length);
-        im_clientbarcode.setImageBitmap(clientdecodedByte);
+        im_clientbarcode.setImageBitmap(clientdecodedByte);}
+        if(shipment_response_model.getBarcodes().getOriginDestnBarcode()!=null){
         byte[] origindecodedString = Base64.decode(shipment_response_model.getBarcodes().getOriginDestnBarcode(), Base64.DEFAULT);
         Bitmap origindecodedByte = BitmapFactory.decodeByteArray(origindecodedString, 0, origindecodedString.length);
-        im_origindestnbarcode.setImageBitmap(origindecodedByte);
-
+        im_origindestnbarcode.setImageBitmap(origindecodedByte);}
+if(shipment_response_model.getBarcodes().getDHLRoutingBarCode()!=null){
         byte[] dhldecodedString = Base64.decode(shipment_response_model.getBarcodes().getDHLRoutingBarCode(), Base64.DEFAULT);
         Bitmap dhldecodedByte = BitmapFactory.decodeByteArray(dhldecodedString, 0, dhldecodedString.length);
-        im_dhlroutingbarcode.setImageBitmap(dhldecodedByte);
+        im_dhlroutingbarcode.setImageBitmap(dhldecodedByte);}
         if (shipment_response_model.getPieces() != null && shipment_response_model.getPieces().getPiece() != null) {
             pieceList.clear();
             pieceList.addAll(shipment_response_model.getPieces().getPiece());
@@ -105,6 +132,7 @@ public class Fragment_Policy extends Fragment {
         im_origindestnbarcode = view.findViewById(R.id.im_origindestnbarcode);
         im_dhlroutingbarcode = view.findViewById(R.id.im_dhlroutingbarcode);
         rece_piece_barcode = view.findViewById(R.id.rec_barcode);
+        bt_share=view.findViewById(R.id.bt_share);
         pieces_code_adapter = new Pieces_Code_Adapter(pieceList, activity);
         rece_piece_barcode.setDrawingCacheEnabled(true);
         rece_piece_barcode.setItemViewCacheSize(25);
@@ -120,8 +148,69 @@ public class Fragment_Policy extends Fragment {
                 activity.Back();
             }
         });
+        bt_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+takeScreenshot();
+share(sharePath);
+            }
+        });
 
     }
+    private void takeScreenshot() {
+        Date now = new Date();
+        android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
 
+        try {
+            // image naming and path  to include sd card  appending name you choose for file
+            String mPath = Environment.getExternalStorageDirectory().toString() + "/" + now + ".jpeg";
 
+            // create bitmap screen capture
+         NestedScrollView v1 = activity.getWindow().getDecorView().findViewById(R.id.scrollView);
+            v1.setDrawingCacheEnabled(true);
+            Bitmap bitmap = getBitmapFromView(v1, v1.getChildAt(0).getHeight(), v1.getChildAt(0).getWidth());
+            v1.setDrawingCacheEnabled(false);
+
+            File imageFile = new File(mPath);
+
+            FileOutputStream outputStream = new FileOutputStream(imageFile);
+            int quality = 100;
+            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);
+            outputStream.flush();
+            outputStream.close();
+
+            //setting screenshot in imageview
+            String filePath = imageFile.getPath();
+
+         //   Bitmap ssbitmap = BitmapFactory.decodeFile(imageFile.getAbsolutePath());
+            sharePath = filePath;
+
+        } catch (Throwable e) {
+            // Several error may come out with file handling or DOM
+            e.printStackTrace();
+        }
+    }
+
+    private void share(String sharePath){
+
+        Log.d("ffff",sharePath);
+        File file = new File(sharePath);
+        Uri uri = Uri.fromFile(file);
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent .setType("image/*");
+        intent .putExtra(Intent.EXTRA_STREAM, uri);
+        startActivity(intent );
+
+    }
+    private Bitmap getBitmapFromView(View view, int height, int width) {
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        Drawable bgDrawable = view.getBackground();
+        if (bgDrawable != null)
+            bgDrawable.draw(canvas);
+        else
+            canvas.drawColor(Color.WHITE);
+        view.draw(canvas);
+        return bitmap;
+    }
 }

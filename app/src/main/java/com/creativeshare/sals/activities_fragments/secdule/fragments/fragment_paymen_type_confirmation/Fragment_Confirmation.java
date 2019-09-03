@@ -302,7 +302,7 @@ else {
 
         tv_date.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
     }
-    public  void CreateSignAlertDialog(Context context, final String msg)
+    private void CreateSignAlertDialog(Context context, final String msg)
     {
         final AlertDialog dialog = new AlertDialog.Builder(context)
                 .setCancelable(true)

@@ -2,6 +2,9 @@ package com.creativeshare.sals.activities_fragments.secdule.fragments.fragment_p
 
 
 import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
@@ -41,6 +45,8 @@ import io.paperdb.Paper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static android.content.Context.CLIPBOARD_SERVICE;
 
 public class Fragment_Confirmation extends Fragment  implements DatePickerDialog.OnDateSetListener{
     private Scedule_Activity activity;
@@ -188,7 +194,7 @@ pay_model.setCallback_url("https://www.google.com/");
                     }*/
 Log.e("model",json+response.body().getAmount()+num.length());
 if(response.body().getAmount()!=0.0){
-                  makeshipment();}
+               CreateSignAlertDialog(activity,response.body().getSource().getTransaction_url());}
 
                     }
                     else {
@@ -295,5 +301,40 @@ else {
         Log.e("kkkk", calendar.getTime().getMonth() + "");
 
         tv_date.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+    }
+    public  void CreateSignAlertDialog(Context context, final String msg)
+    {
+        final AlertDialog dialog = new AlertDialog.Builder(context)
+                .setCancelable(true)
+                .create();
+
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_payment_result,null);
+        Button doneBtn = view.findViewById(R.id.btn_copy);
+        Button sendBtn = view.findViewById(R.id.btn_send);
+
+        TextView tv_msg = view.findViewById(R.id.tv_link);
+
+        tv_msg.setText(msg);
+        doneBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                ClipboardManager clipboard = (ClipboardManager) activity.getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Link", msg);
+                clipboard.setPrimaryClip(clip);
+            }
+        });
+        sendBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                makeshipment();
+            }
+        });
+        //dialog.getWindow().getAttributes().windowAnimations=R.style.dialog_congratulation_animation;
+        dialog.setCanceledOnTouchOutside(false);
+        // dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_window_bg);
+        dialog.setView(view);
+        dialog.show();
     }
 }

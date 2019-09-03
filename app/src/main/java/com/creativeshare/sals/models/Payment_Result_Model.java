@@ -121,4 +121,5 @@ public class Payment_Result_Model implements Serializable {
                     return transaction_url;
                 }
             }
+
     }

@@ -322,6 +322,8 @@ else {
                 ClipboardManager clipboard = (ClipboardManager) activity.getSystemService(CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Link", msg);
                 clipboard.setPrimaryClip(clip);
+                makeshipment();
+
             }
         });
         sendBtn.setOnClickListener(new View.OnClickListener() {

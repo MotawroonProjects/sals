@@ -119,7 +119,9 @@ private Orders_Adapter orders_adapter;
                             dataList.addAll(response.body().getOrders().getData());
                             if (response.body().getOrders().getData().size() > 0) {
                                // rec_sent.setVisibility(View.VISIBLE);
-Log.e("lll",response.body().getOrders().getData().get(0).getAwb_number());
+                                Log.e("msg",response.body().getOrders().getData().get(response.body().getOrders().getData().size()-1).getId()+"");
+
+                                Log.e("lll",response.body().getOrders().getData().get(0).getAwb_number());
                                 ll_no_order.setVisibility(View.GONE);
                                 orders_adapter.notifyDataSetChanged();
                              //   total_page = response.body().getMeta().getLast_page();
@@ -163,6 +165,7 @@ Log.e("lll",response.body().getOrders().getData().get(0).getAwb_number());
                         orders_adapter.notifyItemRemoved(dataList.size() - 1);
                         isLoading = false;
                         if (response.isSuccessful() && response.body() != null && response.body().getOrders().getData() != null) {
+                            Log.e("msg",response.body().getOrders().getData().get(response.body().getOrders().getData().size()-1).getId()+"");
 
                             dataList.addAll(response.body().getOrders().getData());
                             // categories.addAll(response.body().getCategories());

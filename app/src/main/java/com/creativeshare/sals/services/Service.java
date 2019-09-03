@@ -224,7 +224,7 @@ public interface Service {
 
     @GET("api/orders-sent")
     Call<Orders_Model> getsentorders(
-            @Header("page") int page,
+            @Query("page") int page,
             @Header("Authorization") String Authorization,
             @Header("lang") String lang
 

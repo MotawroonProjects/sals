@@ -113,6 +113,8 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
 
     }
     private void checkdata() {
+        Common.CloseKeyBoard(activity,edt_cvc);
+
         String name=edt_name.getText().toString();
         String num=edt_num.getText().toString();
         String cvc=edt_cvc.getText().toString();

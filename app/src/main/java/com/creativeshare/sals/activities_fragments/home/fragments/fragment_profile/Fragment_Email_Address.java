@@ -81,6 +81,8 @@ initView(view);
     }
 
     private void checkdata() {
+        Common.CloseKeyBoard(activity,edt_email);
+
         String email=edt_email.getText().toString();
               if(TextUtils.isEmpty(email)||! Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                   edt_email.setError("");

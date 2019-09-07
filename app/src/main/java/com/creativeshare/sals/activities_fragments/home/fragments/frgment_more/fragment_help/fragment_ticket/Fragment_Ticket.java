@@ -153,7 +153,9 @@ public class Fragment_Ticket extends Fragment {
     }
 
     private void checkdata() {
-String desc=edt_desc.getText().toString();
+        Common.CloseKeyBoard(activity,edt_desc);
+
+        String desc=edt_desc.getText().toString();
 String email=edt_email.getText().toString();
 
 if(!TextUtils.isEmpty(desc)&&!TextUtils.isEmpty(email)&&Patterns.EMAIL_ADDRESS.matcher(email).matches()&&((related==1&&Shipmentid!=0)||related==0)&&cat_id!=0){

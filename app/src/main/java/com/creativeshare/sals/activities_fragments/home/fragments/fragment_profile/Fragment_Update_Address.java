@@ -213,6 +213,8 @@ layout    =view.findViewById(R.id.bottom_sheet);
     }
 
     private void checkdata() {
+        Common.CloseKeyBoard(home_activity,edt_desc);
+
         String buildnum = edt_buildnum.getText().toString();
         String floor = edt_floor.getText().toString();
         String flatnum = edt_flatnum.getText().toString();

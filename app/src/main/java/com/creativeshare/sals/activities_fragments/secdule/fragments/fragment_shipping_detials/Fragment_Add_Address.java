@@ -179,6 +179,8 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
     }
 
     private void checkdata() {
+        Common.CloseKeyBoard(activity,edt_desc);
+
         String buildnum = edt_buildnum.getText().toString();
         String floor = edt_floor.getText().toString();
         String flatnum = edt_flatnum.getText().toString();

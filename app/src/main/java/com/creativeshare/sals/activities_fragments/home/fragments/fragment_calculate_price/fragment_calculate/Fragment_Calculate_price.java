@@ -297,6 +297,8 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
     }
 
     private void checkdata() {
+        Common.CloseKeyBoard(activity,edt_weight);
+
         String weight=edt_weight.getText().toString();
         if (TextUtils.isEmpty(from_city) || TextUtils.isEmpty(to_city) ||TextUtils.isEmpty(weight)||TextUtils.isEmpty(date)||TextUtils.isEmpty(time)){
             if(TextUtils.isEmpty(from_city)|| TextUtils.isEmpty(to_city) ){

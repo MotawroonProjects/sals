@@ -86,6 +86,8 @@ initView(view);
     }
 
     private void checkdata() {
+        Common.CloseKeyBoard(activity,edt_lname);
+
         String fname=edt_fname.getText().toString();
         String lname=edt_lname.getText().toString();
         if(TextUtils.isEmpty(fname)||TextUtils.isEmpty(lname)){

@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import com.creativeshare.sals.activities_fragments.secdule.activity.Scedule_Activity;
 import com.creativeshare.sals.R;
 import com.creativeshare.sals.models.Dementions_Model;
+import com.creativeshare.sals.share.Common;
 
 import java.util.Locale;
 
@@ -160,7 +161,9 @@ bt_save.setOnClickListener(new View.OnClickListener() {
     }
 
     private void checkdata() {
-       // String grw=edt_grossweight.getText().toString();
+        Common.CloseKeyBoard(activity,edt_totalweight);
+
+        // String grw=edt_grossweight.getText().toString();
         //String totw=edt_totalweight.getText().toString();
         dementions_model=new Dementions_Model();
         if(length!=0&&width!=0&&hight!=0){

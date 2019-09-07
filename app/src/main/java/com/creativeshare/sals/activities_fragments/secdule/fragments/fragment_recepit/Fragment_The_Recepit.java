@@ -215,6 +215,8 @@ checkdata();
     }
 
     private void checkdata() {
+        Common.CloseKeyBoard(activity,edt_desc);
+
         desc=edt_desc.getText().toString();
         if(!TextUtils.isEmpty(addressf)&&!TextUtils.isEmpty(date)&&!TextUtils.isEmpty(desc)&&!TextUtils.isEmpty(time)){
             edt_desc.setError(null);

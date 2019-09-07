@@ -284,6 +284,8 @@ public class Fragment_Shipping_Detials extends Fragment {
     }
 
     private void checkdata() {
+        Common.CloseKeyBoard(activity,edt_weight);
+
         if (widths.size() != 0 || parcel.equals("0")) {
             String weight = edt_weight.getText().toString();
             String name = edt_name.getText().toString();

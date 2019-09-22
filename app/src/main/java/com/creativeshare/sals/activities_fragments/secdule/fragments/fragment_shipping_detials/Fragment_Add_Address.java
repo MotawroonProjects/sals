@@ -24,6 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.ActivityCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
 import com.creativeshare.sals.activities_fragments.home.activity.Home_Activity;
@@ -56,6 +57,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.maps.android.ui.IconGenerator;
 
 import java.io.IOException;
@@ -79,6 +81,7 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
     private TextView tv_save,tv_location;
     private SwitchCompat switch_primary;
     private int primary = 0;
+    private NestedScrollView layout;
     private String formated_address;
     private double lat, lang;
     private final String gps_perm = Manifest.permission.ACCESS_FINE_LOCATION;
@@ -93,7 +96,7 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
     private GoogleMap mMap;
     private Preferences preferences;
     private UserModel userModel;
-
+    private BottomSheetBehavior mBottomSheetBehavior;
     public static Fragment_Add_Address newInstance(int param) {
         Fragment_Add_Address fragment_search_for_address = new Fragment_Add_Address();
         Bundle bundle = new Bundle();
@@ -115,7 +118,7 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
         return view;
     }
 
-    private void initView(View view) {
+    private void initView(final View view) {
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(getActivity());
         param = getArguments().getInt(Tag);
@@ -129,7 +132,7 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
 
         back_arrow = view.findViewById(R.id.arrow);
-     //   coordinatorLayout = view.findViewById(R.id.coordinator);
+      coordinatorLayout = view.findViewById(R.id.coordinator);
         edt_buildnum = view.findViewById(R.id.edt_build_name);
         edt_floor = view.findViewById(R.id.edt_floor);
         edt_flatnum = view.findViewById(R.id.edt_flat_num);
@@ -138,6 +141,19 @@ public class Fragment_Add_Address extends Fragment implements GoogleApiClient.On
         switch_primary = view.findViewById(R.id.switch_primary);
         tv_location=view.findViewById(R.id.tv_location);
         tv_save = view.findViewById(R.id.tv_save);
+        layout    =view.findViewById(R.id.bottom_sheet);
+        mBottomSheetBehavior = BottomSheetBehavior.from(layout);
+      //  coordinatorLayout.scrollTo(0,0);
+        mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
+    /*    if(param==1){
+            layout.scrollTo(home_activity.getWindow().getWindowManager().getDefaultDisplay().getWidth(),home_activity.getWindow().getWindowManager().getDefaultDisplay().getHeight());
+
+        }
+        else {
+            layout.scrollTo(activity.getWindow().getWindowManager().getDefaultDisplay().getWidth(),activity.getWindow().getWindowManager().getDefaultDisplay().getHeight());
+
+    }*/
         if (current_lang.equals("ar")) {
             back_arrow.setRotation(180.0f);
         }

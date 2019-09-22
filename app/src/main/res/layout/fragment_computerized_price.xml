@@ -244,6 +244,8 @@
                 android:text="@string/deserved_amount"
                 android:textColor="@color/colorPrimary"
                 android:textSize="15sp"
+                android:visibility="gone"
+
 
                 />
             <TextView

@@ -35,6 +35,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.maps.android.ui.IconGenerator;
 
 import java.io.IOException;
@@ -52,6 +53,7 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
     private int address_id;
     final static private String Tag = "address_id";
     private CoordinatorLayout coordinatorLayout;
+    private BottomSheetBehavior mBottomSheetBehavior;
     private EditText edt_buildnum, edt_floor, edt_flatnum, edt_desc, edt_type;
     private TextView tv_save, tv_location;
     private NestedScrollView layout;
@@ -64,7 +66,6 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
     private GoogleMap mMap;
     private Preferences preferences;
     private UserModel userModel;
-
     public static Fragment_Update_Address newInstance(int address_id) {
         Fragment_Update_Address fragment_search_for_address = new Fragment_Update_Address();
         Bundle bundle = new Bundle();
@@ -151,7 +152,9 @@ public class Fragment_Update_Address extends Fragment implements OnMapReadyCallb
 
     private void initView(View view) {
 layout    =view.findViewById(R.id.bottom_sheet);
-
+        mBottomSheetBehavior = BottomSheetBehavior.from(layout);
+        //  coordinatorLayout.scrollTo(0,0);
+        mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
 
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(getActivity());

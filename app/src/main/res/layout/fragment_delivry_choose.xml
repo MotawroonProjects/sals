@@ -364,6 +364,8 @@
             android:textSize="15sp"
             android:gravity="center"
             android:padding="10dp"
+            android:visibility="gone"
+
 
             />
         <TextView

@@ -2,7 +2,7 @@ package com.creativeshare.sals.models;
 
 import java.util.List;
 
-public class Shipment_Send_Model {
+public class Move_Data_Model {
     private static String date;
     private static String addreessf;
     private  static String adddresst;
@@ -29,7 +29,11 @@ public class Shipment_Send_Model {
     private static Shipment_Response_Model shipment_response_model;
     private static String cityfe;
     private static String cityte;
+    private static List<Help_Cat_Model.Categories.Faqs> faqs;
 
+    public static List<Help_Cat_Model.Categories.Faqs> getFaqs() {
+        return faqs;
+    }
 
     public static String getEmailt() {
         return emailt;
@@ -60,7 +64,7 @@ public class Shipment_Send_Model {
     }
 
     public static void setPrice(String price) {
-        Shipment_Send_Model.price = price;
+        Move_Data_Model.price = price;
     }
 
     public static String getDay_number() {
@@ -68,11 +72,11 @@ public class Shipment_Send_Model {
     }
 
     public static void setDay_number(String day_number) {
-        Shipment_Send_Model.day_number = day_number;
+        Move_Data_Model.day_number = day_number;
     }
 
     public static void setTime(String time) {
-        Shipment_Send_Model.time = time;
+        Move_Data_Model.time = time;
     }
 
     public static List<String> getWidths() {
@@ -80,7 +84,7 @@ public class Shipment_Send_Model {
     }
 
     public static void setWidths(List<String> widths) {
-        Shipment_Send_Model.widths = widths;
+        Move_Data_Model.widths = widths;
     }
 
     public static List<String> getHights() {
@@ -88,7 +92,7 @@ public class Shipment_Send_Model {
     }
 
     public static void setHights(List<String> hights) {
-        Shipment_Send_Model.hights = hights;
+        Move_Data_Model.hights = hights;
     }
 
     public static List<String> getLengths() {
@@ -96,7 +100,7 @@ public class Shipment_Send_Model {
     }
 
     public static void setLengths(List<String> lengths) {
-        Shipment_Send_Model.lengths = lengths;
+        Move_Data_Model.lengths = lengths;
     }
 
     public static List<String> getVolumeweights() {
@@ -104,7 +108,7 @@ public class Shipment_Send_Model {
     }
 
     public static void setVolumeweights(List<String> volumeweights) {
-        Shipment_Send_Model.volumeweights = volumeweights;
+        Move_Data_Model.volumeweights = volumeweights;
     }
 
     public static List<String> getWegights() {
@@ -112,7 +116,7 @@ public class Shipment_Send_Model {
     }
 
     public static void setWegights(List<String> wegights) {
-        Shipment_Send_Model.wegights = wegights;
+        Move_Data_Model.wegights = wegights;
     }
 
     public static String getTime() {
@@ -124,7 +128,7 @@ public class Shipment_Send_Model {
     }
 
     public static void setDate(String date) {
-        Shipment_Send_Model.date = date;
+        Move_Data_Model.date = date;
     }
 
     public static String getAddreessf() {
@@ -132,7 +136,7 @@ public class Shipment_Send_Model {
     }
 
     public static void setAddreessf(String addreessf) {
-        Shipment_Send_Model.addreessf = addreessf;
+        Move_Data_Model.addreessf = addreessf;
     }
 
     public static String getAdddresst() {
@@ -140,7 +144,7 @@ public class Shipment_Send_Model {
     }
 
     public static void setAdddresst(String adddresst) {
-        Shipment_Send_Model.adddresst = adddresst;
+        Move_Data_Model.adddresst = adddresst;
     }
 
     public static String getDesc() {
@@ -148,11 +152,11 @@ public class Shipment_Send_Model {
     }
 
     public static void setDesc(String desc) {
-        Shipment_Send_Model.desc = desc;
+        Move_Data_Model.desc = desc;
     }
 
     public static void setCityf(String cityf) {
-        Shipment_Send_Model.cityf=cityf;
+        Move_Data_Model.cityf=cityf;
     }
 
     public static String getCityf() {
@@ -160,7 +164,7 @@ public class Shipment_Send_Model {
     }
 
     public static void settime(String time) {
-        Shipment_Send_Model.time=time;
+        Move_Data_Model.time=time;
     }
 
 
@@ -170,7 +174,7 @@ public class Shipment_Send_Model {
     }
 
     public static void setParcel(String parcel) {
-        Shipment_Send_Model.parcel = parcel;
+        Move_Data_Model.parcel = parcel;
     }
 
     public static String getName() {
@@ -178,7 +182,7 @@ public class Shipment_Send_Model {
     }
 
     public static void setName(String name) {
-        Shipment_Send_Model.name = name;
+        Move_Data_Model.name = name;
     }
 
     public static String getPhone() {
@@ -186,11 +190,11 @@ public class Shipment_Send_Model {
     }
 
     public static void setPhone(String phone) {
-        Shipment_Send_Model.phone = phone;
+        Move_Data_Model.phone = phone;
     }
 
     public static void setcityt(String to_city) {
-        Shipment_Send_Model.cityt=to_city;
+        Move_Data_Model.cityt=to_city;
     }
 
     public static String getCityt() {
@@ -198,32 +202,32 @@ public class Shipment_Send_Model {
     }
 
     public static void setcode(String short_name) {
-        Shipment_Send_Model.fromcountrycode=short_name;
+        Move_Data_Model.fromcountrycode=short_name;
     }
 
     public static void setcredit(String sadad) {
-        Shipment_Send_Model.sadad=sadad;
+        Move_Data_Model.sadad=sadad;
     }
 
 
     public static void setpostalf(String postal_code) {
-        Shipment_Send_Model.postalf=postal_code;
+        Move_Data_Model.postalf=postal_code;
     }
 
     public static void setcountryf(String long_name) {
-        Shipment_Send_Model.countryf=long_name;
+        Move_Data_Model.countryf=long_name;
     }
 
     public static void setpostalt(String postal_code) {
-        Shipment_Send_Model.postalt=postal_code;
+        Move_Data_Model.postalt=postal_code;
     }
 
     public static void setemailt(String email) {
-        Shipment_Send_Model.emailt=email;
+        Move_Data_Model.emailt=email;
     }
 
     public static void setshipment(Shipment_Response_Model body) {
-        Shipment_Send_Model.shipment_response_model=body;
+        Move_Data_Model.shipment_response_model=body;
     }
 
     public static Shipment_Response_Model getShipment_response_model() {
@@ -231,7 +235,7 @@ public class Shipment_Send_Model {
     }
 
     public static void setcityfe(String en_name) {
-        Shipment_Send_Model.cityfe=en_name;
+        Move_Data_Model.cityfe=en_name;
     }
 
     public static String getCityfe() {
@@ -243,6 +247,10 @@ public class Shipment_Send_Model {
     }
 
     public static void setCityte(String cityte) {
-        Shipment_Send_Model.cityte = cityte;
+        Move_Data_Model.cityte = cityte;
+    }
+
+    public static void setQuestions(List<Help_Cat_Model.Categories.Faqs> faqs) {
+        Move_Data_Model.faqs=faqs;
     }
 }

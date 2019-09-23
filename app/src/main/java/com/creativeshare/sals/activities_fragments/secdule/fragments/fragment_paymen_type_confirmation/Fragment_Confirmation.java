@@ -24,11 +24,11 @@ import androidx.fragment.app.Fragment;
 
 import com.creativeshare.sals.activities_fragments.secdule.activity.Scedule_Activity;
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.models.Move_Data_Model;
 import com.creativeshare.sals.share.Common;
 import com.creativeshare.sals.models.Pay_Model;
 import com.creativeshare.sals.models.Payment_Result_Model;
 import com.creativeshare.sals.models.Shipment_Response_Model;
-import com.creativeshare.sals.models.Shipment_Send_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
@@ -40,7 +40,6 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 
-import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
 import io.paperdb.Paper;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -127,7 +126,7 @@ edt_num.setError(null);
             pay(name,num,cvc);
         }
         else {
-            if(Shipment_Send_Model.getSadad().equals("SADAD")){
+            if(Move_Data_Model.getSadad().equals("SADAD")){
                 if(!TextUtils.isEmpty(name)){
                     pay(name,"","");
                 }
@@ -165,19 +164,19 @@ edt_num.setError(null);
         pay_model.getSource().setName(name);
 
         pay_model.getSource().setNumber(num);
-        if(Shipment_Send_Model.getSadad().equals("SADAD")){
+        if(Move_Data_Model.getSadad().equals("SADAD")){
             pay_model.getSource().setCvc(0);
         }
         else {
         pay_model.getSource().setCvc(Integer.parseInt(cvc));}
-        pay_model.setAmount((int)Double.parseDouble(Shipment_Send_Model.getPrice()));
+        pay_model.setAmount((int)Double.parseDouble(Move_Data_Model.getPrice()));
         Log.e("date",calendar.get(Calendar.MONTH)+"");
         pay_model.getSource().setMonth(calendar.get(Calendar.MONTH));
         pay_model.getSource().setYear(calendar.get(Calendar.YEAR));
-        pay_model.getSource().setType(Shipment_Send_Model.getSadad());
+        pay_model.getSource().setType(Move_Data_Model.getSadad());
 
 pay_model.setCallback_url("https://www.google.com/");
-            //  Log.e("data", Shipment_Send_Model.getDate()+wegights+is_dutiable+Shipment_Send_Model.getTime()+ready_time_gmt_offset+dimension_unit+weight_unit+payment_country_code+Shipment_Send_Model.getFromcountrycode()+Shipment_Send_Model.getCityf()+to_city+to_country_code);
+            //  Log.e("data", Move_Data_Model.getDate()+wegights+is_dutiable+Move_Data_Model.getTime()+ready_time_gmt_offset+dimension_unit+weight_unit+payment_country_code+Move_Data_Model.getFromcountrycode()+Move_Data_Model.getCityf()+to_city+to_country_code);
             final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
             dialog.setCancelable(false);
             dialog.show();
@@ -227,26 +226,26 @@ if(response.body().getAmount()!=0.0){
 
     private void makeshipment() {
         HashMap<String, String>  hashMap=new HashMap();
-        Log.e("s",Shipment_Send_Model.getWidths().size()-1+"");
-        for(int i=0;i<Shipment_Send_Model.getWidths().size();i++){
-            hashMap.put("pieces["+i+"][weight]",Shipment_Send_Model.getWegights().get(i));
-            hashMap.put("pieces["+i+"][dim_weight]",Shipment_Send_Model.getVolumeweights().get(i));
-            hashMap.put("pieces["+i+"][width]",Shipment_Send_Model.getWidths().get(i));
-            hashMap.put("pieces["+i+"][height]",Shipment_Send_Model.getHights().get(i));
-            hashMap.put("pieces["+i+"][depth]",Shipment_Send_Model.getLengths().get(i));
+        Log.e("s", Move_Data_Model.getWidths().size()-1+"");
+        for(int i = 0; i< Move_Data_Model.getWidths().size(); i++){
+            hashMap.put("pieces["+i+"][weight]", Move_Data_Model.getWegights().get(i));
+            hashMap.put("pieces["+i+"][dim_weight]", Move_Data_Model.getVolumeweights().get(i));
+            hashMap.put("pieces["+i+"][width]", Move_Data_Model.getWidths().get(i));
+            hashMap.put("pieces["+i+"][height]", Move_Data_Model.getHights().get(i));
+            hashMap.put("pieces["+i+"][depth]", Move_Data_Model.getLengths().get(i));
 
         }
-     /*   hashMap.put("pieces[0][weight]",Shipment_Send_Model.getWegights());
-        hashMap.put("pieces[0][dim_weight]",Shipment_Send_Model.getVolumeweights());
-        hashMap.put("pieces[0][width]",Shipment_Send_Model.getWidths());
-        hashMap.put("pieces[0][height]",Shipment_Send_Model.getHights());
-        hashMap.put("pieces[0][depth]",Shipment_Send_Model.getLengths());*/
-     Log.e("post","Bearer "+" "+userModel.getToken()+" "+Shipment_Send_Model.getParcel()+" "+userModel.getUser().getFirst_name()+userModel.getUser().getLast_name()+" "+Shipment_Send_Model.getAddreessf()+" "+Shipment_Send_Model.getCityf()+" "+Shipment_Send_Model.getPostalf()+" "+Shipment_Send_Model.getFromcountrycode()+" "+Shipment_Send_Model.getCountryf()+" "+userModel.getUser().getFirst_name()+userModel.getUser().getLast_name()+" "+userModel.getUser().getMobile_number()+" "+ userModel.getUser().getMobile_code()+" "+userModel.getUser().getEmail()+" "+Shipment_Send_Model.getName()+" "+Shipment_Send_Model.getPhone()+" "+"966"+" "+Shipment_Send_Model.getEmailt()+" "+Shipment_Send_Model.getDate()+" "+Shipment_Send_Model.getDesc()+" "+Shipment_Send_Model.getWegights().get(0)+" "+Shipment_Send_Model.getAdddresst()+" "+Shipment_Send_Model.getCityt()+" "+Shipment_Send_Model.getPostalt()+" "+"SA"+" "+"SAUDI ARABIA"+" "+Shipment_Send_Model.getName()+" "+Shipment_Send_Model.getWegights().size()+"");
+     /*   hashMap.put("pieces[0][weight]",Move_Data_Model.getWegights());
+        hashMap.put("pieces[0][dim_weight]",Move_Data_Model.getVolumeweights());
+        hashMap.put("pieces[0][width]",Move_Data_Model.getWidths());
+        hashMap.put("pieces[0][height]",Move_Data_Model.getHights());
+        hashMap.put("pieces[0][depth]",Move_Data_Model.getLengths());*/
+     Log.e("post","Bearer "+" "+userModel.getToken()+" "+ Move_Data_Model.getParcel()+" "+userModel.getUser().getFirst_name()+userModel.getUser().getLast_name()+" "+ Move_Data_Model.getAddreessf()+" "+ Move_Data_Model.getCityf()+" "+ Move_Data_Model.getPostalf()+" "+ Move_Data_Model.getFromcountrycode()+" "+ Move_Data_Model.getCountryf()+" "+userModel.getUser().getFirst_name()+userModel.getUser().getLast_name()+" "+userModel.getUser().getMobile_number()+" "+ userModel.getUser().getMobile_code()+" "+userModel.getUser().getEmail()+" "+ Move_Data_Model.getName()+" "+ Move_Data_Model.getPhone()+" "+"966"+" "+ Move_Data_Model.getEmailt()+" "+ Move_Data_Model.getDate()+" "+ Move_Data_Model.getDesc()+" "+ Move_Data_Model.getWegights().get(0)+" "+ Move_Data_Model.getAdddresst()+" "+ Move_Data_Model.getCityt()+" "+ Move_Data_Model.getPostalt()+" "+"SA"+" "+"SAUDI ARABIA"+" "+ Move_Data_Model.getName()+" "+ Move_Data_Model.getWegights().size()+"");
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
 
-Api.getService().makeshipment("Bearer "+" "+userModel.getToken(),Shipment_Send_Model.getParcel(),userModel.getUser().getFirst_name()+userModel.getUser().getLast_name(),Shipment_Send_Model.getAddreessf(),Shipment_Send_Model.getCityfe(),Shipment_Send_Model.getPostalf(),Shipment_Send_Model.getFromcountrycode(),Shipment_Send_Model.getCountryf(),userModel.getUser().getFirst_name()+userModel.getUser().getLast_name(),userModel.getUser().getMobile_number(), userModel.getUser().getMobile_code(),userModel.getUser().getEmail(),Shipment_Send_Model.getName(),Shipment_Send_Model.getPhone(),"966",Shipment_Send_Model.getEmailt(),Shipment_Send_Model.getDate(),Shipment_Send_Model.getDesc(),Shipment_Send_Model.getWegights().get(0),Shipment_Send_Model.getAdddresst(),Shipment_Send_Model.getCityte(),Shipment_Send_Model.getPostalt(),"SA","SAUDI ARABIA",Shipment_Send_Model.getName(),Shipment_Send_Model.getWegights().size()+"",hashMap).enqueue(new Callback<Shipment_Response_Model>() {
+Api.getService().makeshipment("Bearer "+" "+userModel.getToken(), Move_Data_Model.getParcel(),userModel.getUser().getFirst_name()+userModel.getUser().getLast_name(), Move_Data_Model.getAddreessf(), Move_Data_Model.getCityfe(), Move_Data_Model.getPostalf(), Move_Data_Model.getFromcountrycode(), Move_Data_Model.getCountryf(),userModel.getUser().getFirst_name()+userModel.getUser().getLast_name(),userModel.getUser().getMobile_number(), userModel.getUser().getMobile_code(),userModel.getUser().getEmail(), Move_Data_Model.getName(), Move_Data_Model.getPhone(),"966", Move_Data_Model.getEmailt(), Move_Data_Model.getDate(), Move_Data_Model.getDesc(), Move_Data_Model.getWegights().get(0), Move_Data_Model.getAdddresst(), Move_Data_Model.getCityte(), Move_Data_Model.getPostalt(),"SA","SAUDI ARABIA", Move_Data_Model.getName(), Move_Data_Model.getWegights().size()+"",hashMap).enqueue(new Callback<Shipment_Response_Model>() {
     @Override
     public void onResponse(Call<Shipment_Response_Model> call, Response<Shipment_Response_Model> response) {
         dialog.dismiss();
@@ -256,7 +255,7 @@ if(response.body().getBarcodes()!=null){
     Toast.makeText(activity, R.string.success, Toast.LENGTH_SHORT).show();
 //    Log.e("suc",response.body().getPiece()+" "+response.body().getPieces().getPiece().get(response.body().getPieces().getPiece().size()-1).getDepth()+""+response.body().getPieces().getPiece().get(0).getDepth());
 //activity.display();
-    Shipment_Send_Model.setshipment(response.body());
+    Move_Data_Model.setshipment(response.body());
     activity.DisplayFragmentPolicy();
 }
 

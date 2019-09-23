@@ -126,9 +126,8 @@ public class Scedule_Activity extends AppCompatActivity {
     public void DisplayFragmentSearchforaddress() {
         fragment_count += 1;
 
-        if (fragment_search_for_address == null) {
             fragment_search_for_address = Fragment_Add_Address.newInstance(2);
-        }
+
 
         if (fragment_search_for_address.isAdded()) {
             fragmentManager.beginTransaction().show(fragment_search_for_address).commit();

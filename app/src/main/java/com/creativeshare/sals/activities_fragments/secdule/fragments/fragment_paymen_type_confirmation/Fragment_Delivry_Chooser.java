@@ -18,9 +18,9 @@ import androidx.fragment.app.Fragment;
 
 import com.creativeshare.sals.activities_fragments.secdule.activity.Scedule_Activity;
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.models.Move_Data_Model;
 import com.creativeshare.sals.share.Common;
 import com.creativeshare.sals.models.Prectage_Model;
-import com.creativeshare.sals.models.Shipment_Send_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
@@ -57,7 +57,7 @@ public class Fragment_Delivry_Chooser extends Fragment {
     }
 
     private void initView(View view) {
-        Shipment_Send_Model.setcredit("creditcard");
+        Move_Data_Model.setcredit("creditcard");
         activity = (Scedule_Activity) getActivity();
         Paper.init(activity);
         preferences=Preferences.getInstance();
@@ -83,7 +83,7 @@ public class Fragment_Delivry_Chooser extends Fragment {
 ll_sadad.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        Shipment_Send_Model.setcredit("SADAD");
+        Move_Data_Model.setcredit("SADAD");
         im_credit.setVisibility(View.GONE);
         im_sadad.setVisibility(View.VISIBLE);
     }
@@ -91,7 +91,7 @@ ll_sadad.setOnClickListener(new View.OnClickListener() {
 ll_credit.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        Shipment_Send_Model.setcredit("creditcard");
+        Move_Data_Model.setcredit("creditcard");
         im_credit.setVisibility(View.VISIBLE);
         im_sadad.setVisibility(View.GONE);
     }
@@ -120,7 +120,7 @@ ll_credit.setOnClickListener(new View.OnClickListener() {
 
     }
     private void applydata() {
-        if(Shipment_Send_Model.getParcel().equals("0")){
+        if(Move_Data_Model.getParcel().equals("0")){
             tv_document.setText(getResources().getString(R.string.documents));
 
         }
@@ -129,13 +129,13 @@ ll_credit.setOnClickListener(new View.OnClickListener() {
 
         }
        // tv_cityf.setText(Computrized_Model.getCity_From());
-        tv_address.setText(Shipment_Send_Model.getAdddresst());
-        tv_cityt.setText(Shipment_Send_Model.getCityt());
-        tv_num.setText(Shipment_Send_Model.getWegights().size()+" " + getResources().getString(R.string.pieces) +Shipment_Send_Model.getWegights().get(0) + getResources().getString(R.string.kg));
-        tv_day.setText(getResources().getString(R.string.Delivery)+" "+Shipment_Send_Model.getDay_number()+getResources().getString(R.string.days));
-        tv_total_pricedhl.setText(getResources().getString(R.string.from_dhl)+" "+Shipment_Send_Model.getPrice() + getResources().getString(R.string.ryal));
-        tv_total_pricesals.setText(getResources().getString(R.string.from_sals)+" "+(Double.parseDouble(Shipment_Send_Model.getPrice())-(Double.parseDouble(Shipment_Send_Model.getPrice())*price)/100) + getResources().getString(R.string.ryal));
-Shipment_Send_Model.setPrice((Double.parseDouble(Shipment_Send_Model.getPrice())-(Double.parseDouble(Shipment_Send_Model.getPrice())*price)/100)+"");
+        tv_address.setText(Move_Data_Model.getAdddresst());
+        tv_cityt.setText(Move_Data_Model.getCityt());
+        tv_num.setText(Move_Data_Model.getWegights().size()+" " + getResources().getString(R.string.pieces) + Move_Data_Model.getWegights().get(0) + getResources().getString(R.string.kg));
+        tv_day.setText(getResources().getString(R.string.Delivery)+" "+ Move_Data_Model.getDay_number()+getResources().getString(R.string.days));
+        tv_total_pricedhl.setText(getResources().getString(R.string.from_dhl)+" "+ Move_Data_Model.getPrice() + getResources().getString(R.string.ryal));
+        tv_total_pricesals.setText(getResources().getString(R.string.from_sals)+" "+(Double.parseDouble(Move_Data_Model.getPrice())-(Double.parseDouble(Move_Data_Model.getPrice())*price)/100) + getResources().getString(R.string.ryal));
+Move_Data_Model.setPrice((Double.parseDouble(Move_Data_Model.getPrice())-(Double.parseDouble(Move_Data_Model.getPrice())*price)/100)+"");
 
         // tv_day.setText(Computrized_Model.getTime());
     }

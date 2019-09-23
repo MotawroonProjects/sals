@@ -1,17 +1,14 @@
 package com.creativeshare.sals.activities_fragments.secdule.fragments.fragment_paymen_type_confirmation;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,16 +29,12 @@ import com.creativeshare.sals.R;
 import com.creativeshare.sals.activities_fragments.secdule.activity.Scedule_Activity;
 import com.creativeshare.sals.adapter.Pieces_Code_Adapter;
 import com.creativeshare.sals.models.Shipment_Response_Model;
-import com.creativeshare.sals.models.Shipment_Send_Model;
+import com.creativeshare.sals.models.Move_Data_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -80,12 +72,12 @@ private Button bt_share;
         if(userModel!=null) {
             tv_namefrom.setText(userModel.getUser().getFirst_name() + " " + userModel.getUser().getLast_name());
             tv_phonefrom.setText(userModel.getUser().getMobile_number());
-            tv_addressfrom.setText(Shipment_Send_Model.getAddreessf());
-            tv_nameto.setText(Shipment_Send_Model.getName());
-            tv_phoneto.setText(Shipment_Send_Model.getPhone());
-            tv_address_to.setText(Shipment_Send_Model.getAdddresst());
+            tv_addressfrom.setText(Move_Data_Model.getAddreessf());
+            tv_nameto.setText(Move_Data_Model.getName());
+            tv_phoneto.setText(Move_Data_Model.getPhone());
+            tv_address_to.setText(Move_Data_Model.getAdddresst());
 
-            Shipment_Response_Model shipment_response_model = Shipment_Send_Model.getShipment_response_model();
+            Shipment_Response_Model shipment_response_model = Move_Data_Model.getShipment_response_model();
 
             if(shipment_response_model.getBarcodes().getAWBBarCode()!=null) {
 

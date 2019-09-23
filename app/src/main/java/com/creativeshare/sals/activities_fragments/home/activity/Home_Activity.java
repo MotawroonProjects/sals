@@ -17,6 +17,7 @@ import com.creativeshare.sals.activities_fragments.home.fragments.fragment_calcu
 import com.creativeshare.sals.activities_fragments.home.fragments.fragment_profile.Fragment_Email_Address;
 import com.creativeshare.sals.activities_fragments.home.fragments.frgment_more.fragment_help.Fragment_Help_Advice;
 import com.creativeshare.sals.activities_fragments.home.fragments.Fragment_Home;
+import com.creativeshare.sals.activities_fragments.home.fragments.frgment_more.fragment_help.Fragment_Help_Detials;
 import com.creativeshare.sals.activities_fragments.home.fragments.frgment_more.fragment_help.fragment_ticket.Fragment_Issue_Catogry;
 import com.creativeshare.sals.activities_fragments.home.fragments.fragment_profile.Fragment_Language;
 import com.creativeshare.sals.activities_fragments.home.fragments.frgment_more.Fragment_Payments;
@@ -75,6 +76,7 @@ public class Home_Activity extends AppCompatActivity {
     private Fragment_Computrized_Price fragment_computrized_price;
     private Fragment_Profile fragment_profile;
     private Fragment_Help_Advice fragment_help_advice;
+    private Fragment_Help_Detials fragment_help_detials;
 
     private Fragment_Ticket fragment_ticket;
     private Fragment_ٍShipment_Details fragment_ٍShipment_details;
@@ -253,6 +255,21 @@ public class Home_Activity extends AppCompatActivity {
             fragmentManager.beginTransaction().show(fragment_help_advice).commit();
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_help_advice, "fragment_help_advice").addToBackStack("fragment_help_advice").commit();
+        }
+
+    }
+    public void DisplayFragmentHelpDetials() {
+
+        fragment_count += 1;
+
+
+        fragment_help_detials = Fragment_Help_Detials.newInstance();
+
+
+        if (fragment_help_detials.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_help_detials).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_help_detials, "fragment_help_detials").addToBackStack("fragment_help_detials").commit();
         }
 
     }
@@ -518,7 +535,7 @@ public class Home_Activity extends AppCompatActivity {
         intent.putExtra("param", param);
         startActivityForResult(intent,1);}
         else {
-            Common.CreateSignAlertDialog(this,getResources().getString(R.string.complete_profile));
+            Common.CreateSignAlertDialog2(this,getResources().getString(R.string.complete_profile));
         }
     }
 

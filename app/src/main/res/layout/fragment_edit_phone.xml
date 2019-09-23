@@ -81,6 +81,16 @@
         android:text="@string/if_you_need_to_change_the_phone_number_connected_to_your_account_smoothly"
         />
     <TextView
+        android:id="@+id/tv_phone_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/phone"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+
+        />
+    <TextView
         android:id="@+id/tv_link"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

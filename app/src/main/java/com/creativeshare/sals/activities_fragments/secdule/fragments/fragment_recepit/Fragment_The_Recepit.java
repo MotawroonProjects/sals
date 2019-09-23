@@ -25,10 +25,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.creativeshare.sals.activities_fragments.secdule.activity.Scedule_Activity;
 import com.creativeshare.sals.adapter.Bike_Adapter;
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.models.Move_Data_Model;
 import com.creativeshare.sals.share.Common;
 import com.creativeshare.sals.models.Address_Models;
 import com.creativeshare.sals.models.Bike_Model;
-import com.creativeshare.sals.models.Shipment_Send_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
@@ -130,6 +130,11 @@ public class Fragment_The_Recepit extends Fragment implements DatePickerDialog.O
             public void onClick(View view) {
 
                 type = 0;
+                tv_addressf.setError(null);
+                tv_date.setError(null);
+                tv_user.setError(null);
+                tv_time.setError(null);
+
                 activity.DisplayFragmentSearchforaddress();
             }
         });
@@ -143,6 +148,11 @@ public class Fragment_The_Recepit extends Fragment implements DatePickerDialog.O
         ll_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                tv_addressf.setError(null);
+                tv_date.setError(null);
+                tv_user.setError(null);
+                tv_time.setError(null);
+
                 datePickerDialog.show(activity.getFragmentManager(), "");
 
             }
@@ -205,6 +215,11 @@ checkdata();
         ll_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                tv_time.setError(null);
+
+                tv_addressf.setError(null);
+                tv_date.setError(null);
+                tv_user.setError(null);
                 timePickerDialog.show(activity.getFragmentManager(), "");
             }
         });
@@ -232,11 +247,11 @@ checkdata();
             Log.e("add",addressf);
 
 
-            Shipment_Send_Model.setAddreessf(addressf);
-           // Shipment_Send_Model.setAdddresst(addreesst);
-            Shipment_Send_Model.setDate(date);
-            Shipment_Send_Model.setDesc(desc);
-            Shipment_Send_Model.settime(time);
+            Move_Data_Model.setAddreessf(addressf);
+           // Move_Data_Model.setAdddresst(addreesst);
+            Move_Data_Model.setDate(date);
+            Move_Data_Model.setDesc(desc);
+            Move_Data_Model.settime(time);
             activity.DisplayFragmentshippingdetilas();
 
         }
@@ -446,7 +461,7 @@ updatepostalcode(response.body().getResults());
                     if(typs.get(k).equals("postal_code")){
                         postal_code=address_components1.get(j).getLong_name();
                         Log.e("postal",postal_code);
-                        Shipment_Send_Model.setpostalf(postal_code);
+                        Move_Data_Model.setpostalf(postal_code);
                         ;
                     }
                     //Log.e("llll",address_components1.get(j).getLong_name());
@@ -455,13 +470,13 @@ updatepostalcode(response.body().getResults());
                      Log.e("c",cityf);
                     }
                     if(typs.get(k).equals("country")){
-                        Shipment_Send_Model.setcode(address_components1.get(j).getShort_name());
-                        Shipment_Send_Model.setcountryf(address_components1.get(j).getLong_name());
+                        Move_Data_Model.setcode(address_components1.get(j).getShort_name());
+                        Move_Data_Model.setcountryf(address_components1.get(j).getLong_name());
                     }
                 }
             }
             if(postal_code==null){
-                Shipment_Send_Model.setpostalf("0");
+                Move_Data_Model.setpostalf("0");
             }
         }
     }

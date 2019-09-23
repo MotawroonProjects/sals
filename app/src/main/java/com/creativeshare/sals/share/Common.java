@@ -25,6 +25,7 @@ import androidx.core.content.ContextCompat;
 
 
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.activities_fragments.home.activity.Home_Activity;
 
 import java.io.File;
 
@@ -71,6 +72,31 @@ public class Common {
         //dialog.getWindow().getAttributes().windowAnimations=R.style.dialog_congratulation_animation;
         dialog.setCanceledOnTouchOutside(false);
        // dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_window_bg);
+        dialog.setView(view);
+        dialog.show();
+    }
+    public static void CreateSignAlertDialog2(final Context context, String msg)
+    {
+        final AlertDialog dialog = new AlertDialog.Builder(context)
+                .setCancelable(true)
+                .create();
+
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_sign,null);
+        Button doneBtn = view.findViewById(R.id.doneBtn);
+        TextView tv_msg = view.findViewById(R.id.tv_msg);
+        tv_msg.setText(msg);
+        doneBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Home_Activity activity=(Home_Activity)context;
+                activity.DisplayFragmentProfile();
+                dialog.dismiss();
+            }
+        });
+
+        //dialog.getWindow().getAttributes().windowAnimations=R.style.dialog_congratulation_animation;
+        dialog.setCanceledOnTouchOutside(false);
+        // dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_window_bg);
         dialog.setView(view);
         dialog.show();
     }

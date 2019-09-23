@@ -25,13 +25,13 @@ import androidx.fragment.app.Fragment;
 import com.creativeshare.sals.activities_fragments.secdule.activity.Scedule_Activity;
 import com.creativeshare.sals.adapter.Spinner_City_Adapter;
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.models.Move_Data_Model;
 import com.creativeshare.sals.share.Common;
 import com.creativeshare.sals.models.CityModel;
 import com.creativeshare.sals.models.Computrized_Model;
 import com.creativeshare.sals.models.Dementions_Model;
 import com.creativeshare.sals.models.Quote_Array_Model;
 import com.creativeshare.sals.models.Quote_Model;
-import com.creativeshare.sals.models.Shipment_Send_Model;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
@@ -127,20 +127,20 @@ public class Fragment_Shipping_Detials extends Fragment {
                     cityf = "";
                 } else {
                     cityf = cityModelList.get(position).getEn_name();
-                    // Shipment_Send_Model.setcityt(to_city);
+                    // Move_Data_Model.setcityt(to_city);
 
-                    Shipment_Send_Model.setpostalf(cityModelList.get(position).getPostal_code());
+                    Move_Data_Model.setpostalf(cityModelList.get(position).getPostal_code());
                     if(cityModelList.get(position).getPostal_code().isEmpty()||cityModelList.get(position).getPostal_code()==null){
-                        Shipment_Send_Model.setpostalf("21589");
+                        Move_Data_Model.setpostalf("21589");
                     }
                     if (current_lang.equals("en")) {
-                        Shipment_Send_Model.setCityf(cityModelList.get(position).getEn_name());
+                        Move_Data_Model.setCityf(cityModelList.get(position).getEn_name());
 
                     } else {
-                        Shipment_Send_Model.setCityf(cityModelList.get(position).getAr_name());
+                        Move_Data_Model.setCityf(cityModelList.get(position).getAr_name());
 
                     }
-                    Shipment_Send_Model.setcityfe(cityModelList.get(position).getEn_name());
+                    Move_Data_Model.setcityfe(cityModelList.get(position).getEn_name());
                 }
             }
 
@@ -156,18 +156,18 @@ public class Fragment_Shipping_Detials extends Fragment {
                     to_city = "";
                 } else {
                     to_city = cityModelList.get(position).getEn_name();
-                    // Shipment_Send_Model.setcityt(to_city);
-                    Shipment_Send_Model.setpostalt(cityModelList.get(position).getPostal_code());
+                    // Move_Data_Model.setcityt(to_city);
+                    Move_Data_Model.setpostalt(cityModelList.get(position).getPostal_code());
                     if(cityModelList.get(position).getPostal_code().isEmpty()||cityModelList.get(position).getPostal_code()==null){
-                        Shipment_Send_Model.setpostalt("11543");
+                        Move_Data_Model.setpostalt("11543");
                     }
                     if (current_lang.equals("en")) {
-                        Shipment_Send_Model.setcityt(cityModelList.get(position).getEn_name());
+                        Move_Data_Model.setcityt(cityModelList.get(position).getEn_name());
                     } else {
-                        Shipment_Send_Model.setcityt(cityModelList.get(position).getAr_name());
+                        Move_Data_Model.setcityt(cityModelList.get(position).getAr_name());
 
                     }
-                    Shipment_Send_Model.setCityte(cityModelList.get(position).getEn_name());
+                    Move_Data_Model.setCityte(cityModelList.get(position).getEn_name());
 
                 }
             }
@@ -352,7 +352,7 @@ public class Fragment_Shipping_Detials extends Fragment {
                 Log.e("width", widths.size() + "");
                 //  Computrized_Model.setQuantity(quantity+"");
                 //  Computrized_Model.setWeight(weight);
-                Shipment_Send_Model.setWegights(wegights);
+                Move_Data_Model.setWegights(wegights);
                 if (parcel.equals("1")) {
                     if (quantity > widths.size()) {
                         int ind = widths.size() - 1;
@@ -368,22 +368,22 @@ public class Fragment_Shipping_Detials extends Fragment {
 
 
                 }
-                Shipment_Send_Model.setWidths(widths);
-                Shipment_Send_Model.setHights(hights);
-                Shipment_Send_Model.setLengths(lengths);
-                Shipment_Send_Model.setVolumeweights(volumeweights);
-                Shipment_Send_Model.setParcel(parcel);
-                Shipment_Send_Model.setemailt(email);
-                Shipment_Send_Model.setName(name);
-                Shipment_Send_Model.setcountryf("SAUDI ARABIA");
-                // Shipment_Send_Model.setcityt(to_city);
-                Shipment_Send_Model.setPhone(phone);
+                Move_Data_Model.setWidths(widths);
+                Move_Data_Model.setHights(hights);
+                Move_Data_Model.setLengths(lengths);
+                Move_Data_Model.setVolumeweights(volumeweights);
+                Move_Data_Model.setParcel(parcel);
+                Move_Data_Model.setemailt(email);
+                Move_Data_Model.setName(name);
+                Move_Data_Model.setcountryf("SAUDI ARABIA");
+                // Move_Data_Model.setcityt(to_city);
+                Move_Data_Model.setPhone(phone);
                 address=address.replaceAll("،","");
                 address = address.replaceAll("\\s(\\d)", "");
                 address = address.replaceAll("(\\d)\\s", "");
 
-                Shipment_Send_Model.setAdddresst(address);
-                Shipment_Send_Model.setcode("SA");
+                Move_Data_Model.setAdddresst(address);
+                Move_Data_Model.setcode("SA");
                 getQoute(wegights);
 
             }
@@ -393,11 +393,11 @@ public class Fragment_Shipping_Detials extends Fragment {
     }
 
     private void getQoute(final List<String> wegights) {
-        //  Log.e("data", Shipment_Send_Model.getDate()+wegights+is_dutiable+Shipment_Send_Model.getTime()+ready_time_gmt_offset+dimension_unit+weight_unit+payment_country_code+Shipment_Send_Model.getFromcountrycode()+Shipment_Send_Model.getCityf()+to_city+to_country_code);
+        //  Log.e("data", Move_Data_Model.getDate()+wegights+is_dutiable+Move_Data_Model.getTime()+ready_time_gmt_offset+dimension_unit+weight_unit+payment_country_code+Move_Data_Model.getFromcountrycode()+Move_Data_Model.getCityf()+to_city+to_country_code);
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService().get_quote("Bearer" + " " + userModel.getToken(), Shipment_Send_Model.getDate(), wegights, is_dutiable, Shipment_Send_Model.getTime(), ready_time_gmt_offset, dimension_unit, weight_unit, payment_country_code, Shipment_Send_Model.getFromcountrycode(), cityf, to_city, to_country_code).enqueue(new Callback<Quote_Model>() {
+        Api.getService().get_quote("Bearer" + " " + userModel.getToken(), Move_Data_Model.getDate(), wegights, is_dutiable, Move_Data_Model.getTime(), ready_time_gmt_offset, dimension_unit, weight_unit, payment_country_code, Move_Data_Model.getFromcountrycode(), cityf, to_city, to_country_code).enqueue(new Callback<Quote_Model>() {
             @Override
             public void onResponse(Call<Quote_Model> call, Response<Quote_Model> response) {
                 dialog.dismiss();
@@ -440,7 +440,7 @@ public class Fragment_Shipping_Detials extends Fragment {
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService().get_quote2("Bearer" + " " + userModel.getToken(), Shipment_Send_Model.getDate(), wegights, is_dutiable, Shipment_Send_Model.getTime(), ready_time_gmt_offset, dimension_unit, weight_unit, payment_country_code, Shipment_Send_Model.getFromcountrycode(), cityf, to_city, to_country_code).enqueue(new Callback<Quote_Array_Model>() {
+        Api.getService().get_quote2("Bearer" + " " + userModel.getToken(), Move_Data_Model.getDate(), wegights, is_dutiable, Move_Data_Model.getTime(), ready_time_gmt_offset, dimension_unit, weight_unit, payment_country_code, Move_Data_Model.getFromcountrycode(), cityf, to_city, to_country_code).enqueue(new Callback<Quote_Array_Model>() {
             @Override
             public void onResponse(Call<Quote_Array_Model> call, Response<Quote_Array_Model> response) {
                 dialog.dismiss();
@@ -492,8 +492,8 @@ public class Fragment_Shipping_Detials extends Fragment {
     }
 
     private void adddata(Quote_Model body) {
-        Shipment_Send_Model.setPrice(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
-        Shipment_Send_Model.setDay_number(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getTotalTransitDays());
+        Move_Data_Model.setPrice(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
+        Move_Data_Model.setDay_number(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getTotalTransitDays());
 
         Computrized_Model.setTime(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getDeliveryTime());
         activity.DisplayFragmentdelivrychooser();
@@ -501,8 +501,8 @@ public class Fragment_Shipping_Detials extends Fragment {
     }
 
     private void adddata2(Quote_Array_Model body) {
-        Shipment_Send_Model.setPrice(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getWeightCharge());
-        Shipment_Send_Model.setDay_number(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getTotalTransitDays());
+        Move_Data_Model.setPrice(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getWeightCharge());
+        Move_Data_Model.setDay_number(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getTotalTransitDays());
 
         Computrized_Model.setTime(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getDeliveryTime());
         activity.DisplayFragmentdelivrychooser();

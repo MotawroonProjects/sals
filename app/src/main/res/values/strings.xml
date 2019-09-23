@@ -16,7 +16,7 @@
     <string name="search_map">Search On Map</string>
     <string name="track_the_shipment">Track the shipment</string>
     <string name="delivery_number">delivery number</string>
-    <string name="price_calculate">Price and Shipping Calculator</string>
+    <string name="price_calculate">Price  Calculator</string>
     <string name="tracking">Tracking</string>
     <string name="more">More</string>
     <string name="welcome">welcome To You ...</string>
@@ -98,7 +98,7 @@
     <string name="such_as_work_or_home">Such as work or home</string>
     <string name="school_books">school books</string>
     <string name="shipping_tracking_number">Shipping tracking number</string>
-    <string name="schedule">schedule</string>
+    <string name="schedule">Shipping</string>
     <string name="received">Received</string>
     <string name="sent">Sent</string>
     <string name="on_way_to">on the way to</string>

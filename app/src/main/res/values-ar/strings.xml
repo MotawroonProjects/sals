@@ -18,7 +18,7 @@
     <string name="search_map">ابحث فى الخريطه</string>
     <string name="track_the_shipment">تتبع الشحنه</string>
     <string name="delivery_number">رقم الشحنه</string>
-    <string name="price_calculate">حاسبة الاسعار والشحن</string>
+    <string name="price_calculate">حاسبة الاسعار </string>
     <string name="tracking">تتبع</string>
     <string name="more">المزيد</string>
     <string name="welcome">مرحبا بك...</string>
@@ -99,7 +99,7 @@
     <string name="such_as_work_or_home">مثل العمل او المنزل</string>
     <string name="school_books">كتب مدرسيه</string>
     <string name="shipping_tracking_number">رقم تتبع الشحنه</string>
-    <string name="schedule">جدوله</string>
+    <string name="schedule">الشحن</string>
     <string name="received">وارد</string>
     <string name="sent">مرسل</string>
     <string name="on_way_to">فى الطريق الى</string>

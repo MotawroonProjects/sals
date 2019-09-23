@@ -145,7 +145,6 @@ public class Fragment_Home extends Fragment {
         ah_bottom_nav.setAccentColor(ContextCompat.getColor(activity, R.color.black));
         ah_bottom_nav.setInactiveColor(ContextCompat.getColor(activity, R.color.gray4));
 
-
         ah_bottom_nav.addItem(item1);
         ah_bottom_nav.addItem(item2);
         ah_bottom_nav.addItem(item3);

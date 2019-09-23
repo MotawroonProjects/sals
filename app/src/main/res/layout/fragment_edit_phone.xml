@@ -84,7 +84,7 @@
         android:id="@+id/tv_phone_help"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/phone"
+        android:text="@string/phons"
         android:textColor="@color/colorPrimary"
         android:layout_marginTop="15dp"
         android:textSize="16sp"

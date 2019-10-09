@@ -73,26 +73,28 @@
             <LinearLayout
 
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/linear_underline_shape"
                 android:padding="10dp"
-                android:visibility="gone"
 
                 >
 
                 <Spinner
                     android:id="@+id/sp_countryfrom"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:background="@color/white">
 
                 </Spinner>
             </LinearLayout>
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray3"
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,19 +127,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/linear_underline_shape"
-                android:visibility="gone"
                 android:padding="10dp">
 
                 <Spinner
                     android:id="@+id/sp_countryto"
 
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:background="@color/white"
 
@@ -145,7 +145,11 @@
 
                 </Spinner>
             </LinearLayout>
-
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@color/gray3"
+    />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

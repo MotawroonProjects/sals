@@ -21,14 +21,40 @@ public class Move_Data_Model {
     private static String phone;
     private static String cityt;
     private static String fromcountrycode;
+    private static String tocountrycode;
+
     private static String sadad;
     private static String postalf;
     private static String countryf;
+    private static String countryt;
+
     private static String postalt;
     private static String emailt;
     private static Shipment_Response_Model shipment_response_model;
     private static String cityfe;
     private static String cityte;
+    private static String phonecodeto;
+
+    public static String getTocountrycode() {
+        return tocountrycode;
+    }
+
+    public static void setTocountrycode(String tocountrycode) {
+        Move_Data_Model.tocountrycode = tocountrycode;
+    }
+
+    public static String getPhonecodeto() {
+        return phonecodeto;
+    }
+
+    public static String getCountryt() {
+        return countryt;
+    }
+
+    public static void setCountryt(String countryt) {
+        Move_Data_Model.countryt = countryt;
+    }
+
     private static List<Help_Cat_Model.Categories.Faqs> faqs;
 
     public static List<Help_Cat_Model.Categories.Faqs> getFaqs() {
@@ -252,5 +278,9 @@ public class Move_Data_Model {
 
     public static void setQuestions(List<Help_Cat_Model.Categories.Faqs> faqs) {
         Move_Data_Model.faqs=faqs;
+    }
+
+    public static void settophonecode(String phone_code) {
+        Move_Data_Model.phonecodeto=phone_code;
     }
 }

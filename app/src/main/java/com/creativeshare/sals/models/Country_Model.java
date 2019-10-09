@@ -15,10 +15,18 @@ public class Country_Model implements Serializable {
         private int id;
             private String en_name;
         private String ar_name;
-
-           private String code;
+private String phone_code;
+           private String iso_two;
             private String created_at;
             private String updated_at;
+
+        public String getIso_two() {
+            return iso_two;
+        }
+
+        public String getPhone_code() {
+            return phone_code;
+        }
 
         public Countries(String en_name, String ar_name) {
             this.en_name = en_name;
@@ -37,9 +45,7 @@ public class Country_Model implements Serializable {
             return ar_name;
         }
 
-        public String getCode() {
-            return code;
-        }
+
 
         public String getCreated_at() {
             return created_at;

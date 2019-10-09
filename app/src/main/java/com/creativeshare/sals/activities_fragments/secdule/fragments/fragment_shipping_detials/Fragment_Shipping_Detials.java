@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -25,6 +26,8 @@ import androidx.fragment.app.Fragment;
 import com.creativeshare.sals.activities_fragments.secdule.activity.Scedule_Activity;
 import com.creativeshare.sals.adapter.Spinner_City_Adapter;
 import com.creativeshare.sals.R;
+import com.creativeshare.sals.adapter.Spinner_Country_Adapter;
+import com.creativeshare.sals.models.Country_Model;
 import com.creativeshare.sals.models.Move_Data_Model;
 import com.creativeshare.sals.share.Common;
 import com.creativeshare.sals.models.CityModel;
@@ -39,6 +42,7 @@ import com.creativeshare.sals.tags.Tags;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.List;
 import java.util.Locale;
 
@@ -58,13 +62,19 @@ public class Fragment_Shipping_Detials extends Fragment {
     private ImageView im_document, im_parcel, im_map;
     private TextView tv_document, tv_parcel, tv_Quantity;
     private EditText edt_desc, edt_weight, edt_name, edt_phone, edt_address, edt_email;
-    private List<CityModel.Cities> cityModelList;
-    private Spinner spinner_city_to, spinner_city_from;
+    private List<CityModel.postal_codes> cityModelList;
+    private Spinner spinner_city_from, spinner_country_from, spinner_city_to, spinner_country_to;
     private Spinner_City_Adapter city_adapter;
     private int quantity = 1;
     private List<String> wegights, widths, hights, lengths, volumeweights;
-    private String is_dutiable = "0", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", payment_country_code = "SA", postal_codef, cityf, to_city, to_country_code = "SA";
+    private String is_dutiable = "0", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", payment_country_code , cityf, to_city, to_country_code,from_country,to_country,from_country_code ;
+
+
     private String parcel = "0";
+    private List<CityModel.postal_codes> citiesList;
+    private Spinner_City_Adapter city_adapter2;
+    private Spinner_Country_Adapter country_adapter;
+    private List<Country_Model.Countries> countriesList;
 
     public static Fragment_Shipping_Detials newInstance() {
         return new Fragment_Shipping_Detials();
@@ -75,12 +85,14 @@ public class Fragment_Shipping_Detials extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shipping_details, container, false);
         initView(view);
-        getCities();
+        getCountry();
         return view;
     }
 
     private void initView(View view) {
+        countriesList=new ArrayList<>();
         cityModelList = new ArrayList<>();
+        citiesList=new ArrayList<>();
         activity = (Scedule_Activity) getActivity();
         wegights = new ArrayList<>();
         lengths = new ArrayList<>();
@@ -117,30 +129,101 @@ public class Fragment_Shipping_Detials extends Fragment {
         next = view.findViewById(R.id.bt_next);
         spinner_city_to = view.findViewById(R.id.sp_cityto);
         spinner_city_from = view.findViewById(R.id.sp_cityfrom);
+        spinner_country_from = view.findViewById(R.id.sp_countryfrom);
+        spinner_country_to = view.findViewById(R.id.sp_countryto);
         city_adapter = new Spinner_City_Adapter(activity, cityModelList);
-        spinner_city_to.setAdapter(city_adapter);
+        city_adapter2=new Spinner_City_Adapter(activity,citiesList);
+        country_adapter = new Spinner_Country_Adapter(activity, countriesList);
+        spinner_country_from.setAdapter(country_adapter);
+        spinner_country_to.setAdapter(country_adapter);
+        spinner_city_to.setAdapter(city_adapter2);
         spinner_city_from.setAdapter(city_adapter);
+        spinner_country_from.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position ==0)
+                {
+                    from_country="";
+                    from_country_code ="";
+                }else
+                {
+                    payment_country_code=countriesList.get(position).getIso_two();
+                    from_country=countriesList.get(position).getEn_name();
+                    from_country_code = countriesList.get(position).getIso_two();
+                    if(current_lang.equals("en")){
+                        Move_Data_Model.setcountryf(countriesList.get(position).getEn_name());
+                        ;
+                    }
+                    else {
+                        Move_Data_Model.setcountryf(countriesList.get(position).getAr_name());
+
+                    }
+                    Move_Data_Model.setcode(countriesList.get(position).getIso_two());
+
+                    getCities(countriesList.get(position).getIso_two(),1);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spinner_country_to.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position ==0)
+                {
+                    to_country="";
+                    to_country_code ="";
+
+                }else
+                {
+                    to_country_code = countriesList.get(position).getIso_two();
+                    to_country=countriesList.get(position).getEn_name();
+                    if(current_lang.equals("en")){
+                        Move_Data_Model.setCountryt(countriesList.get(position).getEn_name());
+
+                    }
+                    else {
+                        Move_Data_Model.setCountryt(countriesList.get(position).getAr_name());
+
+                    }
+                    Move_Data_Model.setTocountrycode(countriesList.get(position).getIso_two());
+                    Move_Data_Model.settophonecode(countriesList.get(position).getPhone_code());
+                    getCities(countriesList.get(position).getIso_two(),2);
+
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         spinner_city_from.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
                     cityf = "";
                 } else {
-                    cityf = cityModelList.get(position).getEn_name();
+                    cityf = cityModelList.get(position).getCity();
                     // Move_Data_Model.setcityt(to_city);
 
                     Move_Data_Model.setpostalf(cityModelList.get(position).getPostal_code());
-                    if(cityModelList.get(position).getPostal_code().isEmpty()||cityModelList.get(position).getPostal_code()==null){
+                    if(cityModelList.get(position).getPostal_code()==null||cityModelList.get(position).getPostal_code().isEmpty()){
                         Move_Data_Model.setpostalf("21589");
                     }
                     if (current_lang.equals("en")) {
-                        Move_Data_Model.setCityf(cityModelList.get(position).getEn_name());
+                        Move_Data_Model.setCityf(cityModelList.get(position).getCity());
 
                     } else {
-                        Move_Data_Model.setCityf(cityModelList.get(position).getAr_name());
+                        Move_Data_Model.setCityf(cityModelList.get(position).getCity());
 
                     }
-                    Move_Data_Model.setcityfe(cityModelList.get(position).getEn_name());
+                    Move_Data_Model.setcityfe(cityModelList.get(position).getCity());
                 }
             }
 
@@ -155,19 +238,19 @@ public class Fragment_Shipping_Detials extends Fragment {
                 if (position == 0) {
                     to_city = "";
                 } else {
-                    to_city = cityModelList.get(position).getEn_name();
+                    to_city = citiesList.get(position).getCity();
                     // Move_Data_Model.setcityt(to_city);
-                    Move_Data_Model.setpostalt(cityModelList.get(position).getPostal_code());
-                    if(cityModelList.get(position).getPostal_code().isEmpty()||cityModelList.get(position).getPostal_code()==null){
+                    Move_Data_Model.setpostalt(citiesList.get(position).getPostal_code());
+                    if(citiesList.get(position).getPostal_code()==null||citiesList.get(position).getPostal_code().isEmpty()){
                         Move_Data_Model.setpostalt("11543");
                     }
                     if (current_lang.equals("en")) {
-                        Move_Data_Model.setcityt(cityModelList.get(position).getEn_name());
+                        Move_Data_Model.setcityt(citiesList.get(position).getCity());
                     } else {
-                        Move_Data_Model.setcityt(cityModelList.get(position).getAr_name());
+                        Move_Data_Model.setcityt(citiesList.get(position).getCity());
 
                     }
-                    Move_Data_Model.setCityte(cityModelList.get(position).getEn_name());
+                    Move_Data_Model.setCityte(citiesList.get(position).getCity());
 
                 }
             }
@@ -238,7 +321,7 @@ public class Fragment_Shipping_Detials extends Fragment {
 
     }
 
-    private void getCities() {
+  /*  private void getCities() {
 
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
@@ -281,7 +364,7 @@ public class Fragment_Shipping_Detials extends Fragment {
                     }
                 });
 
-    }
+    }*/
 
     private void checkdata() {
         Common.CloseKeyBoard(activity,edt_weight);
@@ -375,15 +458,14 @@ public class Fragment_Shipping_Detials extends Fragment {
                 Move_Data_Model.setParcel(parcel);
                 Move_Data_Model.setemailt(email);
                 Move_Data_Model.setName(name);
-                Move_Data_Model.setcountryf("SAUDI ARABIA");
                 // Move_Data_Model.setcityt(to_city);
                 Move_Data_Model.setPhone(phone);
                 address=address.replaceAll("،","");
                 address = address.replaceAll("\\s(\\d)", "");
                 address = address.replaceAll("(\\d)\\s", "");
-
+                address=address.replaceAll(",","");
+                address=address.replaceAll(" ","");
                 Move_Data_Model.setAdddresst(address);
-                Move_Data_Model.setcode("SA");
                 getQoute(wegights);
 
             }
@@ -511,5 +593,101 @@ public class Fragment_Shipping_Detials extends Fragment {
 
     public void setaddressto(String address) {
         edt_address.setText(address);
+    }
+    private void getCities(String iso_two, final int type) {
+
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+
+        Api.getService(Tags.base_url)
+                .getCity("Bearer"+" "+ userModel.getToken(), iso_two)
+                .enqueue(new Callback<CityModel>() {
+                    @Override
+                    public void onResponse(Call<CityModel> call, Response<CityModel> response) {
+                        dialog.dismiss();
+
+                        if (response.isSuccessful()) {
+                            if (response.body() != null) {
+                                if(type==1){
+                                    cityModelList.clear();
+                                    cityModelList.add(new CityModel.postal_codes("Choose city"));
+                                    cityModelList.addAll(response.body().getPostal_codes());
+                                    city_adapter.notifyDataSetChanged();}
+                                else {
+                                    citiesList.clear();
+                                    cityModelList.add(new CityModel.postal_codes("Choose city"));
+                                    citiesList.addAll(response.body().getPostal_codes());
+                                    city_adapter2.notifyDataSetChanged();
+                                }
+
+                            }
+                        } else {
+                            try {
+                                Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
+                                Log.e("Error_code", response.code() + "" + response.errorBody().string());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<CityModel> call, Throwable t) {
+                        try {
+                            dialog.dismiss();
+                            Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+                            Log.e("Error", t.getMessage());
+                        } catch (Exception e) {
+
+                        }
+                    }
+                });
+
+    }
+
+    private void getCountry() {
+
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+
+        Api.getService(Tags.base_url)
+                .getCoutry("Bearer"+" " + userModel.getToken(), current_lang)
+                .enqueue(new Callback<Country_Model>() {
+                    @Override
+                    public void onResponse(Call<Country_Model> call, Response<Country_Model> response) {
+                        dialog.dismiss();
+
+                        if (response.isSuccessful()) {
+                            if (response.body() != null) {
+                                countriesList.clear();
+                                countriesList.add(new Country_Model.Countries("Choose", "إختر"));
+                                countriesList.addAll(response.body().getCountries());
+                                country_adapter.notifyDataSetChanged();
+
+                            }
+                        } else {
+                            try {
+                                Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
+                                Log.e("Error_code", response.code() + "" + response.errorBody().string());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Country_Model> call, Throwable t) {
+                        try {
+                            dialog.dismiss();
+                            Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+                            Log.e("Error", t.getMessage());
+                        } catch (Exception e) {
+
+                        }
+                    }
+                });
+
     }
 }

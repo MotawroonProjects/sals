@@ -68,15 +68,17 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
     private Spinner spinner_city_from, spinner_country_from, spinner_city_to, spinner_country_to;
-
+    private Spinner_Country_Adapter country_adapter;
     private String date;
     private String time;
-    private List<CityModel.Cities> cityModelList;
+    private List<CityModel.postal_codes> cityModelList;
     private Spinner_City_Adapter city_adapter;
+    private Spinner_City_Adapter city_adapter2;
     private List<Country_Model.Countries> countriesList;
-    private Spinner_Country_Adapter country_adapter;
+    private List<CityModel.postal_codes>citiesList;
+
     private int quantity = 1;
-    private String is_dutiable = "0", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", payment_country_code = "SA", from_country_code = "SA", from_city, to_city, to_country_code = "SA";
+    private String is_dutiable = "0", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", payment_country_code , from_country_code , from_city, to_city, to_country_code,from_country,to_country;
 
     public static Fragment_Calculate_price newInstance() {
         return new Fragment_Calculate_price();
@@ -87,14 +89,14 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calculate_price, container, false);
         initView(view);
-        //   getCountry();
-        getCities();
+           getCountry();
         return view;
     }
 
     private void initView(View view) {
         cityModelList = new ArrayList<>();
         countriesList = new ArrayList<>();
+        citiesList=new ArrayList<>();
         activity = (Home_Activity) getActivity();
         Paper.init(activity);
         preferences = Preferences.getInstance();
@@ -122,8 +124,9 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
         spinner_country_to = view.findViewById(R.id.sp_countryto);
         spinner_city_to = view.findViewById(R.id.sp_cityto);
         city_adapter = new Spinner_City_Adapter(activity, cityModelList);
+        city_adapter2=new Spinner_City_Adapter(activity,citiesList);
         country_adapter = new Spinner_Country_Adapter(activity, countriesList);
-        spinner_city_to.setAdapter(city_adapter);
+        spinner_city_to.setAdapter(city_adapter2);
         spinner_city_from.setAdapter(city_adapter);
         spinner_country_from.setAdapter(country_adapter);
         spinner_country_to.setAdapter(country_adapter);
@@ -138,12 +141,13 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
                 if (position == 0) {
                     from_city = "";
                 } else {
-                    from_city = cityModelList.get(position).getEn_name();
+                    from_city = cityModelList.get(position).getCity();
                     if(current_lang.equals("en")){
-                        Computrized_Model.setCity_From(cityModelList.get(position).getEn_name());
+                        Computrized_Model.setCity_From(cityModelList.get(position).getCity());
+
                     }
                     else {
-                        Computrized_Model.setCity_From(cityModelList.get(position).getAr_name());
+                        Computrized_Model.setCity_From(cityModelList.get(position).getCity());
 
                     }
                 }
@@ -160,12 +164,12 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
                 if (position == 0) {
                     to_city = "";
                 } else {
-                    to_city = cityModelList.get(position).getEn_name();
+                    to_city = citiesList.get(position).getCity();
                     if(current_lang.equals("en")){
-                        Computrized_Model.setCity_to(cityModelList.get(position).getEn_name());
+                        Computrized_Model.setCity_to(citiesList.get(position).getCity());
                     }
                     else {
-                        Computrized_Model.setCity_to(cityModelList.get(position).getAr_name());
+                        Computrized_Model.setCity_to(citiesList.get(position).getCity());
 
                     }
                 }
@@ -176,15 +180,28 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
 
             }
         });
-      /*  spinner_country_from.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+       spinner_country_from.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
                 if (position ==0)
                 {
+from_country="";
                     from_country_code ="";
                 }else
                 {
-                    from_country_code = countriesList.get(position).getCode();
+                    payment_country_code=countriesList.get(position).getIso_two();
+                    from_country=countriesList.get(position).getEn_name();
+                    from_country_code = countriesList.get(position).getIso_two();
+                    if(current_lang.equals("en")){
+                        Computrized_Model.setCountry_from(countriesList.get(position).getEn_name());
+                        ;
+                    }
+                    else {
+                        Computrized_Model.setCountry_from(countriesList.get(position).getAr_name());
+
+                    }
+                    getCities(countriesList.get(position).getIso_two(),1);
                 }
             }
 
@@ -192,16 +209,29 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });*/
-       /* spinner_country_to.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        });
+       spinner_country_to.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position ==0)
                 {
+                    to_country="";
                    to_country_code ="";
+
                 }else
                 {
-                    to_country_code = countriesList.get(position).getCode();
+                    to_country_code = countriesList.get(position).getIso_two();
+                   to_country=countriesList.get(position).getEn_name();
+                    if(current_lang.equals("en")){
+                        Computrized_Model.setCountry_to(countriesList.get(position).getEn_name());
+                    }
+                    else {
+                        Computrized_Model.setCountry_to(countriesList.get(position).getAr_name());
+
+                    }
+                    getCities(countriesList.get(position).getIso_two(),2);
+
+
                 }
             }
 
@@ -209,7 +239,7 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });*/
+        });
         bt_incremental.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -497,7 +527,7 @@ Log.e("kkk",date);
         //time = calendar.getTimeInMillis();
     }
 
-    private void getCities() {
+   /* private void getCities() {
 
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
@@ -516,6 +546,57 @@ Log.e("kkk",date);
                                 cityModelList.add(new CityModel.Cities("إختر  المدينه", "Choose city"));
                                 cityModelList.addAll(response.body().getCities());
                                 city_adapter.notifyDataSetChanged();
+
+                            }
+                        } else {
+                            try {
+                                Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
+                                Log.e("Error_code", response.code() + "" + response.errorBody().string());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<CityModel> call, Throwable t) {
+                        try {
+                            dialog.dismiss();
+                            Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+                            Log.e("Error", t.getMessage());
+                        } catch (Exception e) {
+
+                        }
+                    }
+                });
+
+    }*/
+    private void getCities(String iso_two, final int type) {
+
+        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+
+        Api.getService(Tags.base_url)
+                .getCity("Bearer"+" "+ userModel.getToken(), iso_two)
+                .enqueue(new Callback<CityModel>() {
+                    @Override
+                    public void onResponse(Call<CityModel> call, Response<CityModel> response) {
+                        dialog.dismiss();
+
+                        if (response.isSuccessful()) {
+                            if (response.body() != null) {
+                                if(type==1){
+                                cityModelList.clear();
+                                cityModelList.add(new CityModel.postal_codes("Choose city"));
+                                cityModelList.addAll(response.body().getPostal_codes());
+                                city_adapter.notifyDataSetChanged();}
+                                else {
+                                    citiesList.clear();
+                                    cityModelList.add(new CityModel.postal_codes("Choose city"));
+                                    citiesList.addAll(response.body().getPostal_codes());
+                                    city_adapter2.notifyDataSetChanged();
+                                }
 
                             }
                         } else {

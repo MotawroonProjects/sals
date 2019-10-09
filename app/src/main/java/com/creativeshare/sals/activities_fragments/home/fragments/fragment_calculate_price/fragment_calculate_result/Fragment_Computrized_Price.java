@@ -35,10 +35,11 @@ public class Fragment_Computrized_Price extends Fragment {
     private Home_Activity activity;
     private String current_lang;
     private ImageView back_arrow, im_additionalservices;
-    private TextView tv_document, tv_cityf, tv_cityt, tv_day, tv_num, tv_price, tv_time,tv_total_pricesals;
+    private TextView tv_document, tv_cityf, tv_cityt, tv_day, tv_num, tv_price, tv_time, tv_total_pricesals, tvcounttryf, tvcountryto;
     private LinearLayout ll_next;
-private Preferences preferences;
-private UserModel userModel;
+    private Preferences preferences;
+    private UserModel userModel;
+
     public static Fragment_Computrized_Price newInstance() {
         return new Fragment_Computrized_Price();
     }
@@ -49,27 +50,28 @@ private UserModel userModel;
         View view = inflater.inflate(R.layout.fragment_computerized_price, container, false);
         initView(view);
         getappcommission();
-       // applydata(response.body());
+        // applydata(response.body());
         return view;
     }
 
     private void applydata(Prectage_Model body) {
-        double price=Double.parseDouble(body.getRate());
+        double price = Double.parseDouble(body.getRate());
         tv_document.setText(Computrized_Model.getType());
         tv_cityf.setText(Computrized_Model.getCity_From());
         tv_cityt.setText(Computrized_Model.getCity_to());
         tv_num.setText(Computrized_Model.getQuantity() + getResources().getString(R.string.pieces) + Computrized_Model.getWeight() + getResources().getString(R.string.kg));
-        tv_day.setText(getResources().getString(R.string.Delivery)+" "+Computrized_Model.getDay_number()+getResources().getString(R.string.days));
-        tv_price.setText(getResources().getString(R.string.from_dhl)+" "+Computrized_Model.getPrice() + getResources().getString(R.string.ryal));
-        tv_total_pricesals.setText(getResources().getString(R.string.from_sals)+" "+(Double.parseDouble(Computrized_Model.getPrice())-(Double.parseDouble(Computrized_Model.getPrice())*price)/100) + getResources().getString(R.string.ryal));
-
+        tv_day.setText(getResources().getString(R.string.Delivery) + " " + Computrized_Model.getDay_number() + getResources().getString(R.string.days));
+        tv_price.setText(getResources().getString(R.string.from_dhl) + " " + Computrized_Model.getPrice() + getResources().getString(R.string.ryal));
+        tv_total_pricesals.setText(getResources().getString(R.string.from_sals) + " " + (Double.parseDouble(Computrized_Model.getPrice()) - (Double.parseDouble(Computrized_Model.getPrice()) * price) / 100) + getResources().getString(R.string.ryal));
+        tvcounttryf.setText(Computrized_Model.getCountry_from());
+        tvcountryto.setText(Computrized_Model.getCountry_to());
         tv_time.setText(Computrized_Model.getTime());
     }
 
     private void initView(View view) {
         activity = (Home_Activity) getActivity();
-        preferences=Preferences.getInstance();
-        userModel=preferences.getUserData(activity);
+        preferences = Preferences.getInstance();
+        userModel = preferences.getUserData(activity);
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         back_arrow = view.findViewById(R.id.arrow);
@@ -82,7 +84,9 @@ private UserModel userModel;
         tv_day = view.findViewById(R.id.tv_day);
         tv_price = view.findViewById(R.id.tv_price);
         tv_time = view.findViewById(R.id.tv_times);
-        tv_total_pricesals=view.findViewById(R.id.tv_total_pricesals);
+        tvcounttryf = view.findViewById(R.id.tv_countryf);
+        tvcountryto = view.findViewById(R.id.tvCountryt);
+        tv_total_pricesals = view.findViewById(R.id.tv_total_pricesals);
 
         if (current_lang.equals("ar")) {
             back_arrow.setRotation(180.0f);
@@ -104,21 +108,21 @@ private UserModel userModel;
         });
 
     }
+
     private void getappcommission() {
         // getbankaccounts();
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService().getappcommission("Bearer"+" "+ userModel.getToken()).enqueue(new Callback<Prectage_Model>() {
+        Api.getService().getappcommission("Bearer" + " " + userModel.getToken()).enqueue(new Callback<Prectage_Model>() {
             @Override
             public void onResponse(Call<Prectage_Model> call, Response<Prectage_Model> response) {
 
                 dialog.dismiss();
                 if (response.isSuccessful() && response.body() != null) {
                     applydata(response.body());
-                }
-                else {
-                    Log.e("ll",response.code()+""+response.errorBody());
+                } else {
+                    Log.e("ll", response.code() + "" + response.errorBody());
                 }
             }
 

@@ -242,6 +242,8 @@ checkdata();
             addressf=addressf.replaceAll("،","");
             addressf = addressf.replaceAll("\\s(\\d)", "");
             addressf = addressf.replaceAll("(\\d)\\s", "");
+            addressf=addressf.replaceAll(",","");
+            addressf=addressf.replaceAll(" ","");
 
 
             Log.e("add",addressf);

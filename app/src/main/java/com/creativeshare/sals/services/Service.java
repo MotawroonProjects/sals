@@ -93,6 +93,7 @@ public interface Service {
             @Header("Authorization") String Authorization
 
     );
+
     @GET("api/get-rate")
     Call<Prectage_Model> getappcommission(
             @Header("Authorization") String Authorization
@@ -105,12 +106,14 @@ public interface Service {
                                @Field("last_name") String last_name,
                                @Header("Authorization") String Authorization
     );
+
     @FormUrlEncoded
     @POST("api/profile/email/update")
     Call<UserModel> updatermail(@Field("email") String email,
 
-                               @Header("Authorization") String Authorization
+                                @Header("Authorization") String Authorization
     );
+
     @GET("api/profile/address/all")
     Call<Address_Model> getalladdress(
             @Header("Authorization") String Authorization
@@ -188,12 +191,14 @@ public interface Service {
             @Header("lang") String lang
 
     );
+
     @GET("api/support/tickets/categories")
     Call<Support_Catogry_Model> getIssue(
             @Header("Authorization") String Authorization,
             @Header("lang") String lang
 
     );
+
     @GET("api/other-services")
     Call<Other_Services_Model> getOtherservices(
             @Header("Authorization") String Authorization,
@@ -215,10 +220,11 @@ public interface Service {
 
     );
 
-    @GET("/api/cities")
+    @FormUrlEncoded
+    @POST("/api/postal-codes")
     Call<CityModel> getCity(
             @Header("Authorization") String Authorization,
-            @Header("lang") String lang
+            @Field("iso_two") String iso_two
 
     );
 
@@ -230,6 +236,7 @@ public interface Service {
             @Header("lang") String lang
 
     );
+
     @GET("api/orders-incoming")
     Call<Orders_Model> getrecivedorders(
             @Query("page") int page,
@@ -237,6 +244,7 @@ public interface Service {
             @Header("lang") String lang
 
     );
+
     @FormUrlEncoded
     @POST("api/get-quote")
     Call<Quote_Model> get_quote(
@@ -255,6 +263,7 @@ public interface Service {
             @Field("to_country_code") String to_country_code
 
     );
+
     @FormUrlEncoded
     @POST("api/get-quote")
     Call<Quote_Array_Model> get_quote2(
@@ -273,17 +282,20 @@ public interface Service {
             @Field("to_country_code") String to_country_code
 
     );
+
     @FormUrlEncoded
     @POST("api/firebase-token")
     Call<ResponseBody> updateToken(
             @Header("Authorization") String Authorization,
             @Field("number_token") String number_token
     );
+
     @POST("api/make-payment")
     Call<Payment_Result_Model> Payship(
             @Header("Authorization") String Authorization,
             @Body Pay_Model pay_model
     );
+
     @FormUrlEncoded
     @POST("api/dhl-make-shipment")
     Call<Shipment_Response_Model> makeshipment(
@@ -322,10 +334,11 @@ public interface Service {
             @Field("pieces[0][height]") List<String> height,
             @Field("pieces[0][depth]") List<String> depth
 */
-             @FieldMap Map<String, String> hashMap
+            @FieldMap Map<String, String> hashMap
 
 
-            );
+    );
+
     @FormUrlEncoded
     @POST("api/support/tickets/create")
     Call<Ticket_Model> createticket(
@@ -339,6 +352,7 @@ public interface Service {
             @Field("order_id") String order_id
 
     );
+
     @FormUrlEncoded
     @POST("api/dhl-track-shipment")
     Call<Track_Model> track(
@@ -347,6 +361,7 @@ public interface Service {
 
 
     );
+
     @GET("place/findplacefromtext/json")
     Call<PlaceMapDetailsData> searchOnMap(@Query(value = "inputtype") String inputtype,
                                           @Query(value = "input") String input,

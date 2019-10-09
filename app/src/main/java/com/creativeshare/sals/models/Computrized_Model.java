@@ -11,9 +11,16 @@ public class Computrized_Model {
     static String type;
     static String quantity;
     static String weight;
+    private static String Country_to;
+    private static String country_from;
 
+    public static String getCountry_from() {
+        return country_from;
+    }
 
-
+    public static String getCountry_to() {
+        return Country_to;
+    }
 
     public static String getQuantity() {
         return quantity;
@@ -81,4 +88,11 @@ public class Computrized_Model {
         Computrized_Model.type = type;
     }
 
+    public static void setCountry_to(String en_name) {
+        Computrized_Model.Country_to=en_name;
+    }
+
+    public static void setCountry_from(String ar_name) {
+        Computrized_Model.country_from=ar_name;
+    }
 }

@@ -243,8 +243,9 @@ checkdata();
             addressf = addressf.replaceAll("\\s(\\d)", "");
             addressf = addressf.replaceAll("(\\d)\\s", "");
             addressf=addressf.replaceAll(",","");
-            addressf=addressf.replaceAll(" ","");
-
+            if(addressf.length()>23){
+                addressf=addressf.substring(0,22);
+            }
 
             Log.e("add",addressf);
 

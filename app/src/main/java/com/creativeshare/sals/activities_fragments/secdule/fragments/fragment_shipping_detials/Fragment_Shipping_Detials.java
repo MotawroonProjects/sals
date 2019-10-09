@@ -464,7 +464,9 @@ public class Fragment_Shipping_Detials extends Fragment {
                 address = address.replaceAll("\\s(\\d)", "");
                 address = address.replaceAll("(\\d)\\s", "");
                 address=address.replaceAll(",","");
-                address=address.replaceAll(" ","");
+                if(address.length()>23){
+                    address=address.substring(0,22);
+                }
                 Move_Data_Model.setAdddresst(address);
                 getQoute(wegights);
 

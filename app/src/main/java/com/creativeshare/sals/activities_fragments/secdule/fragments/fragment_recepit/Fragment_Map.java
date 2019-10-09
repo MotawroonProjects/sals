@@ -266,6 +266,7 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
                             if (response.body().getCandidates().size() > 0) {
 
                                 address = response.body().getCandidates().get(0).getFormatted_address().replace("Unnamed Road,","");
+
                                 //place_id = response.body().getCandidates().get(0).getPlace_id();
                                 //tv_address.setText(address+"");
                                 AddMarker(response.body().getCandidates().get(0).getGeometry().getLocation().getLat(),response.body().getCandidates().get(0).getGeometry().getLocation().getLng(),false);

@@ -622,7 +622,7 @@ public class Fragment_Shipping_Detials extends Fragment {
                                     city_adapter.notifyDataSetChanged();}
                                 else {
                                     citiesList.clear();
-                                    cityModelList.add(new CityModel.postal_codes("Choose city"));
+                                    citiesList.add(new CityModel.postal_codes("Choose city"));
                                     citiesList.addAll(response.body().getPostal_codes());
                                     city_adapter2.notifyDataSetChanged();
                                 }

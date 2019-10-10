@@ -330,9 +330,13 @@ from_country="";
         Common.CloseKeyBoard(activity,edt_weight);
 
         String weight=edt_weight.getText().toString();
-        if (TextUtils.isEmpty(from_city) || TextUtils.isEmpty(to_city) ||TextUtils.isEmpty(weight)||TextUtils.isEmpty(date)||TextUtils.isEmpty(time)){
+        if (TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country)||TextUtils.isEmpty(from_city) || TextUtils.isEmpty(to_city) ||TextUtils.isEmpty(weight)||TextUtils.isEmpty(date)||TextUtils.isEmpty(time)){
             if(TextUtils.isEmpty(from_city)|| TextUtils.isEmpty(to_city) ){
                 Toast.makeText(activity,getResources().getString(R.string.add_city),Toast.LENGTH_LONG).show();
+            }
+            if(TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country)){
+                Common.CreateSignAlertDialog(activity, getResources().getString(R.string.Add_Country));
+
             }
             if(TextUtils.isEmpty(weight)){
                 edt_weight.setError(getResources().getString(R.string.field_req));

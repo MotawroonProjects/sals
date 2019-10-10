@@ -375,13 +375,17 @@ public class Fragment_Shipping_Detials extends Fragment {
             String phone = edt_phone.getText().toString();
             String address = edt_address.getText().toString();
             String email = edt_email.getText().toString();
-            if (TextUtils.isEmpty(to_city) || TextUtils.isEmpty(cityf) || TextUtils.isEmpty(weight) || TextUtils.isEmpty(name) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(address) || TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            if (TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country)||TextUtils.isEmpty(to_city) || TextUtils.isEmpty(cityf) || TextUtils.isEmpty(weight) || TextUtils.isEmpty(name) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(address) || TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
 
                 if (TextUtils.isEmpty(weight)) {
                     edt_weight.setError(getResources().getString(R.string.field_req));
                 }
                 if (TextUtils.isEmpty(to_city) || TextUtils.isEmpty(cityf)) {
                     Common.CreateSignAlertDialog(activity, getResources().getString(R.string.add_city));
+                }
+                if(TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country)){
+                    Common.CreateSignAlertDialog(activity, getResources().getString(R.string.Add_Country));
+
                 }
                 if (TextUtils.isEmpty(name)) {
                     edt_name.setError(getResources().getString(R.string.field_req));

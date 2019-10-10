@@ -147,17 +147,21 @@
                 android:singleLine="true"
 
                 />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
                 android:layout_weight=".01"
+
+                >
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="25dp"
                 android:background="@color/white"
-                android:paddingTop="8dp"
                 android:src="@drawable/bin"
                 android:scaleType="fitEnd"
-
+android:padding="3dp"
                 />
+            </FrameLayout>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -190,17 +194,22 @@
                 android:textSize="14sp"
                 android:singleLine="true"
                 />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
                 android:layout_weight=".001"
+
+                >
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="25dp"
                 android:background="@color/white"
                 android:src="@drawable/ic_mail"
                 android:scaleType="fitEnd"
 android:tint="@color/colorAccent"
 
                 />
+            </FrameLayout>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -233,17 +242,22 @@ android:tint="@color/colorAccent"
                 android:textSize="14sp"
 android:singleLine="true"
                 />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
                 android:layout_weight=".001"
+
+                >
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="25dp"
                 android:background="@color/white"
                 android:src="@drawable/phone"
                 android:scaleType="fitEnd"
 
 
                 />
+            </FrameLayout>
         </LinearLayout>
 <View
     android:layout_width="match_parent"
@@ -276,16 +290,24 @@ android:singleLine="true"
                 android:gravity="center_vertical"
 android:singleLine="true"
                 />
-
-            <ImageView
-                android:id="@+id/im_map"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
                 android:layout_weight=".001"
-                android:background="@color/white"
-                android:scaleType="fitEnd"
 
-                android:src="@drawable/customer_services_center" />
+                >
+
+                <ImageView
+                    android:id="@+id/im_map"
+                    android:layout_width="45dp"
+                    android:layout_height="25dp"
+                    android:background="@color/white"
+                    android:scaleType="fitEnd"
+
+                    android:src="@drawable/customer_services_center" />
+
+            </FrameLayout>
+
         </LinearLayout>
 
         <View

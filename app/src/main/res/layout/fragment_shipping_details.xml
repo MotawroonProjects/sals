@@ -42,7 +42,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:spinnerMode="dialog"
+                >
 
             </Spinner>
         </LinearLayout>
@@ -65,7 +67,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:spinnerMode="dialog"
+
+                >
 
             </Spinner>
         </LinearLayout>
@@ -96,6 +101,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="@color/white"
+                android:spinnerMode="dialog"
 
                 >
 
@@ -120,7 +126,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:spinnerMode="dialog"
+
+                >
 
             </Spinner>
         </LinearLayout>

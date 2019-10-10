@@ -25,6 +25,7 @@
             android:text="@string/shipping_from"
             android:textColor="@color/black"
             android:textSize="15sp" />
+
         <LinearLayout
 
             android:layout_width="match_parent"
@@ -45,19 +46,19 @@
 
             </Spinner>
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/gray3"
-            />
+            android:background="@color/gray3" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:padding="10dp"
             android:background="@drawable/linear_underline_shape"
-            >
+            android:padding="10dp">
 
             <Spinner
                 android:id="@+id/sp_cityfrom"
@@ -68,6 +69,7 @@
 
             </Spinner>
         </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -78,6 +80,7 @@
             android:text="@string/shipping_to"
             android:textColor="@color/black"
             android:textSize="15sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -98,19 +101,19 @@
 
             </Spinner>
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/gray3"
-            />
+            android:background="@color/gray3" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:padding="10dp"
             android:background="@drawable/linear_underline_shape"
-            >
+            android:padding="10dp">
 
             <Spinner
                 android:id="@+id/sp_cityto"
@@ -141,35 +144,37 @@
                 android:hint="@string/fullname"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
+                android:singleLine="true"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray4"
                 android:textSize="14sp"
-                android:singleLine="true"
 
                 />
+
             <FrameLayout
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_weight=".01"
 
                 >
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="25dp"
-                android:background="@color/white"
-                android:src="@drawable/bin"
-                android:scaleType="fitEnd"
-android:padding="3dp"
-                />
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:padding="3dp"
+                    android:src="@drawable/bin" />
             </FrameLayout>
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/gray4"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            />
+            android:layout_marginRight="20dp"
+            android:background="@color/gray4" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -189,35 +194,37 @@ android:padding="3dp"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
+                android:singleLine="true"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray4"
-                android:textSize="14sp"
-                android:singleLine="true"
-                />
+                android:textSize="14sp" />
+
             <FrameLayout
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_weight=".001"
 
                 >
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="25dp"
-                android:background="@color/white"
-                android:src="@drawable/ic_mail"
-                android:scaleType="fitEnd"
-android:tint="@color/colorAccent"
 
-                />
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_mail"
+                    android:tint="@color/colorAccent"
+
+                    />
             </FrameLayout>
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/gray4"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            />
+            android:layout_marginRight="20dp"
+            android:background="@color/gray4" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -237,35 +244,36 @@ android:tint="@color/colorAccent"
                 android:inputType="phone"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
+                android:singleLine="true"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray4"
-                android:textSize="14sp"
-android:singleLine="true"
-                />
+                android:textSize="14sp" />
+
             <FrameLayout
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_weight=".001"
 
                 >
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="25dp"
-                android:background="@color/white"
-                android:src="@drawable/phone"
-                android:scaleType="fitEnd"
 
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:src="@drawable/phone"
 
-                />
+                    />
             </FrameLayout>
         </LinearLayout>
-<View
-    android:layout_width="match_parent"
-    android:layout_height="1px"
-    android:background="@color/gray4"
-    android:layout_marginRight="20dp"
-    android:layout_marginLeft="20dp"
-    />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/gray4" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -282,17 +290,17 @@ android:singleLine="true"
                 android:layout_height="match_parent"
                 android:layout_weight=".999"
                 android:background="@color/white"
+                android:gravity="center_vertical"
                 android:hint="@string/enter_address_or_select_on_map"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
+                android:singleLine="true"
                 android:textColor="@color/black"
-                android:textSize="14sp"
-                android:gravity="center_vertical"
-android:singleLine="true"
-                />
+                android:textSize="14sp" />
+
             <FrameLayout
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_weight=".001"
 
                 >
@@ -301,9 +309,8 @@ android:singleLine="true"
                     android:id="@+id/im_map"
                     android:layout_width="45dp"
                     android:layout_height="25dp"
+                    android:layout_gravity="center"
                     android:background="@color/white"
-                    android:scaleType="fitEnd"
-
                     android:src="@drawable/customer_services_center" />
 
             </FrameLayout>
@@ -313,18 +320,18 @@ android:singleLine="true"
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/gray4"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            />
+            android:layout_marginRight="20dp"
+            android:background="@color/gray4" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_marginTop="5dp"
             android:background="@color/gray3"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:layout_marginTop="5dp"
             android:text="@string/what_you_want_to_ship"
             android:textColor="@color/black"
             android:textSize="15sp" />
@@ -413,24 +420,24 @@ android:singleLine="true"
 
 
         </LinearLayout>
-<EditText
-    android:id="@+id/edt_desc"
-    android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:hint="@string/description"
-    android:textColor="@color/black"
-    android:textColorHint="@color/gray4"
-    android:paddingRight="10dp"
-    android:paddingLeft="10dp"
-    android:visibility="gone"
-    />
+
+        <EditText
+            android:id="@+id/edt_desc"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:hint="@string/description"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray4"
+            android:visibility="gone" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
-            android:weightSum="2"
-            >
+            android:weightSum="2">
 
             <TextView
                 android:layout_width="0dp"
@@ -447,20 +454,19 @@ android:singleLine="true"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:orientation="horizontal"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:weightSum="3"
-                >
+                android:orientation="horizontal"
+                android:weightSum="3">
 
                 <ImageButton
                     android:id="@+id/decrement"
                     android:layout_width="0dp"
                     android:layout_height="35dp"
                     android:layout_weight="1"
-                   android:src="@drawable/ic_minus"
                     android:background="@drawable/linear_shape"
-                   android:tint="@color/colorAccent"
+                    android:src="@drawable/ic_minus"
+                    android:tint="@color/colorAccent"
 
                     />
 
@@ -468,21 +474,19 @@ android:singleLine="true"
                     android:id="@+id/tv_quantity"
                     android:layout_width="0dp"
                     android:layout_height="35dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="1"
-                    android:textColor="@color/black"
-                    android:layout_weight="1"
-                    />
+                    android:textColor="@color/black" />
 
                 <ImageButton
                     android:id="@+id/increment"
                     android:layout_width="0dp"
                     android:layout_height="35dp"
-                    android:src="@drawable/ic_add"
-                 android:tint="@color/colorAccent"
                     android:layout_weight="1"
                     android:background="@drawable/linear_shape"
-                    />
+                    android:src="@drawable/ic_add"
+                    android:tint="@color/colorAccent" />
             </LinearLayout>
         </LinearLayout>
 
@@ -490,9 +494,8 @@ android:singleLine="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="1"
             android:padding="5dp"
-            >
+            android:weightSum="1">
 
             <TextView
                 android:layout_width="0dp"
@@ -512,19 +515,19 @@ android:singleLine="true"
                 android:layout_weight=".4"
                 android:gravity="center_vertical"
                 android:hint="@string/size"
+                android:inputType="numberDecimal"
                 android:padding="10dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:singleLine="true"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray4"
                 android:textSize="14sp"
-                android:theme="@style/AppTheme.LighterEditText"
-                android:inputType="numberDecimal"
-                android:singleLine="true"
-                android:paddingRight="8dp"
-                android:paddingLeft="8dp"
-                />
+                android:theme="@style/AppTheme.LighterEditText" />
 
 
         </LinearLayout>
+
         <Button
             android:id="@+id/bt_shipping_dimensions"
             android:layout_width="match_parent"
@@ -538,8 +541,7 @@ android:singleLine="true"
             android:text="@string/shipping_dimensions"
             android:textColor="@color/white"
             android:textSize="15sp"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/bt_next"
@@ -554,7 +556,6 @@ android:singleLine="true"
             android:text="@string/save"
             android:textColor="@color/white"
             android:textSize="15sp" />
-
 
 
     </LinearLayout>

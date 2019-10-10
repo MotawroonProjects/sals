@@ -163,7 +163,7 @@
                     android:layout_height="25dp"
                     android:layout_gravity="center"
                     android:background="@color/white"
-                    android:padding="3dp"
+                    android:padding="5dp"
                     android:src="@drawable/bin" />
             </FrameLayout>
         </LinearLayout>
@@ -213,6 +213,7 @@
                     android:background="@color/white"
                     android:src="@drawable/ic_mail"
                     android:tint="@color/colorAccent"
+                    android:padding="5dp"
 
                     />
             </FrameLayout>

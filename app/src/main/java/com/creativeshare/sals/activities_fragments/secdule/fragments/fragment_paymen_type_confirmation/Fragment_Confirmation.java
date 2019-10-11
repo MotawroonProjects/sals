@@ -47,6 +47,7 @@ import retrofit2.Response;
 
 import static android.content.Context.CLIPBOARD_SERVICE;
 
+
 public class Fragment_Confirmation extends Fragment  implements DatePickerDialog.OnDateSetListener{
     private Scedule_Activity activity;
     private String current_lang;

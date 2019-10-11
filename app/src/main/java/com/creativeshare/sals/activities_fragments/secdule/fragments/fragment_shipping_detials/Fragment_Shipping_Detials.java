@@ -384,7 +384,7 @@ public class Fragment_Shipping_Detials extends Fragment {
                     Common.CreateSignAlertDialog(activity, getResources().getString(R.string.add_city));
                 }
                 if(TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country)){
-                    Common.CreateSignAlertDialog(activity, getResources().getString(R.string.Add_Country));
+                    Common.CreateSignAlertDialog(activity, getResources().getString(R.string.add_Country));
 
                 }
                 if (TextUtils.isEmpty(name)) {

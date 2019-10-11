@@ -335,7 +335,7 @@ from_country="";
                 Toast.makeText(activity,getResources().getString(R.string.add_city),Toast.LENGTH_LONG).show();
             }
             if(TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country)){
-                Common.CreateSignAlertDialog(activity, getResources().getString(R.string.Add_Country));
+                Common.CreateSignAlertDialog(activity, getResources().getString(R.string.add_Country));
 
             }
             if(TextUtils.isEmpty(weight)){

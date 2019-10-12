@@ -92,7 +92,7 @@ public class Fragment_Shipping_Detials extends Fragment {
     private void initView(View view) {
         countriesList = new ArrayList<>();
         cityModelList = new ArrayList<>();
-        citiesList = new ArrayList<>();
+        citiesList=new ArrayList<>();
         activity = (Scedule_Activity) getActivity();
         wegights = new ArrayList<>();
         lengths = new ArrayList<>();

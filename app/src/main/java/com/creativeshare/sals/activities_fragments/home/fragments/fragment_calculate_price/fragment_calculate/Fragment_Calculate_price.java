@@ -452,8 +452,14 @@ catch (Exception e){
     }
 
     private void adddata2(Quote_Array_Model body) {
-        Computrized_Model.setPrice(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getWeightCharge());
-        Computrized_Model.setDay_number(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getTotalTransitDays());
+        double total=0;
+        int totalday=0;
+        for(int i=0;i<body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().size();i++){
+            total+=Double.parseDouble(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(i).getWeightCharge());
+            totalday+=Integer.parseInt(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(i).getTotalTransitDays());
+        }
+        Computrized_Model.setPrice(total+"");
+        Computrized_Model.setDay_number(totalday+"");
 
         Computrized_Model.setTime(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getDeliveryTime());
         activity.DisplayFragmentComputrizedprice();

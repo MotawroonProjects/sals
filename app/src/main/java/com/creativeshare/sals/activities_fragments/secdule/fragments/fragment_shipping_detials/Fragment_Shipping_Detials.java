@@ -67,7 +67,7 @@ public class Fragment_Shipping_Detials extends Fragment {
     private Spinner_City_Adapter city_adapter;
     private int quantity = 1;
     private List<String> wegights, widths, hights, lengths, volumeweights;
-    private String is_dutiable = "0", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", payment_country_code , cityf, to_city, to_country_code,from_country,to_country,from_country_code ;
+    private String is_dutiable = "0", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", payment_country_code, cityf, to_city, to_country_code, from_country, to_country, from_country_code;
 
 
     private String parcel = "0";
@@ -90,9 +90,9 @@ public class Fragment_Shipping_Detials extends Fragment {
     }
 
     private void initView(View view) {
-        countriesList=new ArrayList<>();
+        countriesList = new ArrayList<>();
         cityModelList = new ArrayList<>();
-        citiesList=new ArrayList<>();
+        citiesList = new ArrayList<>();
         activity = (Scedule_Activity) getActivity();
         wegights = new ArrayList<>();
         lengths = new ArrayList<>();
@@ -132,7 +132,7 @@ public class Fragment_Shipping_Detials extends Fragment {
         spinner_country_from = view.findViewById(R.id.sp_countryfrom);
         spinner_country_to = view.findViewById(R.id.sp_countryto);
         city_adapter = new Spinner_City_Adapter(activity, cityModelList);
-        city_adapter2=new Spinner_City_Adapter(activity,citiesList);
+        city_adapter2 = new Spinner_City_Adapter(activity, citiesList);
         country_adapter = new Spinner_Country_Adapter(activity, countriesList);
         spinner_country_from.setAdapter(country_adapter);
         spinner_country_to.setAdapter(country_adapter);
@@ -142,26 +142,23 @@ public class Fragment_Shipping_Detials extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                if (position ==0)
-                {
-                    from_country="";
-                    from_country_code ="";
-                }else
-                {
-                    payment_country_code=countriesList.get(position).getIso_two();
-                    from_country=countriesList.get(position).getEn_name();
+                if (position == 0) {
+                    from_country = "";
+                    from_country_code = "";
+                } else {
+                    payment_country_code = countriesList.get(position).getIso_two();
+                    from_country = countriesList.get(position).getEn_name();
                     from_country_code = countriesList.get(position).getIso_two();
-                    if(current_lang.equals("en")){
+                    if (current_lang.equals("en")) {
                         Move_Data_Model.setcountryf(countriesList.get(position).getEn_name());
                         ;
-                    }
-                    else {
+                    } else {
                         Move_Data_Model.setcountryf(countriesList.get(position).getAr_name());
 
                     }
                     Move_Data_Model.setcode(countriesList.get(position).getIso_two());
 
-                    getCities(countriesList.get(position).getIso_two(),1);
+                    getCities(countriesList.get(position).getIso_two(), 1);
                 }
             }
 
@@ -173,26 +170,23 @@ public class Fragment_Shipping_Detials extends Fragment {
         spinner_country_to.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position ==0)
-                {
-                    to_country="";
-                    to_country_code ="";
+                if (position == 0) {
+                    to_country = "";
+                    to_country_code = "";
 
-                }else
-                {
+                } else {
                     to_country_code = countriesList.get(position).getIso_two();
-                    to_country=countriesList.get(position).getEn_name();
-                    if(current_lang.equals("en")){
+                    to_country = countriesList.get(position).getEn_name();
+                    if (current_lang.equals("en")) {
                         Move_Data_Model.setCountryt(countriesList.get(position).getEn_name());
 
-                    }
-                    else {
+                    } else {
                         Move_Data_Model.setCountryt(countriesList.get(position).getAr_name());
 
                     }
                     Move_Data_Model.setTocountrycode(countriesList.get(position).getIso_two());
                     Move_Data_Model.settophonecode(countriesList.get(position).getPhone_code());
-                    getCities(countriesList.get(position).getIso_two(),2);
+                    getCities(countriesList.get(position).getIso_two(), 2);
 
 
                 }
@@ -213,7 +207,7 @@ public class Fragment_Shipping_Detials extends Fragment {
                     // Move_Data_Model.setcityt(to_city);
 
                     Move_Data_Model.setpostalf(cityModelList.get(position).getPostal_code());
-                    if(cityModelList.get(position).getPostal_code()==null||cityModelList.get(position).getPostal_code().isEmpty()){
+                    if (cityModelList.get(position).getPostal_code() == null || cityModelList.get(position).getPostal_code().isEmpty()) {
                         Move_Data_Model.setpostalf("21589");
                     }
                     if (current_lang.equals("en")) {
@@ -241,7 +235,7 @@ public class Fragment_Shipping_Detials extends Fragment {
                     to_city = citiesList.get(position).getCity();
                     // Move_Data_Model.setcityt(to_city);
                     Move_Data_Model.setpostalt(citiesList.get(position).getPostal_code());
-                    if(citiesList.get(position).getPostal_code()==null||citiesList.get(position).getPostal_code().isEmpty()){
+                    if (citiesList.get(position).getPostal_code() == null || citiesList.get(position).getPostal_code().isEmpty()) {
                         Move_Data_Model.setpostalt("11543");
                     }
                     if (current_lang.equals("en")) {
@@ -367,7 +361,7 @@ public class Fragment_Shipping_Detials extends Fragment {
     }*/
 
     private void checkdata() {
-        Common.CloseKeyBoard(activity,edt_weight);
+        Common.CloseKeyBoard(activity, edt_weight);
 
         if (widths.size() != 0 || parcel.equals("0")) {
             String weight = edt_weight.getText().toString();
@@ -375,7 +369,7 @@ public class Fragment_Shipping_Detials extends Fragment {
             String phone = edt_phone.getText().toString();
             String address = edt_address.getText().toString();
             String email = edt_email.getText().toString();
-            if (TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country)||TextUtils.isEmpty(to_city) || TextUtils.isEmpty(cityf) || TextUtils.isEmpty(weight) || TextUtils.isEmpty(name) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(address) || TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            if (TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country) || TextUtils.isEmpty(to_city) || TextUtils.isEmpty(cityf) || TextUtils.isEmpty(weight) || TextUtils.isEmpty(name) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(address) || TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
 
                 if (TextUtils.isEmpty(weight)) {
                     edt_weight.setError(getResources().getString(R.string.field_req));
@@ -383,7 +377,7 @@ public class Fragment_Shipping_Detials extends Fragment {
                 if (TextUtils.isEmpty(to_city) || TextUtils.isEmpty(cityf)) {
                     Common.CreateSignAlertDialog(activity, getResources().getString(R.string.add_city));
                 }
-                if(TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country)){
+                if (TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country)) {
                     Common.CreateSignAlertDialog(activity, getResources().getString(R.string.Add_Country));
 
                 }
@@ -443,7 +437,7 @@ public class Fragment_Shipping_Detials extends Fragment {
                 if (parcel.equals("1")) {
                     if (quantity > widths.size()) {
                         int ind = widths.size() - 1;
-                        for (int i = widths.size() ; i < quantity; i++) {
+                        for (int i = widths.size(); i < quantity; i++) {
 
                             widths.add(widths.get(ind) + "");
                             hights.add(hights.get(ind) + "");
@@ -464,12 +458,12 @@ public class Fragment_Shipping_Detials extends Fragment {
                 Move_Data_Model.setName(name);
                 // Move_Data_Model.setcityt(to_city);
                 Move_Data_Model.setPhone(phone);
-                address=address.replaceAll("،","");
+                address = address.replaceAll("،", "");
                 address = address.replaceAll("\\s(\\d)", "");
                 address = address.replaceAll("(\\d)\\s", "");
-                address=address.replaceAll(",","");
-                if(address.length()>23){
-                    address=address.substring(0,22);
+                address = address.replaceAll(",", "");
+                if (address.length() > 23) {
+                    address = address.substring(0, 22);
                 }
                 Move_Data_Model.setAdddresst(address);
                 getQoute(wegights);
@@ -589,8 +583,14 @@ public class Fragment_Shipping_Detials extends Fragment {
     }
 
     private void adddata2(Quote_Array_Model body) {
-        Move_Data_Model.setPrice(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getWeightCharge());
-        Move_Data_Model.setDay_number(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getTotalTransitDays());
+        double total = 0;
+        int totalday = 0;
+        for (int i = 0; i < body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().size(); i++) {
+            total += Double.parseDouble(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(i).getWeightCharge());
+            totalday += Integer.parseInt(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(i).getTotalTransitDays());
+        }
+        Move_Data_Model.setPrice(total + "");
+        Move_Data_Model.setDay_number(totalday + "");
 
         Computrized_Model.setTime(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getDeliveryTime());
         activity.DisplayFragmentdelivrychooser();
@@ -600,6 +600,7 @@ public class Fragment_Shipping_Detials extends Fragment {
     public void setaddressto(String address) {
         edt_address.setText(address);
     }
+
     private void getCities(String iso_two, final int type) {
 
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
@@ -607,7 +608,7 @@ public class Fragment_Shipping_Detials extends Fragment {
         dialog.show();
 
         Api.getService(Tags.base_url)
-                .getCity("Bearer"+" "+ userModel.getToken(), iso_two)
+                .getCity("Bearer" + " " + userModel.getToken(), iso_two)
                 .enqueue(new Callback<CityModel>() {
                     @Override
                     public void onResponse(Call<CityModel> call, Response<CityModel> response) {
@@ -615,12 +616,12 @@ public class Fragment_Shipping_Detials extends Fragment {
 
                         if (response.isSuccessful()) {
                             if (response.body() != null) {
-                                if(type==1){
+                                if (type == 1) {
                                     cityModelList.clear();
                                     cityModelList.add(new CityModel.postal_codes("Choose city"));
                                     cityModelList.addAll(response.body().getPostal_codes());
-                                    city_adapter.notifyDataSetChanged();}
-                                else {
+                                    city_adapter.notifyDataSetChanged();
+                                } else {
                                     citiesList.clear();
                                     citiesList.add(new CityModel.postal_codes("Choose city"));
                                     citiesList.addAll(response.body().getPostal_codes());
@@ -659,7 +660,7 @@ public class Fragment_Shipping_Detials extends Fragment {
         dialog.show();
 
         Api.getService(Tags.base_url)
-                .getCoutry("Bearer"+" " + userModel.getToken(), current_lang)
+                .getCoutry("Bearer" + " " + userModel.getToken(), current_lang)
                 .enqueue(new Callback<Country_Model>() {
                     @Override
                     public void onResponse(Call<Country_Model> call, Response<Country_Model> response) {

@@ -71,7 +71,7 @@ initview(view);
             @Override
             public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                super.onCodeSent(s, forceResendingToken);
-                Log.e("id",s+forceResendingToken.toString());
+                Log.e("id",s);
                 id=s;
             }
 

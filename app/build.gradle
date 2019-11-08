@@ -64,11 +64,10 @@ android {
         implementation 'com.squareup.picasso:picasso:2.5.2'
         implementation 'com.google.firebase:firebase-core:17.0.0'
         implementation 'io.michaelrocks:libphonenumber-android:8.10.16'
-
+        implementation 'com.google.firebase:firebase-auth:19.1.0'
     }
     sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
 
 }
-
 
 

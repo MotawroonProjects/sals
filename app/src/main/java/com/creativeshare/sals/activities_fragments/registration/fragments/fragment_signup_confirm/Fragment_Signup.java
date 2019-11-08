@@ -44,11 +44,8 @@ public class Fragment_Signup extends Fragment {
     private EditText edt_phone;
     private Button bt_apply;
     private LinearLayout ll_service_centers,ll_track_the_shipment;
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
-    private String id;
-    private String code;
 
-private FirebaseAuth mAuth;
+
     public static Fragment_Signup newInstance() {
 
         return new Fragment_Signup();
@@ -66,29 +63,6 @@ initview(view);
 
     private void initview(View view) {
 
-        mAuth=FirebaseAuth.getInstance();
-        mCallbacks=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-            @Override
-            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-               super.onCodeSent(s, forceResendingToken);
-                Log.e("id",s);
-                id=s;
-            }
-
-            @Override
-            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                Log.e("code",phoneAuthCredential.getSmsCode());
-
-                code=phoneAuthCredential.getSmsCode();
-                verfiycode(code);
-
-            }
-
-            @Override
-            public void onVerificationFailed(@NonNull FirebaseException e) {
-Log.e("llll",e.getMessage());
-            }
-        };
         register_activity=(Register_Activity)getActivity();
         edt_phone=view.findViewById(R.id.edt_phone);
         ccp_choose_country=view.findViewById(R.id.ccp_choose_Country);
@@ -170,8 +144,7 @@ if(phone.startsWith("0")){
 progressDialog.dismiss();
 if(response.isSuccessful()){
     //verfiycode();
-    sendverficationcode(phone,phone_code.replace("00","+"));
-   // register_activity.DisplayFragmentconfirmcode(phone,phone_code);
+    register_activity.DisplayFragmentconfirmcode(phone,phone_code);
 }
 else {
     try {
@@ -197,25 +170,5 @@ else {
         });
     }
 
-    private void verfiycode(String code) {
-        Toast.makeText(register_activity,code,Toast.LENGTH_LONG).show();
-        Log.e("ccc",code);
-        PhoneAuthCredential credential=PhoneAuthProvider.getCredential(id,code);
-        siginwithcredental(credential);
-    }
 
-    private void siginwithcredental(PhoneAuthCredential credential) {
-mAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-    @Override
-    public void onComplete(@NonNull Task<AuthResult> task) {
-
-    }
-});
-    }
-
-    private void sendverficationcode(String phone, String phone_code) {
-        Log.e("kkk",phone_code+phone);
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(phone_code+phone,60, TimeUnit.SECONDS, TaskExecutors.MAIN_THREAD,  mCallbacks);
-
-    }
 }

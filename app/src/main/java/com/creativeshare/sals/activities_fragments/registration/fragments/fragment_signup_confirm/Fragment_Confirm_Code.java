@@ -3,6 +3,7 @@ package com.creativeshare.sals.activities_fragments.registration.fragments.fragm
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.creativeshare.sals.activities_fragments.registration.activity.Register_Activity;
@@ -22,9 +24,18 @@ import com.creativeshare.sals.share.Common;
 import com.creativeshare.sals.models.UserModel;
 import com.creativeshare.sals.preferences.Preferences;
 import com.creativeshare.sals.remote.Api;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.TaskExecutors;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.io.IOException;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import io.paperdb.Paper;
 import retrofit2.Call;
@@ -44,6 +55,10 @@ public class Fragment_Confirm_Code extends Fragment {
     private static String TAG2 = "phone_number";
     private String phone, phone_code;
     private CountDownTimer countDownTimer;
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
+    private String id;
+    private String code;
+    private FirebaseAuth mAuth;
 
     public static Fragment_Confirm_Code newInstance(String phone, String phone_code) {
         Fragment_Confirm_Code fragment_confirm_code = new Fragment_Confirm_Code();
@@ -64,6 +79,7 @@ public class Fragment_Confirm_Code extends Fragment {
     }
 
     private void initview(View view) {
+
         phone = getArguments().getString(TAG2);
         phone_code = getArguments().getString(TAG1);
         register_activity = (Register_Activity) getActivity();
@@ -101,7 +117,47 @@ public class Fragment_Confirm_Code extends Fragment {
                 }
             }
         });
+authn();
+new Handler().postDelayed(new Runnable() {
+    @Override
+    public void run() {
+        sendverficationcode(phone,phone_code.replace("00","+"));
+    }
+},3);
         couter();
+
+    }
+
+    private void authn() {
+
+        mAuth= FirebaseAuth.getInstance();
+        mCallbacks=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            @Override
+            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                super.onCodeSent(s, forceResendingToken);
+                Log.e("id",s);
+                id=s;
+            }
+
+            @Override
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+//                Log.e("code",phoneAuthCredential.getSmsCode());
+//phoneAuthCredential.getProvider();
+                if(phoneAuthCredential.getSmsCode()!=null){
+                code=phoneAuthCredential.getSmsCode();
+                edt_confirm_code.setText(code);
+                verfiycode(code);}
+                else {
+                    sendverficationcode(phone,phone_code.replace("00","+"));
+                }
+
+            }
+
+            @Override
+            public void onVerificationFailed(@NonNull FirebaseException e) {
+                Log.e("llll",e.getMessage());
+            }
+        };
 
     }
 
@@ -183,9 +239,11 @@ public class Fragment_Confirm_Code extends Fragment {
     }
 
     private void couter() {
-        countDownTimer = new CountDownTimer(47000, 1000) {
+        countDownTimer = new CountDownTimer(59000, 1000) {
             @Override
             public void onTick(long l) {
+
+
                 reseend = false;
                 tv_resend.setText("00 :" + l / 1000);
             }
@@ -197,5 +255,27 @@ public class Fragment_Confirm_Code extends Fragment {
                 im1.setImageResource(R.drawable.ic_checked);
             }
         }.start();
+    }
+    private void verfiycode(String code) {
+        Toast.makeText(register_activity,code,Toast.LENGTH_LONG).show();
+        Log.e("ccc",code);
+        PhoneAuthCredential credential=PhoneAuthProvider.getCredential(id,code);
+        siginwithcredental(credential);
+    }
+
+    private void siginwithcredental(PhoneAuthCredential credential) {
+        mAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                Log.e("task",code);
+
+            }
+        });
+    }
+
+    private void sendverficationcode(String phone, String phone_code) {
+        Log.e("kkk",phone_code+phone);
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(phone_code+phone,59, TimeUnit.SECONDS, TaskExecutors.MAIN_THREAD,  mCallbacks);
+
     }
 }

@@ -153,7 +153,7 @@ else {
         e.printStackTrace();
     }
     if(response.code()==422){
-        Common.CreateSignAlertDialog(register_activity,getResources().getString(R.string.user_is_logedin));
+        Common.CreateSignAlertDialog(register_activity,getResources().getString(R.string.failed));
     }
     else {
     Toast.makeText(register_activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();}

@@ -126,6 +126,7 @@ if(TextUtils.isEmpty(phone)||!ccp_country_code.isValidFullNumber()){
 else {
 if(phone.startsWith("0")){
     phone=phone.replaceFirst("0","");}
+phone=phone.replaceAll(" ","");
     edt_phone.setError(null);
     Common.CloseKeyBoard(register_activity,edt_phone);
 

@@ -3,10 +3,12 @@ package com.creativeshare.sals.activities_fragments.home.activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentManager;
@@ -51,6 +53,7 @@ import com.creativeshare.sals.remote.Api;
 import com.creativeshare.sals.tags.Tags;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
@@ -59,6 +62,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 import io.paperdb.Paper;
 import okhttp3.ResponseBody;
@@ -108,6 +112,11 @@ public class Home_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null){
+           // Log.e("user", Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getPhoneNumber());
+            FirebaseAuth.getInstance().getCurrentUser().delete();
+            FirebaseAuth.getInstance().signOut();
+        }
         Paper.init(this);
         preferences = Preferences.getInstance();
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());

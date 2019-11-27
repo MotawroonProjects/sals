@@ -59,6 +59,7 @@ public class Fragment_Confirm_Code extends Fragment {
     private String id;
     private String code;
     private FirebaseAuth mAuth;
+    private ProgressDialog dialo;
 
     public static Fragment_Confirm_Code newInstance(String phone, String phone_code) {
         Fragment_Confirm_Code fragment_confirm_code = new Fragment_Confirm_Code();
@@ -112,8 +113,10 @@ public class Fragment_Confirm_Code extends Fragment {
             @Override
             public void onClick(View view) {
                 if (reseend) {
+                    im1.setImageResource(R.drawable.ic_empty);
 
-                    resendcode();
+                    couter();
+                    sendverficationcode(phone,phone_code.replace("00","+"));
                 }
             }
         });
@@ -147,9 +150,7 @@ new Handler().postDelayed(new Runnable() {
                 code=phoneAuthCredential.getSmsCode();
                 edt_confirm_code.setText(code);
                 verfiycode(code);}
-                else {
-                    sendverficationcode(phone,phone_code.replace("00","+"));
-                }
+
 
             }
 
@@ -195,23 +196,24 @@ new Handler().postDelayed(new Runnable() {
     }
 
     private void checkdata() {
-        String code = edt_confirm_code.getText().toString();
+       code = edt_confirm_code.getText().toString();
         if (TextUtils.isEmpty(code)) {
             edt_confirm_code.setError(getResources().getString(R.string.field_req));
         } else {
-            checkconfirmation(code);
+           // checkconfirmation(code);
+            verfiycode(code);
         }
     }
 
-    private void checkconfirmation(final String code) {
-        final ProgressDialog progressDialog = Common.createProgressDialog(register_activity, getResources().getString(R.string.wait));
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+    private void checkconfirmation( String code) {
 
-        Api.getService().checkcode(phone_code, phone, code).enqueue(new Callback<UserModel>() {
+code=code.replaceFirst(code.charAt(0)+"","");
+code=code.replaceFirst(code.charAt(0)+"","");
+Log.e("code",code);
+Api.getService().checkcode(phone_code, phone, code).enqueue(new Callback<UserModel>() {
             @Override
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {
-                progressDialog.dismiss();
+                dialo.dismiss();
                 if (response.isSuccessful()) {
                     //Log.e("ssssssssssss",response.code()+response.body().getMessage());
                     countDownTimer.cancel();
@@ -219,7 +221,7 @@ new Handler().postDelayed(new Runnable() {
                     register_activity.openhomeactivity();
 
                 } else {
-                    Log.e("msg", response.code() + "" + response.errorBody() + "" + response.raw() + response.message() + phone + phone_code + "  " + code + response.headers() + response.raw());
+                    Log.e("msg", response.code() + "" + response.errorBody() + "" + response.raw() + response.message() + phone + phone_code + "  "  + response.headers() + response.raw());
                     if (response.code() == 404) {
                         Common.CreateSignAlertDialog(register_activity, getString(R.string.inc_code_verification));
                     } else {
@@ -231,7 +233,7 @@ new Handler().postDelayed(new Runnable() {
 
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
-                progressDialog.dismiss();
+                dialo.dismiss();
                 Toast.makeText(register_activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
                 Log.e("Error", t.getMessage());
             }
@@ -251,24 +253,32 @@ new Handler().postDelayed(new Runnable() {
             @Override
             public void onFinish() {
                 reseend = true;
-                tv_resend.setText(getResources().getString(R.string.resend));
+                tv_resend.setText(register_activity.getResources().getString(R.string.resend));
                 im1.setImageResource(R.drawable.ic_checked);
             }
         }.start();
     }
     private void verfiycode(String code) {
-        Toast.makeText(register_activity,code,Toast.LENGTH_LONG).show();
+       // Toast.makeText(register_activity,code,Toast.LENGTH_LONG).show();
+        dialo = Common.createProgressDialog(register_activity,getString(R.string.wait));
+        dialo.setCancelable(false);
+        dialo.show();
         Log.e("ccc",code);
-        PhoneAuthCredential credential=PhoneAuthProvider.getCredential(id,code);
-        siginwithcredental(credential);
+        if(id!=null){
+
+            PhoneAuthCredential credential=PhoneAuthProvider.getCredential(id,code);
+        siginwithcredental(credential);}
     }
 
     private void siginwithcredental(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                Log.e("task",code);
 
+                if(task.isSuccessful()){
+Log.e("data",phone);
+                    // activity.NavigateToHomeActivity();
+checkconfirmation(code);                }
             }
         });
     }

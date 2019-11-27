@@ -128,7 +128,7 @@ edt_num.setError(null);
         }
         else {
             if(Move_Data_Model.getSadad().equals("SADAD")){
-                if(!TextUtils.isEmpty(name)){
+                if(!TextUtils.isEmpty(name)&&name.split(" ").length>1){
                     pay(name,"","");
                 }
                 else {

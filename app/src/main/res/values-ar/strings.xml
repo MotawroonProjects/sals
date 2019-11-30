@@ -86,7 +86,7 @@
     <string name="expected_delivery_on">التسليم المتوقع في</string>
     <string name="additional_services">خدمات إضافية</string>
     <string name="choose_extra_if_you_need">اختيار إضافي إذا كنت في حاجة</string>
-    <string name="schedule_pickup">الجدوله </string>
+    <string name="schedule_pickup">الارسال </string>
     <string name="choose_extra_services">اختيار خدمات اضافية</string>
     <string name="cash_on_delivry_service">نقدا عند التسليم الخدمة</string>
     <string name="ettra_charges_may_apply_by_selecting_certian_addotional_serrvices">قد يتم تطبيق رسوم إضافية عن طريق اختيار خدمات إضافية معينة</string>
@@ -139,7 +139,7 @@
     <string name="wait">انتظر قليلا</string>
     <string name="failed">فشل</string>
     <string name="something">حدث خطا ما تحقق من الاتصال بالانترت</string>
-    <string name="resend">Resend</string>
+    <string name="resend">إعادة إرسال</string>
     <string name="notifications">اشعارات</string>
     <string name="inc_code_verification">هذا الكود خاطئ</string>
     <string name="user_is_logedin">المستخدم سجل من قبل</string>

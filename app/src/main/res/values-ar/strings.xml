@@ -202,5 +202,6 @@
     <string name="Help_Detials">تفاصيل المساعده</string>
     <string name="phons">اتصل بنا على : 920003450 </string>
     <string name="Add_Country">اضف الدوله</string>
+    <string name="phone_must_not_start_with_zero">رقم الجوال يجب ان لا يبدأ بصفر</string>
 
 </resources>

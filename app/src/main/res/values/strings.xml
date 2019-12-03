@@ -201,4 +201,5 @@
 <string name="Help_Detials">Help Detials</string>
     <string name="phons">Call us on : 9200 03450</string>
     <string name="Add_Country">Add Country</string>
+    <string name="phone_must_not_start_with_zero">Phone Must Not Start With Zero</string>
 </resources>

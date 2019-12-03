@@ -125,12 +125,16 @@ if(TextUtils.isEmpty(phone)||!ccp_country_code.isValidFullNumber()){
 }
 else {
 if(phone.startsWith("0")){
-    phone=phone.replaceFirst("0","");}
-phone=phone.replaceAll(" ","");
+edt_phone.setError(register_activity.getResources().getString(R.string.phone_must_not_start_with_zero));
+}
+
+else{
+    phone=phone.replaceAll(" ","");
+
     edt_phone.setError(null);
     Common.CloseKeyBoard(register_activity,edt_phone);
 
-    Login(phone,phone_code);
+    Login(phone,phone_code);}
 
 }
     }

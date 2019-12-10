@@ -121,7 +121,11 @@ String phone=edt_phone.getText().toString();
 String phone_code=ccp_country_code.getSelectedCountryCodeWithPlus().replace("+","00");
 Log.e("code",phone_code);
 if(TextUtils.isEmpty(phone)||!ccp_country_code.isValidFullNumber()){
-    edt_phone.setError(getResources().getString(R.string.field_req));
+    if(TextUtils.isEmpty(phone)){
+    edt_phone.setError(getResources().getString(R.string.field_req));}
+    if(!ccp_choose_country.isValidFullNumber()){
+        edt_phone.setError(register_activity.getResources().getString(R.string.Invalid_Phone));
+    }
 }
 else {
 if(phone.startsWith("0")){

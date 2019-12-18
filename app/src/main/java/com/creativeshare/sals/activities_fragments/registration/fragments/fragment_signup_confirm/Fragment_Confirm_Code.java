@@ -263,9 +263,7 @@ Api.getService().checkcode(phone_code, phone, code).enqueue(new Callback<UserMod
     }
     private void verfiycode(String code) {
        // Toast.makeText(register_activity,code,Toast.LENGTH_LONG).show();
-        dialo = Common.createProgressDialog(register_activity,getString(R.string.wait));
-        dialo.setCancelable(false);
-        dialo.show();
+
         Log.e("ccc",code);
         if(id!=null){
 
@@ -274,6 +272,9 @@ Api.getService().checkcode(phone_code, phone, code).enqueue(new Callback<UserMod
     }
 
     private void siginwithcredental(PhoneAuthCredential credential) {
+        dialo = Common.createProgressDialog(register_activity,getString(R.string.wait));
+        dialo.setCancelable(false);
+        dialo.show();
         mAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -282,7 +283,14 @@ Api.getService().checkcode(phone_code, phone, code).enqueue(new Callback<UserMod
 Log.e("data",phone);
                     // activity.NavigateToHomeActivity();
                     mAuth.signOut();
-checkconfirmation(code);                }
+                    if(code!=null){
+checkconfirmation(code);           }
+                    else{
+                        checkconfirmation("123456");
+                    }
+                }
+
+
             }
         });
     }

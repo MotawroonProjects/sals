@@ -149,7 +149,10 @@ new Handler().postDelayed(new Runnable() {
                 if(phoneAuthCredential.getSmsCode()!=null){
                 code=phoneAuthCredential.getSmsCode();
                 edt_confirm_code.setText(code);
-                verfiycode(code);}
+              siginwithcredental(phoneAuthCredential);}
+                else {
+                    siginwithcredental(phoneAuthCredential);
+                }
 
 
             }
@@ -278,6 +281,7 @@ Api.getService().checkcode(phone_code, phone, code).enqueue(new Callback<UserMod
                 if(task.isSuccessful()){
 Log.e("data",phone);
                     // activity.NavigateToHomeActivity();
+                    mAuth.signOut();
 checkconfirmation(code);                }
             }
         });

@@ -14,10 +14,18 @@ private WebView mWebView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_customer_service_);
         mWebView =  findViewById(R.id.activity_main_webview);
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        mWebView.loadUrl(Tags.base_url);
+        if(getIntent().getStringExtra("link")==null){
+            mWebView.loadUrl(Tags.base_url);
+
+        }
+        else {
+            mWebView.loadUrl(getIntent().getStringExtra("link"));
+
+        }
     }
 }

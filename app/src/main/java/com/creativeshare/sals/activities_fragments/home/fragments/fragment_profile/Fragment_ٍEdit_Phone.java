@@ -54,7 +54,7 @@ initView(view);
         tv_link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-activity.startcustomactivity();
+activity.startcustomactivity(null);
             }
         });
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());

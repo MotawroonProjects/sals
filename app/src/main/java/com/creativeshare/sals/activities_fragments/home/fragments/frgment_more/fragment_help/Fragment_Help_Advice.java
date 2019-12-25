@@ -1,16 +1,25 @@
 package com.creativeshare.sals.activities_fragments.home.fragments.frgment_more.fragment_help;
 
+import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Paint;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,6 +56,10 @@ private Question_Adapter question_adapter;
     private Help_Cat_Adapter help_cat_adapter;
 private Preferences preferences;
 private UserModel userModel;
+    private TextView tv_phone,tv_link;
+    Intent intent ;
+    private static final int REQUEST_PHONE_CALL = 1;
+
     public static Fragment_Help_Advice newInstance() {
         return new Fragment_Help_Advice();
     }
@@ -142,6 +155,8 @@ getquestion();
         activity = (Home_Activity) getActivity();
         preferences=Preferences.getInstance();
         userModel=preferences.getUserData(activity);
+        intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "+9200 03450",null));
+
         Paper.init(activity);
         current_lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         back_arrow = view.findViewById(R.id.arrow);
@@ -165,5 +180,59 @@ getquestion();
                 activity.Back();
             }
         });
+        tv_link=view.findViewById(R.id.tv_link);
+        tv_phone=view.findViewById(R.id.tv_phone_help);
+
+        tv_link.setPaintFlags(tv_link.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
+        tv_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                activity.startcustomactivity("https://www.logistics.dhl/global-en/home/contact-us.html");
+            }
+        });
+        tv_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(intent!=null){
+                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
+                        } else {
+                            startActivity(intent);
+                        }
+                    } else {
+                        startActivity(intent);
+                    }
+                }}
+        });
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_PHONE_CALL: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        if (activity.checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                            // TODO: Consider calling
+                            //    Activity#requestPermissions
+                            // here to request the missing permissions, and then overriding
+                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                            //                                          int[] grantResults)
+                            // to handle the case where the user grants the permission. See the documentation
+                            // for Activity#requestPermissions for more details.
+                            return;
+                        }
+                    }
+                    startActivity(intent);
+                }
+                else {
+
+                }
+                return;
+            }
+        }
     }
 }

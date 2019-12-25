@@ -679,8 +679,9 @@ public class Home_Activity extends AppCompatActivity {
         }
     }
 
-    public void startcustomactivity() {
+    public void startcustomactivity(String link) {
         Intent intent = new Intent(Home_Activity.this, Customer_service_Activity.class);
+        intent.putExtra("link",link);
         startActivity(intent);
 
     }

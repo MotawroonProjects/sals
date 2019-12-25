@@ -136,7 +136,30 @@
     >
 
 </androidx.recyclerview.widget.RecyclerView>
-
+       <TextView
+           android:id="@+id/tv_phone_help"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/phons"
+           android:textColor="@color/colorPrimary"
+           android:layout_marginTop="15dp"
+           android:textSize="16sp"
+           android:paddingLeft="8dp"
+           android:paddingRight="8dp"
+           />
+       <TextView
+           android:id="@+id/tv_link"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/contact_customer_service"
+           android:textColor="@color/blue"
+           android:layout_marginTop="15dp"
+           android:textSize="16sp"
+           android:autoLink="all"
+           android:linksClickable="true"
+android:paddingLeft="8dp"
+           android:paddingRight="8dp"
+           />
    </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

@@ -173,7 +173,11 @@ edt_num.setError(null);
         pay_model.setAmount((int)Double.parseDouble(Move_Data_Model.getPrice()));
         Log.e("date",calendar.get(Calendar.MONTH)+"");
         pay_model.getSource().setMonth(calendar.get(Calendar.MONTH));
-        pay_model.getSource().setYear(calendar.get(Calendar.YEAR));
+        String yea=calendar.get(Calendar.YEAR)+"";
+        yea=yea.replace(yea.charAt(0)+"","");
+        yea=yea.replace(yea.charAt(0)+"","");
+
+        pay_model.getSource().setYear(Integer.parseInt(yea));
         pay_model.getSource().setType(Move_Data_Model.getSadad());
 
 pay_model.setCallback_url("https://www.google.com/");
@@ -300,9 +304,12 @@ else {
         // order_time_calender.set(Calendar.YEAR,year);
         //order_time_calender.set(Calendar.MONTH,monthOfYear);
         //order_time_calender.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-        Log.e("kkkk", calendar.getTime().getMonth() + "");
+       // Log.e("kkkk", calendar.getTime().getMonth() + "");
+String years=year+"";
+years=years.replace(years.charAt(0)+"","");
+        years=years.replace(years.charAt(1)+"","");
 
-        tv_date.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+        tv_date.setText( (monthOfYear + 1) + "/" + years);
     }
     private void CreateSignAlertDialog(Context context, final String msg)
     {

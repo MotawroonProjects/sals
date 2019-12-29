@@ -203,4 +203,5 @@
     <string name="Add_Country">Add Country</string>
     <string name="phone_must_not_start_with_zero">Phone Must Not Start With Zero</string>
     <string name="Invalid_Phone">InValid Phone</string>
+    <string name="the_policy_must_be_printed">The policy must be printed</string>
 </resources>

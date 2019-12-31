@@ -307,7 +307,7 @@ else {
        // Log.e("kkkk", calendar.getTime().getMonth() + "");
 String years=year+"";
 years=years.replace(years.charAt(0)+"","");
-        years=years.replace(years.charAt(1)+"","");
+        years=years.replace(years.charAt(0)+"","");
 
         tv_date.setText( (monthOfYear + 1) + "/" + years);
     }

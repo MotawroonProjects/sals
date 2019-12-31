@@ -59,6 +59,9 @@ private EditText edt_name,edt_num,edt_cvc;
 private TextView tv_date;
 private Button bt_confirm;
    private Calendar calendar;
+    private String yeas;
+    private String month;
+
     public static Fragment_Confirmation newInstance() {
         return new Fragment_Confirmation();
     }
@@ -171,13 +174,12 @@ edt_num.setError(null);
         else {
         pay_model.getSource().setCvc(Integer.parseInt(cvc));}
         pay_model.setAmount((int)Double.parseDouble(Move_Data_Model.getPrice()));
-        Log.e("date",calendar.get(Calendar.MONTH)+"");
-        pay_model.getSource().setMonth(calendar.get(Calendar.MONTH));
-        String yea=calendar.get(Calendar.YEAR)+"";
-        yea=yea.replace(yea.charAt(0)+"","");
-        yea=yea.replace(yea.charAt(0)+"","");
+      //  Log.e("date",calendar.get(Calendar.MONTH)+"");
+        pay_model.getSource().setMonth(Integer.parseInt(month));
+        Log.e("date",yeas);
 
-        pay_model.getSource().setYear(Integer.parseInt(yea));
+
+        pay_model.getSource().setYear(Integer.parseInt(yeas));
         pay_model.getSource().setType(Move_Data_Model.getSadad());
 
 pay_model.setCallback_url("https://www.google.com/");
@@ -308,7 +310,8 @@ else {
 String years=year+"";
 years=years.replace(years.charAt(0)+"","");
         years=years.replace(years.charAt(0)+"","");
-
+yeas=years;
+month=monthOfYear+1+"";
         tv_date.setText( (monthOfYear + 1) + "/" + years);
     }
     private void CreateSignAlertDialog(Context context, final String msg)

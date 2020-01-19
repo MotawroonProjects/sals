@@ -85,10 +85,41 @@ public class Fragment_Shipping_Detials extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shipping_details, container, false);
         initView(view);
+        setto();
         getCountry();
         return view;
     }
 
+    private void setto() {
+        to_country_code = "SA";
+        to_country = "Saudi Arabia";
+        if (current_lang.equals("en")) {
+            Move_Data_Model.setCountryt("Saudi Arabia");
+
+        } else {
+            Move_Data_Model.setCountryt("المملكة العربية السعوديه");
+
+        }
+        Move_Data_Model.setTocountrycode("SA");
+        Move_Data_Model.settophonecode("966");
+        getCities(to_country_code, 2);
+    }
+
+    private void setfr() {
+        payment_country_code ="SA";
+        from_country = "Saudi Arabia";
+        from_country_code = "SA";
+        if (current_lang.equals("en")) {
+            Move_Data_Model.setcountryf("Saudi Arabia");
+            ;
+        } else {
+            Move_Data_Model.setcountryf("المملكة العربية السعوديه");
+
+        }
+        Move_Data_Model.setcode("SA");
+
+        getCities(from_country_code, 1);
+    }
     private void initView(View view) {
         countriesList = new ArrayList<>();
         cityModelList = new ArrayList<>();

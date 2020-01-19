@@ -134,6 +134,7 @@ new Handler().postDelayed(new Runnable() {
     private void authn() {
 
         mAuth= FirebaseAuth.getInstance();
+
         mCallbacks=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
@@ -161,6 +162,8 @@ new Handler().postDelayed(new Runnable() {
             public void onVerificationFailed(@NonNull FirebaseException e) {
                 Log.e("llll",e.getMessage());
             }
+
+
         };
 
     }

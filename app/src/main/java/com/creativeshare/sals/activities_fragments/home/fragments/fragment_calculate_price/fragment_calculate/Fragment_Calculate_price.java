@@ -89,8 +89,38 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calculate_price, container, false);
         initView(view);
-           getCountry();
+        setfr();
+        setto();
+       //    getCountry();
         return view;
+    }
+
+    private void setto() {
+        to_country_code = "SA";
+        to_country="Saudi Arabia";
+        if(current_lang.equals("en")){
+            Computrized_Model.setCountry_to("Saudi Arabia");
+        }
+        else {
+            Computrized_Model.setCountry_to("المملكة العربية السعوديه");
+
+        }
+        getCities(to_country_code,2);
+    }
+
+    private void setfr() {
+        payment_country_code="SA";
+        from_country="Saudi Arabia";
+        from_country_code = "SA";
+        if(current_lang.equals("en")){
+            Computrized_Model.setCountry_from("Saudi Arabia");
+            ;
+        }
+        else {
+            Computrized_Model.setCountry_from("المملكة العربية السعوديه");
+
+        }
+        getCities(payment_country_code,1);
     }
 
     private void initView(View view) {

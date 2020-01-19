@@ -205,5 +205,10 @@
     <string name="phone_must_not_start_with_zero">رقم الجوال يجب ان لا يبدأ بصفر</string>
     <string name="Invalid_Phone">رقم خاطئ</string>
     <string name="the_policy_must_be_printed">يجب طباعة البوليصه</string>
+    <string name="day">يوم</string>
+    <string name="month">شهر</string>
+    <string name="year">سنه</string>
+    <string name="monthshould">يجب ان يكون الشهر بين 1 و 12</string>
+    <string name="yearshould">يجب ان تكون السنه اكبر من او تساوى 20</string>
 
 </resources>

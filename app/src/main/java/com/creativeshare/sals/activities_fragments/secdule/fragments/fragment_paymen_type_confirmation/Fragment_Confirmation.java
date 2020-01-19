@@ -53,7 +53,7 @@ public class Fragment_Confirmation extends Fragment  implements DatePickerDialog
     private String current_lang;
     private Preferences preferences;
     private UserModel userModel;
-private EditText edt_name,edt_num,edt_cvc;
+private EditText edt_name,edt_num,edt_cvc,edtdate,detmonth;
     private DatePickerDialog datePickerDialog;
 
 private TextView tv_date;
@@ -85,6 +85,8 @@ edt_name=view.findViewById(R.id.edt_name);
 edt_num=view.findViewById(R.id.edt_num);
 edt_cvc=view.findViewById(R.id.edt_cvc);
 bt_confirm=view.findViewById(R.id.bt_confirm);
+edtdate=view.findViewById(R.id.edt_day);
+detmonth=view.findViewById(R.id.edt_month);
         tv_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,8 +123,10 @@ bt_confirm.setOnClickListener(new View.OnClickListener() {
         String name=edt_name.getText().toString();
         String num=edt_num.getText().toString();
         String cvc=edt_cvc.getText().toString();
-        String date=tv_date.getText().toString();
-        if(!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(num)&&!TextUtils.isEmpty(cvc)&&name.split(" ").length>1&&!TextUtils.isEmpty(date)){
+        //String date=tv_date.getText().toString();
+        month=detmonth.getText().toString();
+        yeas=edtdate.getText().toString();
+        if(!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(num)&&!TextUtils.isEmpty(cvc)&&name.split(" ").length>1&&!TextUtils.isEmpty(month)&&!TextUtils.isEmpty(yeas)&&yeas.length()==2&&Integer.parseInt(yeas)>=20&&month.length()<=2&&Integer.parseInt(month)>=1&&Integer.parseInt(month)<=12){
            tv_date.setError(null);
            edt_cvc.setError(null);
 edt_name.setError(null);
@@ -155,8 +159,18 @@ edt_num.setError(null);
                 edt_cvc.setError(getResources().getString(R.string.field_req));
 
             }
-            if(TextUtils.isEmpty(date)){
-                tv_date.setError(getResources().getString(R.string.field_req));
+            if(TextUtils.isEmpty(month)){
+                detmonth.setError(getResources().getString(R.string.field_req));
+            }
+            else if(Integer.parseInt(month)>12&&Integer.parseInt(month)<1){
+                detmonth.setError(getResources().getString(R.string.monthshould));
+            }
+            if(TextUtils.isEmpty(yeas)){
+                edtdate.setError(getResources().getString(R.string.field_req));
+
+            }
+            else if(Integer.parseInt(yeas)>=20){
+                edtdate.setError(getResources().getString(R.string.yearshould));
             }
             }
         }

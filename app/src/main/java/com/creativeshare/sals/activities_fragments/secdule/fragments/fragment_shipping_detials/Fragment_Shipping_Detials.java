@@ -86,7 +86,8 @@ public class Fragment_Shipping_Detials extends Fragment {
         View view = inflater.inflate(R.layout.fragment_shipping_details, container, false);
         initView(view);
         setto();
-        getCountry();
+        setfr();
+       // getCountry();
         return view;
     }
 

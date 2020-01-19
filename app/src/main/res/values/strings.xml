@@ -204,4 +204,9 @@
     <string name="phone_must_not_start_with_zero">Phone Must Not Start With Zero</string>
     <string name="Invalid_Phone">InValid Phone</string>
     <string name="the_policy_must_be_printed">The policy must be printed</string>
+    <string name="day">day</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="monthshould">Month Should between 1 and 12</string>
+    <string name="yearshould">Year Shoul More than or equal 20</string>
 </resources>

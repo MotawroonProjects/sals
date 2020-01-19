@@ -102,6 +102,65 @@
         android:paddingRight="8dp"
         android:paddingLeft="8dp"
         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:id="@+id/edt_day"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:textSize="15sp"
+            android:hint="@string/year"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:gravity="center_vertical"
+            android:background="@color/white"
+            android:inputType="number"
+            android:singleLine="true"
+            android:layout_weight="1"
+            android:maxLength="2"
+
+            />
+        <EditText
+            android:id="@+id/edt_month"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:textSize="15sp"
+            android:hint="@string/month"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:gravity="center_vertical"
+            android:background="@color/white"
+            android:inputType="number"
+            android:singleLine="true"
+            android:layout_weight="1"
+            android:maxLength="2"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_weight="1"
+            android:background="@color/gray3"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_weight="1"
+            android:background="@color/gray3"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            />
+    </LinearLayout>
     <TextView
         android:id="@+id/tv_date"
         android:layout_width="match_parent"
@@ -113,6 +172,7 @@
         android:gravity="center_vertical"
         android:background="@color/white"
         android:singleLine="true"
+        android:visibility="gone"
         />
     <View
         android:layout_width="match_parent"

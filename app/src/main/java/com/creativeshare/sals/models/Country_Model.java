@@ -10,15 +10,14 @@ public class Country_Model implements Serializable {
         return countries;
     }
 
-    public static class Countries implements Serializable
-    {
+    public static class Countries implements Serializable {
         private int id;
-            private String en_name;
+        private String en_name;
         private String ar_name;
-private String phone_code;
-           private String iso_two;
-            private String created_at;
-            private String updated_at;
+        private String phone_code;
+        private String iso_two;
+        private String created_at;
+        private String updated_at;
 
         public String getIso_two() {
             return iso_two;
@@ -44,7 +43,6 @@ private String phone_code;
         public String getAr_name() {
             return ar_name;
         }
-
 
 
         public String getCreated_at() {

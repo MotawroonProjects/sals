@@ -75,10 +75,10 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
     private Spinner_City_Adapter city_adapter;
     private Spinner_City_Adapter city_adapter2;
     private List<Country_Model.Countries> countriesList;
-    private List<CityModel.postal_codes>citiesList;
+    private List<CityModel.postal_codes> citiesList;
 
     private int quantity = 1;
-    private String is_dutiable = "0", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", payment_country_code , from_country_code , from_city, to_city, to_country_code,from_country,to_country;
+    private String is_dutiable = "0", ready_time_gmt_offset = "+00:00", dimension_unit = "CM", weight_unit = "KG", payment_country_code, from_country_code, from_city, to_city, to_country_code, from_country, to_country;
 
     public static Fragment_Calculate_price newInstance() {
         return new Fragment_Calculate_price();
@@ -91,42 +91,40 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
         initView(view);
         setfr();
         setto();
-       //    getCountry();
+        //    getCountry();
         return view;
     }
 
     private void setto() {
         to_country_code = "SA";
-        to_country="Saudi Arabia";
-        if(current_lang.equals("en")){
+        to_country = "Saudi Arabia";
+        if (current_lang.equals("en")) {
             Computrized_Model.setCountry_to("Saudi Arabia");
-        }
-        else {
+        } else {
             Computrized_Model.setCountry_to("المملكة العربية السعوديه");
 
         }
-        getCities(to_country_code,2);
+        getCities(to_country_code, 2);
     }
 
     private void setfr() {
-        payment_country_code="SA";
-        from_country="Saudi Arabia";
+        payment_country_code = "SA";
+        from_country = "Saudi Arabia";
         from_country_code = "SA";
-        if(current_lang.equals("en")){
+        if (current_lang.equals("en")) {
             Computrized_Model.setCountry_from("Saudi Arabia");
             ;
-        }
-        else {
+        } else {
             Computrized_Model.setCountry_from("المملكة العربية السعوديه");
 
         }
-        getCities(payment_country_code,1);
+        getCities(payment_country_code, 1);
     }
 
     private void initView(View view) {
         cityModelList = new ArrayList<>();
         countriesList = new ArrayList<>();
-        citiesList=new ArrayList<>();
+        citiesList = new ArrayList<>();
         activity = (Home_Activity) getActivity();
         Paper.init(activity);
         preferences = Preferences.getInstance();
@@ -154,7 +152,7 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
         spinner_country_to = view.findViewById(R.id.sp_countryto);
         spinner_city_to = view.findViewById(R.id.sp_cityto);
         city_adapter = new Spinner_City_Adapter(activity, cityModelList);
-        city_adapter2=new Spinner_City_Adapter(activity,citiesList);
+        city_adapter2 = new Spinner_City_Adapter(activity, citiesList);
         country_adapter = new Spinner_Country_Adapter(activity, countriesList);
         spinner_city_to.setAdapter(city_adapter2);
         spinner_city_from.setAdapter(city_adapter);
@@ -172,11 +170,10 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
                     from_city = "";
                 } else {
                     from_city = cityModelList.get(position).getCity();
-                    if(current_lang.equals("en")){
+                    if (current_lang.equals("en")) {
                         Computrized_Model.setCity_From(cityModelList.get(position).getCity());
 
-                    }
-                    else {
+                    } else {
                         Computrized_Model.setCity_From(cityModelList.get(position).getCity());
 
                     }
@@ -195,10 +192,9 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
                     to_city = "";
                 } else {
                     to_city = citiesList.get(position).getCity();
-                    if(current_lang.equals("en")){
+                    if (current_lang.equals("en")) {
                         Computrized_Model.setCity_to(citiesList.get(position).getCity());
-                    }
-                    else {
+                    } else {
                         Computrized_Model.setCity_to(citiesList.get(position).getCity());
 
                     }
@@ -210,28 +206,25 @@ public class Fragment_Calculate_price extends Fragment implements DatePickerDial
 
             }
         });
-       spinner_country_from.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner_country_from.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                if (position ==0)
-                {
-from_country="";
-                    from_country_code ="";
-                }else
-                {
-                    payment_country_code=countriesList.get(position).getIso_two();
-                    from_country=countriesList.get(position).getEn_name();
+                if (position == 0) {
+                    from_country = "";
+                    from_country_code = "";
+                } else {
+                    payment_country_code = countriesList.get(position).getIso_two();
+                    from_country = countriesList.get(position).getEn_name();
                     from_country_code = countriesList.get(position).getIso_two();
-                    if(current_lang.equals("en")){
+                    if (current_lang.equals("en")) {
                         Computrized_Model.setCountry_from(countriesList.get(position).getEn_name());
                         ;
-                    }
-                    else {
+                    } else {
                         Computrized_Model.setCountry_from(countriesList.get(position).getAr_name());
 
                     }
-                    getCities(countriesList.get(position).getIso_two(),1);
+                    getCities(countriesList.get(position).getIso_two(), 1);
                 }
             }
 
@@ -240,26 +233,23 @@ from_country="";
 
             }
         });
-       spinner_country_to.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner_country_to.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position ==0)
-                {
-                    to_country="";
-                   to_country_code ="";
+                if (position == 0) {
+                    to_country = "";
+                    to_country_code = "";
 
-                }else
-                {
+                } else {
                     to_country_code = countriesList.get(position).getIso_two();
-                   to_country=countriesList.get(position).getEn_name();
-                    if(current_lang.equals("en")){
+                    to_country = countriesList.get(position).getEn_name();
+                    if (current_lang.equals("en")) {
                         Computrized_Model.setCountry_to(countriesList.get(position).getEn_name());
-                    }
-                    else {
+                    } else {
                         Computrized_Model.setCountry_to(countriesList.get(position).getAr_name());
 
                     }
-                    getCities(countriesList.get(position).getIso_two(),2);
+                    getCities(countriesList.get(position).getIso_two(), 2);
 
 
                 }
@@ -326,7 +316,7 @@ from_country="";
             public void onClick(View view) {
                 checkdata();
 
-               //
+                //
             }
         });
         bt_Shipping_dimensions.setOnClickListener(new View.OnClickListener() {
@@ -357,37 +347,36 @@ from_country="";
     }
 
     private void checkdata() {
-        Common.CloseKeyBoard(activity,edt_weight);
+        Common.CloseKeyBoard(activity, edt_weight);
 
-        String weight=edt_weight.getText().toString();
-        if (TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country)||TextUtils.isEmpty(from_city) || TextUtils.isEmpty(to_city) ||TextUtils.isEmpty(weight)||TextUtils.isEmpty(date)||TextUtils.isEmpty(time)){
-            if(TextUtils.isEmpty(from_city)|| TextUtils.isEmpty(to_city) ){
-                Toast.makeText(activity,getResources().getString(R.string.add_city),Toast.LENGTH_LONG).show();
+        String weight = edt_weight.getText().toString();
+        if (TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country) || TextUtils.isEmpty(from_city) || TextUtils.isEmpty(to_city) || TextUtils.isEmpty(weight) || TextUtils.isEmpty(date) || TextUtils.isEmpty(time)) {
+            if (TextUtils.isEmpty(from_city) || TextUtils.isEmpty(to_city)) {
+                Toast.makeText(activity, getResources().getString(R.string.add_city), Toast.LENGTH_LONG).show();
             }
-            if(TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country)){
+            if (TextUtils.isEmpty(to_country) || TextUtils.isEmpty(from_country)) {
                 Common.CreateSignAlertDialog(activity, getResources().getString(R.string.Add_Country));
 
             }
-            if(TextUtils.isEmpty(weight)){
+            if (TextUtils.isEmpty(weight)) {
                 edt_weight.setError(getResources().getString(R.string.field_req));
             }
-            if(TextUtils.isEmpty(date)){
+            if (TextUtils.isEmpty(date)) {
                 tv_date.setError(getResources().getString(R.string.field_req));
             }
-            if(TextUtils.isEmpty(time)){
+            if (TextUtils.isEmpty(time)) {
                 tv_time.setError(getResources().getString(R.string.field_req));
             }
-        }
-        else {
-            List<String> wegights=new ArrayList<>();
+        } else {
+            List<String> wegights = new ArrayList<>();
             edt_weight.setError(null);
             tv_date.setError(null);
             tv_time.setError(null);
-            for(int i=0;i<quantity;i++){
+            for (int i = 0; i < quantity; i++) {
                 wegights.add(weight);
             }
-            Computrized_Model.setQuantity(quantity+"");
-Computrized_Model.setWeight(weight);
+            Computrized_Model.setQuantity(quantity + "");
+            Computrized_Model.setWeight(weight);
             getQoute(wegights);
 
         }
@@ -397,28 +386,26 @@ Computrized_Model.setWeight(weight);
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService().get_quote("Bearer"+" "+ userModel.getToken(),date,wegights,is_dutiable,time,ready_time_gmt_offset,dimension_unit,weight_unit,payment_country_code,from_country_code,from_city,to_city,to_country_code).enqueue(new Callback<Quote_Model>() {
+        Api.getService().get_quote("Bearer" + " " + userModel.getToken(), date, wegights, is_dutiable, time, ready_time_gmt_offset, dimension_unit, weight_unit, payment_country_code, from_country_code, from_city, to_city, to_country_code).enqueue(new Callback<Quote_Model>() {
             @Override
             public void onResponse(Call<Quote_Model> call, Response<Quote_Model> response) {
                 dialog.dismiss();
-                if(response.isSuccessful()){
-               //     assert response.body() != null;
-                 //  Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
-                  //  activity.DisplayFragmentComputrizedprice();
-try {
-    if(response.body().getData().getGetQuoteResponse()!=null){
-    adddata(response.body());}
-    else {
-       Toast.makeText(activity,getResources().getString(R.string.error_data),Toast.LENGTH_LONG).show();
-    }
+                if (response.isSuccessful()) {
+                    //     assert response.body() != null;
+                    //  Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
+                    //  activity.DisplayFragmentComputrizedprice();
+                    try {
+                        if (response.body().getData().getGetQuoteResponse() != null) {
+                            adddata(response.body());
+                        } else {
+                            Toast.makeText(activity, getResources().getString(R.string.error_data), Toast.LENGTH_LONG).show();
+                        }
 
-}
-catch (Exception e){
+                    } catch (Exception e) {
 
-}
+                    }
 
-                }
-                else {
+                } else {
                     try {
                         Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
                         Log.e("Error_code", response.code() + "" + response.errorBody().string());
@@ -441,23 +428,23 @@ catch (Exception e){
             }
         });
     }
+
     private void getQoute2(List<String> wegights) {
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService().get_quote2("Bearer"+" "+ userModel.getToken(),date,wegights,is_dutiable,time,ready_time_gmt_offset,dimension_unit,weight_unit,payment_country_code,from_country_code,from_city,to_city,to_country_code).enqueue(new Callback<Quote_Array_Model>() {
+        Api.getService().get_quote2("Bearer" + " " + userModel.getToken(), date, wegights, is_dutiable, time, ready_time_gmt_offset, dimension_unit, weight_unit, payment_country_code, from_country_code, from_city, to_city, to_country_code).enqueue(new Callback<Quote_Array_Model>() {
             @Override
             public void onResponse(Call<Quote_Array_Model> call, Response<Quote_Array_Model> response) {
                 dialog.dismiss();
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     //     assert response.body() != null;
                     //  Log.e("price",response.body().getData().getGetQuoteResponse().getBkgDetails().getQtdShp().getWeightCharge());
                     //  activity.DisplayFragmentComputrizedprice();
 
                     adddata2(response.body());
 
-                }
-                else {
+                } else {
                     try {
                         Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
                         Log.e("Error_code", response.code() + "" + response.errorBody().string());
@@ -482,14 +469,14 @@ catch (Exception e){
     }
 
     private void adddata2(Quote_Array_Model body) {
-        double total=0;
-        int totalday=0;
-        for(int i=0;i<body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().size();i++){
-            total+=Double.parseDouble(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(i).getWeightCharge());
-            totalday+=Integer.parseInt(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(i).getTotalTransitDays());
+        double total = 0;
+        int totalday = 0;
+        for (int i = 0; i < body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().size(); i++) {
+            total += Double.parseDouble(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(i).getWeightCharge());
+            totalday += Integer.parseInt(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(i).getTotalTransitDays());
         }
-        Computrized_Model.setPrice(total+"");
-        Computrized_Model.setDay_number(totalday+"");
+        Computrized_Model.setPrice(total + "");
+        Computrized_Model.setDay_number(totalday + "");
 
         Computrized_Model.setTime(body.getData().getGetQuoteResponse().getBkgDetails().getQtdShp().get(0).getDeliveryTime());
         activity.DisplayFragmentComputrizedprice();
@@ -548,9 +535,9 @@ catch (Exception e){
         Log.e("kkkk", calendar.getTime().getMonth() + "");
 
         tv_date.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-date=year+"-"+((monthOfYear + 1)<10?"0"+(monthOfYear + 1):(monthOfYear + 1))+"-"+(dayOfMonth<10?"0"+dayOfMonth:dayOfMonth);
-       // date = calendar.get(Calendar.YEAR) + "-" + (calendar.getTime().getMonth()+calendar.getTime().getMonth():calendar.getTime().getMonth()) + "-" + (calendar.getTime().getDay()<10?"0"+calendar.getTime().getDay():calendar.getTime().getDay());
-Log.e("kkk",date);
+        date = year + "-" + ((monthOfYear + 1) < 10 ? "0" + (monthOfYear + 1) : (monthOfYear + 1)) + "-" + (dayOfMonth < 10 ? "0" + dayOfMonth : dayOfMonth);
+        // date = calendar.get(Calendar.YEAR) + "-" + (calendar.getTime().getMonth()+calendar.getTime().getMonth():calendar.getTime().getMonth()) + "-" + (calendar.getTime().getDay()<10?"0"+calendar.getTime().getDay():calendar.getTime().getDay());
+        Log.e("kkk", date);
     }
 
     @Override
@@ -567,50 +554,50 @@ Log.e("kkk",date);
         //time = calendar.getTimeInMillis();
     }
 
-   /* private void getCities() {
+    /* private void getCities() {
 
-        final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
-        dialog.setCancelable(false);
-        dialog.show();
+         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
+         dialog.setCancelable(false);
+         dialog.show();
 
-        Api.getService(Tags.base_url)
-                .getCity("Bearer"+" "+ userModel.getToken(), current_lang)
-                .enqueue(new Callback<CityModel>() {
-                    @Override
-                    public void onResponse(Call<CityModel> call, Response<CityModel> response) {
-                        dialog.dismiss();
+         Api.getService(Tags.base_url)
+                 .getCity("Bearer"+" "+ userModel.getToken(), current_lang)
+                 .enqueue(new Callback<CityModel>() {
+                     @Override
+                     public void onResponse(Call<CityModel> call, Response<CityModel> response) {
+                         dialog.dismiss();
 
-                        if (response.isSuccessful()) {
-                            if (response.body() != null) {
-                                cityModelList.clear();
-                                cityModelList.add(new CityModel.Cities("إختر  المدينه", "Choose city"));
-                                cityModelList.addAll(response.body().getCities());
-                                city_adapter.notifyDataSetChanged();
+                         if (response.isSuccessful()) {
+                             if (response.body() != null) {
+                                 cityModelList.clear();
+                                 cityModelList.add(new CityModel.Cities("إختر  المدينه", "Choose city"));
+                                 cityModelList.addAll(response.body().getCities());
+                                 city_adapter.notifyDataSetChanged();
 
-                            }
-                        } else {
-                            try {
-                                Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
-                                Log.e("Error_code", response.code() + "" + response.errorBody().string());
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
+                             }
+                         } else {
+                             try {
+                                 Toast.makeText(activity, R.string.failed, Toast.LENGTH_SHORT).show();
+                                 Log.e("Error_code", response.code() + "" + response.errorBody().string());
+                             } catch (IOException e) {
+                                 e.printStackTrace();
+                             }
+                         }
+                     }
 
-                    @Override
-                    public void onFailure(Call<CityModel> call, Throwable t) {
-                        try {
-                            dialog.dismiss();
-                            Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
-                            Log.e("Error", t.getMessage());
-                        } catch (Exception e) {
+                     @Override
+                     public void onFailure(Call<CityModel> call, Throwable t) {
+                         try {
+                             dialog.dismiss();
+                             Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+                             Log.e("Error", t.getMessage());
+                         } catch (Exception e) {
 
-                        }
-                    }
-                });
+                         }
+                     }
+                 });
 
-    }*/
+     }*/
     private void getCities(String iso_two, final int type) {
 
         final ProgressDialog dialog = Common.createProgressDialog(activity, getString(R.string.wait));
@@ -618,7 +605,7 @@ Log.e("kkk",date);
         dialog.show();
 
         Api.getService(Tags.base_url)
-                .getCity("Bearer"+" "+ userModel.getToken(), iso_two)
+                .getCity("Bearer" + " " + userModel.getToken(), iso_two)
                 .enqueue(new Callback<CityModel>() {
                     @Override
                     public void onResponse(Call<CityModel> call, Response<CityModel> response) {
@@ -626,12 +613,12 @@ Log.e("kkk",date);
 
                         if (response.isSuccessful()) {
                             if (response.body() != null) {
-                                if(type==1){
-                                cityModelList.clear();
-                                cityModelList.add(new CityModel.postal_codes("Choose city"));
-                                cityModelList.addAll(response.body().getPostal_codes());
-                                city_adapter.notifyDataSetChanged();}
-                                else {
+                                if (type == 1) {
+                                    cityModelList.clear();
+                                    cityModelList.add(new CityModel.postal_codes("Choose city"));
+                                    cityModelList.addAll(response.body().getPostal_codes());
+                                    city_adapter.notifyDataSetChanged();
+                                } else {
                                     citiesList.clear();
                                     citiesList.add(new CityModel.postal_codes("Choose city"));
                                     citiesList.addAll(response.body().getPostal_codes());
@@ -670,7 +657,7 @@ Log.e("kkk",date);
         dialog.show();
 
         Api.getService(Tags.base_url)
-                .getCoutry("Bearer"+" " + userModel.getToken(), current_lang)
+                .getCoutry("Bearer" + " " + userModel.getToken(), current_lang)
                 .enqueue(new Callback<Country_Model>() {
                     @Override
                     public void onResponse(Call<Country_Model> call, Response<Country_Model> response) {

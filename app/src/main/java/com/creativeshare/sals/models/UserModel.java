@@ -6,10 +6,11 @@ import java.util.List;
 public class UserModel implements Serializable {
 
 
-        private String message;
-        private User user;
-        private List<Addresses> addresses;
-private String token;
+    private String message;
+    private User user;
+    private List<Addresses> addresses;
+    private String token;
+
     public String getMessage() {
         return message;
     }
@@ -30,22 +31,22 @@ private String token;
         this.token = token;
     }
 
-    public  class User implements Serializable {
+    public class User implements Serializable {
         private int id;
-               private String first_name;
-                private String last_name;
-              private String mobile_code;
-               private String mobile_number;
-                private String email;
-               private String is_logged;
-               private String is_registered;
-               private String software_type;
-                private String verification;
-                private String deleted_at;
-               private int is_notifiable;
-                private String email_verified_at;
-                private String created_at;
-               private String updated_at;
+        private String first_name;
+        private String last_name;
+        private String mobile_code;
+        private String mobile_number;
+        private String email;
+        private String is_logged;
+        private String is_registered;
+        private String software_type;
+        private String verification;
+        private String deleted_at;
+        private int is_notifiable;
+        private String email_verified_at;
+        private String created_at;
+        private String updated_at;
 
         public int getId() {
             return id;
@@ -107,8 +108,9 @@ private String token;
             return updated_at;
         }
     }
-       public class Addresses implements Serializable{
 
-       }
+    public class Addresses implements Serializable {
+
+    }
 
 }

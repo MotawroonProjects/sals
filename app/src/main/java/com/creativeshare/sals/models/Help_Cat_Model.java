@@ -4,23 +4,22 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Help_Cat_Model implements Serializable {
-    private List <Categories> categories;
+    private List<Categories> categories;
 
     public List<Categories> getCategories() {
         return categories;
     }
 
-    public class Categories  implements Serializable
-    {
+    public class Categories implements Serializable {
         private int id;
-            private int parent_id;
-            private String image;
-            private String deleted_at;
-            private String created_at;
-            private String updated_at;
-            private String title;
-            private String desc;
-            private List<Faqs> faqs;
+        private int parent_id;
+        private String image;
+        private String deleted_at;
+        private String created_at;
+        private String updated_at;
+        private String title;
+        private String desc;
+        private List<Faqs> faqs;
 
         public int getId() {
             return id;
@@ -58,8 +57,7 @@ public class Help_Cat_Model implements Serializable {
             return faqs;
         }
 
-        public class  Faqs
-        {
+        public class Faqs {
             private int id;
             private String created_at;
             private String updated_at;

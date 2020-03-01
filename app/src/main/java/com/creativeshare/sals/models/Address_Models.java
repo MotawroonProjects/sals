@@ -14,21 +14,20 @@ public class Address_Models implements Serializable {
         return address;
     }
 
-    public  class Address implements Serializable
-    {
+    public class Address implements Serializable {
         private int id;
-            private double latitude;
-            private double longitude;
-         private String address;
-                   private String building_number;
-                   private String floor_number;
-                  private String flat_number;
-                  private String notes;
-                   private String address_type;
-                   private int is_primary;
-                   private int user_id;
-                   private String created_at;
-                   private String updated_at;
+        private double latitude;
+        private double longitude;
+        private String address;
+        private String building_number;
+        private String floor_number;
+        private String flat_number;
+        private String notes;
+        private String address_type;
+        private int is_primary;
+        private int user_id;
+        private String created_at;
+        private String updated_at;
 
         public int getId() {
             return id;

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Track_Model implements Serializable {
-private List<AWBInfo> AWBInfo;
+    private List<AWBInfo> AWBInfo;
 
     public List<Track_Model.AWBInfo> getAWBInfo() {
         return AWBInfo;
@@ -12,7 +12,7 @@ private List<AWBInfo> AWBInfo;
 
     public class AWBInfo implements Serializable {
         private String AWBNumber;
-private ShipmentInfo ShipmentInfo;
+        private ShipmentInfo ShipmentInfo;
 
         public String getAWBNumber() {
             return AWBNumber;
@@ -25,7 +25,8 @@ private ShipmentInfo ShipmentInfo;
         public class ShipmentInfo implements Serializable {
             private OriginServiceArea OriginServiceArea;
             private DestinationServiceArea DestinationServiceArea;
-private String ShipperName;
+            private String ShipperName;
+
             public ShipmentInfo.OriginServiceArea getOriginServiceArea() {
                 return OriginServiceArea;
             }
@@ -40,7 +41,7 @@ private String ShipperName;
 
             public class OriginServiceArea implements Serializable {
                 private String ServiceAreaCode;
-                        private String Description;
+                private String Description;
 
                 public String getServiceAreaCode() {
                     return ServiceAreaCode;
@@ -50,18 +51,19 @@ private String ShipperName;
                     return Description;
                 }
             }
-             public class  DestinationServiceArea implements Serializable {
+
+            public class DestinationServiceArea implements Serializable {
                 private String ServiceAreaCode;
                 private String Description;
 
-                 public String getServiceAreaCode() {
-                     return ServiceAreaCode;
-                 }
+                public String getServiceAreaCode() {
+                    return ServiceAreaCode;
+                }
 
-                 public String getDescription() {
-                     return Description;
-                 }
-             }
+                public String getDescription() {
+                    return Description;
+                }
+            }
         }
     }
 }

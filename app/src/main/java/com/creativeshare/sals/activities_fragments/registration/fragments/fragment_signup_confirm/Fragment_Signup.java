@@ -40,10 +40,10 @@ import retrofit2.Response;
 public class Fragment_Signup extends Fragment {
 
     private Register_Activity register_activity;
-    private CountryCodePicker ccp_choose_country,ccp_country_code;
+    private CountryCodePicker ccp_choose_country, ccp_country_code;
     private EditText edt_phone;
     private Button bt_apply;
-    private LinearLayout ll_service_centers,ll_track_the_shipment;
+    private LinearLayout ll_service_centers, ll_track_the_shipment;
 
 
     public static Fragment_Signup newInstance() {
@@ -56,28 +56,28 @@ public class Fragment_Signup extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_signup, container, false);
-initview(view);
+        initview(view);
 
         return view;
     }
 
     private void initview(View view) {
 
-        register_activity=(Register_Activity)getActivity();
-        edt_phone=view.findViewById(R.id.edt_phone);
-        ccp_choose_country=view.findViewById(R.id.ccp_choose_Country);
-        ccp_country_code=view.findViewById(R.id.ccp_country_code);
-        bt_apply=view.findViewById(R.id.bt_apply);
-        ll_service_centers=view.findViewById(R.id.lll);
-        ll_track_the_shipment=view.findViewById(R.id.llll);
-ccp_country_code.registerCarrierNumberEditText(edt_phone);
+        register_activity = (Register_Activity) getActivity();
+        edt_phone = view.findViewById(R.id.edt_phone);
+        ccp_choose_country = view.findViewById(R.id.ccp_choose_Country);
+        ccp_country_code = view.findViewById(R.id.ccp_country_code);
+        bt_apply = view.findViewById(R.id.bt_apply);
+        ll_service_centers = view.findViewById(R.id.lll);
+        ll_track_the_shipment = view.findViewById(R.id.llll);
+        ccp_country_code.registerCarrierNumberEditText(edt_phone);
         ccp_choose_country.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
             @Override
             public void onCountrySelected() {
                 try {
                     ccp_country_code.setCountryForNameCode(ccp_choose_country.getSelectedCountryNameCode());
 
-                }catch (StackOverflowError stackOverflowError){
+                } catch (StackOverflowError stackOverflowError) {
 
                 }
             }
@@ -89,7 +89,7 @@ ccp_country_code.registerCarrierNumberEditText(edt_phone);
                     ccp_choose_country.setCountryForNameCode(ccp_country_code.getSelectedCountryNameCode());
 
 
-                }catch (StackOverflowError stackOverflowError){
+                } catch (StackOverflowError stackOverflowError) {
 
                 }
             }
@@ -117,64 +117,62 @@ ccp_country_code.registerCarrierNumberEditText(edt_phone);
 
     private void checkdata() {
 
-String phone=edt_phone.getText().toString();
-String phone_code=ccp_country_code.getSelectedCountryCodeWithPlus().replace("+","00");
-Log.e("code",phone_code);
-if(TextUtils.isEmpty(phone)||!ccp_country_code.isValidFullNumber()){
-    if(TextUtils.isEmpty(phone)){
-    edt_phone.setError(getResources().getString(R.string.field_req));}
-    if(!ccp_choose_country.isValidFullNumber()){
-        edt_phone.setError(register_activity.getResources().getString(R.string.Invalid_Phone));
-    }
-}
-else {
-if(phone.startsWith("0")){
-edt_phone.setError(register_activity.getResources().getString(R.string.phone_must_not_start_with_zero));
-}
+        String phone = edt_phone.getText().toString();
+        String phone_code = ccp_country_code.getSelectedCountryCodeWithPlus().replace("+", "00");
+        Log.e("code", phone_code);
+        if (TextUtils.isEmpty(phone) || !ccp_country_code.isValidFullNumber()) {
+            if (TextUtils.isEmpty(phone)) {
+                edt_phone.setError(getResources().getString(R.string.field_req));
+            }
+            if (!ccp_choose_country.isValidFullNumber()) {
+                edt_phone.setError(register_activity.getResources().getString(R.string.Invalid_Phone));
+            }
+        } else {
+            if (phone.startsWith("0")) {
+                edt_phone.setError(register_activity.getResources().getString(R.string.phone_must_not_start_with_zero));
+            } else {
+                phone = phone.replaceAll(" ", "");
 
-else{
-    phone=phone.replaceAll(" ","");
+                edt_phone.setError(null);
+                Common.CloseKeyBoard(register_activity, edt_phone);
 
-    edt_phone.setError(null);
-    Common.CloseKeyBoard(register_activity,edt_phone);
+                Login(phone, phone_code);
+            }
 
-    Login(phone,phone_code);}
-
-}
+        }
     }
 
     private void Login(final String phone, final String phone_code) {
-        final ProgressDialog progressDialog= Common.createProgressDialog(register_activity,getResources().getString(R.string.wait));
+        final ProgressDialog progressDialog = Common.createProgressDialog(register_activity, getResources().getString(R.string.wait));
         progressDialog.setCancelable(false);
         progressDialog.show();
-        Api.getService().SignIn(phone_code,phone,"1").enqueue(new Callback<UserModel>() {
+        Api.getService().SignIn(phone_code, phone, "1").enqueue(new Callback<UserModel>() {
             @Override
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {
-progressDialog.dismiss();
-if(response.isSuccessful()){
-    //verfiycode();
-    register_activity.DisplayFragmentconfirmcode(phone,phone_code);
-}
-else {
-    try {
-        Log.e("error_code",response.code()+"_"+response.errorBody().string());
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    if(response.code()==422){
-        Common.CreateSignAlertDialog(register_activity,getResources().getString(R.string.failed));
-    }
-    else {
-    Toast.makeText(register_activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();}
+                progressDialog.dismiss();
+                if (response.isSuccessful()) {
+                    //verfiycode();
+                    register_activity.DisplayFragmentconfirmcode(phone, phone_code);
+                } else {
+                    try {
+                        Log.e("error_code", response.code() + "_" + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    if (response.code() == 422) {
+                        Common.CreateSignAlertDialog(register_activity, getResources().getString(R.string.failed));
+                    } else {
+                        Toast.makeText(register_activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
+                    }
 
-}
+                }
             }
 
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
                 progressDialog.dismiss();
                 Toast.makeText(register_activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
-                Log.e("Error",t.getMessage()+t.getLocalizedMessage());
+                Log.e("Error", t.getMessage() + t.getLocalizedMessage());
             }
         });
     }

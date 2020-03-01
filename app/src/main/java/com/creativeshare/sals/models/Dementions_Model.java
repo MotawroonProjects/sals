@@ -5,7 +5,7 @@ public class Dementions_Model {
     private int width;
     private int hight;
     private double voulumeweight;
-  //  private double grossweight;
+    //  private double grossweight;
     //private double totalweigt;
 
     public int getLength() {

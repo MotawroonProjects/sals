@@ -19,7 +19,7 @@ public class Track_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private List<Track_Model.AWBInfo> data;
     private Context context;
- //   private Home_Activity activity;
+    //   private Home_Activity activity;
 
     public Track_Adapter(List<Track_Model.AWBInfo> data, Context context) {
 
@@ -34,8 +34,8 @@ public class Track_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
 
-            View view = LayoutInflater.from(context).inflate(R.layout.shipments_row, parent, false);
-            return new MyHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.shipments_row, parent, false);
+        return new MyHolder(view);
 
 
     }
@@ -44,16 +44,13 @@ public class Track_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position) {
 
 
-
-            final MyHolder myHolder = (MyHolder) holder;
-            final Track_Model.AWBInfo data1 = data.get(position);
+        final MyHolder myHolder = (MyHolder) holder;
+        final Track_Model.AWBInfo data1 = data.get(position);
         ((MyHolder) holder).tv_title.setText(data1.getShipmentInfo().getShipperName());
 
-            ((MyHolder) holder).tv_num.setText(context.getResources().getString(R.string.awbnumber)+" "+data1.getAWBNumber());
-            ((MyHolder) holder).tv_from.setText(data1.getShipmentInfo().getOriginServiceArea().getDescription());
-            ((MyHolder) holder).tv_to.setText(data1.getShipmentInfo().getDestinationServiceArea().getDescription());
-
-
+        ((MyHolder) holder).tv_num.setText(context.getResources().getString(R.string.awbnumber) + " " + data1.getAWBNumber());
+        ((MyHolder) holder).tv_from.setText(data1.getShipmentInfo().getOriginServiceArea().getDescription());
+        ((MyHolder) holder).tv_to.setText(data1.getShipmentInfo().getDestinationServiceArea().getDescription());
 
 
     }
@@ -80,8 +77,6 @@ public class Track_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
 
     }
-
-
 
 
 }

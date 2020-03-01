@@ -10,14 +10,13 @@ public class Support_Catogry_Model implements Serializable {
         return support_cats;
     }
 
-    public class support_cats implements Serializable
-    {
+    public class support_cats implements Serializable {
         private int id;
-            private int parent_id;
-            private String image;
+        private int parent_id;
+        private String image;
 
-            private String title;
-            private String desc;
+        private String title;
+        private String desc;
 
         public int getId() {
             return id;

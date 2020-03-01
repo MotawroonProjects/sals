@@ -10,25 +10,25 @@ public class Address_Model implements Serializable {
     public String getMessage() {
         return message;
     }
+
     public List<Addresses> getAddresses() {
         return addresses;
     }
 
-    public  class Addresses implements Serializable
-    {
+    public class Addresses implements Serializable {
         private int id;
-            private double latitude;
-            private double longitude;
-         private String address;
-                   private String building_number;
-                   private String floor_number;
-                  private String flat_number;
-                  private String notes;
-                   private String address_type;
-                   private int is_primary;
-                   private int user_id;
-                   private String created_at;
-                   private String updated_at;
+        private double latitude;
+        private double longitude;
+        private String address;
+        private String building_number;
+        private String floor_number;
+        private String flat_number;
+        private String notes;
+        private String address_type;
+        private int is_primary;
+        private int user_id;
+        private String created_at;
+        private String updated_at;
 
         public int getId() {
             return id;
